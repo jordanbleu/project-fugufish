@@ -2,23 +2,18 @@
 {
     public static class InputConstants
     {
-        // Menu Controls 
-        public const string K_MENU_UP = "K_MENU_UP";
-        public const string K_MENU_DOWN = "K_MENU_DOWN";
-        public const string K_MENU_LEFT = "K_MENU_LEFT";
-        public const string K_MENU_RIGHT = "K_MENU_RIGHT";
-        public const string K_MENU_ENTER = "K_MENU_ENTER";
-        public const string K_MENU_BACK = "K_MENU_BACK";
+        public const string K_MOVE_LEFT      = nameof(K_MOVE_LEFT);
+        public const string K_MOVE_RIGHT     = nameof(K_MOVE_RIGHT);
+        public const string K_MOVE_DOWN      = nameof(K_MOVE_DOWN);
+        public const string K_MOVE_UP        = nameof(K_MOVE_UP);
 
-        // Player Controls
-        public const string K_MOVE_LEFT  = "K_MOVE_LEFT";
-        public const string K_MOVE_RIGHT = "K_MOVE_RIGHT";
-        public const string K_MOVE_DOWN  = "K_MOVE_DOWN";
-        public const string K_MOVE_UP    = "K_MOVE_UP";
-        public const string K_ATTACK_PRIMARY = "K_ATTACK_PRIMARY";
-        public const string K_PAUSE = "K_PAUSE";
-        public const string K_DASH_LEFT = "K_DASH_LEFT";
-        public const string K_DASH_RIGHT = "K_DASH_RIGHT";
+        public const string K_PAUSE          = nameof(K_PAUSE);
+
+        public const string K_SHOOT_LEFT     = nameof(K_SHOOT_LEFT);
+        public const string K_SHOOT_RIGHT    = nameof(K_SHOOT_RIGHT);
+        public const string K_SHOOT_UP       = nameof(K_SHOOT_UP);
+        public const string K_SHOOT_DOWN     = nameof(K_SHOOT_DOWN);
+        public const string K_HIDE           = nameof(K_HIDE);
 
     }
 }
