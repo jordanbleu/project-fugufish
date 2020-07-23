@@ -1,5 +1,4 @@
 ﻿using Assets.Source.Configuration;
-using Assets.Source.Constants;
 using Assets.Source.Strings.Base;
 
 namespace Assets.Source.Strings

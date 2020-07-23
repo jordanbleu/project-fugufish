@@ -1,4 +1,4 @@
-﻿namespace Assets.Source.Constants
+﻿namespace Assets.Source
 {
     /// <summary>
     /// Paths to required resources should be defined here
@@ -22,7 +22,6 @@
         /// <para>Use this alongside instantiating prefabs</para>
         /// </summary>
         public static string PrefabsFolder => $"Prefabs";
-
         public static string SoundFXFolder => $"Sounds/SoundFX";
         public static string MusicFolder => $"Sounds/Music";
 

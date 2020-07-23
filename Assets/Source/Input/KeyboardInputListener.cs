@@ -110,5 +110,9 @@ namespace Assets.Source.Input
             }
         }
 
+        public void UpdateInputList()
+        {
+            // Do nothing
+        }
     }
 }

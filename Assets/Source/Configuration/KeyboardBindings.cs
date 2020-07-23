@@ -21,12 +21,12 @@ namespace Assets.Source.Configuration
             
             { InputConstants.K_PAUSE,          new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Escape)) } },
             
-            { InputConstants.K_SHOOT_LEFT,     new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.J))      } },
-            { InputConstants.K_SHOOT_RIGHT,    new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.L))      } },
-            { InputConstants.K_SHOOT_DOWN,     new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.K))      } },
-            { InputConstants.K_SHOOT_UP,       new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.I))      } },
-            
-            { InputConstants.K_HIDE,           new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Space))  } }
+            { InputConstants.K_DODGE_LEFT,     new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Q))      } },
+            { InputConstants.K_DODGE_RIGHT,    new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.E))      } },
+            { InputConstants.K_SWING_SWORD,    new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Mouse0))  } },
+            { InputConstants.K_INTERACT,       new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.F))  } },
+            { InputConstants.K_SPRINT,         new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.LeftShift))  } }
+
         };
 
         private static string Stringify(KeyCode key)

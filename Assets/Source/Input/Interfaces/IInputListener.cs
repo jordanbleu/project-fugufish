@@ -26,5 +26,10 @@
         /// </summary>
         bool IsNeutral();
 
+        /// <summary>
+        /// This gets called every frame and should update whatever internal input values need to be updated
+        /// </summary>
+        void UpdateInputList();
+
     }
 }
