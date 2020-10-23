@@ -27,12 +27,6 @@ namespace Assets.Source.Components.Actor
 
         public override void ComponentUpdate()
         {
-            DebugString = $"Health: {Health}/{_maxHealth}";
-
-            if (_maxHealth <= 0 && isAlive) {
-                isAlive = false;
-                onHealthDepleted?.Invoke();
-            }
             base.ComponentUpdate();
         }
 
