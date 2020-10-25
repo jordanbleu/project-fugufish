@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - BG Layer
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BG Lighting
+    uniqueID: 1560704581
     locked: 0
