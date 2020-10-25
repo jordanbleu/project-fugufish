@@ -31,22 +31,22 @@ namespace Assets.Source.Extensions
         /// </summary>
         /// <param name="value">The current value</param>
         /// <param name="stabilizationRate">how quickly to move towards the normalized value</param>
-        /// <param name="normalizedValue">The normalized value, the one we are moving towards</param>
+        /// <param name="stabilzedValue">The value we are moving towards</param>
         /// <returns></returns>
-        public static float Normalize(this float value, float stabilizationRate, float normalizedValue)
+        public static float Stabilize(this float value, float stabilizationRate, float stabilzedValue)
         {
 
             float newValue = value;
 
-            if (value.IsWithin(stabilizationRate, normalizedValue))
+            if (value.IsWithin(stabilizationRate, stabilzedValue))
             {
-                newValue = normalizedValue;
+                newValue = stabilzedValue;
             }
-            else if (value > normalizedValue)
+            else if (value > stabilzedValue)
             {
                 newValue -= stabilizationRate;
             }
-            else if (value < normalizedValue)
+            else if (value < stabilzedValue)
             {
                 newValue += stabilizationRate;
             }

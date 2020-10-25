@@ -1,4 +1,5 @@
-﻿using UnityEditor.UIElements;
+﻿using Assets.Source.Extensions;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace Assets.Source.Components.Physics.Base
@@ -14,11 +15,17 @@ namespace Assets.Source.Components.Physics.Base
 
         private float gravityScale;
 
+        /// <summary>
+        /// External forces that affect the player, such as wind, water, conveyor belts, etc
+        /// </summary>
+        protected Vector2 ExternalVelocity { get; set; }
+
         protected bool IsGrounded { get; private set; }
         protected bool IsGravityEnabled { get; set; }
 
         public override void ComponentAwake()
         {
+            ExternalVelocity = Vector2.zero;
             rigidBody = GetRequiredComponent<Rigidbody2D>();
             Collider = GetRequiredComponent<Collider2D>();
             gravityScale = rigidBody.gravityScale;
@@ -42,16 +49,28 @@ namespace Assets.Source.Components.Physics.Base
                 rigidBody.gravityScale = gravityScale;   
             }
             
-            rigidBody.velocity = new Vector2(xVelocity, yVelocity);
+            rigidBody.velocity = new Vector2(xVelocity, yVelocity) + ExternalVelocity;
+
             base.ComponentFixedUpdate();
         }
 
+
+
+        /// <summary>
+        /// The current driving horizontal movement force (walking, running, driving, etc)
+        /// </summary>
+        /// <returns></returns>
         public virtual float CalculateHorizontalMovement() => 0f;
+        /// <summary>
+        /// The current driving vertical movement force (jumping, etc)
+        /// </summary>
+        /// <returns></returns>
         public virtual float CalculateVerticalMovement() => 0f;
+
 
         protected void AddForce(Vector2 force) 
         {
-            rigidBody.AddForce(force);
+            rigidBody.AddForce(force, ForceMode2D.Impulse);
         }
 
         protected Vector2 GetVelocity() => rigidBody.velocity;
