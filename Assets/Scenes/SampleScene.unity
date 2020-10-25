@@ -301,6 +301,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849287020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1412542451055921083, guid: eca12182f71c0ca4c990dc93ea5fe526,
+    type: 3}
+  m_PrefabInstance: {fileID: 1412542451800337056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &849287021
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849287020}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e827e138cfeac8a4abe9405893390cfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &909132878
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +553,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.73, y: 2}
   m_Direction: 0
 --- !u!114 &1379939582
 MonoBehaviour:
@@ -543,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
-  gravityModifier: 1
+  gravityModifier: 2
   maxSpeed: 7
   jumpTakeOffSpeed: 7
   rAxis: 0
@@ -751,12 +776,12 @@ PrefabInstance:
     - target: {fileID: 1412542451055921085, guid: eca12182f71c0ca4c990dc93ea5fe526,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: 0.2067649
       objectReference: {fileID: 0}
     - target: {fileID: 1412542451055921085, guid: eca12182f71c0ca4c990dc93ea5fe526,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.63
+      value: 2.636765
       objectReference: {fileID: 0}
     - target: {fileID: 1412542451055921085, guid: eca12182f71c0ca4c990dc93ea5fe526,
         type: 3}
@@ -815,12 +840,12 @@ PrefabInstance:
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: 0.2067649
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.63
+      value: 2.636765
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
