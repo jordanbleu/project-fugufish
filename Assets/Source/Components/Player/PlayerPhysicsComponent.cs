@@ -32,6 +32,7 @@ namespace Assets.Source.Components.Player
 
         private bool isClimbing = false;
 
+
         // Current speed at which the player is dodging 
         private float currentDodgeVelocity = 0f;
 
@@ -39,7 +40,9 @@ namespace Assets.Source.Components.Player
         {
             isClimbing = collidingTriggers.Any(tr => tr.GetComponent<LadderComponent>() != null);
 
-            if (!isClimbing) 
+            var externalForces = CalculateEnvironmentalForces();
+
+            if (!isClimbing && IsGrounded) 
             {
                 if (Input.IsKeyPressed(InputConstants.K_JUMP))
                 {
@@ -47,7 +50,6 @@ namespace Assets.Source.Components.Player
                 }
             }
 
-            
             if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT)) 
             {
                 currentDodgeVelocity -= dodgeMaxSpeed;
@@ -58,10 +60,31 @@ namespace Assets.Source.Components.Player
                 currentDodgeVelocity += dodgeMaxSpeed;
             }
 
-            ExternalVelocity = new Vector2(currentDodgeVelocity, 0);
+            var totalXVelocity = currentDodgeVelocity + externalForces.x;
+            var totalYVelocity = externalForces.y;
+
+            ExternalVelocity = new Vector2(totalXVelocity, totalYVelocity);
 
             StabilizeDodgeSpeed();
             base.ComponentUpdate();
+        }
+
+        private Vector2 CalculateEnvironmentalForces()
+        {
+            var xForce = 0f;
+            var yForce = 0f;
+
+            // Calculates the total environmental force from ForceComponents
+            foreach (var trigger in collidingTriggers) {
+                if (trigger.TryGetComponent<ForceComponent>(out var forceComponent)) {
+                    if (forceComponent.IsGround || IsGrounded) 
+                    {
+                        xForce += forceComponent.Amount.x;
+                        yForce += forceComponent.Amount.y;
+                    }
+                }
+            }
+            return new Vector2(xForce, yForce);
         }
 
         private void StabilizeDodgeSpeed()
@@ -76,6 +99,7 @@ namespace Assets.Source.Components.Player
             return (moveRight - moveLeft) * moveSpeed;
         }
 
+        // Combines the force from all currently colliding force components 
         public override float CalculateVerticalMovement()
         {
             if (isClimbing)
@@ -97,17 +121,15 @@ namespace Assets.Source.Components.Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
             collidingTriggers.Add(collision.gameObject);
-
-            if (collision.gameObject.GetComponent<LadderComponent>() != null) { 
-                // if we hit a ladder, cancel out our y velocity
-
-            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             collidingTriggers.Remove(collision.gameObject);
         }
+
+
+        
 
 
     }

@@ -10,6 +10,14 @@ namespace Assets.Source.Components.Physics.Base
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class PhysicsComponentBase : ComponentBase
     {
+
+        [SerializeField]
+        [Tooltip("Adjusts the size of the bottom of the object.  " +
+            "This is used to calculate whether the object is grounded or not." +
+            "With the object selected, use the cyan circle to determine.")]
+        private float feetRadius = 2f;
+
+
         private Rigidbody2D rigidBody;
         protected Collider2D Collider { get; private set; }
 
@@ -20,7 +28,11 @@ namespace Assets.Source.Components.Physics.Base
         /// </summary>
         protected Vector2 ExternalVelocity { get; set; }
 
-        protected bool IsGrounded { get; private set; }
+        [SerializeField]
+        private bool isGrounded = false;
+        public bool IsGrounded => isGrounded;
+        
+        
         protected bool IsGravityEnabled { get; set; }
 
         public override void ComponentAwake()
@@ -29,6 +41,7 @@ namespace Assets.Source.Components.Physics.Base
             rigidBody = GetRequiredComponent<Rigidbody2D>();
             Collider = GetRequiredComponent<Collider2D>();
             gravityScale = rigidBody.gravityScale;
+
             base.ComponentAwake();
         }
 
@@ -49,8 +62,8 @@ namespace Assets.Source.Components.Physics.Base
                 rigidBody.gravityScale = gravityScale;   
             }
             
+            CheckIfGrounded();
             rigidBody.velocity = new Vector2(xVelocity, yVelocity) + ExternalVelocity;
-
             base.ComponentFixedUpdate();
         }
 
@@ -75,7 +88,39 @@ namespace Assets.Source.Components.Physics.Base
 
         protected Vector2 GetVelocity() => rigidBody.velocity;
 
+        // Checks if the player is on the ground currently
+        private void CheckIfGrounded()
+        {
+            isGrounded = false; 
 
+            // Represents the bottom area of the collider, which we assume to be the "feet
+            var bottomThird = Collider.bounds.center.y - (Collider.bounds.size.y / 3);
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(Collider.bounds.center.x, bottomThird), feetRadius);
+
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject != gameObject)
+                {
+                    isGrounded = true;
+
+                    // todo:  I think we want to implement this soon
+                    //if (!wasGrounded)
+                    //    OnLandEvent.Invoke();
+                }
+            }
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            // draw the bottom bit
+            if (Collider != null) {
+                var bottomThird = Collider.bounds.center.y - (Collider.bounds.size.y / 3);
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawWireSphere(new Vector3(Collider.bounds.center.x, bottomThird,0), feetRadius);
+            }
+            
+        }
 
     }
 }
