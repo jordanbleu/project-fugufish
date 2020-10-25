@@ -2,6 +2,7 @@
 using Assets.Source.Input;
 using System;
 using UnityEngine;
+using Assets.Source.Components;
 
 namespace Assets.Source.Components
 {
