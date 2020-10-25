@@ -252,7 +252,7 @@ namespace Assets.Source.Components
             return inst;
         }
 
-        public InputManager InputManager => GetRequiredComponent<InputComponent>(levelObject).InputManager;
+        public InputManager Input => GetRequiredComponent<InputComponent>(levelObject).InputManager;
 
         #endregion
     }

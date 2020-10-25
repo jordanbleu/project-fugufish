@@ -25,7 +25,8 @@ namespace Assets.Source.Configuration
             { InputConstants.K_DODGE_RIGHT,    new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.E))      } },
             { InputConstants.K_SWING_SWORD,    new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Mouse0))  } },
             { InputConstants.K_INTERACT,       new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.F))  } },
-            { InputConstants.K_SPRINT,         new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.LeftShift))  } }
+            { InputConstants.K_SPRINT,         new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.LeftShift))  } },
+            { InputConstants.K_JUMP,           new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Space))  } }
 
         };
 

@@ -14,6 +14,7 @@
         public const string K_SWING_SWORD = nameof(K_SWING_SWORD);
         public const string K_INTERACT = nameof(K_INTERACT);
         public const string K_SPRINT = nameof(K_SPRINT);
+        public const string K_JUMP = nameof(K_JUMP);
 
     }
 }
