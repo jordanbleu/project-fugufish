@@ -1,0 +1,97 @@
+
+protag.png
+size: 128,16
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Head
+  rotate: true
+  xy: 17, 5
+  size: 9, 12
+  orig: 9, 12
+  offset: 0, 0
+  index: -1
+LeftArmLower
+  rotate: false
+  xy: 56, 5
+  size: 8, 3
+  orig: 8, 3
+  offset: 0, 0
+  index: -1
+LeftArmSword
+  rotate: true
+  xy: 31, 9
+  size: 5, 13
+  orig: 5, 13
+  offset: 0, 0
+  index: -1
+LeftArmUpper
+  rotate: false
+  xy: 46, 3
+  size: 8, 4
+  orig: 8, 4
+  offset: 0, 0
+  index: -1
+LeftLegLower
+  rotate: false
+  xy: 71, 2
+  size: 3, 7
+  orig: 3, 7
+  offset: 0, 0
+  index: -1
+RightLegLower
+  rotate: false
+  xy: 71, 2
+  size: 3, 7
+  orig: 3, 7
+  offset: 0, 0
+  index: -1
+LeftLegUpper
+  rotate: false
+  xy: 66, 6
+  size: 3, 8
+  orig: 3, 8
+  offset: 0, 0
+  index: -1
+RightLegUpper
+  rotate: false
+  xy: 66, 6
+  size: 3, 8
+  orig: 3, 8
+  offset: 0, 0
+  index: -1
+RightArmLower
+  rotate: false
+  xy: 71, 11
+  size: 8, 3
+  orig: 8, 3
+  offset: 0, 0
+  index: -1
+RightArmSword
+  rotate: true
+  xy: 31, 2
+  size: 5, 13
+  orig: 5, 13
+  offset: 0, 0
+  index: -1
+RightArmUpper
+  rotate: false
+  xy: 56, 10
+  size: 8, 4
+  orig: 8, 4
+  offset: 0, 0
+  index: -1
+Waist
+  rotate: false
+  xy: 46, 9
+  size: 8, 5
+  orig: 8, 5
+  offset: 0, 0
+  index: -1
+torso
+  rotate: true
+  xy: 2, 4
+  size: 10, 13
+  orig: 10, 13
+  offset: 0, 0
+  index: -1

@@ -2,6 +2,7 @@
 using Assets.Source.Components.Physics.Base;
 using Assets.Source.Extensions;
 using Assets.Source.Input.Constants;
+using Spine.Unity;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -31,10 +32,21 @@ namespace Assets.Source.Components.Player
         private List<GameObject> collidingTriggers = new List<GameObject>();
 
         private bool isClimbing = false;
-
+        private float horizontalMove = 0f;
 
         // Current speed at which the player is dodging 
         private float currentDodgeVelocity = 0f;
+
+        // Component References
+        private Animator animator;
+        private SkeletonMecanim skeletonMecanim;
+
+        public override void ComponentAwake()
+        {
+            skeletonMecanim = GetRequiredComponent<SkeletonMecanim>();
+            animator = GetRequiredComponent<Animator>();
+            base.ComponentAwake();
+        }
 
         public override void ComponentUpdate()
         {
@@ -46,6 +58,7 @@ namespace Assets.Source.Components.Player
             {
                 if (Input.IsKeyPressed(InputConstants.K_JUMP))
                 {
+                    animator.SetTrigger("jump");
                     AddForce(new Vector2(0, jumpHeight));
                 }
             }
@@ -66,7 +79,27 @@ namespace Assets.Source.Components.Player
             ExternalVelocity = new Vector2(totalXVelocity, totalYVelocity);
 
             StabilizeDodgeSpeed();
+
+            UpdateAnimator();
             base.ComponentUpdate();
+        }
+
+        private void UpdateAnimator()
+        {
+            animator.SetBool("is_grounded", IsGrounded);
+            animator.SetFloat("horizontal_movement_speed", horizontalMove);
+
+            // if facing left, flip skeleton
+            var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
+
+            if (horizontalMove < 0)
+            {
+                skeletonMecanim.Skeleton.ScaleX = -scale;
+            }
+            else if (horizontalMove > 0)
+            {
+                skeletonMecanim.Skeleton.ScaleX = scale;
+            }
         }
 
         private Vector2 CalculateEnvironmentalForces()
@@ -96,7 +129,8 @@ namespace Assets.Source.Components.Player
         {
             var moveRight = Input.GetAxisValue(InputConstants.K_MOVE_RIGHT);
             var moveLeft = Input.GetAxisValue(InputConstants.K_MOVE_LEFT);
-            return (moveRight - moveLeft) * moveSpeed;
+            horizontalMove = moveRight - moveLeft;
+            return horizontalMove * moveSpeed;
         }
 
         // Combines the force from all currently colliding force components 
