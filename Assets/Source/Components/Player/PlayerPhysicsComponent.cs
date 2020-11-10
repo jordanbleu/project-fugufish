@@ -33,6 +33,7 @@ namespace Assets.Source.Components.Player
 
         private bool isClimbing = false;
         private float horizontalMove = 0f;
+        private float verticalMove = 0f;
 
         // Current speed at which the player is dodging 
         private float currentDodgeVelocity = 0f;
@@ -87,18 +88,25 @@ namespace Assets.Source.Components.Player
         private void UpdateAnimator()
         {
             animator.SetBool("is_grounded", IsGrounded);
+
             animator.SetFloat("horizontal_movement_speed", horizontalMove);
+            animator.SetFloat("vertical_movement_speed", verticalMove);
+            animator.SetBool("is_climbing", isClimbing);
 
             // if facing left, flip skeleton
             var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
 
-            if (horizontalMove < 0)
+            // If climbing keep the skeleton the same 
+            if (!isClimbing)
             {
-                skeletonMecanim.Skeleton.ScaleX = -scale;
-            }
-            else if (horizontalMove > 0)
-            {
-                skeletonMecanim.Skeleton.ScaleX = scale;
+                if (horizontalMove < 0)
+                {
+                    skeletonMecanim.Skeleton.ScaleX = -scale;
+                }
+                else if (horizontalMove > 0)
+                {
+                    skeletonMecanim.Skeleton.ScaleX = scale;
+                }
             }
         }
 
@@ -143,6 +151,7 @@ namespace Assets.Source.Components.Player
                 // if climbing we have to disable normal physics and do our own thing
                 var moveUp = Input.GetAxisValue(InputConstants.K_MOVE_UP);
                 var moveDown = Input.GetAxisValue(InputConstants.K_MOVE_DOWN);
+                verticalMove = moveUp - moveDown;
                 return (moveUp - moveDown) * climbingSpeed;
             }
             else 

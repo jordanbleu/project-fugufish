@@ -1,4 +1,5 @@
-﻿using Assets.Source.Extensions;
+﻿using Assets.Source.Components.Player;
+using Assets.Source.Extensions;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -100,9 +101,12 @@ namespace Assets.Source.Components.Physics.Base
 
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject)
+                // Check that the collider isn't the player or a child object of the player
+                if (colliders[i].gameObject != gameObject && colliders[i].GetComponentInParent<PlayerPhysicsComponent>() == null)
                 {
-                    isGrounded = true;
+                    if (!colliders[i].isTrigger) { 
+                        isGrounded = true;
+                    }
 
                     // todo:  I think we want to implement this soon
                     //if (!wasGrounded)
