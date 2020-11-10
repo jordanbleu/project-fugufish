@@ -5,7 +5,7 @@ using UnityEngine.Events;
 namespace Assets.Source.Components.Interaction
 {
     /// <summary>
-    /// Wrapper Class for automatically invoking events on trigger
+    /// Wrapper component for automatically invoking events on trigger
     /// </summary>
     [RequireComponent(typeof(Collider2D))]
     public class CollisionDetectorComponent : ComponentBase
