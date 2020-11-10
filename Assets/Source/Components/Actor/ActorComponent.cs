@@ -9,24 +9,41 @@ namespace Assets.Source.Components.Actor
         private int _maxHealth = 100;
         public int MaxHealth { get => _maxHealth; }
 
+        
         [SerializeField]
-        private UnityEvent onHealthDepleted;
+        [Tooltip("This will be invoked each time the actor's health gets depleted by any amount")]
+        private UnityEvent onHealthDamage;
 
+        
         [SerializeField]
-        private string DebugString;
+        [Tooltip("This will be invoked on each frame that the actor has no health, so this should usually handle destroying the component")]
+        private UnityEvent onHealthEmpty;
 
-        private bool isAlive = true;
+        public int Health { get; private set; }
 
-        public int Health { get; set; }
+        public bool IsAlive() => Health > 0;
 
-        public override void ComponentAwake()
+        public override void ComponentStart()
         {
             Health = _maxHealth;
             base.ComponentAwake();
         }
 
+        /// <summary>
+        /// The proper way to decrease the actor's health
+        /// </summary>
+        /// <param name="amount">The amount to deplete health by</param>
+        public void DepleteHealth(int amount) {
+            onHealthDamage?.Invoke();
+            Health -= amount;
+        }
+
         public override void ComponentUpdate()
         {
+            if (!IsAlive()) {
+                onHealthEmpty?.Invoke();                
+            }
+
             base.ComponentUpdate();
         }
 
