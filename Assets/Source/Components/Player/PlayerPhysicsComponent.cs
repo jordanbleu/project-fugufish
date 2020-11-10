@@ -161,7 +161,14 @@ namespace Assets.Source.Components.Player
         {
             var moveRight = Input.GetAxisValue(InputConstants.K_MOVE_RIGHT);
             var moveLeft = Input.GetAxisValue(InputConstants.K_MOVE_LEFT);
+            
             horizontalMove = moveRight - moveLeft;
+
+            // if we're attacking, cancel out movement
+            if (isAttacking) {
+                horizontalMove = 0;
+            }
+
             return horizontalMove * moveSpeed;
         }
 

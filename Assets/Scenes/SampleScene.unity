@@ -3184,7 +3184,7 @@ MonoBehaviour:
   dodgeDeceleration: 1
   climbingSpeed: 2
   collidingTriggers: []
-  attackVelocity: 6
+  attackVelocity: 12
 --- !u!23 &1379939583
 MeshRenderer:
   m_ObjectHideFlags: 0
