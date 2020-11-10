@@ -1,6 +1,5 @@
 ﻿using Assets.Source.Configuration;
 using Assets.Source.Configuration.Exception;
-using Assets.Source.Extensions;
 using Assets.Source.Input.Interfaces;
 using System;
 using System.Collections.Generic;

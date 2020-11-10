@@ -12,5 +12,14 @@ namespace Assets.Source.Components.Dummy
         public void SayGoodbye() {
             Debug.Log("Goodbye, that thing works");
         }
+
+        public void Say(string message) {
+            Debug.Log(message);
+        }
+
+        public void KillMySelf(string message) {
+            Debug.Log(message);
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Assets.Source.Components.Physics;
 using Assets.Source.Components.Physics.Base;
-using Assets.Source.Extensions;
 using Assets.Source.Input.Constants;
 using Spine.Unity;
 using System.Collections.Generic;
@@ -31,9 +30,23 @@ namespace Assets.Source.Components.Player
         [SerializeField]
         private List<GameObject> collidingTriggers = new List<GameObject>();
 
+        [SerializeField]
+        [Tooltip("Speed at which the player is propelled his own sword swings")]
+        private float attackVelocity = 3f;
+
         private bool isClimbing = false;
         private float horizontalMove = 0f;
         private float verticalMove = 0f;
+
+        public float SkeletonScale { get => skeletonMecanim.Skeleton.ScaleX;  }
+        
+        // isAttackEnabled is true when the player is actively able to cause damage
+        private bool isDamageEnabled = false;
+        public bool IsDamageEnabled { get => isDamageEnabled; }
+
+        // is attacking is true if the player is in the swing animation
+        private bool isAttacking = false;
+        public bool IsAttacking { get => isAttacking; }
 
         // Current speed at which the player is dodging 
         private float currentDodgeVelocity = 0f;
@@ -55,12 +68,21 @@ namespace Assets.Source.Components.Player
 
             var externalForces = CalculateEnvironmentalForces();
 
-            if (!isClimbing && IsGrounded) 
+            
+
+            if (!isClimbing) 
             {
-                if (Input.IsKeyPressed(InputConstants.K_JUMP))
+                if (IsGrounded) 
                 {
-                    animator.SetTrigger("jump");
-                    AddForce(new Vector2(0, jumpHeight));
+                    if (Input.IsKeyPressed(InputConstants.K_JUMP))
+                    {
+                        animator.SetTrigger("jump");
+                        AddForce(new Vector2(0, jumpHeight));
+                    }
+                }
+
+                if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD)) {
+                    animator.SetTrigger("attack");
                 }
             }
 
@@ -74,13 +96,15 @@ namespace Assets.Source.Components.Player
                 currentDodgeVelocity += dodgeMaxSpeed;
             }
 
-            var totalXVelocity = currentDodgeVelocity + externalForces.x;
+            // if attacking, propel in the direction of the current player's skeleton
+            var currentAttackSpeed = (isDamageEnabled) ? (attackVelocity*Mathf.Sign(skeletonMecanim.Skeleton.ScaleX)) : 0f;
+
+            var totalXVelocity = currentDodgeVelocity + externalForces.x + currentAttackSpeed;
             var totalYVelocity = externalForces.y;
 
             ExternalVelocity = new Vector2(totalXVelocity, totalYVelocity);
 
             StabilizeDodgeSpeed();
-
             UpdateAnimator();
             base.ComponentUpdate();
         }
@@ -95,7 +119,7 @@ namespace Assets.Source.Components.Player
 
             // if facing left, flip skeleton
             var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
-
+            
             // If climbing keep the skeleton the same 
             if (!isClimbing)
             {
@@ -171,9 +195,24 @@ namespace Assets.Source.Components.Player
             collidingTriggers.Remove(collision.gameObject);
         }
 
+        #region triggered via animation timeline event
+        public void AttackBegin() {
+            isAttacking = true;
+        }
 
-        
+        public void AttackEnd() {
+            isAttacking = false;
+        }
 
+        public void DamageEnable() {
+            isDamageEnabled = true;
+        }
 
+        public void DamageDisable()
+        {
+            isDamageEnabled = false;
+        }
+
+        #endregion
     }
 }

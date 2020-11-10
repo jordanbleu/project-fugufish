@@ -1,4 +1,5 @@
-﻿using Assets.Source.Input.Constants;
+﻿using Assets.Source.Components.Player;
+using Assets.Source.Input.Constants;
 using UnityEngine;
 
 namespace Assets.Source.Components.Interaction
@@ -6,29 +7,33 @@ namespace Assets.Source.Components.Interaction
     /// <summary>
     /// Handles player's melee attack logic and animations
     /// </summary>
-    public class PlayerSwingColliderComponent : ComponentBase
-    {
+    [RequireComponent(typeof(Collider2D))]
+    public class PlayerSwingColliderComponent : ComponentBase    {
 
-        // Components 
-        private Animator animator;
-        
-        public bool IsActive { get; private set; }
+        private PlayerPhysicsComponent player;
 
         public override void ComponentAwake()
         {
-            animator = GetRequiredComponent<Animator>();
+            player = GetRequiredComponentInParent<PlayerPhysicsComponent>();
             base.ComponentAwake();
         }
 
-        /// <summary>
-        /// Triggered via attack animation
-        /// </summary>
-        public void EnableDamage() => IsActive = true;
+        public override void ComponentUpdate()
+        {
+            // follow the scale of the parent's skeleton
+            var isFlipped = (player.SkeletonScale < 0);
 
-        /// <summary>
-        /// Triggered via attack animation
-        /// </summary>
-        public void DisableDamage() => IsActive = false; 
+            // this is painfully stupid 
+            if (!isFlipped)
+            {
+                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
+            }
+            else {
+                transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 180, transform.rotation.w);
+            }
+
+            base.ComponentUpdate();
+        }
 
     }
 }

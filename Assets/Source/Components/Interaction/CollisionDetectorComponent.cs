@@ -30,19 +30,23 @@ namespace Assets.Source.Components.Interaction
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if (isContinuous || !wasTriggered) {
-                // Todo: check layer masks
-                onEnter.Invoke();
-                wasTriggered = true;
+            if (isContinuous || !wasTriggered)
+            {
+                if (colliderLayers.IncludesLayer(collision.gameObject.layer))
+                {
+                    onEnter.Invoke();
+                    wasTriggered = true;
+                }
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            // todo:  Check layaer masks         
-            onExit.Invoke();
-            wasTriggered = false;
-            
+            if (colliderLayers.IncludesLayer(collision.gameObject.layer))
+            {
+                onExit.Invoke();
+                wasTriggered = false;
+            }            
         }
 
     }
