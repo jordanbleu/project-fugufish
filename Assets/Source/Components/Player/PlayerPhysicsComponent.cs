@@ -27,6 +27,7 @@ namespace Assets.Source.Components.Player
         [SerializeField]
         private float climbingSpeed = 3f;
 
+
         [SerializeField]
         private List<GameObject> collidingTriggers = new List<GameObject>();
 
@@ -37,6 +38,7 @@ namespace Assets.Source.Components.Player
         private bool isClimbing = false;
         private float horizontalMove = 0f;
         private float verticalMove = 0f;
+        private bool isFrozen = false;
 
         public float SkeletonScale { get => skeletonMecanim.Skeleton.ScaleX;  }
         
@@ -108,6 +110,7 @@ namespace Assets.Source.Components.Player
             UpdateAnimator();
             base.ComponentUpdate();
         }
+
 
         private void UpdateAnimator()
         {

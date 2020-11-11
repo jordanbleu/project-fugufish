@@ -1,14 +1,15 @@
 ﻿using Assets.Source.Components.Level;
 using Assets.Source.Input;
 using System;
+using System.Linq;
 using UnityEngine;
-using Assets.Source.Components;
 
 namespace Assets.Source.Components
 {
     public class ComponentBase : MonoBehaviour
     {
         private GameObject levelObject;
+        private GameObject canvasObject; 
 
         #region overrides
         private void Awake()
@@ -226,6 +227,29 @@ namespace Assets.Source.Components
         {
             return GetRequiredComponentInParent<T>(this.gameObject);
         }
+
+        /// <summary>
+        /// Finds the canvas object in the hierarchy.  If it does not exist, creates it.
+        /// </summary>
+        /// <returns></returns>
+        protected GameObject FindOrCreateCanvas()
+        {
+            if (canvasObject != null) {
+                return canvasObject;
+            }
+
+            // There should only be one canvas
+            canvasObject = GetComponents<Canvas>().SingleOrDefault()?.gameObject;
+
+            if (canvasObject == null) {
+                GameObject canvasPrefab = GetRequiredResource<GameObject>($"{ResourcePaths.PrefabsFolder}/System/Canvas");
+
+                canvasObject = Instantiate(canvasPrefab);
+            }
+
+            return canvasObject;
+        }
+
         #endregion
 
         #region Level
