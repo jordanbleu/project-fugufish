@@ -1,6 +1,4 @@
 ﻿using Assets.Source.Components.Player;
-using Assets.Source.Extensions;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace Assets.Source.Components.Physics.Base
@@ -123,8 +121,9 @@ namespace Assets.Source.Components.Physics.Base
                 Gizmos.color = Color.cyan;
                 Gizmos.DrawWireSphere(new Vector3(Collider.bounds.center.x, bottomThird,0), feetRadius);
             }
-            
         }
+
+        
 
     }
 }

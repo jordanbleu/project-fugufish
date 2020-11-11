@@ -1,4 +1,4 @@
-﻿namespace Assets.Source.Extensions
+﻿namespace Assets.Source
 {
     public static class BoolExtensions
     {
