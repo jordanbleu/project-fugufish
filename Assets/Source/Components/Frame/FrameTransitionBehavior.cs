@@ -63,9 +63,6 @@ namespace Assets.Source.Components.Frame
             // Teleport the player to the new position, maintain it's Z position though
             followObject.transform.position = new Vector3(StartPosition.x, StartPosition.y, followObject.transform.position.z);
 
-            // Disable player physics while the transition is in progress
-            var playerComponent = GetRequiredComponent<PlayerPhysicsComponent>(followObject);
-
             // reenable player physics while the transition is in progress
             followObject.SetActive(true);
 
