@@ -93,7 +93,7 @@ namespace Assets.Source.Components.Physics.Base
             isGrounded = false; 
 
             // Represents the bottom area of the collider, which we assume to be the "feet
-            var bottomThird = Collider.bounds.center.y - (Collider.bounds.size.y / 3);
+            var bottomThird = Collider.bounds.center.y - (Collider.bounds.size.y / 2);
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(Collider.bounds.center.x, bottomThird), feetRadius);
 
@@ -117,7 +117,7 @@ namespace Assets.Source.Components.Physics.Base
         {
             // draw the bottom bit
             if (Collider != null) {
-                var bottomThird = Collider.bounds.center.y - (Collider.bounds.size.y / 3);
+                var bottomThird = Collider.bounds.center.y - (Collider.bounds.size.y / 2);
                 Gizmos.color = Color.cyan;
                 Gizmos.DrawWireSphere(new Vector3(Collider.bounds.center.x, bottomThird,0), feetRadius);
             }
