@@ -13,7 +13,7 @@ namespace Assets.Source.Components.Physics.Base
         [Tooltip("Adjusts the size of the bottom of the object.  " +
             "This is used to calculate whether the object is grounded or not." +
             "With the object selected, use the cyan circle to determine.")]
-        private float feetRadius = 2f;
+        private float feetRadius = 0.25f;
 
         private Rigidbody2D rigidBody;
         protected Collider2D Collider { get; private set; }
