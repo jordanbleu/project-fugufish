@@ -9,16 +9,17 @@ namespace Assets.Source.Components.Physics.Base
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class PhysicsComponentBase : ComponentBase
     {
-
         [SerializeField]
         [Tooltip("Adjusts the size of the bottom of the object.  " +
             "This is used to calculate whether the object is grounded or not." +
             "With the object selected, use the cyan circle to determine.")]
         private float feetRadius = 2f;
 
-
         private Rigidbody2D rigidBody;
         protected Collider2D Collider { get; private set; }
+        
+        private PhysicsMaterial2D grippyMaterial;
+        private PhysicsMaterial2D slippyMaterial;
 
         private float gravityScale;
 
@@ -36,6 +37,9 @@ namespace Assets.Source.Components.Physics.Base
 
         public override void ComponentAwake()
         {
+            grippyMaterial = new PhysicsMaterial2D("GrippyMaterial") { friction = 999f };
+            slippyMaterial = new PhysicsMaterial2D("SlippyMaterial") { friction = 0f };
+
             ExternalVelocity = Vector2.zero;
             rigidBody = GetRequiredComponent<Rigidbody2D>();
             Collider = GetRequiredComponent<Collider2D>();
@@ -62,8 +66,24 @@ namespace Assets.Source.Components.Physics.Base
             }
             
             CheckIfGrounded();
+            AdjustFriction(xVelocity, ExternalVelocity);
             rigidBody.velocity = new Vector2(xVelocity, yVelocity) + ExternalVelocity;
             base.ComponentFixedUpdate();
+        }
+
+        // This is a slightly hacky solution that dynamically swaps physics materials to 
+        // stop the player from sliding down slopes
+        private void AdjustFriction(float xVelocity, Vector2 externalVelocity)
+        {
+            var combinedXVelocity = xVelocity + externalVelocity.x;
+            
+            if (combinedXVelocity != 0f)
+            {
+                Collider.sharedMaterial = slippyMaterial;
+            }
+            else {
+                Collider.sharedMaterial = grippyMaterial;
+            }
         }
 
 
