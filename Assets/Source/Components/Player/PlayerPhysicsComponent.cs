@@ -27,7 +27,6 @@ namespace Assets.Source.Components.Player
         [SerializeField]
         private float climbingSpeed = 3f;
 
-
         [SerializeField]
         private List<GameObject> collidingTriggers = new List<GameObject>();
 
@@ -35,18 +34,23 @@ namespace Assets.Source.Components.Player
         [Tooltip("Speed at which the player is propelled his own sword swings")]
         private float attackVelocity = 3f;
 
+        // if true, player is climbing on a ladder
         private bool isClimbing = false;
+
+        // current movement speeds
         private float horizontalMove = 0f;
         private float verticalMove = 0f;
-        private bool isFrozen = false;
+        // if true, player has used uppercut and cant do so again until he lands
+        private bool usedUppercut = false;
 
         public float SkeletonScale { get => skeletonMecanim.Skeleton.ScaleX;  }
         
-        // isAttackEnabled is true when the player is actively able to cause damage
+        // true when the player is actively able to cause damage
         private bool isDamageEnabled = false;
         public bool IsDamageEnabled { get => isDamageEnabled; }
 
         // is attacking is true if the player is in the swing animation
+        // This adds forward momentum and prevents some movement
         private bool isAttacking = false;
         public bool IsAttacking { get => isAttacking; }
 
@@ -84,7 +88,24 @@ namespace Assets.Source.Components.Player
                 }
 
                 if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD)) {
-                    animator.SetTrigger("attack");
+
+                    // If we are in the air and the player is holding "down", do a GRAND SLAM
+                    if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsGrounded && !IsAttacking)
+                    {
+                        animator.SetTrigger("ground_pound");
+                    }
+                    // if we are in the air and player holds "up", do an uppercut, but only once before the player lands
+                    else if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking && !usedUppercut)
+                    {
+                        animator.SetTrigger("uppercut");
+                        AddForce(new Vector2(0, jumpHeight/2));
+                        usedUppercut = true;
+                    }
+                    else
+                    {
+                        animator.SetTrigger("attack");
+                    }
+
                 }
             }
 
@@ -205,20 +226,25 @@ namespace Assets.Source.Components.Player
             collidingTriggers.Remove(collision.gameObject);
         }
 
+        // Called from unity event
+        public void OnLandOnGround() {
+            usedUppercut = false;
+        }
+
         #region triggered via animation timeline event
-        public void AttackBegin() {
+        public void OnAttackBegin() {
             isAttacking = true;
         }
 
-        public void AttackEnd() {
+        public void OnAttackEnd() {
             isAttacking = false;
         }
 
-        public void DamageEnable() {
+        public void OnDamageEnable() {
             isDamageEnabled = true;
         }
 
-        public void DamageDisable()
+        public void OnDamageDisable()
         {
             isDamageEnabled = false;
         }

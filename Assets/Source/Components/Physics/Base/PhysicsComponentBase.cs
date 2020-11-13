@@ -1,5 +1,6 @@
 ﻿using Assets.Source.Components.Player;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Source.Components.Physics.Base
 {
@@ -31,7 +32,13 @@ namespace Assets.Source.Components.Physics.Base
         [SerializeField]
         private bool isGrounded = false;
         public bool IsGrounded => isGrounded;
-        
+
+        // tracks if the player was grounded in the last frame
+        private bool wasGrounded = false;
+
+        [SerializeField]
+        [Tooltip("Event that fires when the actor hits the ground for the first time")]
+        private UnityEvent onLand;
         
         protected bool IsGravityEnabled { get; set; }
 
@@ -68,6 +75,7 @@ namespace Assets.Source.Components.Physics.Base
             CheckIfGrounded();
             AdjustFriction(xVelocity, ExternalVelocity);
             rigidBody.velocity = new Vector2(xVelocity, yVelocity) + ExternalVelocity;
+            wasGrounded = isGrounded;
             base.ComponentFixedUpdate();
         }
 
@@ -123,12 +131,16 @@ namespace Assets.Source.Components.Physics.Base
                 if (colliders[i].gameObject != gameObject && colliders[i].GetComponentInParent<PlayerPhysicsComponent>() == null)
                 {
                     if (!colliders[i].isTrigger) { 
+                        
                         isGrounded = true;
+
+                        if (!wasGrounded) {
+                            onLand?.Invoke();                    
+                        }
+
                     }
 
-                    // todo:  I think we want to implement this soon
-                    //if (!wasGrounded)
-                    //    OnLandEvent.Invoke();
+                    
                 }
             }
         }

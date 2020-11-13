@@ -39,8 +39,8 @@ namespace Assets.Source.Components.Interaction
                     actor.DepleteHealth(1);
 
                     if (stopsAttack) { 
-                        playerComponent.AttackEnd();
-                        playerComponent.DamageDisable();
+                        playerComponent.OnAttackEnd();
+                        playerComponent.OnDamageDisable();
                     }
                 }
             }
