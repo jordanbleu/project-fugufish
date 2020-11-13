@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Components.Level;
+using Assets.Source.Components.Player;
 using Assets.Source.Input;
 using System;
 using System.Linq;
@@ -239,7 +240,7 @@ namespace Assets.Source.Components
             }
 
             // There should only be one canvas
-            canvasObject = GetComponents<Canvas>().SingleOrDefault()?.gameObject;
+            canvasObject = GetRequiredObject("Canvas");
 
             if (canvasObject == null) {
                 GameObject canvasPrefab = GetRequiredResource<GameObject>($"{ResourcePaths.PrefabsFolder}/System/Canvas");

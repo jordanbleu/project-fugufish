@@ -9,6 +9,9 @@ namespace Assets.Source.Components.Actor
         [SerializeField]
         private int _health = 1;
 
+        [SerializeField]
+        private int maxHealth;
+        public int MaxHealth { get => maxHealth;  }
         
         [SerializeField]
         [Tooltip("This will be invoked each time the actor's health gets depleted by any amount")]
@@ -19,6 +22,8 @@ namespace Assets.Source.Components.Actor
         [Tooltip("This will be invoked on each frame that the actor has no health, so this should usually handle destroying the component")]
         private UnityEvent onHealthEmpty;
         public int Health { get => _health; }
+
+
 
         public bool IsAlive() => Health > 0;
 
