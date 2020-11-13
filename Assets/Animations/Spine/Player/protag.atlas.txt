@@ -1,96 +1,89 @@
 
 protag.png
-size: 128,16
+size: 32,32
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Head
-  rotate: true
-  xy: 17, 5
+  rotate: false
+  xy: 14, 18
   size: 9, 12
   orig: 9, 12
   offset: 0, 0
   index: -1
 LeftArmLower
-  rotate: false
-  xy: 56, 5
+  rotate: true
+  xy: 9, 7
   size: 8, 3
   orig: 8, 3
   offset: 0, 0
   index: -1
 LeftArmSword
-  rotate: true
-  xy: 31, 9
+  rotate: false
+  xy: 2, 2
   size: 5, 13
   orig: 5, 13
   offset: 0, 0
   index: -1
 LeftArmUpper
   rotate: false
-  xy: 46, 3
+  xy: 14, 12
   size: 8, 4
   orig: 8, 4
   offset: 0, 0
   index: -1
 LeftLegLower
-  rotate: false
-  xy: 71, 2
+  rotate: true
+  xy: 19, 2
   size: 3, 7
   orig: 3, 7
   offset: 0, 0
   index: -1
 RightLegLower
-  rotate: false
-  xy: 71, 2
+  rotate: true
+  xy: 19, 2
   size: 3, 7
   orig: 3, 7
   offset: 0, 0
   index: -1
 LeftLegUpper
-  rotate: false
-  xy: 66, 6
+  rotate: true
+  xy: 9, 2
   size: 3, 8
   orig: 3, 8
   offset: 0, 0
   index: -1
 RightLegUpper
-  rotate: false
-  xy: 66, 6
+  rotate: true
+  xy: 9, 2
   size: 3, 8
   orig: 3, 8
   offset: 0, 0
   index: -1
 RightArmLower
   rotate: false
-  xy: 71, 11
+  xy: 14, 7
   size: 8, 3
   orig: 8, 3
   offset: 0, 0
   index: -1
-RightArmSword
-  rotate: true
-  xy: 31, 2
-  size: 5, 13
-  orig: 5, 13
-  offset: 0, 0
-  index: -1
 RightArmUpper
-  rotate: false
-  xy: 56, 10
+  rotate: true
+  xy: 24, 8
   size: 8, 4
   orig: 8, 4
   offset: 0, 0
   index: -1
 Waist
-  rotate: false
-  xy: 46, 9
+  rotate: true
+  xy: 25, 22
   size: 8, 5
   orig: 8, 5
   offset: 0, 0
   index: -1
 torso
-  rotate: true
-  xy: 2, 4
+  rotate: false
+  xy: 2, 17
   size: 10, 13
   orig: 10, 13
   offset: 0, 0
