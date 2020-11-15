@@ -98,7 +98,7 @@ namespace Assets.Source.Components.Player
                     else if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking && !usedUppercut)
                     {
                         animator.SetTrigger("uppercut");
-                        AddForce(new Vector2(0, jumpHeight/2));
+                        AddForce(new Vector2(0, jumpHeight));
                         usedUppercut = true;
                     }
                     else
