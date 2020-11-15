@@ -1832,12 +1832,12 @@ PrefabInstance:
     - target: {fileID: 2993366181318145481, guid: 1b343f1c7952da94da6a2d2bd6e30d6f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.12
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 2993366181318145481, guid: 1b343f1c7952da94da6a2d2bd6e30d6f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.82
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 2993366181318145481, guid: 1b343f1c7952da94da6a2d2bd6e30d6f,
         type: 3}
@@ -1887,12 +1887,12 @@ PrefabInstance:
     - target: {fileID: 2993366181318145481, guid: 1b343f1c7952da94da6a2d2bd6e30d6f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.6864711
+      value: 2.871831
       objectReference: {fileID: 0}
     - target: {fileID: 2993366181318145481, guid: 1b343f1c7952da94da6a2d2bd6e30d6f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.448673
+      value: 1.042694
       objectReference: {fileID: 0}
     - target: {fileID: 2993366181318145482, guid: 1b343f1c7952da94da6a2d2bd6e30d6f,
         type: 3}
@@ -1930,16 +1930,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f28d914cc90054d9040b5c18594d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovementBehavior: 0
   instructions:
-  - Position: {x: 16.9, y: -45.85}
+  - Position: {x: 17.53, y: -45.85}
     WaitTime: 1000
     MovementSpeed: 2
     GizmoColor: {r: 0.7830189, g: 0.23268957, b: 0.6505322, a: 1}
-  - Position: {x: 26.15, y: -45.85}
-    WaitTime: 3000
+  - Position: {x: 25.5, y: -45.85}
+    WaitTime: 2000
     MovementSpeed: 5
     GizmoColor: {r: 0.5494838, g: 0.5748739, b: 0.7924528, a: 1}
-  - Position: {x: 23.4, y: -39.84}
+  - Position: {x: 21.5, y: -39.84}
     WaitTime: 0
     MovementSpeed: 2
     GizmoColor: {r: 0.754717, g: 0.3859681, b: 0.21003917, a: 1}

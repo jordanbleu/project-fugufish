@@ -14,16 +14,18 @@ namespace Assets.Source.Components.Platforming
     public class MovingPlatformComponent : ComponentBase
     {
         [SerializeField]
+        private MoveMode MovementBehavior;
+
+        [SerializeField]
         private List<PlatformInstruction> instructions;
 
         private float positionTolerance = 0.1f;
         
         private int index;
+        private int indexDirection = 1;
 
         private Rigidbody2D rigidBody;
         private IntervalTimerComponent timer;
-
-
         public override void ComponentAwake()
         {
             rigidBody = GetRequiredComponent<Rigidbody2D>();
@@ -62,10 +64,23 @@ namespace Assets.Source.Components.Platforming
 
         private void GetNextInstruction()
         {
-            index++;
+            if (MovementBehavior == MoveMode.Random)
+            {
+                index = UnityEngine.Random.Range(0, (instructions.Count()));
+            }
+            index += indexDirection;
 
-            if (index > (instructions.Count()-1)) {
-                index = 0;    
+            if (index > (instructions.Count() - 1) || index < 0)
+            {
+                if (MovementBehavior == MoveMode.Cycle)
+                {
+                    index = 0;
+                }
+                else
+                {
+                    indexDirection = -indexDirection;
+                    index += indexDirection;
+                }
             }
         }
 
@@ -132,6 +147,16 @@ namespace Assets.Source.Components.Platforming
 
             [Tooltip("The color to show for the gizmo.  Used for debugging / visualizing paths.")]
             public Color GizmoColor;
+
+        }
+        public enum MoveMode
+        { 
+            [Tooltip("Platform moves positions in order.  After it reaches the last position, it loops back to the first.")]
+            Cycle,
+            [Tooltip("Platform moves forward through all positions in order.  Once it reaches the last position, it cycles backwards back through the positions")]
+            Alternate,
+            [Tooltip("Platform chooses a position randomly each time")]
+            Random
         }
 
         private void OnDrawGizmosSelected()

@@ -73,7 +73,11 @@ namespace Assets.Source.Components.Timer
                         Destroy(gameObject);
                     }
 
-                    Reset();
+                    if (AutoReset)
+                    { 
+                        Reset();
+                    }
+
                     IsActive = AutoReset;
                 }
             }
