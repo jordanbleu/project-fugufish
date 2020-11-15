@@ -1,7 +1,6 @@
 ﻿using Assets.Source.Components.Actor;
 using Assets.Source.Components.Player;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Assets.Source.Components.Interaction
 {

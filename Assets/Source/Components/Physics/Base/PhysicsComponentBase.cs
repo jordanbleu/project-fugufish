@@ -29,6 +29,10 @@ namespace Assets.Source.Components.Physics.Base
         /// </summary>
         protected Vector2 ExternalVelocity { get; set; }
 
+        // Temporary jus to show inspector
+        public Vector2 CurrentExtVelcoityhh;
+        
+
         [SerializeField]
         private bool isGrounded = false;
         public bool IsGrounded => isGrounded;
@@ -57,6 +61,8 @@ namespace Assets.Source.Components.Physics.Base
 
         public override void ComponentFixedUpdate()
         {
+            CurrentExtVelcoityhh = ExternalVelocity;// Temp delete pls
+
             var xVelocity = 0f;
             var yVelocity = 0f;
 

@@ -1,5 +1,7 @@
-﻿using Assets.Source.Components.Physics;
+﻿using Assets.Source.Components.Actor;
+using Assets.Source.Components.Physics;
 using Assets.Source.Components.Physics.Base;
+using Assets.Source.Components.Platforming;
 using Assets.Source.Input.Constants;
 using Spine.Unity;
 using System.Collections.Generic;
@@ -34,6 +36,9 @@ namespace Assets.Source.Components.Player
         [Tooltip("Speed at which the player is propelled his own sword swings")]
         private float attackVelocity = 3f;
 
+        // used to add additional velocity to the player, which gets normalized automatically
+        private Vector2 arbitraryVelocity = Vector2.zero;
+
         // if true, player is climbing on a ladder
         private bool isClimbing = false;
 
@@ -43,8 +48,8 @@ namespace Assets.Source.Components.Player
         // if true, player has used uppercut and cant do so again until he lands
         private bool usedUppercut = false;
 
-        public float SkeletonScale { get => skeletonMecanim.Skeleton.ScaleX;  }
-        
+        public float SkeletonScale { get => skeletonMecanim.Skeleton.ScaleX; }
+
         // true when the player is actively able to cause damage
         private bool isDamageEnabled = false;
         public bool IsDamageEnabled { get => isDamageEnabled; }
@@ -60,11 +65,13 @@ namespace Assets.Source.Components.Player
         // Component References
         private Animator animator;
         private SkeletonMecanim skeletonMecanim;
+        private ActorComponent actor;
 
         public override void ComponentAwake()
         {
             skeletonMecanim = GetRequiredComponent<SkeletonMecanim>();
             animator = GetRequiredComponent<Animator>();
+            actor = GetRequiredComponent<ActorComponent>();
             base.ComponentAwake();
         }
 
@@ -122,12 +129,12 @@ namespace Assets.Source.Components.Player
             // if attacking, propel in the direction of the current player's skeleton
             var currentAttackSpeed = (isDamageEnabled) ? (attackVelocity*Mathf.Sign(skeletonMecanim.Skeleton.ScaleX)) : 0f;
 
-            var totalXVelocity = currentDodgeVelocity + externalForces.x + currentAttackSpeed;
-            var totalYVelocity = externalForces.y;
+            var totalXVelocity = arbitraryVelocity.x + currentDodgeVelocity + externalForces.x + currentAttackSpeed;
+            var totalYVelocity = arbitraryVelocity.y + externalForces.y;
 
             ExternalVelocity = new Vector2(totalXVelocity, totalYVelocity);
 
-            StabilizeDodgeSpeed();
+            StabilizeVelocities();
             UpdateAnimator();
             base.ComponentUpdate();
         }
@@ -176,9 +183,12 @@ namespace Assets.Source.Components.Player
             return new Vector2(xForce, yForce);
         }
 
-        private void StabilizeDodgeSpeed()
+        private void StabilizeVelocities()
         {
             currentDodgeVelocity = currentDodgeVelocity.Stabilize(dodgeDeceleration, 0);
+
+            arbitraryVelocity = new Vector2(arbitraryVelocity.x.Stabilize(dodgeDeceleration, 0),
+                                            arbitraryVelocity.y.Stabilize(dodgeDeceleration,0));
         }
 
         public override float CalculateHorizontalMovement()
@@ -219,11 +229,70 @@ namespace Assets.Source.Components.Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
             collidingTriggers.Add(collision.gameObject);
+
+            if (collision.TryGetComponent<HazardComponent>(out var hazard)) {
+                ReactToHazard(hazard);
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             collidingTriggers.Remove(collision.gameObject);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.TryGetComponent<HazardComponent>(out var hazard))
+            {
+                ReactToHazard(hazard);
+            }
+        }
+
+        private void ReactToHazard(HazardComponent hazard)
+        { 
+            actor.DepleteHealth(hazard.DamageAmount);
+
+            var forceX = hazard.Force.x;
+            var forceY = hazard.Force.y;
+
+            if (hazard.ForceDirectionAffectedByVelocity) {
+                var xSign = Mathf.Sign(hazard.Velocity.x);
+                var ySign = Mathf.Sign(hazard.Velocity.y);
+
+                if (xSign == 0) { xSign = 1; }
+                if (ySign == 0) { ySign = 1; }
+
+                forceX *= xSign;
+                forceY *= ySign;
+            }
+
+            // if we are on the left side, force pushes us left, and vice versa
+            if (hazard.ForceDirectionAffectedByColliderPosition) {
+
+                if (transform.position.x < hazard.gameObject.transform.position.x)
+                {
+                    forceX = -Mathf.Abs(forceX);
+                }
+                else {
+                    forceX = Mathf.Abs(forceX);
+                }
+
+                if (transform.position.y < hazard.gameObject.transform.position.y)
+                {
+                    forceY = -Mathf.Abs(forceY);
+                }
+                else
+                {
+                    forceY = Mathf.Abs(forceY);
+                }
+            }
+
+            hazard.OnPlayerHit();
+
+            // Add to the external velocity for this frame
+            arbitraryVelocity = new Vector2(arbitraryVelocity.x + forceX, arbitraryVelocity.y + forceY);
+
+            
         }
 
         // Called from unity event
