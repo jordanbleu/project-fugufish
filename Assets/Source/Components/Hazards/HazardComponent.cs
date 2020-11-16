@@ -1,8 +1,7 @@
-﻿using Assets.Source.Components.Player;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Source.Components.Platforming
+namespace Assets.Source.Components.Hazards
 {
     /// <summary>
     /// Any object with a Hazard Component will damage the player on collision.

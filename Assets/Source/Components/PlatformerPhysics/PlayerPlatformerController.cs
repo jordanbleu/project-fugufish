@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Components.Physics;
+using Assets.Source.Components.Platforming;
 using Assets.Source.Input.Constants;
 using System;
 using System.Collections.Generic;
@@ -45,20 +46,11 @@ namespace Assets.Source.Components.PlatformerPhysics
                 {
                     if (velocity.y > 0)
                     {
-                        velocity.y = velocity.y * 0.5f;
+                        velocity.y *= 0.5f;
                     }
                 }
             }
 
-
-            //bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
-            //if (flipSprite)
-            //{
-            //    spriteRenderer.flipX = !spriteRenderer.flipX;
-            //}
-
-            //animator.SetBool("grounded", grounded);
-            //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
             Vector2 move = Vector2.zero;
 
             var moveRight = Input.GetAxisValue(InputConstants.K_MOVE_RIGHT);
