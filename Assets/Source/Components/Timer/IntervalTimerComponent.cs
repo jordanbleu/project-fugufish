@@ -73,7 +73,11 @@ namespace Assets.Source.Components.Timer
                         Destroy(gameObject);
                     }
 
-                    Reset();
+                    if (AutoReset)
+                    { 
+                        Reset();
+                    }
+
                     IsActive = AutoReset;
                 }
             }
@@ -84,7 +88,7 @@ namespace Assets.Source.Components.Timer
         /// <summary>
         /// Resets the current interval timer and sets the interval time 
         /// </summary>
-        /// <param name="interval"></param>
+        /// <param name="interval">time in milliseconds</param>
         public void SetInterval(float interval)
         {
             Reset();
