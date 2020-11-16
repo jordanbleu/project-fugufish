@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Components.Actor;
+using Assets.Source.Components.Hazards;
 using Assets.Source.Components.Physics;
 using Assets.Source.Components.Physics.Base;
 using Assets.Source.Components.Platforming;

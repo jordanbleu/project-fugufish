@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Source.Components.Physics
+namespace Assets.Source.Components.Platforming
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class LadderComponent : ComponentBase
