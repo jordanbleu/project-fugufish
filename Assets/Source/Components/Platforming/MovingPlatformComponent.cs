@@ -10,7 +10,7 @@ namespace Assets.Source.Components.Platforming
     /// <summary>
     /// Moving Platforms simply loop among multiple platforming instructions
     /// </summary>
-    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class MovingPlatformComponent : ComponentBase
     {
         [SerializeField]
@@ -26,6 +26,7 @@ namespace Assets.Source.Components.Platforming
 
         private Rigidbody2D rigidBody;
         private IntervalTimerComponent timer;
+        
         public override void ComponentAwake()
         {
             rigidBody = GetRequiredComponent<Rigidbody2D>();
@@ -163,12 +164,12 @@ namespace Assets.Source.Components.Platforming
         {
             if (instructions.Any())
             {
+
+                var collider = GetRequiredComponent<Collider2D>();
+
                 foreach (var inst in instructions) {
                     Gizmos.color = inst.GizmoColor;
-
-                    Gizmos.DrawWireCube(inst.Position, transform.localScale);
-
-                
+                    Gizmos.DrawWireCube(inst.Position, collider.bounds.size);
                 }          
             }
         }
