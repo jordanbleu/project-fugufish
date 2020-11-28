@@ -2218,7 +2218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438425386}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9999855, w: 0.0053826994}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9973046, w: -0.07337264}
   m_LocalPosition: {x: 15.64, y: 4.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2243,17 +2243,17 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 000000004576065ddfe85fee75dd737d91785ba9abd36aed65ed6491
+  m_ApplyToSortingLayers: 00000000bd31dab0bb195bbaf5061549dfe85fee75dd737d91785ba9abd36aed65ed64914576065d
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 3.274109
-  m_PointLightOuterRadius: 10.347431
+  m_PointLightInnerAngle: 56
+  m_PointLightOuterAngle: 112.35
+  m_PointLightInnerRadius: 4.9294066
+  m_PointLightOuterRadius: 15.769136
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -2447,7 +2447,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471148114}
-  m_LocalRotation: {x: -0, y: -0, z: 0.99906194, w: -0.043304175}
+  m_LocalRotation: {x: -0, y: -0, z: 0.99888915, w: -0.047122613}
   m_LocalPosition: {x: 5.61, y: 4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2472,17 +2472,17 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 000000004576065ddfe85fee75dd737d91785ba9abd36aed65ed6491
+  m_ApplyToSortingLayers: 00000000bd31dab0bb195bbaf5061549dfe85fee75dd737d91785ba9abd36aed65ed64914576065d
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
+  m_PointLightInnerAngle: 73
+  m_PointLightOuterAngle: 198.51
   m_PointLightInnerRadius: 3.274109
-  m_PointLightOuterRadius: 60.537323
+  m_PointLightOuterRadius: 10.075851
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -2844,6 +2844,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810454936266534002, guid: bbd54e208d7a7d3478956f7cdf73646b,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.03566742
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810454936266534002, guid: bbd54e208d7a7d3478956f7cdf73646b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.9286652
       objectReference: {fileID: 0}
     - target: {fileID: 6810454936266534004, guid: bbd54e208d7a7d3478956f7cdf73646b,
         type: 3}
@@ -4702,7 +4712,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488639992}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9653827, w: -0.26083767}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9999057, w: -0.013734497}
   m_LocalPosition: {x: -4.09, y: 4.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4734,10 +4744,10 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 3.274109
-  m_PointLightOuterRadius: 8.413099
+  m_PointLightInnerAngle: 93.88999
+  m_PointLightOuterAngle: 183.2
+  m_PointLightInnerRadius: 4.55
+  m_PointLightOuterRadius: 8.755121
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -6599,7 +6609,7 @@ MonoBehaviour:
   MovementBehavior: 1
   instructions:
   - Position: {x: 21.7, y: -41.05}
-    WaitTime: 3000
+    WaitTime: 2000
     MovementSpeed: 10
     GizmoColor: {r: 0.9528302, g: 0.28703588, b: 0.1033731, a: 1}
   - Position: {x: 21.7, y: -36.4}

@@ -103,10 +103,10 @@ namespace Assets.Source.Components.Player
                         animator.SetTrigger("ground_pound");
                     }
                     // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
-                    else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsGrounded && !IsAttacking && !usedUppercut)
+                    else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsAttacking && !usedUppercut)
                     {
+                        AddForce(new Vector2(0, jumpHeight/1.5f));
                         animator.SetTrigger("uppercut");
-                        AddForce(new Vector2(0, jumpHeight/2));
                         usedUppercut = true;
                     }
                     else
