@@ -97,16 +97,16 @@ namespace Assets.Source.Components.Player
 
                 if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD)) {
 
-                    // If we are in the air and the player is holding "down", do a GRAND SLAM
-                    if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsGrounded && !IsAttacking)
+                    // If we are in the air and the player is holding "up", do a GRAND SLAM
+                    if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
                     {
                         animator.SetTrigger("ground_pound");
                     }
-                    // if we are in the air and player holds "up", do an uppercut, but only once before the player lands
-                    else if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking && !usedUppercut)
+                    // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
+                    else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsGrounded && !IsAttacking && !usedUppercut)
                     {
                         animator.SetTrigger("uppercut");
-                        AddForce(new Vector2(0, jumpHeight));
+                        AddForce(new Vector2(0, jumpHeight/2));
                         usedUppercut = true;
                     }
                     else
@@ -194,6 +194,7 @@ namespace Assets.Source.Components.Player
 
         public override float CalculateHorizontalMovement()
         {
+            
             var moveRight = Input.GetAxisValue(InputConstants.K_MOVE_RIGHT);
             var moveLeft = Input.GetAxisValue(InputConstants.K_MOVE_LEFT);
             

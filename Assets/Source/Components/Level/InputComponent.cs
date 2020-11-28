@@ -4,20 +4,21 @@ namespace Assets.Source.Components.Level
 {
     public class InputComponent : ComponentBase
     {
-
-        public InputManager InputManager { get; private set; }
-
-        public override void ComponentAwake()
+        private InputManager _inputManager;
+        public InputManager InputManager 
         {
-            InputManager = new InputManager(new KeyboardInputListener());
-            base.ComponentAwake();
+            get
+            {
+                if (_inputManager == null)
+                {
+                    _inputManager = new InputManager(new KeyboardInputListener());
+                }
+                return _inputManager;
+            }
         }
 
         public override void ComponentUpdate()
         {
-
-            // todo: swap between input modes
-
             InputManager.GetActiveListener().UpdateInputList();
             base.ComponentUpdate();
         }
