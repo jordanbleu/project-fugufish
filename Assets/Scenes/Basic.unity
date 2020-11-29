@@ -6609,11 +6609,11 @@ MonoBehaviour:
   MovementBehavior: 1
   instructions:
   - Position: {x: 21.7, y: -41.05}
-    WaitTime: 2000
+    WaitTime: 200
     MovementSpeed: 10
     GizmoColor: {r: 0.9528302, g: 0.28703588, b: 0.1033731, a: 1}
   - Position: {x: 21.7, y: -36.4}
-    WaitTime: 200
+    WaitTime: 3000
     MovementSpeed: 2
     GizmoColor: {r: 0.9622642, g: 0.64262617, b: 0.086240634, a: 1}
 --- !u!114 &4590035601251872419
