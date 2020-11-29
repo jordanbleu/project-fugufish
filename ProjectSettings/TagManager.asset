@@ -41,6 +41,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ParallaxFar
+    uniqueID: 2967089597
+    locked: 0
+  - name: ParallaxMiddle
+    uniqueID: 3126532539
+    locked: 0
+  - name: ParallaxClose
+    uniqueID: 1226114805
+    locked: 0
+  - name: Tiles_BG_Farther
+    uniqueID: 3999262943
+    locked: 0
+  - name: Tiles_BG
+    uniqueID: 2104745333
+    locked: 0
+  - name: Actor_Layer
+    uniqueID: 2841344145
+    locked: 0
+  - name: Tiles_FG
+    uniqueID: 3983201195
+    locked: 0
+  - name: Tiles_FG_Closer
+    uniqueID: 2439310693
+    locked: 0
   - name: BG Lighting
     uniqueID: 1560704581
     locked: 0
