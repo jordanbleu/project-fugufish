@@ -1,5 +1,7 @@
 ﻿using Assets.Source.Components.Actor;
+using Assets.Source.Components.Camera;
 using Assets.Source.Components.Hazards;
+using Assets.Source.Components.Level;
 using Assets.Source.Components.Physics;
 using Assets.Source.Components.Physics.Base;
 using Assets.Source.Components.Platforming;
@@ -67,12 +69,15 @@ namespace Assets.Source.Components.Player
         private Animator animator;
         private SkeletonMecanim skeletonMecanim;
         private ActorComponent actor;
+        private LevelCameraEffectorComponent cameraEffector;
+
 
         public override void ComponentAwake()
         {
             skeletonMecanim = GetRequiredComponent<SkeletonMecanim>();
             animator = GetRequiredComponent<Animator>();
             actor = GetRequiredComponent<ActorComponent>();
+            cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
             base.ComponentAwake();
         }
 
@@ -251,7 +256,8 @@ namespace Assets.Source.Components.Player
         }
 
         private void ReactToHazard(HazardComponent hazard)
-        { 
+        {
+            cameraEffector.Impact();
             actor.DepleteHealth(hazard.DamageAmount);
 
             var forceX = hazard.Force.x;

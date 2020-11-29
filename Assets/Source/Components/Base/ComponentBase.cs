@@ -119,7 +119,7 @@ namespace Assets.Source.Components
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="otherObject"></param>
-        public static T GetRequiredComponent<T>(GameObject otherObject)
+        public static T GetRequiredComponent<T>(GameObject otherObject) where T: Component
         {
             T component;
             try
@@ -148,7 +148,7 @@ namespace Assets.Source.Components
         /// the requested component.  Returns the first instance found.
         /// </summary>
         /// <typeparam name="T">Component Type</typeparam>
-        public static T GetRequiredComponentInChildren<T>(GameObject otherObject)
+        public static T GetRequiredComponentInChildren<T>(GameObject otherObject) where T : Component
         {
             T component;
 
@@ -180,8 +180,12 @@ namespace Assets.Source.Components
         /// <param name="name">Name of the object to find</param>
         public static GameObject GetRequiredObject(string name)
         {
-            GameObject obj = GameObject.Find(name)
-                ?? throw new MissingRequiredObjectException(name);
+            GameObject obj = GameObject.Find(name);
+
+            if (!UnityUtils.Exists(obj)) { 
+                throw new MissingRequiredObjectException(name);            
+            }           
+            
             return obj;
         }
 
@@ -198,10 +202,18 @@ namespace Assets.Source.Components
         /// </summary>
         public static GameObject GetRequiredChild(string name, GameObject otherObject)
         {
-            Transform tranformObject = otherObject.transform.Find(name)
-                ?? throw new MissingRequiredChildException(otherObject, name);
+            if (!UnityUtils.Exists(otherObject)) {
+                throw new ArgumentException("otherObject can't be null", nameof(otherObject));
+            }
 
-            return tranformObject.gameObject;
+            Transform transformObject = otherObject.transform.Find(name);
+
+            if (!UnityUtils.Exists(transformObject))
+            { 
+                throw new MissingRequiredChildException(otherObject, name);
+            }
+            
+            return transformObject.gameObject;
         }
 
         /// <summary>
