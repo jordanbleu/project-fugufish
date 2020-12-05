@@ -101,6 +101,7 @@ namespace Assets.Source.Components.Player
                 }
 
                 if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD)) {
+                    cameraEffector.SwingRight();
 
                     // If we are in the air and the player is holding "up", do a GRAND SLAM
                     if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
@@ -324,6 +325,11 @@ namespace Assets.Source.Components.Player
         public void OnDamageDisable()
         {
             isDamageEnabled = false;
+        }
+
+        public void OnGroundPoundLanded()
+        {
+            cameraEffector.LargeImpact();
         }
 
         #endregion
