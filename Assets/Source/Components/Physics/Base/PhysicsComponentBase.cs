@@ -1,4 +1,5 @@
-﻿using Assets.Source.Components.Player;
+﻿using Assets.Editor.Attributes;
+using Assets.Source.Components.Player;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,10 +31,11 @@ namespace Assets.Source.Components.Physics.Base
         protected Vector2 ExternalVelocity { get; set; }
 
         // Temporary jus to show inspector
+        [ReadOnly]
         public Vector2 CurrentExtVelcoityhh;
         
-
         [SerializeField]
+        [ReadOnly]
         private bool isGrounded = false;
         public bool IsGrounded => isGrounded;
 
@@ -43,8 +45,8 @@ namespace Assets.Source.Components.Physics.Base
         [SerializeField]
         [Tooltip("Event that fires when the actor hits the ground for the first time")]
         private UnityEvent onLand;
-        
-        protected bool IsGravityEnabled { get; set; }
+
+        protected bool IsGravityEnabled { get; set; } = true;
 
         public override void ComponentAwake()
         {
@@ -100,18 +102,16 @@ namespace Assets.Source.Components.Physics.Base
             }
         }
 
-
-
         /// <summary>
         /// The current driving horizontal movement force (walking, running, driving, etc)
         /// </summary>
         /// <returns></returns>
-        public virtual float CalculateHorizontalMovement() => 0f;
+        public abstract float CalculateHorizontalMovement();
         /// <summary>
         /// The current driving vertical movement force (jumping, etc)
         /// </summary>
         /// <returns></returns>
-        public virtual float CalculateVerticalMovement() => 0f;
+        public abstract float CalculateVerticalMovement();
 
 
         protected void AddForce(Vector2 force) 

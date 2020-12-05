@@ -18,7 +18,7 @@ namespace Assets.Source.Components.Player
 
         [SerializeField]
         private float moveSpeed = 6f;
-
+        
         [SerializeField]
         [Tooltip("How high player can jump.  You might need to tweak the object's mass as well")]
         private float jumpHeight = 16f;
