@@ -1,5 +1,7 @@
 ﻿using Assets.Source.Components.Actor;
+using Assets.Source.Components.Camera;
 using Assets.Source.Components.Hazards;
+using Assets.Source.Components.Level;
 using Assets.Source.Components.Physics;
 using Assets.Source.Components.Physics.Base;
 using Assets.Source.Components.Platforming;
@@ -67,12 +69,15 @@ namespace Assets.Source.Components.Player
         private Animator animator;
         private SkeletonMecanim skeletonMecanim;
         private ActorComponent actor;
+        private LevelCameraEffectorComponent cameraEffector;
+
 
         public override void ComponentAwake()
         {
             skeletonMecanim = GetRequiredComponent<SkeletonMecanim>();
             animator = GetRequiredComponent<Animator>();
             actor = GetRequiredComponent<ActorComponent>();
+            cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
             base.ComponentAwake();
         }
 
@@ -96,6 +101,7 @@ namespace Assets.Source.Components.Player
                 }
 
                 if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD)) {
+                    cameraEffector.SwingRight();
 
                     // If we are in the air and the player is holding "up", do a GRAND SLAM
                     if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
@@ -251,7 +257,8 @@ namespace Assets.Source.Components.Player
         }
 
         private void ReactToHazard(HazardComponent hazard)
-        { 
+        {
+            cameraEffector.Impact();
             actor.DepleteHealth(hazard.DamageAmount);
 
             var forceX = hazard.Force.x;
@@ -318,6 +325,11 @@ namespace Assets.Source.Components.Player
         public void OnDamageDisable()
         {
             isDamageEnabled = false;
+        }
+
+        public void OnGroundPoundLanded()
+        {
+            cameraEffector.LargeImpact();
         }
 
         #endregion

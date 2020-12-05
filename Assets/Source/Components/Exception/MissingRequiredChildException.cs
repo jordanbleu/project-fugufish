@@ -8,7 +8,7 @@ namespace Assets.Source.Components
 
         private static string GenerateMessage(GameObject gameObject, string childName)
         {
-            string gameObjectName = gameObject?.name ?? "[null]";
+            string gameObjectName = UnityUtils.Exists(gameObject) ? gameObject.name : "[null]";
             string childObjectName = childName ?? "[null]";
 
             return $"Game Object '{gameObjectName}' does not contain a required child '{childObjectName}' " +

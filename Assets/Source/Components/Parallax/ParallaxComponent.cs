@@ -37,9 +37,7 @@ namespace Assets.Source.Components.Parallax
 
         public override void ComponentAwake()
         {
-        
-            spriteRenderer = GetComponent<SpriteRenderer>()
-                ?? throw new MissingComponentException($"Missing required component: {nameof(SpriteRenderer)}");
+            spriteRenderer = GetRequiredComponent<SpriteRenderer>();
 
             width = CalculateWidthInUnits();
             height = CalculateHeightInUnits();

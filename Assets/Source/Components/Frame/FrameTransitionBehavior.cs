@@ -1,4 +1,5 @@
-﻿using Assets.Source.Components.Player;
+﻿using Assets.Source.Components.Level;
+using Assets.Source.Components.Player;
 using Cinemachine;
 using System;
 using UnityEngine;
@@ -25,19 +26,25 @@ namespace Assets.Source.Components.Frame
         /// </summary>
         public Vector3 StartPosition { get; set; }
 
+        private LevelComponent levelComponent;
+
         // used to track the virtual cameras follow object
         private GameObject followObject;
 
+        public override void ComponentAwake()
+        {
+            levelComponent = GetRequiredComponent<LevelComponent>(GetRequiredObject("Level"));
+            base.ComponentAwake();
+        }
+
         public override void ComponentStart()
         {
-            if (SourceFrame == null || DestinationFrame == null) {
+            if (!UnityUtils.Exists(SourceFrame) || !UnityUtils.Exists(DestinationFrame)) {
                 throw new InvalidOperationException("SourceFrame and DestinationFrame must not be null");
             }
 
-            var sourceVCam = GetRequiredComponentInChildren<CinemachineVirtualCameraBase>(SourceFrame) 
-                ?? throw new InvalidOperationException($"SourceFrame '{SourceFrame}' must have a Virtual Camera as a child object");
-            var destinationVCam  = GetRequiredComponentInChildren<CinemachineVirtualCameraBase>(DestinationFrame)
-                ?? throw new InvalidOperationException($"DestinationFrame '{DestinationFrame}' must have a Virtual Camera as a child object");
+            var sourceVCam = GetRequiredComponentInChildren<CinemachineVirtualCameraBase>(SourceFrame);
+            var destinationVCam = GetRequiredComponentInChildren<CinemachineVirtualCameraBase>(DestinationFrame);
 
             if (sourceVCam.Follow != destinationVCam.Follow) {
                 throw new InvalidOperationException($"SourceFrame virtual camera '{SourceFrame}/{sourceVCam}' must be following the same object " +
@@ -68,7 +75,9 @@ namespace Assets.Source.Components.Frame
 
             // Enable the frame we are transitioning to
             DestinationFrame.SetActive(true);
-        
+
+            // Tell the level component what frame we're now on
+            levelComponent.CurrentlyActiveFrame = DestinationFrame;
         }
 
         /// <summary>
