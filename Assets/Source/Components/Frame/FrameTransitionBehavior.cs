@@ -1,5 +1,4 @@
 ﻿using Assets.Source.Components.Level;
-using Assets.Source.Components.Player;
 using Cinemachine;
 using System;
 using UnityEngine;

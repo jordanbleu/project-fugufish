@@ -7,7 +7,7 @@ namespace Assets.Source.AI
     /// <summary>
     /// Add to an object to give the 
     /// </summary>
-    public class MeleeBrainComponent : BrainComponentBase
+    public class MeleeBrainComponent : AIBrainComponentBase
     {
         private Animator animator;
 
@@ -29,14 +29,6 @@ namespace Assets.Source.AI
             animator.SetBool("is_grounded", IsGrounded);
         }
 
-        public override float CalculateHorizontalMovement()
-        {
-            return 0f;
-        }
 
-        public override float CalculateVerticalMovement()
-        {
-            return 0f;
-        }
     }
 }

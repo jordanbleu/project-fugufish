@@ -1,5 +1,4 @@
-﻿using Assets.Source.Components;
-using Assets.Source.Components.Physics.Base;
+﻿using Assets.Source.Components.Brain.Base;
 using Assets.Source.Math;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ namespace Assets.Source.AI.Base
     /// <summary>
     /// Base class for all the brains
     /// </summary>
-    public abstract class BrainComponentBase : PhysicsComponentBase
+    public abstract class AIBrainComponentBase : CommonPhysicsComponent
     {
         [Header("Movement Boundaries")]
         [SerializeField]
