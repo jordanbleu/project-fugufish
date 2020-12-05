@@ -2066,7 +2066,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 604837538}
+      objectReference: {fileID: 1654117645315161927}
     - target: {fileID: 5585735518580451441, guid: 1d34b8f4707c8a944a304a3ccfbc5ab2,
         type: 3}
       propertyPath: m_Name
@@ -2927,12 +2927,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd54e208d7a7d3478956f7cdf73646b, type: 3}
---- !u!4 &604837538 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6810454936266534004, guid: bbd54e208d7a7d3478956f7cdf73646b,
-    type: 3}
-  m_PrefabInstance: {fileID: 604837537}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &764074867
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,7 +4816,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 604837538}
+      objectReference: {fileID: 1654117645315161927}
     - target: {fileID: 5585735518580451441, guid: 1d34b8f4707c8a944a304a3ccfbc5ab2,
         type: 3}
       propertyPath: m_Name
@@ -6273,7 +6267,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 604837538}
+      objectReference: {fileID: 1654117645315161927}
     - target: {fileID: 5585735518580451441, guid: 1d34b8f4707c8a944a304a3ccfbc5ab2,
         type: 3}
       propertyPath: m_Name
@@ -6769,7 +6763,7 @@ MonoBehaviour:
   moveSpeed: 6
   jumpHeight: 16
   upperCutHeight: 8
-  dodgeSpeed: 12
+  dodgeSpeed: 16
   climbSpeed: 3
   attackVelocity: 3
 --- !u!114 &1654117645315161929
@@ -12199,7 +12193,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 604837538}
+      objectReference: {fileID: 1654117645315161927}
     - target: {fileID: 99575829538904645, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_Lens.OrthographicSize

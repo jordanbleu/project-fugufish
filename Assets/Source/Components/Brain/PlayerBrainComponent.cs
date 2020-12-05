@@ -91,7 +91,7 @@ namespace Assets.Source.Components.Brain
                     // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
                     else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsAttacking && !usedUppercut)
                     {
-                        AddImpact(0, upperCutHeight);
+                        AddRigidBodyForce(0, upperCutHeight);
                         animator.Uppercut();
                         // Signals that we've already used the uppercut during this jump. 
                         // This will be reset to false upon landing.
@@ -176,6 +176,14 @@ namespace Assets.Source.Components.Brain
 
         public void OnDamageEnable()
         {
+            // Add force to the player 
+            if (animator.SkeletonIsFlipped)
+            {
+                AddImpact(-dodgeSpeed,0);
+            }
+            else {
+                AddImpact(dodgeSpeed,0);
+            }
             IsDamageEnabled = true;
         }
 

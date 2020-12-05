@@ -18,6 +18,10 @@ namespace Assets.Source.Components.Animation
         public float HorizontalMoveSpeed { get; set; }
         public float VerticalMoveSpeed { get; set; } 
 
+        /// <summary>
+        /// If true the skeleton has been flipped and is facing to the left
+        /// </summary>
+        public bool SkeletonIsFlipped { get => (skeletonMecanim.Skeleton.ScaleX < 0); }
 
         public override void ComponentAwake()
         {
