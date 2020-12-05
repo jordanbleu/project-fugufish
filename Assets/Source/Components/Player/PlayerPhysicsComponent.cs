@@ -87,8 +87,6 @@ namespace Assets.Source.Components.Player
 
             var externalForces = CalculateEnvironmentalForces();
 
-            
-
             if (!isClimbing) 
             {
                 if (IsGrounded) 
@@ -180,7 +178,7 @@ namespace Assets.Source.Components.Player
             // Calculates the total environmental force from ForceComponents
             foreach (var trigger in collidingTriggers) {
                 if (trigger.TryGetComponent<ForceComponent>(out var forceComponent)) {
-                    if (forceComponent.IsGround || IsGrounded) 
+                    if (forceComponent.IsGroundOnly || IsGrounded) 
                     {
                         xForce += forceComponent.Amount.x;
                         yForce += forceComponent.Amount.y;

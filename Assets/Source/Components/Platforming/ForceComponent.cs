@@ -10,6 +10,6 @@ namespace Assets.Source.Components.Platforming
         public Vector2 Amount = new Vector2(0.1f, 0);
 
         [Tooltip("If true, force will only apply if the player is grounded.")]
-        public bool IsGround = false;
+        public bool IsGroundOnly = false;
     }
 }

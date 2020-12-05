@@ -1,4 +1,6 @@
-﻿namespace Assets.Source
+﻿using UnityEngine;
+
+namespace Assets.Source
 {
     public static class FloatExtensions
     {
@@ -46,6 +48,25 @@
             }
 
             return newValue;
+        }
+
+        /// <summary>
+        /// If <paramref name="direction"/> is negative, return -value.  Otherwise return value.
+        /// </summary>
+        /// <param name="value">The value to flip towards</param>
+        /// <param name="direction">The direction to copy the sign from</param>
+        /// <returns></returns>
+        public static float FlipTowards(this float value, float direction) {
+            var abs = Mathf.Abs(value);
+
+            if (direction < 0)
+            {
+                return -abs;
+            }
+            else {
+                return abs;
+            }
+
         }
     }
 }
