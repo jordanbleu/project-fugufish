@@ -1,4 +1,5 @@
-﻿using Assets.Source.Components.Animation;
+﻿using Assets.Source.Components.Actor;
+using Assets.Source.Components.Animation;
 using Assets.Source.Components.Brain.Base;
 using Assets.Source.Components.Camera;
 using Assets.Source.Components.Platforming;
@@ -42,19 +43,18 @@ namespace Assets.Source.Components.Brain
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
-
+        private MeleeComponent meleeCollider;
 
         private bool isClimbing = false;
         // Whether the player used the uppercut attack during his jump
         private bool usedUppercut = false;
-        
-        public bool IsDamageEnabled { get; private set; }
         public bool IsAttacking { get; private set; }
 
         public override void ComponentAwake()
         {
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
             cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
+            meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
             base.ComponentAwake();
         }
 
@@ -120,6 +120,10 @@ namespace Assets.Source.Components.Brain
             // Tranlate user controls into the player's movements
             UpdateFootVelocity();
             UpdateAnimator();
+
+            // tell the melee collider to face left if the player is facing left -_-
+            meleeCollider.IsFlipped = animator.SkeletonIsFlipped;
+
             base.ComponentUpdate();
         }
 
@@ -184,12 +188,13 @@ namespace Assets.Source.Components.Brain
             else {
                 AddImpact(dodgeSpeed,0);
             }
-            IsDamageEnabled = true;
+
+            meleeCollider.IsDamageEnabled = true;
         }
 
         public void OnDamageDisable()
         {
-            IsDamageEnabled = false;
+            meleeCollider.IsDamageEnabled = false;
         }
 
         public void OnGroundPoundLanded()
