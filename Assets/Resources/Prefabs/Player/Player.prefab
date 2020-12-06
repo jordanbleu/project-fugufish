@@ -199,7 +199,7 @@ MonoBehaviour:
   onHealthDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6603313873365674061}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 3211081952889808032}
   - component: {fileID: 3211081952889808038}
   - component: {fileID: 2973945148652611441}
+  - component: {fileID: 6185943347054057208}
   m_Layer: 9
   m_Name: Melee
   m_TagString: Untagged
@@ -343,6 +344,27 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 311
   attacker: {fileID: 3211081951321728954}
+--- !u!50 &6185943347054057208
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211081952889808033}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &4888999914811982235
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4888999914811982235}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3211081951321728952}
@@ -389,7 +411,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0

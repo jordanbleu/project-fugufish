@@ -149,7 +149,7 @@ namespace Assets.Source.Components.Brain
             else if (isClimbing)
             {
                 // Gravity is disabled while climbing
-                FootVelocity = new Vector2(0, inputVertical * climbSpeed);
+                FootVelocity = new Vector2(inputHorizontal * moveSpeed, inputVertical * climbSpeed);
             }
             else {
                 // Move as usual but again maintain the current y velocity so unity can do its thing
