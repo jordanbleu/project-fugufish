@@ -17,7 +17,7 @@ namespace Assets.Source.Components.Brain.Base
         [SerializeField]
         [Header("Common Physics")]
         [Tooltip("This is the size of the bottom of the object.  Helps determine if the object is on the ground or not.")]
-        private float feetRadius = 0.25f;
+        private float feetRadius = 0.15f;
 
         [SerializeField]
         [Tooltip("Set this to apply gravity scale to the rigid body.  NOTE: Rigid Body's gravity scale will be ignored so don't use that.")]
@@ -50,7 +50,7 @@ namespace Assets.Source.Components.Brain.Base
         /// This is the velocity the actor is moving due to an impact (bouncing, getting pushed, getting slapped, etc).
         /// The values self-stabilize smoothly back to zero.
         /// </summary>
-        protected Vector2 ImpactVelocity { get; set; }
+        protected Vector2 ImpactVelocity { get; private set; }
 
         // Track all colliding object triggers
         protected List<GameObject> CollidingTriggers { get; private set; } = new List<GameObject>();
@@ -67,11 +67,11 @@ namespace Assets.Source.Components.Brain.Base
         
         public bool IsGrounded { get; private set; }
         public Vector2 CurrentVelocity { get => rigidBody2d.velocity; }
-        
+
         /// <summary>
         /// Enable or disable gravity for this actor.
         /// </summary>
-        public bool IsGravityEnabled { get; set; }
+        public bool IsGravityEnabled { get; set; } = true;
 
         public override void ComponentAwake()
         {
@@ -181,9 +181,8 @@ namespace Assets.Source.Components.Brain.Base
             IsGrounded = false;
 
             // Represents the bottom area of the collider, which we call its "feet"
-            var bottomThird = collider2d.bounds.center.y - (collider2d.bounds.size.y / 2);
-
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(collider2d.bounds.center.x, bottomThird), feetRadius);
+            
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(GetFeetCenter(), feetRadius);
 
             for (int i = 0; i < colliders.Length; i++) {
                 // If the game object we're colliding with:
@@ -219,9 +218,40 @@ namespace Assets.Source.Components.Brain.Base
             if (collider2d != null)
             {
                 Gizmos.color = Color.cyan;
-                var bottomThird = collider2d.bounds.center.y - (collider2d.bounds.size.y / 2);
-                Gizmos.DrawWireSphere(new Vector3(collider2d.bounds.center.x, bottomThird, 0), feetRadius);
+                Gizmos.DrawWireSphere(GetFeetCenter(), feetRadius);
             }
+            DrawAdditionalGizmosSelected();
         }
+
+        /// <summary>
+        /// Used to layer more gizmos on top of the common physics gizmos
+        /// </summary>
+        public virtual void DrawAdditionalGizmosSelected() { }
+
+        public Vector2 GetFeetCenter() {
+            var bottomThird = collider2d.bounds.center.y - (collider2d.bounds.size.y / 2);
+            return new Vector3(collider2d.bounds.center.x, bottomThird); 
+        }
+
+        #region Animation Events - Triggered via Spine Animation
+        // ****************************************************
+        // ** These must be wired up via Unity's timeline ******
+        // ****************************************************
+
+        public virtual void OnAttackBegin() { }
+
+        public virtual void OnUppercutBegin() { }
+
+        public virtual void OnGroundPoundBegin() { }
+
+        public virtual void OnAttackEnd() { }
+
+        public virtual void OnDamageEnable() { }
+
+        public virtual void OnDamageDisable() { }
+
+        public virtual void OnGroundPoundLanded() { } 
+
+        #endregion
     }
 }

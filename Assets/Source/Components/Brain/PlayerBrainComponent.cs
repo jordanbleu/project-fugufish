@@ -3,6 +3,7 @@ using Assets.Source.Components.Animation;
 using Assets.Source.Components.Brain.Base;
 using Assets.Source.Components.Camera;
 using Assets.Source.Components.Platforming;
+using Assets.Source.Enums;
 using Assets.Source.Input.Constants;
 using Spine.Unity;
 using System;
@@ -14,7 +15,6 @@ namespace Assets.Source.Components.Brain
     [RequireComponent(typeof(SkeletonMecanim), typeof(HumanoidSkeletonAnimatorComponent))]
     public class PlayerBrainComponent : CommonPhysicsComponent
     {
-
         [SerializeField]
         [Header("Player Brain")]
         [Tooltip("How fast the player moves via walking / running")]
@@ -49,6 +49,7 @@ namespace Assets.Source.Components.Brain
         // Whether the player used the uppercut attack during his jump
         private bool usedUppercut = false;
         public bool IsAttacking { get; private set; }
+        public AttackTypes ActiveAttack { get; private set; }
 
         public override void ComponentAwake()
         {
@@ -164,44 +165,65 @@ namespace Assets.Source.Components.Brain
             usedUppercut = false;
         }
 
+        public void OnGetAttacked(GameObject attacker) { 
+
+        
+        }
+
         #region Animation Events - Triggered via Spine Animation
         // ****************************************************
         // ** These must be wired up via Unity's timeline ******
         // ****************************************************
-        public void OnAttackBegin()
+        public override void OnAttackBegin()
         {
+            ActiveAttack = AttackTypes.Swing;
             IsAttacking = true;
         }
 
-        public void OnAttackEnd()
+        public override void OnUppercutBegin()
         {
+            ActiveAttack = AttackTypes.Uppercut;
+            IsAttacking = true;
+        }
+
+        public override void OnGroundPoundBegin()
+        {
+            ActiveAttack = AttackTypes.GroundPound;
+            IsAttacking = true;
+        }
+
+        public override void OnAttackEnd()
+        {
+            ActiveAttack = AttackTypes.None;
             IsAttacking = false;
         }
 
-        public void OnDamageEnable()
+        public override void OnDamageEnable()
         {
             // Add force to the player 
             if (animator.SkeletonIsFlipped)
             {
-                AddImpact(-dodgeSpeed,0);
+                AddImpact(-dodgeSpeed, 0);
             }
-            else {
-                AddImpact(dodgeSpeed,0);
+            else
+            {
+                AddImpact(dodgeSpeed, 0);
             }
 
             meleeCollider.IsDamageEnabled = true;
         }
 
-        public void OnDamageDisable()
+        public override void OnDamageDisable()
         {
             meleeCollider.IsDamageEnabled = false;
         }
 
-        public void OnGroundPoundLanded()
+        public override void OnGroundPoundLanded()
         {
             cameraEffector.LargeImpact();
         }
 
         #endregion
+
     }
 }

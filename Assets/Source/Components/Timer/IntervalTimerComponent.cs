@@ -10,6 +10,11 @@ namespace Assets.Source.Components.Timer
     /// </summary>
     public class IntervalTimerComponent : ComponentBase
     {
+
+        [Tooltip("Just a friendly label to figure out what this is for.  No real functionality.")]
+        [SerializeField]
+        private string Label = "Interval Timer";
+
         [Tooltip("The time in milliseconds the interval timer counts down before invoking the unity event")]
         [SerializeField]
         private float interval = 500f;

@@ -520,14 +520,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: OnAttackBegin
+    functionName: OnDamageEnable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 1
   - time: 0
-    functionName: OnDamageEnable
+    functionName: OnUppercutBegin
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -1795,15 +1795,15 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.0667
-    functionName: OnDamageDisable
+  - time: 0
+    functionName: OnGroundPoundLanded
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 1
   - time: 0.0667
-    functionName: OnGroundPoundLanded
+    functionName: OnDamageDisable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -3436,14 +3436,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: OnAttackBegin
+    functionName: OnDamageDisable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 1
   - time: 0
-    functionName: OnDamageDisable
+    functionName: OnGroundPoundBegin
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -3451,6 +3451,13 @@ AnimationClip:
     messageOptions: 1
   - time: 0.4333
     functionName: OnDamageEnable
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 1
+  - time: 0.4333
+    functionName: OnGroundPoundBegin
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
