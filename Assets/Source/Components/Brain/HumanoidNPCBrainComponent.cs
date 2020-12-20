@@ -26,13 +26,23 @@ namespace Assets.Source.Components.Brain
         [NonSerialized]
         public UnityEvent upperCutBegin = new UnityEvent();
 
+        private bool damageEnableFlag = false;
+
 
         private PlayerBrainComponent playerBrain;
-        
+
         public override void ComponentAwake()
         {
             base.ComponentAwake();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
+        }
+
+        public override void ComponentFixedUpdate()
+        {
+            // Ensures that animation events are only emitted once per physics update
+            damageEnableFlag = false;
+
+            base.ComponentFixedUpdate();
         }
 
         public void OnAttackedByPlayer() => attackByPlayer?.Invoke();
@@ -44,7 +54,11 @@ namespace Assets.Source.Components.Brain
 
         public void OnDamageDisable() => damageDisable?.Invoke();
 
-        public void OnDamageEnable() => damageEnable?.Invoke();
+        public void OnDamageEnable() {
+            if (damageEnableFlag) { 
+                damageEnable?.Invoke(); 
+            }
+        }
 
         public void OnGroundPoundBegin() => groundPoundBegin?.Invoke();
 

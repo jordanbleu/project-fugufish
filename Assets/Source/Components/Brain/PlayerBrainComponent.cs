@@ -37,7 +37,7 @@ namespace Assets.Source.Components.Brain
         private float climbSpeed = 3f;
 
         [SerializeField]
-        [Tooltip("How much movement force the player's attacks cause")]
+        [Tooltip("How much movement force the player's attacks cause (not yet used)")]
         private float attackVelocity = 3f;
 
         // Components

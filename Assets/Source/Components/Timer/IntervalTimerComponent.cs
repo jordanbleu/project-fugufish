@@ -40,7 +40,7 @@ namespace Assets.Source.Components.Timer
         /// The UnityEvent to subscribe to in order to run code after the time interval is reached.
         /// See <seealso cref="UnityEvent.AddListener(UnityAction)"/> for more details.
         /// </summary>
-        public UnityEvent OnIntervalReached;
+        public UnityEvent OnIntervalReached = new UnityEvent();
 
         /// <summary>
         /// Used to determine if the timer is currently running, defaults to true

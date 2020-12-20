@@ -39,18 +39,28 @@ namespace Assets.Source.Components.Brain.Base
         /// <summary>
         /// This is the velocity the actor is walking or jumping
         /// </summary>
-        protected Vector2 FootVelocity { get; set; }
+        [SerializeField]
+        [Header("Velocities")]
+        [ReadOnly]
+        private Vector2 footVelocity;
+        protected Vector2 FootVelocity { get => footVelocity; set => footVelocity = value; }
 
         /// <summary>
         /// Constant velocity affecting the actor from outside (wind, water, converyor belt, etc)
         /// </summary>
-        protected Vector2 EnvironmentalVelocity { get; private set; }
+        [SerializeField]
+        [ReadOnly]
+        private Vector2 environmentalVelocity;
+        protected Vector2 EnvironmentalVelocity { get => environmentalVelocity; private set => environmentalVelocity = value; }
 
         /// <summary>
         /// This is the velocity the actor is moving due to an impact (bouncing, getting pushed, getting slapped, etc).
         /// The values self-stabilize smoothly back to zero.
         /// </summary>
-        protected Vector2 ImpactVelocity { get; private set; }
+        [SerializeField]
+        [ReadOnly]
+        private Vector2 impactVelocity;
+        protected Vector2 ImpactVelocity { get => impactVelocity; private set => impactVelocity = value; }
 
         // Track all colliding object triggers
         protected List<GameObject> CollidingTriggers { get; private set; } = new List<GameObject>();
@@ -64,7 +74,7 @@ namespace Assets.Source.Components.Brain.Base
         protected Collider2D collider2d;
 
         private bool wasGrounded = false;
-        
+
         public bool IsGrounded { get; private set; }
         public Vector2 CurrentVelocity { get => rigidBody2d.velocity; }
 
@@ -86,13 +96,13 @@ namespace Assets.Source.Components.Brain.Base
         {
             // Combine the velocity of all external forces and apply them to EnvironmentalVelocity
             UpdateEnvironmentalVelocity();
-            
+
             // Smoothly decelerate the ImpactVelocity
             StabilizeImpactVelocity();
 
             // Enable or disable gravity on the rigid body
             UpdateGravity();
-            
+
             // Check if we're standing on the ground
             CheckIfGrounded();
 
@@ -122,9 +132,12 @@ namespace Assets.Source.Components.Brain.Base
             var yForce = 0f;
 
             // Calculates the total environmental force from ForceComponents
-            foreach (var trigger in CollidingTriggers) {
-                if (trigger.TryGetComponent<ForceComponent>(out var forceComponent)) { 
-                    if (isAffectedByForceComponent && (forceComponent.IsGroundOnly || IsGrounded)) {
+            foreach (var trigger in CollidingTriggers)
+            {
+                if (trigger.TryGetComponent<ForceComponent>(out var forceComponent))
+                {
+                    if (isAffectedByForceComponent && (forceComponent.IsGroundOnly || IsGrounded))
+                    {
                         xForce += forceComponent.Amount.x;
                         yForce += forceComponent.Amount.y;
                     }
@@ -159,7 +172,8 @@ namespace Assets.Source.Components.Brain.Base
             {
                 rigidBody2d.gravityScale = 0f;
             }
-            else {
+            else
+            {
                 rigidBody2d.gravityScale = gravityScale;
             }
         }
@@ -168,12 +182,14 @@ namespace Assets.Source.Components.Brain.Base
         {
             var combinedXVelocity = FootVelocity.x + EnvironmentalVelocity.x + ImpactVelocity.x;
 
-            if (combinedXVelocity == 0f) {
+            if (combinedXVelocity == 0f)
+            {
                 collider2d.sharedMaterial = grippyMaterial;
             }
-            else  {
+            else
+            {
                 collider2d.sharedMaterial = slippyMaterial;
-            }            
+            }
         }
 
         private void CheckIfGrounded()
@@ -181,15 +197,17 @@ namespace Assets.Source.Components.Brain.Base
             IsGrounded = false;
 
             // Represents the bottom area of the collider, which we call its "feet"
-            
+
             Collider2D[] colliders = Physics2D.OverlapCircleAll(GetFeetCenter(), feetRadius);
 
-            for (int i = 0; i < colliders.Length; i++) {
+            for (int i = 0; i < colliders.Length; i++)
+            {
                 // If the game object we're colliding with:
                 // * Is not ourself
                 // * Is not a trigger
                 // * Is included in our ground layers layermask
-                if (colliders[i].gameObject != gameObject && (!colliders[i].isTrigger) && groundLayers.IncludesLayer(colliders[i].gameObject.layer)) {
+                if (colliders[i].gameObject != gameObject && (!colliders[i].isTrigger) && groundLayers.IncludesLayer(colliders[i].gameObject.layer))
+                {
                     IsGrounded = true;
 
                     if (!wasGrounded)
@@ -228,10 +246,11 @@ namespace Assets.Source.Components.Brain.Base
         /// </summary>
         public virtual void DrawAdditionalGizmosSelected() { }
 
-        public Vector2 GetFeetCenter() {
-            
+        public Vector2 GetFeetCenter()
+        {
+
             var bottomThird = collider2d.bounds.center.y - (collider2d.bounds.size.y / 2);
-            return new Vector3(collider2d.bounds.center.x, bottomThird); 
+            return new Vector3(collider2d.bounds.center.x, bottomThird);
         }
     }
 }

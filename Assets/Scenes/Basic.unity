@@ -239,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &102636055
 Transform:
   m_ObjectHideFlags: 0
@@ -3933,12 +3933,12 @@ PrefabInstance:
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.06
+      value: 13.64
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -43.98
+      value: -43.66
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
@@ -4643,6 +4643,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1839516248}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1154241957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8008202870386884783, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1839516248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154241956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8e8f3300fe64b4ca1cfbd8c58fdc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1154241966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3211081951321728952, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
@@ -6140,10 +6152,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668576054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7a4f5f462e47dc4b93d215582c94fb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a35665fe1258d14ea231a1b6c59b410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feetRadius: 0.1
+  feetRadius: 0.15
   gravityScale: 5
   isAffectedByForceComponent: 1
   onLand:
@@ -6152,17 +6164,22 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 823
+  footVelocity: {x: 0, y: 0}
+  environmentalVelocity: {x: 0, y: 0}
+  impactVelocity: {x: 0, y: 0}
   lookaheadDistanceNear: 0.25
   lookaheadDistanceFar: 3
   lookBelowDistance: 0.5
   moveSpeed: 6
   jumpHeight: 16
   upperCutHeight: 8
-  dodgeSpeed: 24
+  dodgeSpeed: 16
   climbSpeed: 3
   player: {fileID: 1154241956}
   rangeFromPlayer: 2
   precision: 0.25
+  thinkTimeMin: 500
+  thinkTimeMax: 1000
 --- !u!114 &1668576057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6184,6 +6201,9 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 823
+  footVelocity: {x: 0, y: 0}
+  environmentalVelocity: {x: 0, y: 0}
+  impactVelocity: {x: 0, y: 0}
   lookaheadDistanceNear: 0.25
   lookaheadDistanceFar: 3
   lookBelowDistance: 0.5
@@ -6226,6 +6246,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1668576067}
+        m_MethodName: OnAttackedByPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6685,15 +6716,20 @@ PrefabInstance:
       propertyPath: feetRadius
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 3211081951321728951, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+        type: 3}
+      propertyPath: attackVelocity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3211081951321728952, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.06
+      value: 13.64
       objectReference: {fileID: 0}
     - target: {fileID: 3211081951321728952, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -43.98
+      value: -43.66
       objectReference: {fileID: 0}
     - target: {fileID: 3211081951321728952, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
@@ -6763,7 +6799,7 @@ PrefabInstance:
     - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
       propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
@@ -6773,12 +6809,32 @@ PrefabInstance:
     - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
       propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
       propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+        type: 3}
+      propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1154241957}
+    - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+        type: 3}
+      propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DepleteHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+        type: 3}
+      propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401049630020257325, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+        type: 3}
+      propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c, type: 3}
@@ -12700,6 +12756,9 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 823
+  footVelocity: {x: 0, y: 0}
+  environmentalVelocity: {x: 0, y: 0}
+  impactVelocity: {x: 0, y: 0}
 --- !u!4 &1254588902930931418
 Transform:
   m_ObjectHideFlags: 0
@@ -18306,12 +18365,12 @@ PrefabInstance:
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.3099995
+      value: -0.10999966
       objectReference: {fileID: 0}
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.060001373
+      value: 0.38000107
       objectReference: {fileID: 0}
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
