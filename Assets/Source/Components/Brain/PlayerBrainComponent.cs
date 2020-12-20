@@ -6,7 +6,6 @@ using Assets.Source.Components.Platforming;
 using Assets.Source.Enums;
 using Assets.Source.Input.Constants;
 using Spine.Unity;
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -40,10 +39,15 @@ namespace Assets.Source.Components.Brain
         [Tooltip("How much movement force the player's attacks cause (not yet used)")]
         private float attackVelocity = 3f;
 
+        [SerializeField]
+        [Header("Stamina Requirements")]
+        private int dodgeStaminaRequired = 30;
+
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
         private MeleeComponent meleeCollider;
+        private ActorComponent actor;
 
         private bool isClimbing = false;
         // Whether the player used the uppercut attack during his jump
@@ -53,6 +57,7 @@ namespace Assets.Source.Components.Brain
 
         public override void ComponentAwake()
         {
+            actor = GetRequiredComponent<ActorComponent>();
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
             cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
@@ -109,14 +114,18 @@ namespace Assets.Source.Components.Brain
                 IsGravityEnabled = false;
             }
 
-            if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT))
+
+
+            if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
             {
+
                 AddImpact(-dodgeSpeed, 0);
             }
             
-            if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT)) {
+            if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired)) {
                 AddImpact(dodgeSpeed, 0);
             }
+             
 
             // Tranlate user controls into the player's movements
             UpdateFootVelocity();

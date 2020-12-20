@@ -4037,12 +4037,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5946685d6c21784ebd308012b394826, type: 3}
---- !u!224 &906554919 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5593558676313918399, guid: 56f2156163b14364d8d16abd1b14edd2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5593558676638857257}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &944476226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4539,7 +4533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e365e84e70395469105080a9b8cf43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: Brain Thinking Timer
+  label: Interval Timer
   interval: 1000
   _selfDestruct: 0
   _randomize: 0
@@ -6178,8 +6172,8 @@ MonoBehaviour:
   player: {fileID: 1154241956}
   rangeFromPlayer: 2
   precision: 0.25
-  thinkTimeMin: 500
-  thinkTimeMax: 1000
+  thinkTimeMin: 750
+  thinkTimeMax: 2000
 --- !u!114 &1668576057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6289,7 +6283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8f3300fe64b4ca1cfbd8c58fdc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  health: 0
   maxHealth: 100
   onHealthDamage:
     m_PersistentCalls:
@@ -6306,6 +6300,16 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   onHealthEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+  stamina: 0
+  maxStamina: 0
+  refillStamina: 1
+  staminaRefillDelay: 100
+  onStaminaDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  onStaminaEmpty:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1668576061
@@ -6721,6 +6725,11 @@ PrefabInstance:
       propertyPath: attackVelocity
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3211081951321728951, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+        type: 3}
+      propertyPath: dodgeStaminaRequired
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3211081951321728952, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6836,6 +6845,11 @@ PrefabInstance:
       propertyPath: onNpcAttack.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8008202870386884783, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+        type: 3}
+      propertyPath: maxStamina
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c, type: 3}
 --- !u!1 &1852375139
@@ -6882,79 +6896,6 @@ Transform:
   m_Father: {fileID: 2188992658562600358}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1964021500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1964021501}
-  - component: {fileID: 1964021503}
-  - component: {fileID: 1964021502}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1964021501
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964021500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 906554919}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -15}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1964021502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964021500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 72608c24effa9f749b16ea0c0e051a33, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1964021503
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964021500}
-  m_CullTransparentMesh: 0
 --- !u!1 &2009164602
 GameObject:
   m_ObjectHideFlags: 0
@@ -13132,7 +13073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8f3300fe64b4ca1cfbd8c58fdc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
+  health: 0
   maxHealth: 0
   onHealthDamage:
     m_PersistentCalls:
@@ -13162,6 +13103,16 @@ MonoBehaviour:
           m_StringArgument: Omg i am dead
           m_BoolArgument: 0
         m_CallState: 2
+  stamina: 0
+  maxStamina: 0
+  refillStamina: 1
+  staminaRefillDelay: 100
+  onStaminaDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  onStaminaEmpty:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2188992658562600357
 GameObject:
   m_ObjectHideFlags: 0
@@ -13272,12 +13223,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8f3300fe64b4ca1cfbd8c58fdc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
+  health: 0
   maxHealth: 0
   onHealthDamage:
     m_PersistentCalls:
       m_Calls: []
   onHealthEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+  stamina: 0
+  maxStamina: 0
+  refillStamina: 1
+  staminaRefillDelay: 100
+  onStaminaDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  onStaminaEmpty:
     m_PersistentCalls:
       m_Calls: []
 --- !u!212 &2993366180601641044
@@ -13406,10 +13367,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4573904799600855660, guid: 56f2156163b14364d8d16abd1b14edd2,
+    - target: {fileID: 2258350956412631809, guid: 56f2156163b14364d8d16abd1b14edd2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111437535625508121, guid: 56f2156163b14364d8d16abd1b14edd2,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156140358398763554, guid: 56f2156163b14364d8d16abd1b14edd2,
+        type: 3}
+      propertyPath: lowHealthThreshold
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573904799600855660, guid: 56f2156163b14364d8d16abd1b14edd2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5593558676313918395, guid: 56f2156163b14364d8d16abd1b14edd2,
         type: 3}
@@ -13546,6 +13522,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8315691969249941028, guid: 56f2156163b14364d8d16abd1b14edd2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556080020004018169, guid: 56f2156163b14364d8d16abd1b14edd2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f2156163b14364d8d16abd1b14edd2, type: 3}
 --- !u!114 &5970618500937939405
@@ -13560,7 +13546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8f3300fe64b4ca1cfbd8c58fdc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  health: 0
   maxHealth: 100
   onHealthDamage:
     m_PersistentCalls:
@@ -13577,6 +13563,16 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   onHealthEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+  stamina: 0
+  maxStamina: 0
+  refillStamina: 1
+  staminaRefillDelay: 100
+  onStaminaDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  onStaminaEmpty:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &6867691092954300211

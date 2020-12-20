@@ -47,14 +47,17 @@ namespace Assets.Source.Components.Behavior.Humanoid
             brain.damageDisable.AddListener(OnDamageDisable);
 
 
-            var brainTimerObject = new GameObject("BrainTimer");
+            var brainTimerObject = new GameObject();
             brainTimer = brainTimerObject.AddComponent<IntervalTimerComponent>();
+            brainTimer.Label = "BrainTimerComponent";
             brainTimer.SetInterval((int)UnityEngine.Random.Range(thinkTimeMin, thinkTimeMax)); 
             brainTimer.SelfDestruct = false;
             brainTimer.Randomize = false;
             brainTimer.AutoReset = true;
             brainTimer.OnIntervalReached.AddListener(BrainUpdate);
-            Instantiate(brainTimerObject, transform);
+            var inst = Instantiate(brainTimerObject, transform);
+            inst.name = "BrainTimer";
+
             base.ComponentStart();
         }
 
