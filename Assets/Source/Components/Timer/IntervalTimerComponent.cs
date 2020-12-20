@@ -10,6 +10,11 @@ namespace Assets.Source.Components.Timer
     /// </summary>
     public class IntervalTimerComponent : ComponentBase
     {
+
+        [Tooltip("Just a friendly label to figure out what this is for.  No real functionality.")]
+        [SerializeField]
+        private string Label = "Interval Timer";
+
         [Tooltip("The time in milliseconds the interval timer counts down before invoking the unity event")]
         [SerializeField]
         private float interval = 500f;
@@ -35,7 +40,7 @@ namespace Assets.Source.Components.Timer
         /// The UnityEvent to subscribe to in order to run code after the time interval is reached.
         /// See <seealso cref="UnityEvent.AddListener(UnityAction)"/> for more details.
         /// </summary>
-        public UnityEvent OnIntervalReached;
+        public UnityEvent OnIntervalReached = new UnityEvent();
 
         /// <summary>
         /// Used to determine if the timer is currently running, defaults to true

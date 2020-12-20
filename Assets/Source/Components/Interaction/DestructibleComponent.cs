@@ -1,5 +1,5 @@
 ﻿using Assets.Source.Components.Actor;
-using Assets.Source.Components.Player;
+using Assets.Source.Components.Brain;
 using UnityEngine;
 
 namespace Assets.Source.Components.Interaction
@@ -24,25 +24,25 @@ namespace Assets.Source.Components.Interaction
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            // Checks to see if we collided with the player's swing collider
-            if (collision.gameObject.TryGetComponent<PlayerSwingColliderComponent>(out var swingCollider)) {
+            //// Checks to see if we collided with the player's swing collider
+            //if (collision.gameObject.TryGetComponent<PlayerSwingColliderComponent>(out var swingCollider)) {
 
-                var playerComponent = collision.gameObject.GetComponentInParent<PlayerPhysicsComponent>();
+            //    var playerComponent = collision.gameObject.GetComponentInParent<PlayerBrainComponent>();
 
-                if (playerComponent == null) {
-                    throw new UnityException("Found a swing collider component with no player physics component in the parent");
-                }
+            //    if (playerComponent == null) {
+            //        throw new UnityException("Found a swing collider component with no player physics component in the parent");
+            //    }
 
-                if (playerComponent.IsDamageEnabled) { 
-                    // A destructible object is always depleted by 1
-                    actor.DepleteHealth(1);
+            //    if (playerComponent.IsDamageEnabled) { 
+            //        // A destructible object is always depleted by 1
+            //        actor.DepleteHealth(1);
 
-                    if (stopsAttack) { 
-                        playerComponent.OnAttackEnd();
-                        playerComponent.OnDamageDisable();
-                    }
-                }
-            }
+            //        if (stopsAttack) { 
+            //            playerComponent.OnAttackEnd();
+            //            playerComponent.OnDamageDisable();
+            //        }
+            //    }
+            //}
             
 
             

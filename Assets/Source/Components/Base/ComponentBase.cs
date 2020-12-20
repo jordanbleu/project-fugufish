@@ -1,8 +1,6 @@
 ﻿using Assets.Source.Components.Level;
-using Assets.Source.Components.Player;
 using Assets.Source.Input;
 using System;
-using System.Linq;
 using UnityEngine;
 
 namespace Assets.Source.Components

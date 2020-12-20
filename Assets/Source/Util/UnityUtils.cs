@@ -16,5 +16,11 @@ namespace Assets.Source
         /// <param name="unityObject">Object to check</param>
         public static bool Exists(Object unityObject) => unityObject != null && !unityObject.Equals(null);
 
+        /// <summary>
+        /// Creates a color from actual RGB values rather than floats because that is stupid.
+        /// </summary>
+        /// <returns>UnityEngine Color</returns>
+        public static Color Color(byte r, byte g, byte b) => new Color((float)r/255, (float)g /255, (float)b /255, 1);
+        
     }
 }

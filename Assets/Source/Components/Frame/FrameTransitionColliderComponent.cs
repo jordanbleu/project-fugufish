@@ -1,5 +1,5 @@
-﻿using Assets.Source.Components.Frame.Base;
-using Assets.Source.Components.Player;
+﻿using Assets.Source.Components.Brain;
+using Assets.Source.Components.Frame.Base;
 using System;
 using UnityEngine;
 
@@ -29,7 +29,7 @@ namespace Assets.Source.Components.Frame
         private void OnTriggerEnter2D(Collider2D collision)
         {
             // Only React to the player
-            if (collision.gameObject.TryGetComponent<PlayerPhysicsComponent>(out _)) {
+            if (collision.gameObject.TryGetComponent<PlayerBrainComponent>(out _)) {
                 
                 var frameTransitionPrefab = GetRequiredResource<GameObject>($"{ResourcePaths.PrefabsFolder}/System/FrameTransition");
 
