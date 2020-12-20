@@ -13,7 +13,9 @@ namespace Assets.Source.Components.Timer
 
         [Tooltip("Just a friendly label to figure out what this is for.  No real functionality.")]
         [SerializeField]
-        private string Label = "Interval Timer";
+        private string label = "Interval Timer";
+        public string Label { get => label; set => label = value; }
+        
 
         [Tooltip("The time in milliseconds the interval timer counts down before invoking the unity event")]
         [SerializeField]
