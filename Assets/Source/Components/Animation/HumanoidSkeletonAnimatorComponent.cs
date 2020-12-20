@@ -68,6 +68,7 @@ namespace Assets.Source.Components.Animation
         /// Can be used to manually set the direction of the skeleton without moving it.
         /// </summary>
         /// <param name="isLeft">If true, flips skeleton to the left.  else flips it right</param>
+        [Obsolete("Don't use this, its dumb")]
         public void FaceDirection(bool isLeft) {
             var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
 
@@ -77,8 +78,27 @@ namespace Assets.Source.Components.Animation
             }
             else {
                 skeletonMecanim.Skeleton.ScaleX = scale;
-            }          
-
+            }        
         }
+
+
+        /// <summary>
+        /// Face either left or right, towards the position
+        /// </summary>
+        /// <param name="position"></param>
+        public void FaceTowardsPosition(Vector2 position) {
+
+            var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
+
+            if (position.x < transform.position.x)
+            {
+                skeletonMecanim.Skeleton.ScaleX = -scale;
+            }
+            else
+            {
+                skeletonMecanim.Skeleton.ScaleX = scale;
+            }
+        }
+
     }
 }

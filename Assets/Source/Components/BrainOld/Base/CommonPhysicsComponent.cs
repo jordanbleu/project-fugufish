@@ -33,7 +33,7 @@ namespace Assets.Source.Components.Brain.Base
 
         [SerializeField]
         [Tooltip("Layers that the actor considers the ground")]
-        private LayerMask groundLayers;
+        protected LayerMask groundLayers;
 
 
         /// <summary>
@@ -60,8 +60,8 @@ namespace Assets.Source.Components.Brain.Base
         private PhysicsMaterial2D slippyMaterial;
 
         // Components
-        private Rigidbody2D rigidBody2d;
-        private Collider2D collider2d;
+        protected Rigidbody2D rigidBody2d;
+        protected Collider2D collider2d;
 
         private bool wasGrounded = false;
         
@@ -229,29 +229,9 @@ namespace Assets.Source.Components.Brain.Base
         public virtual void DrawAdditionalGizmosSelected() { }
 
         public Vector2 GetFeetCenter() {
+            
             var bottomThird = collider2d.bounds.center.y - (collider2d.bounds.size.y / 2);
             return new Vector3(collider2d.bounds.center.x, bottomThird); 
         }
-
-        #region Animation Events - Triggered via Spine Animation
-        // ****************************************************
-        // ** These must be wired up via Unity's timeline ******
-        // ****************************************************
-
-        public virtual void OnAttackBegin() { }
-
-        public virtual void OnUppercutBegin() { }
-
-        public virtual void OnGroundPoundBegin() { }
-
-        public virtual void OnAttackEnd() { }
-
-        public virtual void OnDamageEnable() { }
-
-        public virtual void OnDamageDisable() { }
-
-        public virtual void OnGroundPoundLanded() { } 
-
-        #endregion
     }
 }

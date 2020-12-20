@@ -174,31 +174,31 @@ namespace Assets.Source.Components.Brain
         // ****************************************************
         // ** These must be wired up via Unity's timeline ******
         // ****************************************************
-        public override void OnAttackBegin()
+        public void OnAttackBegin()
         {
             ActiveAttack = AttackTypes.Swing;
             IsAttacking = true;
         }
 
-        public override void OnUppercutBegin()
+        public void OnUppercutBegin()
         {
             ActiveAttack = AttackTypes.Uppercut;
             IsAttacking = true;
         }
 
-        public override void OnGroundPoundBegin()
+        public void OnGroundPoundBegin()
         {
             ActiveAttack = AttackTypes.GroundPound;
             IsAttacking = true;
         }
 
-        public override void OnAttackEnd()
+        public void OnAttackEnd()
         {
             ActiveAttack = AttackTypes.None;
             IsAttacking = false;
         }
 
-        public override void OnDamageEnable()
+        public void OnDamageEnable()
         {
             // Add force to the player 
             if (animator.SkeletonIsFlipped)
@@ -213,12 +213,12 @@ namespace Assets.Source.Components.Brain
             meleeCollider.IsDamageEnabled = true;
         }
 
-        public override void OnDamageDisable()
+        public void OnDamageDisable()
         {
             meleeCollider.IsDamageEnabled = false;
         }
 
-        public override void OnGroundPoundLanded()
+        public void OnGroundPoundLanded()
         {
             cameraEffector.LargeImpact();
         }
