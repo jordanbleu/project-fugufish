@@ -68,21 +68,20 @@ namespace Assets.Source.Components.Actor
         /// <param name="amount">The amount to deplete health by</param>
         public void DepleteHealth(int amount)
         {
-            onHealthDamage?.Invoke();
+            if (Health > 0) {
+                
+                onHealthDamage?.Invoke();
 
-            if (Health >= amount)
-            {
-                Health -= amount;
-            }
-            else
-            {
-                Health = 0;
-            }
-
-            if (Health <= 0)
-            {
-                onHealthEmpty?.Invoke();
-            }
+                if (Health >= amount)
+                {   
+                    Health -= amount;
+                }
+                else
+                {
+                    onHealthEmpty?.Invoke();
+                    Health = 0;
+                }
+            } 
 
         }
 
@@ -111,17 +110,23 @@ namespace Assets.Source.Components.Actor
 
             if (!UnityUtils.Exists(staminaTimer) && refillStamina)
             {
-                var staminaTimer = new GameObject();
-                var staminaTimerComponent = staminaTimer.AddComponent<IntervalTimerComponent>();
-                staminaTimerComponent.Label = "StaminaTimerComponent";
-                staminaTimerComponent.SetInterval(staminaRefillDelay);
-                staminaTimerComponent.SelfDestruct = false;
-                staminaTimerComponent.Randomize = false;
-                staminaTimerComponent.AutoReset = true;
-                staminaTimerComponent.OnIntervalReached.AddListener(RefillStaminaIntervalReached);
-                staminaTimerComponent.IsActive = true;
-                var instance = Instantiate(staminaTimer, transform);
+                var staminaTimerPrefabTemp = new GameObject("Stamina Timer Object (temp)");
+                staminaTimerPrefabTemp.AddComponent<IntervalTimerComponent>();
+
+                var instance = Instantiate(staminaTimerPrefabTemp, transform);
+
+                staminaTimer = GetRequiredComponent<IntervalTimerComponent>(instance);
+                staminaTimer.Label = "StaminaTimerComponent";
+                staminaTimer.SetInterval(staminaRefillDelay);
+                staminaTimer.SelfDestruct = false;
+                staminaTimer.Randomize = false;
+                staminaTimer.AutoReset = true;
+                staminaTimer.OnIntervalReached.AddListener(RefillStaminaIntervalReached);
+                staminaTimer.IsActive = true;
+
                 instance.name = "StaminaTimer";
+
+                Destroy(staminaTimerPrefabTemp);
             }
             base.ComponentAwake();
         }

@@ -35,6 +35,10 @@ namespace Assets.Source.Components.Brain.Base
         [Tooltip("Layers that the actor considers the ground")]
         protected LayerMask groundLayers;
 
+        [SerializeField]
+        [Tooltip("The maximum impact velocity.")]
+        private float impactVelocityLimit = 12f;
+
 
         /// <summary>
         /// This is the velocity the actor is walking or jumping
@@ -118,7 +122,12 @@ namespace Assets.Source.Components.Brain.Base
         /// <summary>
         /// Increments the current impact velocity by the specified amount
         /// </summary>
-        public void AddImpact(float x, float y) => ImpactVelocity = new Vector2(ImpactVelocity.x + x, ImpactVelocity.y + y);
+        public void AddImpact(float x, float y) {
+            var xv = Mathf.Clamp(ImpactVelocity.x + x, -impactVelocityLimit, impactVelocityLimit);
+            var yv = Mathf.Clamp(ImpactVelocity.y + y, -impactVelocityLimit, impactVelocityLimit);
+
+            ImpactVelocity = new Vector2(xv, yv);
+        }
 
         /// <summary>
         /// Adds force directly to the rigid body.  Used for forces that should be stabilized by Unity itself, such 

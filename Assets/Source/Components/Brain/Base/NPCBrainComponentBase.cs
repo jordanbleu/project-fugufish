@@ -1,4 +1,7 @@
-﻿using Assets.Source.Math;
+﻿using Assets.Source.Components.Actor;
+using Assets.Source.Components.Brain;
+using Assets.Source.Components.MemoryManagement;
+using Assets.Source.Math;
 using System;
 using UnityEngine;
 
@@ -29,8 +32,20 @@ namespace Assets.Source.Components.AI.Base
         [Tooltip("Drag the player object here.")]
         protected GameObject player;
 
+        private ActorComponent playerActor;
+        protected ActorComponent actor;
+        private DespawnComponent despawner;
+        private Collider2D collider;
+        private Rigidbody2D rigidbody;
         public override void ComponentAwake()
         {
+            actor = GetRequiredComponent<ActorComponent>();
+            despawner = GetRequiredComponent<DespawnComponent>();
+            collider = GetRequiredComponent<Collider2D>();
+            rigidbody = GetRequiredComponent<Rigidbody2D>();
+
+            playerActor = GetRequiredComponent<ActorComponent>(player);
+
             if (!UnityUtils.Exists(onIdleStateBehavior)) {
                 throw new UnityException("Idle State Behavior is null.  Please drag one onto the inspector.");
             }
@@ -46,37 +61,65 @@ namespace Assets.Source.Components.AI.Base
 
         public override void ComponentUpdate()
         {
-            UpdateState();
+            if (actor.IsAlive())
+            {
+                UpdateState();
+            }
+            else {
+                // Disable the collider
+                collider.enabled = false;
+                rigidbody.bodyType = RigidbodyType2D.Static;
+
+                despawner.BeginDespawn();
+                onActiveStateBehavior.enabled = false;
+                onIdleStateBehavior.enabled = false;
+            }
             base.ComponentUpdate();
         }
 
         private void UpdateState()
         {
-            if (!useMovementBoundaries || movementBounds.SurroundsPoint(player.transform.position))
+            if (playerActor.IsAlive())
             {
-                if (!onActiveStateBehavior.isActiveAndEnabled)
+                if (!useMovementBoundaries || movementBounds.SurroundsPoint(player.transform.position))
                 {
-                    onActiveStateBehavior.enabled = true;
+                    DoActiveBehavior();
                 }
-
-                if (onIdleStateBehavior.isActiveAndEnabled) 
+                else
                 {
-                    onIdleStateBehavior.enabled = false;
+                    DoIdleBehavior();
                 }
             }
-            else 
-            {
-                if (onActiveStateBehavior.isActiveAndEnabled)
-                {
-                    onActiveStateBehavior.enabled = false;
-                }
-
-                if (!onIdleStateBehavior.isActiveAndEnabled)
-                {
-                    onIdleStateBehavior.enabled = true;
-                }
+            else {
+                DoIdleBehavior();
             }
             
+        }
+
+        private void DoIdleBehavior()
+        {
+            if (onActiveStateBehavior.isActiveAndEnabled)
+            {
+                onActiveStateBehavior.enabled = false;
+            }
+
+            if (!onIdleStateBehavior.isActiveAndEnabled)
+            {
+                onIdleStateBehavior.enabled = true;
+            }
+        }
+
+        private void DoActiveBehavior()
+        {
+            if (!onActiveStateBehavior.isActiveAndEnabled)
+            {
+                onActiveStateBehavior.enabled = true;
+            }
+
+            if (onIdleStateBehavior.isActiveAndEnabled)
+            {
+                onIdleStateBehavior.enabled = false;
+            }
         }
 
         private void OnDrawGizmosSelected()
