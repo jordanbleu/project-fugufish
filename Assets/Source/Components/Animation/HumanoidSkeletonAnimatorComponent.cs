@@ -13,6 +13,7 @@ namespace Assets.Source.Components.Animation
         private Animator animator;
         private SkeletonMecanim skeletonMecanim;
 
+        public bool IsDead { get; set; } = false;
         public bool IsGrounded { get; set; }
         public bool IsClimbing { get; set; }
         public float HorizontalMoveSpeed { get; set; }
@@ -53,6 +54,7 @@ namespace Assets.Source.Components.Animation
             animator.SetBool("is_climbing", IsClimbing);
             animator.SetFloat("horizontal_movement_speed", HorizontalMoveSpeed);
             animator.SetFloat("vertical_movement_speed", VerticalMoveSpeed);
+            animator.SetBool("is_dead", IsDead);
             base.ComponentUpdate();
         }
 
@@ -63,23 +65,6 @@ namespace Assets.Source.Components.Animation
         public void Uppercut() => animator.SetTrigger("uppercut");
 
         public void Attack() => animator.SetTrigger("attack");
-
-        /// <summary>
-        /// Can be used to manually set the direction of the skeleton without moving it.
-        /// </summary>
-        /// <param name="isLeft">If true, flips skeleton to the left.  else flips it right</param>
-        [Obsolete("Don't use this, its dumb")]
-        public void FaceDirection(bool isLeft) {
-            var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
-
-            if (isLeft)
-            {
-                skeletonMecanim.Skeleton.ScaleX = -scale;
-            }
-            else {
-                skeletonMecanim.Skeleton.ScaleX = scale;
-            }        
-        }
 
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Editor.Attributes;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,7 +16,7 @@ namespace Assets.Source.Components.Timer
         [SerializeField]
         private string label = "Interval Timer";
         public string Label { get => label; set => label = value; }
-        
+
 
         [Tooltip("The time in milliseconds the interval timer counts down before invoking the unity event")]
         [SerializeField]
@@ -36,20 +37,27 @@ namespace Assets.Source.Components.Timer
         private bool _autoReset = false;
         public bool AutoReset { get => _autoReset; set => _autoReset = value; }
 
-        private float maxInterval;
-
         /// <summary>
         /// The UnityEvent to subscribe to in order to run code after the time interval is reached.
         /// See <seealso cref="UnityEvent.AddListener(UnityAction)"/> for more details.
         /// </summary>
         public UnityEvent OnIntervalReached = new UnityEvent();
 
+        [SerializeField]
+        [ReadOnly]
+        private bool isActive = true;
+
         /// <summary>
         /// Used to determine if the timer is currently running, defaults to true
         /// </summary>
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get => isActive; set => isActive = value; }
 
-        public float CurrentTime { get; private set; } = 0.0f;
+        [SerializeField]
+        [ReadOnly]
+        private float currentTime = 0.0f;
+        public float CurrentTime { get => currentTime; private set => currentTime = value; }
+
+        private float maxInterval;
 
         public override void ComponentAwake()
         {
@@ -81,7 +89,7 @@ namespace Assets.Source.Components.Timer
                     }
 
                     if (AutoReset)
-                    { 
+                    {
                         Reset();
                     }
 

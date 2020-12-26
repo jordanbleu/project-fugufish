@@ -1,6 +1,6 @@
 ﻿using Assets.Source.Components.AI.Base;
+using Assets.Source.Components.Animation;
 using Assets.Source.Components.Brain.Interfaces;
-using Assets.Source.Enums;
 using System;
 using UnityEngine.Events;
 
@@ -30,11 +30,21 @@ namespace Assets.Source.Components.Brain
 
 
         private PlayerBrainComponent playerBrain;
+        private HumanoidSkeletonAnimatorComponent animator;
 
         public override void ComponentAwake()
         {
             base.ComponentAwake();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
+            animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
+        }
+
+        public override void ComponentUpdate()
+        {
+            if (!actor.IsAlive()) {
+                animator.IsDead = true;
+            }
+            base.ComponentUpdate();
         }
 
         public override void ComponentFixedUpdate()

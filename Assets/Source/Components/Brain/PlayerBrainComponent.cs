@@ -43,6 +43,10 @@ namespace Assets.Source.Components.Brain
         [Header("Stamina Requirements")]
         private int dodgeStaminaRequired = 30;
 
+        [SerializeField]
+        [Header("Cheats")]
+        private bool infiniteHealth = false;
+
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
@@ -66,69 +70,76 @@ namespace Assets.Source.Components.Brain
 
         public override void ComponentUpdate()
         {
-            // If we are currently touching any ladder components, we are climbing.
-            isClimbing = CollidingTriggers.Any(tr => tr.GetComponent<LadderComponent>() != null);
-
-            if (!isClimbing)
+            if (actor.IsAlive())
             {
+                // If we are currently touching any ladder components, we are climbing.
+                isClimbing = CollidingTriggers.Any(tr => tr.GetComponent<LadderComponent>() != null);
 
-                IsGravityEnabled = true;
-
-                if (IsGrounded)
+                if (!isClimbing)
                 {
-                    if (Input.IsKeyPressed(InputConstants.K_JUMP))
+
+                    IsGravityEnabled = true;
+
+                    if (IsGrounded)
                     {
-                        animator.Jump();
-                        // Apply force to the rigid body directly so that gravity pulls us down
-                        AddRigidBodyForce(0, jumpHeight);
+                        if (Input.IsKeyPressed(InputConstants.K_JUMP))
+                        {
+                            animator.Jump();
+                            // Apply force to the rigid body directly so that gravity pulls us down
+                            AddRigidBodyForce(0, jumpHeight);
+                        }
+                    }
+
+                    if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD))
+                    {
+                        // Shake the camera
+                        cameraEffector.SwingRight();
+
+                        // If we are in the air and the player is holding "up", do a GRAND SLAM
+                        if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
+                        {
+                            animator.GroundPound();
+                        }
+                        // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
+                        else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsAttacking && !usedUppercut)
+                        {
+                            AddRigidBodyForce(0, upperCutHeight);
+                            animator.Uppercut();
+                            // Signals that we've already used the uppercut during this jump. 
+                            // This will be reset to false upon landing.
+                            usedUppercut = true;
+                        }
+                        else
+                        {
+                            animator.Attack();
+                        }
                     }
                 }
-
-                if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD))
+                else
                 {
-                    // Shake the camera
-                    cameraEffector.SwingRight();
-
-                    // If we are in the air and the player is holding "up", do a GRAND SLAM
-                    if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
-                    {
-                        animator.GroundPound();
-                    }
-                    // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
-                    else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsAttacking && !usedUppercut)
-                    {
-                        AddRigidBodyForce(0, upperCutHeight);
-                        animator.Uppercut();
-                        // Signals that we've already used the uppercut during this jump. 
-                        // This will be reset to false upon landing.
-                        usedUppercut = true;
-                    }
-                    else
-                    {
-                        animator.Attack();
-                    }
+                    // disable gravity if we're on a ladder
+                    IsGravityEnabled = false;
                 }
+
+                if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
+                {
+
+                    AddImpact(-dodgeSpeed, 0);
+                }
+
+                if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired))
+                {
+                    AddImpact(dodgeSpeed, 0);
+                }
+
+                // Tranlate user controls into the player's movements
+                UpdateFootVelocity();
             }
             else {
-                // disable gravity if we're on a ladder
-                IsGravityEnabled = false;
+                // am dead
+                FootVelocity = new Vector2(0, CurrentVelocity.y);
             }
 
-
-
-            if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
-            {
-
-                AddImpact(-dodgeSpeed, 0);
-            }
-            
-            if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired)) {
-                AddImpact(dodgeSpeed, 0);
-            }
-             
-
-            // Tranlate user controls into the player's movements
-            UpdateFootVelocity();
             UpdateAnimator();
 
             // tell the melee collider to face left if the player is facing left -_-
@@ -139,6 +150,7 @@ namespace Assets.Source.Components.Brain
 
         private void UpdateAnimator()
         {
+            animator.IsDead = !actor.IsAlive();
             animator.IsClimbing = isClimbing;
             animator.IsGrounded = IsGrounded;
             animator.HorizontalMoveSpeed = FootVelocity.x;

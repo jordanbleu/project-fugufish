@@ -46,18 +46,21 @@ namespace Assets.Source.Components.Behavior.Humanoid
             brain.damageEnable.AddListener(OnDamageEnable);
             brain.damageDisable.AddListener(OnDamageDisable);
 
+            var brainTimerPrefabTemp = new GameObject();
+            brainTimerPrefabTemp.AddComponent<IntervalTimerComponent>();
+            var inst = Instantiate(brainTimerPrefabTemp, transform);
+            inst.name = "BrainTimer";
 
-            var brainTimerObject = new GameObject();
-            brainTimer = brainTimerObject.AddComponent<IntervalTimerComponent>();
+            brainTimer = GetRequiredComponent<IntervalTimerComponent>(inst);
             brainTimer.Label = "BrainTimerComponent";
             brainTimer.SetInterval((int)UnityEngine.Random.Range(thinkTimeMin, thinkTimeMax)); 
             brainTimer.SelfDestruct = false;
             brainTimer.Randomize = false;
             brainTimer.AutoReset = true;
             brainTimer.OnIntervalReached.AddListener(BrainUpdate);
-            var inst = Instantiate(brainTimerObject, transform);
-            inst.name = "BrainTimer";
 
+            
+            Destroy(brainTimerPrefabTemp);
             base.ComponentStart();
         }
 
@@ -67,12 +70,15 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private void BrainUpdate()
         {
 
-            if (!isAttacking && PlayerIsInRange()) {
-                Attack();
-            }
+            if (isActiveAndEnabled) { 
+            
+                if (!isAttacking && PlayerIsInRange()) {
+                    Attack();
+                }
 
-            UnityEngine.Random.InitState(DateTime.Now.Millisecond);
-            brainTimer.SetInterval((int)UnityEngine.Random.Range(thinkTimeMin, thinkTimeMax));
+                UnityEngine.Random.InitState(DateTime.Now.Millisecond);
+                brainTimer.SetInterval((int)UnityEngine.Random.Range(thinkTimeMin, thinkTimeMax));
+            }
         }
 
 
