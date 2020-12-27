@@ -1,8 +1,6 @@
 ﻿using Assets.Source.Components.Actor;
-using Assets.Source.Components.Brain;
 using Assets.Source.Components.MemoryManagement;
 using Assets.Source.Math;
-using System;
 using UnityEngine;
 
 namespace Assets.Source.Components.AI.Base
@@ -35,14 +33,14 @@ namespace Assets.Source.Components.AI.Base
         private ActorComponent playerActor;
         protected ActorComponent actor;
         private DespawnComponent despawner;
-        private Collider2D collider;
-        private Rigidbody2D rigidbody;
+        private Collider2D collider2d;
+        private Rigidbody2D rigidBody;
         public override void ComponentAwake()
         {
             actor = GetRequiredComponent<ActorComponent>();
             despawner = GetRequiredComponent<DespawnComponent>();
-            collider = GetRequiredComponent<Collider2D>();
-            rigidbody = GetRequiredComponent<Rigidbody2D>();
+            collider2d = GetRequiredComponent<Collider2D>();
+            rigidBody = GetRequiredComponent<Rigidbody2D>();
 
             playerActor = GetRequiredComponent<ActorComponent>(player);
 
@@ -67,8 +65,8 @@ namespace Assets.Source.Components.AI.Base
             }
             else {
                 // Disable the collider
-                collider.enabled = false;
-                rigidbody.bodyType = RigidbodyType2D.Static;
+                collider2d.enabled = false;
+                rigidBody.bodyType = RigidbodyType2D.Static;
 
                 despawner.BeginDespawn();
                 onActiveStateBehavior.enabled = false;

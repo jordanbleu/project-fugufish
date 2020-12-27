@@ -88,7 +88,7 @@ namespace Assets.Source.Input
         // Gets the list of key codes that this input binding is bound to 
         private IEnumerable<KeyCode> GetKeyCodes(string binding)
         {
-            if (GetKeyBindings().Bindings.TryGetValue(binding, out IEnumerable<KeyCodeValue> keyCodeValues))
+            if (GetKeyBindings()?.Bindings != null && GetKeyBindings().Bindings.TryGetValue(binding, out IEnumerable<KeyCodeValue> keyCodeValues))
             {
                 foreach (KeyCodeValue keyCodeValue in keyCodeValues)
                 {

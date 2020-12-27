@@ -19,12 +19,10 @@ namespace Assets.Source.Components.Actor
         private int maxHealth;
         public int MaxHealth { get => maxHealth; }
 
-        [SerializeField]
         [Tooltip("This will be invoked each time the actor's health gets depleted by any amount")]
         public UnityEvent onHealthDamage = new UnityEvent();
 
 
-        [SerializeField]
         [Tooltip("Invoked when you call Deplete health and the actor is out of health.")]
         public UnityEvent onHealthEmpty = new UnityEvent();
 
@@ -47,16 +45,16 @@ namespace Assets.Source.Components.Actor
         [Tooltip("How quickly stamina refills in milliseconds.  Stamina will go up by 1 with each interval.")]
         private int staminaRefillDelay = 50;
 
-        [SerializeField]
+
         [Tooltip("Used when you try to deplete stamina, and still had enough stamina left.")]
         public UnityEvent onStaminaDepleted = new UnityEvent();
 
-
-        [SerializeField]
         [Tooltip("Invoked when you try to deplete stamina and you don't have enough stamina left.")]
         public UnityEvent onStaminaEmpty = new UnityEvent();
 
-
+        [SerializeField]
+        [Header("Cheats")]
+        private bool infiniteHealth = false;
 
         private IntervalTimerComponent staminaTimer;
 
@@ -68,21 +66,24 @@ namespace Assets.Source.Components.Actor
         /// <param name="amount">The amount to deplete health by</param>
         public void DepleteHealth(int amount)
         {
-            if (Health > 0) {
-                
-                onHealthDamage?.Invoke();
-
-                if (Health >= amount)
-                {   
-                    Health -= amount;
-                }
-                else
+            if (!infiniteHealth)
+            {
+                if (Health > 0)
                 {
-                    onHealthEmpty?.Invoke();
-                    Health = 0;
-                }
-            } 
 
+                    onHealthDamage?.Invoke();
+
+                    if (Health >= amount)
+                    {
+                        Health -= amount;
+                    }
+                    else
+                    {
+                        onHealthEmpty?.Invoke();
+                        Health = 0;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -138,5 +139,10 @@ namespace Assets.Source.Components.Actor
                 stamina++;
             }
         }
+
+        /// <summary>
+        /// Invoke this to make the actor instantly take full damage 
+        /// </summary>
+        public void DieInstantly() => DepleteHealth(MaxHealth);
     }
 }
