@@ -14013,7 +14013,7 @@ PrefabInstance:
     - target: {fileID: 8915726366699187862, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 4.39
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187862, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
@@ -14043,12 +14043,12 @@ PrefabInstance:
     - target: {fileID: 8915726366699187862, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187862, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 9000
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187862, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
@@ -17525,16 +17525,16 @@ PrefabInstance:
         type: 3}
       propertyPath: DestinationFrame
       value: 
-      objectReference: {fileID: 265517029}
+      objectReference: {fileID: 2188992658562600357}
     - target: {fileID: 6946598911456906726, guid: 5dd830c14c7ec604697a774437d8279e,
         type: 3}
       propertyPath: StartPosition.x
-      value: -40
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 6946598911456906726, guid: 5dd830c14c7ec604697a774437d8279e,
         type: 3}
       propertyPath: StartPosition.y
-      value: 2
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 6946598911456906727, guid: 5dd830c14c7ec604697a774437d8279e,
         type: 3}
@@ -18073,6 +18073,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17453419, y: 5.4470425}
   m_EdgeRadius: 0
+--- !u!61 &2119243700 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2993366181318145495, guid: 1b343f1c7952da94da6a2d2bd6e30d6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2119243696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!66 &2119243701
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -18090,7 +18096,27 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2119243700}
+    m_ColliderPaths:
+    - - X: 57362667
+        Y: -8003718
+      - X: 57362667
+        Y: 8003718
+      - X: -18804066
+        Y: 8003425
+      - X: -18803773
+        Y: -8003718
+  - m_Collider: {fileID: 2119243699}
+    m_ColliderPaths:
+    - - X: 1431093
+        Y: -8003718
+      - X: 1431093
+        Y: 79189464
+      - X: -18592208
+        Y: 79189171
+      - X: -18591915
+        Y: -8003718
   m_CompositePaths:
     m_Paths:
     - - {x: 5.7362375, y: -0.8003718}
@@ -18796,7 +18822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2188992658562600358
 Transform:
   m_ObjectHideFlags: 0
@@ -24032,12 +24058,12 @@ PrefabInstance:
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.10999966
+      value: -17.17
       objectReference: {fileID: 0}
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38000107
+      value: 46.61
       objectReference: {fileID: 0}
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
