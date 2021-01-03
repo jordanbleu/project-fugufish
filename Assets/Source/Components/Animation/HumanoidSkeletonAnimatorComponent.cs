@@ -85,5 +85,9 @@ namespace Assets.Source.Components.Animation
             }
         }
 
+        internal void DamageFront()
+        {
+            animator.SetTrigger("damage_front");
+        }
     }
 }

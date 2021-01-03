@@ -43,21 +43,23 @@ namespace Assets.Source.Components.Brain
         [Header("Stamina Requirements")]
         private int dodgeStaminaRequired = 30;
 
-        [SerializeField]
-        [Header("Cheats")]
-        private bool infiniteHealth = false;
-
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
         private MeleeComponent meleeCollider;
         private ActorComponent actor;
 
+        // true if the player is climbing
         private bool isClimbing = false;
+        
         // Whether the player used the uppercut attack during his jump
         private bool usedUppercut = false;
         public bool IsAttacking { get; private set; }
         public AttackTypes ActiveAttack { get; private set; }
+
+        // if this is true, the player has died, and fallen to the ground. 
+        // Yes it is a very specific boolean okay i get it.
+        private bool isDeadAndHitGround = false;
 
         public override void ComponentAwake()
         {
@@ -136,8 +138,24 @@ namespace Assets.Source.Components.Brain
                 UpdateFootVelocity();
             }
             else {
-                // am dead
-                FootVelocity = new Vector2(0, CurrentVelocity.y);
+
+                if (!isDeadAndHitGround)
+                {
+                    // Force Player to keep falling
+                    FootVelocity = new Vector2(0, CurrentVelocity.y);
+
+                    if (IsGrounded)
+                    {
+                        isDeadAndHitGround = true;
+                    }
+                }
+                else { 
+                    // Player is dead, and fell to the ground.
+                    // Disable all the physics stuff, so the dead body just stays where it was on screen.
+                    collider2d.enabled = false;
+                    FootVelocity = Vector2.zero;
+                    IsGravityEnabled = false;
+                }
             }
 
             UpdateAnimator();
@@ -186,9 +204,11 @@ namespace Assets.Source.Components.Brain
             usedUppercut = false;
         }
 
-        public void OnGetAttacked(GameObject attacker) { 
-
-        
+        public void OnGetAttacked() {
+            if (!isClimbing)
+            {
+                animator.DamageFront();
+            }
         }
 
         #region Animation Events - Triggered via Spine Animation
@@ -206,6 +226,7 @@ namespace Assets.Source.Components.Brain
             ActiveAttack = AttackTypes.Uppercut;
             IsAttacking = true;
         }
+        
 
         public void OnGroundPoundBegin()
         {

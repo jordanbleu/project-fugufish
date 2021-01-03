@@ -103,6 +103,10 @@ namespace Assets.Source.Components.Behavior.Humanoid
             {
                 AddImpact(-15f, 0);
             }
+
+            // todo: add ladder climbing someday
+            animator.DamageFront();
+
         }
 
         public override void ComponentUpdate()
