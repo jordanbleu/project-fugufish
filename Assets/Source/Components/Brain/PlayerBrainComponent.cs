@@ -134,7 +134,7 @@ namespace Assets.Source.Components.Brain
                     AddImpact(dodgeSpeed, 0);
                 }
 
-                // Tranlate user controls into the player's movements
+                // Translate user controls into the player's movements
                 UpdateFootVelocity();
             }
             else {
