@@ -10,7 +10,7 @@ namespace Assets.Source.Components.Animation
     [RequireComponent(typeof(Animator), typeof(SkeletonMecanim))]
     public class HumanoidSkeletonAnimatorComponent : ComponentBase
     {
-        private Animator animator;
+        protected Animator animator;
         private SkeletonMecanim skeletonMecanim;
 
         public bool IsDead { get; set; } = false;
@@ -33,6 +33,11 @@ namespace Assets.Source.Components.Animation
 
         public override void ComponentUpdate()
         {
+            UpdateHumanoidAnimationParameters();
+            base.ComponentUpdate();
+        }
+
+        public virtual void UpdateHumanoidAnimationParameters() {
             // Face actor the direction they are walking
             // if facing left, flip skeleton
             var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
@@ -55,7 +60,6 @@ namespace Assets.Source.Components.Animation
             animator.SetFloat("horizontal_movement_speed", HorizontalMoveSpeed);
             animator.SetFloat("vertical_movement_speed", VerticalMoveSpeed);
             animator.SetBool("is_dead", IsDead);
-            base.ComponentUpdate();
         }
 
         public void Jump() => animator.SetTrigger("jump");
