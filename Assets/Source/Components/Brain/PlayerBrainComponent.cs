@@ -152,7 +152,7 @@ namespace Assets.Source.Components.Brain
                 else { 
                     // Player is dead, and fell to the ground.
                     // Disable all the physics stuff, so the dead body just stays where it was on screen.
-                    collider2d.enabled = false;
+                    //collider2d.enabled = false;
                     FootVelocity = Vector2.zero;
                     IsGravityEnabled = false;
                 }

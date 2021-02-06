@@ -106,11 +106,34 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private ShooterPosition FindNearestShooterPosition() => 
             Positions.OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x)).First();
 
+
         // This will calculate the Next farthest position from the player, preferring moving in the opposite direction
-        private ShooterPosition FindSecondNearestShooterPositionAwayFromPosition(float playerX) => 
-            Positions.Count() == 1 ? 
-            FindNearestShooterPosition() : 
-            Positions.OrderBy(pos => (-(Mathf.Sign(playerX)) * Mathf.Abs(transform.position.x - pos.Position.x))).Skip(1).First();
+        // This is not great logic
+        private ShooterPosition FindSecondNearestShooterPositionAwayFromPosition(float playerX)
+        {
+            if (Positions.Count() == 1) {
+                return FindNearestShooterPosition();
+            }
+            
+            // if the player is to our left, pick the next position to our left
+            if (playerX < transform.position.x)
+            {
+                var positionsToTheRight = Positions.Where(pos => pos.Position.x > playerX && pos.Position != currentSeekedPosition.Position).OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x));
+                if (positionsToTheRight.Any())
+                {
+                    return positionsToTheRight.First();
+                }
+            } else {
+                var positionsToTheLeft = Positions.Where(pos => pos.Position.x < playerX && pos.Position != currentSeekedPosition.Position).OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x));
+                if (positionsToTheLeft.Any())
+                {
+                    return positionsToTheLeft.First();
+                }
+            }
+
+            // if we're at either end of the positions, return whatever is closest (and not us)
+            return Positions.OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x)).First(pos => pos.Position != currentSeekedPosition.Position);
+        }
 
         public override void ComponentAwake()
         {

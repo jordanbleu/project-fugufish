@@ -151,7 +151,7 @@ namespace Assets.Source.Components.Brain.Base
             // Calculates the total environmental force from ForceComponents
             foreach (var trigger in CollidingTriggers)
             {
-                if (trigger.TryGetComponent<ForceComponent>(out var forceComponent))
+                if (UnityUtils.Exists(trigger) && trigger.TryGetComponent<ForceComponent>(out var forceComponent))
                 {
                     if (isAffectedByForceComponent && (forceComponent.IsGroundOnly || IsGrounded))
                     {
