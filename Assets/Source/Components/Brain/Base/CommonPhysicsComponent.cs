@@ -88,6 +88,15 @@ namespace Assets.Source.Components.Brain.Base
 
         public override void ComponentAwake()
         {
+            if (groundLayers.IsNothing()) {
+                Debug.LogWarning($"Object '{gameObject.name}' / Component '{GetType().Name}' has a groundLayers layermask of nothing.  That probably isn't right!");
+            }
+
+            if (groundLayers.IsEverything())
+            {
+                Debug.LogWarning($"Object '{gameObject.name}' / Component '{GetType().Name}' has a groundLayers layermask of everything.  He's gonna step on his own body (probably not right)");
+            }
+
             grippyMaterial = new PhysicsMaterial2D("GrippyMaterial") { friction = 999f };
             slippyMaterial = new PhysicsMaterial2D("SlippyMaterial") { friction = 0f };
             rigidBody2d = GetRequiredComponent<Rigidbody2D>();
@@ -142,7 +151,7 @@ namespace Assets.Source.Components.Brain.Base
             // Calculates the total environmental force from ForceComponents
             foreach (var trigger in CollidingTriggers)
             {
-                if (trigger.TryGetComponent<ForceComponent>(out var forceComponent))
+                if (UnityUtils.Exists(trigger) && trigger.TryGetComponent<ForceComponent>(out var forceComponent))
                 {
                     if (isAffectedByForceComponent && (forceComponent.IsGroundOnly || IsGrounded))
                     {

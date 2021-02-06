@@ -22,6 +22,7 @@ namespace Assets.Source.Components.Interaction
             base.ComponentAwake();
         }
 
+        //todo: uh why is this commented lol
         private void OnTriggerStay2D(Collider2D collision)
         {
             //// Checks to see if we collided with the player's swing collider

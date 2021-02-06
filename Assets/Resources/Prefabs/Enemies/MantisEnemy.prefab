@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 8992169553290261037}
   - component: {fileID: 8992169553290261073}
   m_Layer: 10
-  m_Name: MeleeEnemy
+  m_Name: MantisEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +194,7 @@ Animator:
   m_GameObject: {fileID: 8992169553290261027}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 21296c57647cf2b4b8ef2b0ca601cbe6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2753932976532c047ab19646157de3ee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -229,7 +229,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d93a8b9febdbb7243b69e005e54697dd, type: 2}
+  - {fileID: 2100000, guid: a89367806fbbb5d4fb6622aec677c75c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 923de40bf7b9f024baba239dd09517d1, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 3a91b1d3d8cfff94aae0f6728965b759, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0

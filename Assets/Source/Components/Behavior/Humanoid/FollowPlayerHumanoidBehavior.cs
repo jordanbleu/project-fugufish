@@ -48,11 +48,11 @@ namespace Assets.Source.Components.Behavior.Humanoid
             }
         }
 
-        public override void ComponentUpdate()
+        public override void ComponentFixedUpdate()
         {
 
             MoveTowardsPlayer();            
-            base.ComponentUpdate();
+            base.ComponentFixedUpdate();
         }
 
         private void MoveTowardsPlayer()

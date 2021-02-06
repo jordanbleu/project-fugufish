@@ -1,7 +1,6 @@
 ﻿using Assets.Source.Components.Animation;
 using Assets.Source.Components.Brain.Base;
 using Spine.Unity;
-using System;
 using UnityEngine;
 
 namespace Assets.Source.Components.Behavior.Base
@@ -20,7 +19,7 @@ namespace Assets.Source.Components.Behavior.Base
 
         [SerializeField]
         [Tooltip("How far below the center of the actor's 'feet' they will check for ground.")]
-        private float lookBelowDistance = 0.5f;
+        protected float lookBelowDistance = 0.5f;
 
         [SerializeField]
         [Tooltip("How fast the actor moves via walking / running")]

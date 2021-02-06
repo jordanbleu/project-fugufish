@@ -75,7 +75,7 @@ namespace Assets.Source.Components.Brain
             if (actor.IsAlive())
             {
                 // If we are currently touching any ladder components, we are climbing.
-                isClimbing = CollidingTriggers.Any(tr => tr.GetComponent<LadderComponent>() != null);
+                isClimbing = CollidingTriggers.Any(tr => UnityUtils.Exists(tr) && tr.GetComponent<LadderComponent>() != null);
 
                 if (!isClimbing)
                 {
@@ -134,7 +134,7 @@ namespace Assets.Source.Components.Brain
                     AddImpact(dodgeSpeed, 0);
                 }
 
-                // Tranlate user controls into the player's movements
+                // Translate user controls into the player's movements
                 UpdateFootVelocity();
             }
             else {
@@ -152,7 +152,7 @@ namespace Assets.Source.Components.Brain
                 else { 
                     // Player is dead, and fell to the ground.
                     // Disable all the physics stuff, so the dead body just stays where it was on screen.
-                    collider2d.enabled = false;
+                    //collider2d.enabled = false;
                     FootVelocity = Vector2.zero;
                     IsGravityEnabled = false;
                 }
