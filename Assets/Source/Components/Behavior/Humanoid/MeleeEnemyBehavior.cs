@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace Assets.Source.Components.Behavior.Humanoid
 {
+    /// <summary>
+    /// Melee enemy will pursue the player, attack them, and dodge attacks
+    /// </summary>
     public class MeleeEnemyBehavior : HumanoidBehaviorBase
     {
         [SerializeField]
@@ -27,14 +30,12 @@ namespace Assets.Source.Components.Behavior.Humanoid
         [Tooltip("Dictates how quickly the AI makes decisions.  Lower times make the AI faster at reacting / attacking, etc.  Will randomize between the min and max values.")]
         private float thinkTimeMax;
 
+
         private PlayerBrainComponent playerBrain;
         private IntervalTimerComponent brainTimer;
         private MeleeComponent meleeCollider;
 
-
-        private bool shouldDodge = false;
-
-        
+        private bool shouldDodge = false;        
         private bool isAttacking = false;
 
         public override void ComponentStart()
@@ -59,7 +60,6 @@ namespace Assets.Source.Components.Behavior.Humanoid
             brainTimer.AutoReset = true;
             brainTimer.OnIntervalReached.AddListener(BrainUpdate);
 
-            
             Destroy(brainTimerPrefabTemp);
             base.ComponentStart();
         }
@@ -80,6 +80,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
                 brainTimer.SetInterval((int)UnityEngine.Random.Range(thinkTimeMin, thinkTimeMax));
             }
         }
+
 
 
         public override void ComponentAwake()
@@ -109,11 +110,11 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
         }
 
-        public override void ComponentUpdate()
+        public override void ComponentFixedUpdate()
         {
             MoveTowardsPlayer();
             UpdateMeleeCollider();
-            base.ComponentUpdate();
+            base.ComponentFixedUpdate();
         }
 
         private void UpdateMeleeCollider()

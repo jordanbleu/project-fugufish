@@ -17,5 +17,10 @@
             base.UpdateHumanoidAnimationParameters();
         }
 
+        public void Shoot() {
+            
+            animator.SetTrigger("attack");
+        }
+
     }
 }

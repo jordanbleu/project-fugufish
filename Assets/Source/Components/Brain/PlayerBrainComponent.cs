@@ -75,7 +75,7 @@ namespace Assets.Source.Components.Brain
             if (actor.IsAlive())
             {
                 // If we are currently touching any ladder components, we are climbing.
-                isClimbing = CollidingTriggers.Any(tr => tr.GetComponent<LadderComponent>() != null);
+                isClimbing = CollidingTriggers.Any(tr => UnityUtils.Exists(tr) && tr.GetComponent<LadderComponent>() != null);
 
                 if (!isClimbing)
                 {
