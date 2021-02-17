@@ -8025,7 +8025,7 @@ PrefabInstance:
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
       propertyPath: Positions.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
@@ -8070,12 +8070,12 @@ PrefabInstance:
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
       propertyPath: Positions.Array.data[2].GizmoColor.g
-      value: 1
+      value: 0.7486813
       objectReference: {fileID: 0}
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
       propertyPath: Positions.Array.data[2].GizmoColor.b
-      value: 0.021962404
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
@@ -8135,7 +8135,7 @@ PrefabInstance:
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
       propertyPath: Positions.Array.data[2].Position.x
-      value: 23.9
+      value: 31.18
       objectReference: {fileID: 0}
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
@@ -8175,7 +8175,7 @@ PrefabInstance:
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
       propertyPath: Positions.Array.data[2].Range
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
@@ -8266,7 +8266,7 @@ PrefabInstance:
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
       propertyPath: jumpUpDistance
-      value: 1.86
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
         type: 3}
@@ -8302,6 +8302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: groundLayers.m_Bits
       value: 1847
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781735580243475474, guid: f4c68a0aaa962f948833dc5191bd8c53,
+        type: 3}
+      propertyPath: jumpUpAngle.x
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2702637901274389329, guid: f4c68a0aaa962f948833dc5191bd8c53, type: 3}
