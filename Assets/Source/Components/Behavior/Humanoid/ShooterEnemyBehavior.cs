@@ -159,7 +159,6 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
             // todo: add ladder climbing someday
             animator.DamageFront();
-
         }
 
         public override void ComponentFixedUpdate() 

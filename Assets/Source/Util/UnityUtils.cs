@@ -21,6 +21,12 @@ namespace Assets.Source
         /// </summary>
         /// <returns>UnityEngine Color</returns>
         public static Color Color(byte r, byte g, byte b) => new Color((float)r/255, (float)g /255, (float)b /255, 1);
-        
+
+        public const int EVERYTHING_LAYER_MASK = ~0;
+
+        public const int NOTHING_LAYER_MASK = ~-1;
+
+
+
     }
 }

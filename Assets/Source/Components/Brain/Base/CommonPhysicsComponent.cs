@@ -118,8 +118,10 @@ namespace Assets.Source.Components.Brain.Base
             // Check if we're standing on the ground
             CheckIfGrounded();
 
-            // Apply all velocities to the rigid body
-            ApplyTotalVelocity();
+            // Apply all velocities to the rigid body as long as it is not static
+            if (rigidBody2d.bodyType != RigidbodyType2D.Static) { 
+                ApplyTotalVelocity();
+            }
 
             // Prevent player from sliding if they're not moving horizontally
             ApplyFrictionHack();
