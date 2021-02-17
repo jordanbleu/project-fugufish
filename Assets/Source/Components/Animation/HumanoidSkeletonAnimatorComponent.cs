@@ -75,11 +75,14 @@ namespace Assets.Source.Components.Animation
         /// Face either left or right, towards the position
         /// </summary>
         /// <param name="position"></param>
-        public void FaceTowardsPosition(Vector2 position) {
+        public void FaceTowardsPosition(Vector2 position) => FaceTowardsPosition(position.x);
+        
+        public void FaceTowardsPosition(float x)
+        {
 
             var scale = Mathf.Abs(skeletonMecanim.Skeleton.ScaleX);
 
-            if (position.x < transform.position.x)
+            if (x < transform.position.x)
             {
                 skeletonMecanim.Skeleton.ScaleX = -scale;
             }

@@ -9,7 +9,6 @@ namespace Assets.Source
         public static bool IsEverything(this LayerMask layermask)  => layermask == ~0;
 
         public static bool IsNothing(this LayerMask layerMask) => layerMask == ~-1;
-            
-        
+                
     }
 }
