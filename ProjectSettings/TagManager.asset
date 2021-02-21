@@ -68,3 +68,6 @@ TagManager:
   - name: BG Lighting
     uniqueID: 1560704581
     locked: 0
+  - name: ScreenEffects
+    uniqueID: 3856551773
+    locked: 0
