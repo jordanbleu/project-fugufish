@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8e8f3300fe64b4ca1cfbd8c58fdc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  health: 0
   maxHealth: 100
   onHealthDamage:
     m_PersistentCalls:
@@ -215,6 +215,17 @@ MonoBehaviour:
   onHealthEmpty:
     m_PersistentCalls:
       m_Calls: []
+  stamina: 0
+  maxStamina: 0
+  refillStamina: 1
+  staminaRefillDelay: 50
+  onStaminaDepleted:
+    m_PersistentCalls:
+      m_Calls: []
+  onStaminaEmpty:
+    m_PersistentCalls:
+      m_Calls: []
+  infiniteHealth: 0
 --- !u!114 &3211081951321728950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,12 +270,17 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 311
+  impactVelocityLimit: 12
+  footVelocity: {x: 0, y: 0}
+  environmentalVelocity: {x: 0, y: 0}
+  impactVelocity: {x: 0, y: 0}
   moveSpeed: 6
   jumpHeight: 16
   upperCutHeight: 8
   dodgeSpeed: 16
   climbSpeed: 3
   attackVelocity: 3
+  dodgeStaminaRequired: 30
 --- !u!114 &6401049630020257325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,7 +709,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.4
+      scalar: 0.2
       minScalar: 0.01
       maxCurve:
         serializedVersion: 2
@@ -1384,7 +1400,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 30
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1603,7 +1619,7 @@ ParticleSystem:
     enabled: 0
     x:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -1656,7 +1672,7 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -1709,8 +1725,8 @@ ParticleSystem:
         m_RotationOrder: 4
     curve:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.7853982
+      minMaxState: 3
+      scalar: 62.831852
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -4021,10 +4037,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
@@ -4038,7 +4054,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4091,7 +4107,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4199,7 +4215,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 3383
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -5264,7 +5280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e365e84e70395469105080a9b8cf43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Label: Interval Timer
+  label: Interval Timer
   interval: 5000
   _selfDestruct: 0
   _randomize: 0
@@ -5283,3 +5299,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isActive: 1
+  currentTime: 0
