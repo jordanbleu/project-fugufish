@@ -16,5 +16,9 @@
         public const string K_SPRINT = nameof(K_SPRINT);
         public const string K_JUMP = nameof(K_JUMP);
 
+        public const string K_MENU_UP = nameof(K_MENU_UP);
+        public const string K_MENU_DOWN = nameof(K_MENU_DOWN);
+        public const string K_MENU_ENTER  = nameof(K_MENU_ENTER);
+
     }
 }
