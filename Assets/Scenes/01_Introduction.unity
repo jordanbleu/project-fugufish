@@ -5969,6 +5969,12 @@ MonoBehaviour:
   layersThatDoTheCrush:
     serializedVersion: 2
     m_Bits: 1335
+--- !u!4 &644440261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3211081951321728952, guid: 3b0eb9f47a2b2a54fb4c830dd304e95c,
+    type: 3}
+  m_PrefabInstance: {fileID: 644440247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &746168264
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,7 +6201,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 644440261}
     - target: {fileID: 99575829538904645, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_Lens.OrthographicSize
@@ -6229,12 +6235,12 @@ PrefabInstance:
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.86
+      value: -17.898
       objectReference: {fileID: 0}
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9799995
+      value: -2.119999
       objectReference: {fileID: 0}
     - target: {fileID: 8031899268388835130, guid: 642d67ca67cc769439aee2562e0c2181,
         type: 3}
@@ -9642,12 +9648,12 @@ PrefabInstance:
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.1100006
+      value: -4.1480007
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -46.02
+      value: -46.16
       objectReference: {fileID: 0}
     - target: {fileID: 8915726366699187817, guid: d5946685d6c21784ebd308012b394826,
         type: 3}
