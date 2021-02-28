@@ -76,9 +76,9 @@ namespace Assets.Source.Components.Brain.Base
         protected Rigidbody2D rigidBody2d;
         protected Collider2D collider2d;
 
-        private bool wasGrounded = false;
+        private bool wasGrounded = true;
 
-        public bool IsGrounded { get; private set; }
+        public bool IsGrounded { get; private set; } = true;
         public Vector2 CurrentVelocity { get => rigidBody2d.velocity; }
 
         /// <summary>

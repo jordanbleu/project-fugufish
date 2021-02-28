@@ -109,6 +109,13 @@ namespace Assets.Source.Components.UI
 
         #endregion
 
+        /// <summary>
+        /// An alternate way to populate menu items if creating this object in code
+        /// </summary>
+        public void InitializeMenu(MenuItem[] items) {
+            menuItems = items;
+        }
+
 
         [Serializable]
         public struct MenuItem {

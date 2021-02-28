@@ -8,6 +8,10 @@ using Assets.Source.Components.Timer;
 using Spine.Unity;
 using TMPro;
 using Assets.Source.Components.UI;
+using UnityEngine.Events;
+using Assets.Source.Scene;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Assets.Source.Components.Cutscenes.Intro
 {
@@ -31,7 +35,7 @@ namespace Assets.Source.Components.Cutscenes.Intro
         private GameObject centerCam;
 
         [SerializeField]
-        private GameObject femaleCam;
+        private GameObject rightCam;
 
         [SerializeField]
         private GameObject antagonistActor;
@@ -42,31 +46,35 @@ namespace Assets.Source.Components.Cutscenes.Intro
         [SerializeField]
         private GameObject femaleActor;
 
+        [SerializeField]
+        private GameObject schnozzActor1;
+        
+        [SerializeField]
+        private GameObject schnozzActor2;
 
         [SerializeField]
-        private GameObject introDialogMenu;
+        private GameObject dynamicMenuObject;
 
         [SerializeField]
-        private GameObject optionButton1;
-
-        [SerializeField]
-        private GameObject optionButton2;
-
-        [SerializeField]
-        private GameObject optionButton3;
-
-        [SerializeField]
-        private GameObject optionButton4;
-
-
+        private GameObject titleScreenPrefab;
+        
         private IntervalTimerComponent timer;
         private Animator fadeAnimator;
         private StringsLoader stringLoader = new StringsLoader();
-        
+        private DynamicMenuComponent dynamicMenuComponent;
+
+
         private Animator antagonistAnimator;
         private Animator protagonistAnimator;
         private Animator femaleAnimator;
-                
+        private ParticleSystem femaleBrainParticleSystem;
+        private ParticleSystem protagBrainParticleSystem;
+
+        private SkeletonMecanim antagSkeleton;
+        private Rigidbody2D antagRigidBody;
+
+        private int dialogueOption = -1;
+
         public override void ComponentAwake()
         {
             timer = GetRequiredComponent<IntervalTimerComponent>();
@@ -76,6 +84,34 @@ namespace Assets.Source.Components.Cutscenes.Intro
             antagonistAnimator = GetRequiredComponent<Animator>(antagonistActor);
             protagonistAnimator = GetRequiredComponent<Animator>(protagonistActor);
             femaleAnimator = GetRequiredComponent<Animator>(femaleActor);
+
+            antagSkeleton = GetRequiredComponent<SkeletonMecanim>(antagonistActor);
+            antagRigidBody = GetRequiredComponent<Rigidbody2D>(antagonistActor);
+
+            // Localize and prepare the dynamic menu
+            // Load the dialog menu strings
+            stringLoader.Load("Intro/intro_05_protagOptions.xml");
+
+            dynamicMenuComponent = GetRequiredComponent<DynamicMenuComponent>(dynamicMenuObject);
+            dynamicMenuObject.SetActive(false);
+
+            var allMenuItems = new DynamicMenuComponent.MenuItem[] { 
+                new DynamicMenuComponent.MenuItem() { Text = stringLoader.Value["protag_scared"], OnItemSelected = new UnityEvent() },
+                new DynamicMenuComponent.MenuItem() { Text = stringLoader.Value["protag_smart"], OnItemSelected = new UnityEvent() },
+                new DynamicMenuComponent.MenuItem() { Text = stringLoader.Value["protag_brave"], OnItemSelected = new UnityEvent() },
+                new DynamicMenuComponent.MenuItem() { Text = stringLoader.Value["protag_silent"], OnItemSelected = new UnityEvent() }
+            };
+
+            allMenuItems[0].OnItemSelected.AddListener(() => ChooseOption(0));
+            allMenuItems[1].OnItemSelected.AddListener(() => ChooseOption(1));
+            allMenuItems[2].OnItemSelected.AddListener(() => ChooseOption(2));
+            allMenuItems[3].OnItemSelected.AddListener(() => ChooseOption(3));
+
+            dynamicMenuComponent.InitializeMenu(allMenuItems);
+
+            femaleBrainParticleSystem = GetRequiredComponent<ParticleSystem>(GetRequiredChild("BrainChunkEmitter", femaleActor));
+            protagBrainParticleSystem = GetRequiredComponent<ParticleSystem>(GetRequiredChild("BrainChunkEmitter", protagonistActor));
+
 
             base.ComponentAwake();
         }
@@ -90,6 +126,7 @@ namespace Assets.Source.Components.Cutscenes.Intro
         private int stage = 0;
 
         private GameObject textWriterQueueInstance;
+        private GameObject titleScreen;
 
         public override void ComponentUpdate()
         {
@@ -157,15 +194,13 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     antagonistAnimator.SetBool("is_walking", true);
                     
                     // Flip the skeleton
-                    var antagSkeleton = GetRequiredComponent<SkeletonMecanim>(antagonistActor);
                     antagSkeleton.Skeleton.ScaleX = -Mathf.Abs(antagSkeleton.Skeleton.ScaleX);
 
                     // Move 
-                    var antagRigidBody = GetRequiredComponent<Rigidbody2D>(antagonistActor);
                     antagRigidBody.velocity = new Vector2(-1, 0);
 
                     // if we have reached our destination
-                    if (antagonistActor.transform.position.x.IsWithin(0.5f, -8f)) {
+                    if (antagonistActor.transform.position.x.IsWithin(0.5f, -7f)) {
                         antagonistAnimator.SetBool("is_walking", false);
                         antagRigidBody.velocity = Vector2.zero;
                         stage++;
@@ -185,26 +220,8 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     }
                     break;
                 case 13:
-                    // Load the dialog menu strings
-                    stringLoader.Load("Intro/intro_05_protagOptions.xml");
-
-                    // Grab the text mesh pro elements from each button
-                    var option1Text = GetRequiredComponentInChildren<TextMeshProUGUI>(optionButton1);
-                    var option2Text = GetRequiredComponentInChildren<TextMeshProUGUI>(optionButton1);
-                    var option3Text = GetRequiredComponentInChildren<TextMeshProUGUI>(optionButton2);
-                    var option4Text = GetRequiredComponentInChildren<TextMeshProUGUI>(optionButton3);
-
-                    // Apply the localized strings to the button textsssss
-                    option1Text.SetText(stringLoader.Value["protag_scared"]);
-                    option2Text.SetText(stringLoader.Value["protag_smart"]);
-                    option3Text.SetText(stringLoader.Value["protag_brave"]);
-                    option4Text.SetText(stringLoader.Value["protag_silent"]);
-
-                    // Activate the dialog selection menu
-                    introDialogMenu.SetActive(true);
-
-                    // Grab its animator and trigger the "open" sequence
-                    GetRequiredComponent<Animator>(introDialogMenu).SetTrigger("open");
+                    // Show the dialog window
+                    dynamicMenuObject.SetActive(true);
 
                     // Next Stage
                     stage++;
@@ -214,28 +231,28 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     // Do nothing and wait for the menu's callback to increment the stage lol
                     break;
                 case 15:
-                    // Get the selected value.  
-                    // TODO: store this somewhere
-                    var value = GetRequiredComponent<IntroDialogMenuComponent>().SelectedValue;
-
+                    
                     // Now decide which dialog to display based on what they picked
                     // inner switch statement, good lord jesus forgive me
-                    switch (value) {
-                        case 1:
+                    switch (dialogueOption) {
+                        case 0:
                             stringLoader.Load("Intro/intro_06_option1.xml");
                             break;
-                        case 2:
+                        case 1:
                             stringLoader.Load("Intro/intro_06_option2.xml");
                             break;
-                        case 3:
+                        case 2:
                             stringLoader.Load("Intro/intro_06_option3.xml");
                             break;
-                        case 4:
+                        case 3:
                             stringLoader.Load("Intro/intro_06_option4.xml");
                             break;
                     }
 
+                    antagonistAnimator.SetTrigger("aim_weapon");
+
                     AddTextQueue(stringLoader.Value.Values);
+
                     stage++;
                     break;
                 case 16:
@@ -245,13 +262,173 @@ namespace Assets.Source.Components.Cutscenes.Intro
                         stage++;
                     }
                     break;
+                case 17:
+                    // Shoot the female
+                    femaleBrainParticleSystem.Play();
+                    antagonistAnimator.SetTrigger("shoot_weapon");
+                    femaleAnimator.SetTrigger("get_shot");
+                    stage++;
+                    break;
+                case 18:
+                    // Wait for the player to finish the dialogue thing
+                    if (!UnityUtils.Exists(textWriterQueueInstance))
+                    {
+                        stage++;
+                    }
+                    break;
+                case 19:
+                    // "her blood is on your hands...and so is yours"
+                    stringLoader.Load("Intro/intro_07.xml");
+                    AddTextQueue(stringLoader.Value.Values);
+                    antagonistAnimator.SetTrigger("lower_weapon");
+                    stage++;
+                    break;
+                case 20:
+                    // wait for lower weapon to finish
+                    break;
+                case 21:
+                    // Wait for the player to finish the dialogue thing
+                    if (!UnityUtils.Exists(textWriterQueueInstance))
+                    {
+                        stage++;
+                    }
+                    break;
+                case 22:
+                    // face right 
+                    antagSkeleton.Skeleton.ScaleX = Mathf.Abs(antagSkeleton.Skeleton.ScaleX);
+                    antagonistAnimator.SetBool("is_walking", true);
 
+                    // Walk back over to the player                     
+                    antagRigidBody.velocity = new Vector2(1, 0);
+
+                    // if we have reached our destination
+                    if (antagonistActor.transform.position.x.IsWithin(0.5f, -5f))
+                    {
+                        antagonistAnimator.SetBool("is_walking", false);
+                        antagRigidBody.velocity = Vector2.zero;
+                        stage++;
+                    }
+                    break;
+                case 23:
+                    // Wait for the player to finish the dialogue thing
+                    if (!UnityUtils.Exists(textWriterQueueInstance))
+                    {
+                        stage++;
+                    }
+                    break;
+                case 24:
+                    antagonistAnimator.SetTrigger("aim_weapon");
+                    // "and thus thus cycle of violence continues"
+                    stringLoader.Load("Intro/intro_08.xml");
+                    AddTextQueue(stringLoader.Value.Values);
+                    stage++;
+                    break;
+                case 25:
+                    // Wait for the player to finish the dialogue thing
+                    if (!UnityUtils.Exists(textWriterQueueInstance))
+                    {
+                        stage++;
+                    }
+                    break;
+                case 26:
+                    // Shoot
+                    protagBrainParticleSystem.Play();
+                    antagonistAnimator.SetTrigger("shoot_weapon");
+                    protagonistAnimator.SetTrigger("get_shot");
+                    stage++;
+                    break;
+                case 27:
+                    antagonistAnimator.SetTrigger("lower_weapon");
+                    stage++;
+                    break;
+                case 28:
+                    // waiting for lower weapon to complete
+                    break;
+                case 29:
+                    // switch to cam revealing the two schnozz enemies
+                    rightCam.SetActive(true);
+                    // "dont let this happen again"
+                    stringLoader.Load("Intro/intro_09.xml");
+                    AddTextQueue(stringLoader.Value.Values);
+                    stage++;
+                    break;
+                case 30:
+                    // Wait for the player to finish the dialogue thing
+                    if (!UnityUtils.Exists(textWriterQueueInstance))
+                    {
+                        stage++;
+                    }
+                    break;
+                case 31:
+                    // face right and walk
+                    antagSkeleton.Skeleton.ScaleX = Mathf.Abs(antagSkeleton.Skeleton.ScaleX);
+                    antagonistAnimator.SetBool("is_walking", true);
+
+                    // Walk to the right of the screen
+                    antagRigidBody.velocity = new Vector2(1, 0);
+
+                    // Once antag walks past the schozzes, they walk too, one by one
+                    if (antagonistActor.transform.position.x.IsWithin(0.25f, 1f))
+                    {
+                        var schnozzActor1Anim = GetRequiredComponent<Animator>(schnozzActor1);
+                        var schnozzActor1Rb = GetRequiredComponent<Rigidbody2D>(schnozzActor1);
+                        var schnozzActor1Skeleton = GetRequiredComponent<SkeletonMecanim>(schnozzActor1);
+                        schnozzActor1Skeleton.Skeleton.ScaleX = Mathf.Abs(schnozzActor1Skeleton.Skeleton.ScaleX);
+                        schnozzActor1Anim.SetFloat("horizontal_movement_speed", 1);
+                        schnozzActor1Rb.velocity = new Vector2(1, 0);
+                    }
+
+                    if (antagonistActor.transform.position.x.IsWithin(0.25f, 3f))
+                    {
+                        stage++;
+                    }
+
+                    break;
+                case 32:
+                    // Swap back to center cam
+                    rightCam.SetActive(false);
+                    centerCam.SetActive(true);
+
+                    // spawn the title screen.  
+                    titleScreen = Instantiate(titleScreenPrefab, uiCanvasObject.transform);
+                    stage++;
+                    break;
+                case 33:
+                    // wait for titleScreen to not exist
+                    if (!UnityUtils.Exists(titleScreen)) {
+                        stage++;
+                    }
+                    break;
+                case 34:
+                    // Play the standup animation and the fade out animation?
+                    protagonistAnimator.SetTrigger("escape");
+                    fadeAnimator.SetTrigger("fade_out");
+                    stage++;
+                    break;
+                case 35:
+                    // Do nothing and wait for the increment
+                    break;
+                case 36:
+                    StartCoroutine(LoadFirstScene());
+                    break;
             }
             
-
-
-
             base.ComponentUpdate();
+        }
+
+        private IEnumerator LoadFirstScene()
+        {
+            // The Application loads the Scene in the background as the current Scene runs.
+            // This is particularly good for creating loading screens.
+            // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+            // a sceneBuildIndex of 1 as shown in Build Settings.
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Scenes.ROOFTOP);
+
+            // Wait until the asynchronous scene fully loads
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
         }
 
         private void AddTextQueue(IEnumerable<string> stringuses) {
@@ -265,9 +442,15 @@ namespace Assets.Source.Components.Cutscenes.Intro
             timer.IsActive = true;
         }
 
+        public void ChooseOption(int option) {
+            dialogueOption = option;
+            IncrementStage();
+        }
+
         /// <summary>
         /// Increments the stage externally.  More bad code.
         /// </summary>
         public void IncrementStage() => stage++;
+
     }
 }

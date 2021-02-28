@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <strings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <string name="antag01">Now.  I'll give you one more chance to tell me.</string>
-  <string name="antag02">Who sent you?</string>
+  <string name="antag01">Now, tell me.</string>
+  <string name="antag02">Who sent you to assassinate me?</string>
 </strings>
