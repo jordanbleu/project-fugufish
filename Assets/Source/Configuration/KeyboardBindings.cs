@@ -26,8 +26,11 @@ namespace Assets.Source.Configuration
             { InputConstants.K_SWING_SWORD,    new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Mouse0))  } },
             { InputConstants.K_INTERACT,       new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.F))  } },
             { InputConstants.K_SPRINT,         new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.LeftShift))  } },
-            { InputConstants.K_JUMP,           new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Space))  } }
+            { InputConstants.K_JUMP,           new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Space))  } },
 
+            { InputConstants.K_MENU_UP,        new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.UpArrow))  } },
+            { InputConstants.K_MENU_DOWN,      new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.DownArrow))  } },
+            { InputConstants.K_MENU_ENTER,     new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Return))  } },
         };
 
         private static string Stringify(KeyCode key)

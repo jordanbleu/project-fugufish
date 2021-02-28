@@ -14,12 +14,16 @@ namespace Assets.Source.Strings.Base
         // The cached dictionary of strings
         public Dictionary<string, string> Value { get; private set; }
 
+        private string filePath;
+
         /// <summary>
         /// Call load to return a dictionary of strings. 
         /// </summary>
         /// <param name="path">The path after the 'strings/en' folder (or whatever the language code is).  Include the .xml</param>
         public void Load(string path)
         {
+            filePath = path;
+            Value = new Dictionary<string, string>();
             StringResourceList strings;
             strings = DeserializeStrings(path);
             ConvertToDictionary(strings);
@@ -28,7 +32,13 @@ namespace Assets.Source.Strings.Base
         // Converts the deserialized string resource object into the cached dictionary
         private void ConvertToDictionary(StringResourceList stringResources)
         {
-            Value = stringResources.Values.ToDictionary((sr) => sr.Name, (sr) => sr.Value);
+            try
+            {
+                Value = stringResources.Values.ToDictionary((sr) => sr.Name, (sr) => sr.Value);
+            }
+            catch (ArgumentException ex) {
+                throw new ArgumentException($"Unable to deserialize strings file from '{filePath}'.  Make sure there are no duplicate string keys or something.",ex);
+            }
         }
 
         // Deserializes the XML file into a list of strings
