@@ -400,8 +400,7 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     }
                     break;
                 case 34:
-                    // Play the standup animation and the fade out animation?
-                    protagonistAnimator.SetTrigger("escape");
+                    // Play the fade out animation
                     fadeAnimator.SetTrigger("fade_out");
                     stage++;
                     break;

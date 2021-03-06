@@ -70,6 +70,7 @@ namespace Assets.Source.Components.Animation
 
         public void Attack() => animator.SetTrigger("attack");
 
+        public void Tied() => animator.SetTrigger("tied");
 
         /// <summary>
         /// Face either left or right, towards the position

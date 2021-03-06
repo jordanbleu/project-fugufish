@@ -65,6 +65,216 @@ TextureImporter:
   - first:
       213: -5064481063454976781
     second: rooftopTileset_20
+  - first:
+      213: 5504149254848205301
+    second: rooftopTileset_21
+  - first:
+      213: 8616050784590089046
+    second: rooftopTileset_22
+  - first:
+      213: 851886780302742092
+    second: rooftopTileset_23
+  - first:
+      213: -1214660681401236965
+    second: rooftopTileset_24
+  - first:
+      213: 6326640128218417220
+    second: rooftopTileset_25
+  - first:
+      213: 2690217880026682713
+    second: rooftopTileset_26
+  - first:
+      213: -3260004993272585220
+    second: rooftopTileset_27
+  - first:
+      213: -8439093384159812274
+    second: rooftopTileset_28
+  - first:
+      213: -1463908545412080136
+    second: rooftopTileset_29
+  - first:
+      213: 7826975823575630331
+    second: rooftopTileset_30
+  - first:
+      213: 4921702356404807411
+    second: rooftopTileset_31
+  - first:
+      213: 6286220267659963814
+    second: rooftopTileset_32
+  - first:
+      213: -1868324351711529753
+    second: rooftopTileset_33
+  - first:
+      213: -5155390354813780613
+    second: rooftopTileset_34
+  - first:
+      213: -4117417674432669980
+    second: rooftopTileset_35
+  - first:
+      213: 5961454859641476832
+    second: rooftopTileset_36
+  - first:
+      213: 435772014696684811
+    second: rooftopTileset_37
+  - first:
+      213: -8496994827717151825
+    second: rooftopTileset_38
+  - first:
+      213: 2191047876616375423
+    second: rooftopTileset_39
+  - first:
+      213: 3024748254775823503
+    second: rooftopTileset_40
+  - first:
+      213: 7777545073446466104
+    second: rooftopTileset_41
+  - first:
+      213: -6911170393630634906
+    second: rooftopTileset_42
+  - first:
+      213: 8349263186358496158
+    second: rooftopTileset_43
+  - first:
+      213: 5554412377158782623
+    second: rooftopTileset_44
+  - first:
+      213: 4764763981393904232
+    second: rooftopTileset_0
+  - first:
+      213: -826795719224331354
+    second: rooftopTileset_1
+  - first:
+      213: 1925229809527916845
+    second: rooftopTileset_2
+  - first:
+      213: 10218677260325307
+    second: rooftopTileset_3
+  - first:
+      213: 8385074704251541895
+    second: rooftopTileset_4
+  - first:
+      213: -7391531852572911499
+    second: rooftopTileset_5
+  - first:
+      213: 3139385446788824157
+    second: rooftopTileset_6
+  - first:
+      213: -4839819716612849598
+    second: rooftopTileset_7
+  - first:
+      213: -8173898389290708584
+    second: rooftopTileset_8
+  - first:
+      213: 5519383942029671552
+    second: rooftopTileset_9
+  - first:
+      213: -7901438182794494318
+    second: rooftopTileset_10
+  - first:
+      213: -7038959649422516166
+    second: rooftopTileset_11
+  - first:
+      213: 7480941459837037474
+    second: rooftopTileset_12
+  - first:
+      213: -5485612241259911943
+    second: rooftopTileset_13
+  - first:
+      213: -5046303520356739980
+    second: rooftopTileset_14
+  - first:
+      213: -3759034684463974058
+    second: rooftopTileset_15
+  - first:
+      213: -1331267022611769960
+    second: rooftopTileset_16
+  - first:
+      213: 7165429147591933260
+    second: rooftopTileset_17
+  - first:
+      213: -701243214749269560
+    second: rooftopTileset_18
+  - first:
+      213: -4334816455709931350
+    second: rooftopTileset_19
+  - first:
+      213: -7361181174996117219
+    second: rooftopTileset_20
+  - first:
+      213: -3705801075590101615
+    second: rooftopTileset_21
+  - first:
+      213: 3077136981704813824
+    second: rooftopTileset_22
+  - first:
+      213: -7084701580577072386
+    second: rooftopTileset_23
+  - first:
+      213: -4973853324820765171
+    second: rooftopTileset_24
+  - first:
+      213: -2771933994344590409
+    second: rooftopTileset_25
+  - first:
+      213: -4013982184107728377
+    second: rooftopTileset_26
+  - first:
+      213: -5441177900904076535
+    second: rooftopTileset_27
+  - first:
+      213: -1537177670126686375
+    second: rooftopTileset_28
+  - first:
+      213: -1275535275563015275
+    second: rooftopTileset_29
+  - first:
+      213: -6531825860884640019
+    second: rooftopTileset_30
+  - first:
+      213: 519089375938732602
+    second: rooftopTileset_31
+  - first:
+      213: 3715786050640117099
+    second: rooftopTileset_32
+  - first:
+      213: -167922169337331569
+    second: rooftopTileset_33
+  - first:
+      213: -1482138214092502533
+    second: rooftopTileset_34
+  - first:
+      213: 779460278747082301
+    second: rooftopTileset_35
+  - first:
+      213: 8082438833728244800
+    second: rooftopTileset_36
+  - first:
+      213: -1731193277274567871
+    second: rooftopTileset_37
+  - first:
+      213: -8979798693120527157
+    second: rooftopTileset_38
+  - first:
+      213: -4924119177344660598
+    second: rooftopTileset_39
+  - first:
+      213: -276111490076932856
+    second: rooftopTileset_40
+  - first:
+      213: -117271262618997046
+    second: rooftopTileset_41
+  - first:
+      213: -2765591023010457117
+    second: rooftopTileset_42
+  - first:
+      213: 4771826343492710943
+    second: rooftopTileset_43
+  - first:
+      213: -9165500112480814037
+    second: rooftopTileset_44
+  - first:
+      213: 6405852562852886694
+    second: rooftopTileset_45
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -152,19 +362,19 @@ TextureImporter:
       name: rooftopTileset_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
+        x: 0
+        y: 128
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fdf65fe03fcd98a0800000000000000
-      internalID: -6296648894913249805
+      spriteID: 8624f85a897df1240800000000000000
+      internalID: 4764763981393904232
       vertices: []
       indices: 
       edges: []
@@ -173,19 +383,19 @@ TextureImporter:
       name: rooftopTileset_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
+        x: 16
+        y: 128
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9a6226b366810010800000000000000
-      internalID: 1153350742399150751
+      spriteID: 6a3f1d58ca1a684f0800000000000000
+      internalID: -826795719224331354
       vertices: []
       indices: 
       edges: []
@@ -194,19 +404,19 @@ TextureImporter:
       name: rooftopTileset_2
       rect:
         serializedVersion: 2
-        x: 80
-        y: 48
+        x: 32
+        y: 128
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89f8c487b32690620800000000000000
-      internalID: 2740829855792533400
+      spriteID: d2987ebbf4ac7ba10800000000000000
+      internalID: 1925229809527916845
       vertices: []
       indices: 
       edges: []
@@ -215,19 +425,19 @@ TextureImporter:
       name: rooftopTileset_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
+        x: 48
+        y: 128
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a45a6ac2fb7dd4a20800000000000000
-      internalID: 3048329738887537994
+      spriteID: bb11d2435dd442000800000000000000
+      internalID: 10218677260325307
       vertices: []
       indices: 
       edges: []
@@ -236,19 +446,19 @@ TextureImporter:
       name: rooftopTileset_4
       rect:
         serializedVersion: 2
-        x: 112
-        y: 48
+        x: 0
+        y: 112
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7219a996613b37b60800000000000000
-      internalID: 7742729093222404391
+      spriteID: 789d60a7405cd5470800000000000000
+      internalID: 8385074704251541895
       vertices: []
       indices: 
       edges: []
@@ -257,19 +467,19 @@ TextureImporter:
       name: rooftopTileset_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 16
+        y: 112
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83ac8765be90a6ab0800000000000000
-      internalID: -5014184328750904776
+      spriteID: 578186d21f00c6990800000000000000
+      internalID: -7391531852572911499
       vertices: []
       indices: 
       edges: []
@@ -278,19 +488,19 @@ TextureImporter:
       name: rooftopTileset_6
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 32
+        y: 112
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1e7a3c8d43bec8d0800000000000000
-      internalID: -2824122770668224994
+      spriteID: d5cf0e04e66519b20800000000000000
+      internalID: 3139385446788824157
       vertices: []
       indices: 
       edges: []
@@ -299,19 +509,19 @@ TextureImporter:
       name: rooftopTileset_7
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 48
+        y: 112
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 422b932192283b5f0800000000000000
-      internalID: -742106400674958812
+      spriteID: 2400c563c9185dcb0800000000000000
+      internalID: -4839819716612849598
       vertices: []
       indices: 
       edges: []
@@ -320,19 +530,19 @@ TextureImporter:
       name: rooftopTileset_8
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 64
+        y: 112
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f64c0b00d4aed62f0800000000000000
-      internalID: -977867927624563601
+      spriteID: 891903cd8ba709e80800000000000000
+      internalID: -8173898389290708584
       vertices: []
       indices: 
       edges: []
@@ -341,19 +551,19 @@ TextureImporter:
       name: rooftopTileset_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 0
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41a871a10f5046950800000000000000
-      internalID: 6441279895834692116
+      spriteID: 08c7cabc37ac89c40800000000000000
+      internalID: 5519383942029671552
       vertices: []
       indices: 
       edges: []
@@ -362,19 +572,19 @@ TextureImporter:
       name: rooftopTileset_10
       rect:
         serializedVersion: 2
-        x: 80
-        y: 32
+        x: 16
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e82005a94b8a8b7d0800000000000000
-      internalID: -2902384466203770226
+      spriteID: 29e73db16d3785290800000000000000
+      internalID: -7901438182794494318
       vertices: []
       indices: 
       edges: []
@@ -383,19 +593,19 @@ TextureImporter:
       name: rooftopTileset_11
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 32
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a36c046464a8dd510800000000000000
-      internalID: 1575567479080535610
+      spriteID: a30ecdb2e77905e90800000000000000
+      internalID: -7038959649422516166
       vertices: []
       indices: 
       edges: []
@@ -404,19 +614,19 @@ TextureImporter:
       name: rooftopTileset_12
       rect:
         serializedVersion: 2
-        x: 112
-        y: 32
+        x: 48
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba576e5b5f6c17f80800000000000000
-      internalID: -8110482695296485973
+      spriteID: 2ab241b3f94a1d760800000000000000
+      internalID: 7480941459837037474
       vertices: []
       indices: 
       edges: []
@@ -425,19 +635,19 @@ TextureImporter:
       name: rooftopTileset_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 64
+        y: 96
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e04c0395c874598f0800000000000000
-      internalID: -534442312656174066
+      spriteID: 9f42b280bb03fd3b0800000000000000
+      internalID: -5485612241259911943
       vertices: []
       indices: 
       edges: []
@@ -446,19 +656,19 @@ TextureImporter:
       name: rooftopTileset_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 0
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 456fb7d75ff8a5c00800000000000000
-      internalID: 890182160894129748
+      spriteID: 47455584fade7f9b0800000000000000
+      internalID: -5046303520356739980
       vertices: []
       indices: 
       edges: []
@@ -467,19 +677,19 @@ TextureImporter:
       name: rooftopTileset_15
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 16
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 698d955663758bad0800000000000000
-      internalID: -2686301286586263402
+      spriteID: 659f626eed935dbc0800000000000000
+      internalID: -3759034684463974058
       vertices: []
       indices: 
       edges: []
@@ -488,19 +698,19 @@ TextureImporter:
       name: rooftopTileset_16
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 32
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a4643584ac0f640800000000000000
-      internalID: 5111807989049084500
+      spriteID: 895980042b3668de0800000000000000
+      internalID: -1331267022611769960
       vertices: []
       indices: 
       edges: []
@@ -509,19 +719,19 @@ TextureImporter:
       name: rooftopTileset_17
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a03729501ca7190800000000000000
-      internalID: -7963840761375290747
+      spriteID: c4d727d78d7b07360800000000000000
+      internalID: 7165429147591933260
       vertices: []
       indices: 
       edges: []
@@ -530,19 +740,19 @@ TextureImporter:
       name: rooftopTileset_18
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 64
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 389378ed13e8a5b60800000000000000
-      internalID: 7735651654800193923
+      spriteID: 8c187b3f20fa446f0800000000000000
+      internalID: -701243214749269560
       vertices: []
       indices: 
       edges: []
@@ -551,19 +761,19 @@ TextureImporter:
       name: rooftopTileset_19
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 80
+        y: 80
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a7a38954c17baf10800000000000000
-      internalID: 2282042724322617257
+      spriteID: aa844ee7663a7d3c0800000000000000
+      internalID: -4334816455709931350
       vertices: []
       indices: 
       edges: []
@@ -572,19 +782,544 @@ TextureImporter:
       name: rooftopTileset_20
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 16
+        y: 64
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f4d2193e4957b9b0800000000000000
-      internalID: -5064481063454976781
+      spriteID: d195019f8b4d7d990800000000000000
+      internalID: -7361181174996117219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19501315e89529cc0800000000000000
+      internalID: -3705801075590101615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_22
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00dabbf08cf24ba20800000000000000
+      internalID: 3077136981704813824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_23
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efa1e06e2751ead90800000000000000
+      internalID: -7084701580577072386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d06a921f0c259fab0800000000000000
+      internalID: -4973853324820765171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3d24ee7bc1889d0800000000000000
+      internalID: -2771933994344590409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_26
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702238578787b48c0800000000000000
+      internalID: -4013982184107728377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b28e8178d0d74b0800000000000000
+      internalID: -5441177900904076535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_28
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95faf67ad09daaae0800000000000000
+      internalID: -1537177670126686375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5932699cc636c4ee0800000000000000
+      internalID: -1275535275563015275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_30
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deec2439cfa4a55a0800000000000000
+      internalID: -6531825860884640019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a32e183890d243700800000000000000
+      internalID: 519089375938732602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_32
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d71c9d9bf119330800000000000000
+      internalID: 3715786050640117099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f804cba3dab6badf0800000000000000
+      internalID: -167922169337331569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_34
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf90cf0a5236e6be0800000000000000
+      internalID: -1482138214092502533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_35
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e2f376ef231da00800000000000000
+      internalID: 779460278747082301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_36
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04cc133fb479a2070800000000000000
+      internalID: 8082438833728244800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b4186f2e099f7e0800000000000000
+      internalID: -1731193277274567871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_38
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4b8066aa8516380800000000000000
+      internalID: -8979798693120527157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_39
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bcea282b30aabb0800000000000000
+      internalID: -4924119177344660598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_40
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8058f8b001e0b2cf0800000000000000
+      internalID: -276111490076932856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aceab31786e5f5ef0800000000000000
+      internalID: -117271262618997046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_42
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9d3770e95ae99d0800000000000000
+      internalID: -2765591023010457117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_43
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12fbb5f6cee83240800000000000000
+      internalID: 4771826343492710943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_44
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c37c6653a9dc080800000000000000
+      internalID: -9165500112480814037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rooftopTileset_45
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a83f5c57f826e850800000000000000
+      internalID: 6405852562852886694
       vertices: []
       indices: 
       edges: []

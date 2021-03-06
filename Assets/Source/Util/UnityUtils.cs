@@ -26,6 +26,7 @@ namespace Assets.Source
 
         public const int NOTHING_LAYER_MASK = ~-1;
 
+        public static Color InvertColor(Color color) => UnityUtils.Color((byte)(255 - color.r), (byte)(255 - color.g), (byte)(255 - color.b));
 
 
     }
