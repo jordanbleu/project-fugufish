@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -280,6 +280,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &32899256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2687781773814600946, guid: 56f2156163b14364d8d16abd1b14edd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1550930192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ac750397ac7fa4595853dd6b26bbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &65813346
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +435,7 @@ MonoBehaviour:
   dynamicMenuObject: {fileID: 3703251649381271174}
   titleScreenPrefab: {fileID: 6207071692959596562, guid: 422507e09dff8ac4a91a41dcf6d5fd8d,
     type: 3}
+  sceneLoader: {fileID: 32899256}
   stage: 0
 --- !u!4 &71893160
 Transform:
@@ -12514,6 +12527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801327524222242860, guid: 56f2156163b14364d8d16abd1b14edd2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f2156163b14364d8d16abd1b14edd2, type: 3}

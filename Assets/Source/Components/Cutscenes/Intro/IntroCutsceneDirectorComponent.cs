@@ -12,6 +12,7 @@ using UnityEngine.Events;
 using Assets.Source.Scene;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Assets.Source.Components.Level;
 
 namespace Assets.Source.Components.Cutscenes.Intro
 {
@@ -57,6 +58,9 @@ namespace Assets.Source.Components.Cutscenes.Intro
 
         [SerializeField]
         private GameObject titleScreenPrefab;
+
+        [SerializeField]
+        private SceneLoaderComponent sceneLoader;
         
         private IntervalTimerComponent timer;
         private Animator fadeAnimator;
@@ -400,34 +404,11 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     }
                     break;
                 case 34:
-                    // Play the fade out animation
-                    fadeAnimator.SetTrigger("fade_out");
-                    stage++;
-                    break;
-                case 35:
-                    // Do nothing and wait for the increment
-                    break;
-                case 36:
-                    StartCoroutine(LoadFirstScene());
+                    sceneLoader.LoadScene(Scenes.ROOFTOP);
                     break;
             }
             
             base.ComponentUpdate();
-        }
-
-        private IEnumerator LoadFirstScene()
-        {
-            // The Application loads the Scene in the background as the current Scene runs.
-            // This is particularly good for creating loading screens.
-            // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
-            // a sceneBuildIndex of 1 as shown in Build Settings.
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Scenes.ROOFTOP);
-
-            // Wait until the asynchronous scene fully loads
-            while (!asyncLoad.isDone)
-            {
-                yield return null;
-            }
         }
 
         private void AddTextQueue(IEnumerable<string> stringuses) {
