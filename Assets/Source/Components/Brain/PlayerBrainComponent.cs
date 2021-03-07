@@ -15,6 +15,10 @@ namespace Assets.Source.Components.Brain
     public class PlayerBrainComponent : CommonPhysicsComponent
     {
         [SerializeField]
+        [Tooltip("If true, the player will start the scene tied up and escape (really only for the very first scene in the game lol")]
+        private bool isTiedUp = false;
+
+        [SerializeField]
         [Header("Player Brain")]
         [Tooltip("How fast the player moves via walking / running")]
         private float moveSpeed = 6f;
@@ -43,6 +47,7 @@ namespace Assets.Source.Components.Brain
         [Header("Stamina Requirements")]
         private int dodgeStaminaRequired = 30;
 
+
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
@@ -67,12 +72,17 @@ namespace Assets.Source.Components.Brain
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
             cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
+
+            if (isTiedUp) {
+                animator.Tied();
+            }
+
             base.ComponentAwake();
         }
 
         public override void ComponentUpdate()
         {
-            if (actor.IsAlive())
+            if (actor.IsAlive() && !isTiedUp)
             {
                 // If we are currently touching any ladder components, we are climbing.
                 isClimbing = CollidingTriggers.Any(tr => UnityUtils.Exists(tr) && tr.GetComponent<LadderComponent>() != null);
@@ -263,6 +273,11 @@ namespace Assets.Source.Components.Brain
         public void OnGroundPoundLanded()
         {
             cameraEffector.LargeImpact();
+        }
+
+        public void OnEscapeFromBeingTied() 
+        {
+            isTiedUp = false;
         }
 
         #endregion
