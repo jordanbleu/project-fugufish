@@ -19,6 +19,10 @@ namespace Assets.Source.Components.Brain
         private bool isTiedUp = false;
 
         [SerializeField]
+        [Tooltip("If true the player will be restricted to walking")]
+        private bool forceWalk = false;
+
+        [SerializeField]
         [Header("Player Brain")]
         [Tooltip("How fast the player moves via walking / running")]
         private float moveSpeed = 6f;
@@ -187,8 +191,15 @@ namespace Assets.Source.Components.Brain
 
         private void UpdateFootVelocity()
         {
+            // These will be a value between 0 and 1
             var inputHorizontal = Input.GetAxisValue(InputConstants.K_MOVE_RIGHT) - Input.GetAxisValue(InputConstants.K_MOVE_LEFT);
             var inputVertical = Input.GetAxisValue(InputConstants.K_MOVE_UP) - Input.GetAxisValue(InputConstants.K_MOVE_DOWN);
+
+            // if the player is forced to walk, clamp their movement as if they were only moving the analog stick
+            if (forceWalk && !isClimbing) {
+                inputHorizontal = Mathf.Clamp(inputHorizontal, -0.25f, 0.25f);
+                inputVertical = Mathf.Clamp(inputHorizontal, -0.25f, 0.25f);
+            }
 
             if (IsAttacking)
             {

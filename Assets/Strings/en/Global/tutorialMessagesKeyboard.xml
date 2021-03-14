@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<strings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <string name="move">Use W, A, S, and D keys to move</string>
+  <string name="jump">Press [SPACE] to jump</string>
+  <string name="switches">Use left mouse button to attack</string>
+  <string name="ladder">Walk up to ladders to climb them</string>
+  <string name="uppercut">Hold [S] while attacking to swing upwards</string>
+</strings>

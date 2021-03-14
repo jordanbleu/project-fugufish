@@ -1,0 +1,2305 @@
+fileFormatVersion: 2
+guid: 3dcdd460a5831d740bd3a1b1a257d29b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4559401763859171904
+    second: atticTileset_0
+  - first:
+      213: 8478442338746070534
+    second: atticTileset_1
+  - first:
+      213: 2269314522135022290
+    second: atticTileset_2
+  - first:
+      213: 6465564003928854838
+    second: atticTileset_3
+  - first:
+      213: 8876678229292062375
+    second: atticTileset_4
+  - first:
+      213: -8011182403389426053
+    second: atticTileset_5
+  - first:
+      213: 7751397906898048951
+    second: atticTileset_6
+  - first:
+      213: 5689704311029806741
+    second: atticTileset_7
+  - first:
+      213: 2567427101800972942
+    second: atticTileset_8
+  - first:
+      213: -610005136872801125
+    second: atticTileset_9
+  - first:
+      213: 6420345005255592216
+    second: atticTileset_10
+  - first:
+      213: -1143898447399514666
+    second: atticTileset_11
+  - first:
+      213: 778680154158887390
+    second: atticTileset_12
+  - first:
+      213: 3817334040841960978
+    second: atticTileset_13
+  - first:
+      213: 7610236891152108657
+    second: atticTileset_14
+  - first:
+      213: -2759346337494973006
+    second: atticTileset_15
+  - first:
+      213: 1611567615759749732
+    second: atticTileset_16
+  - first:
+      213: -2712703276728649317
+    second: atticTileset_17
+  - first:
+      213: -4234328611851867395
+    second: atticTileset_18
+  - first:
+      213: 2811357665236608553
+    second: atticTileset_19
+  - first:
+      213: -5643496797889943076
+    second: atticTileset_20
+  - first:
+      213: 1912517564652531308
+    second: atticTileset_21
+  - first:
+      213: -1033761198873982885
+    second: atticTileset_22
+  - first:
+      213: -6154444341605286795
+    second: atticTileset_23
+  - first:
+      213: 3979317357311280177
+    second: atticTileset_24
+  - first:
+      213: 8366923210195036691
+    second: atticTileset_25
+  - first:
+      213: -3042347585676022589
+    second: atticTileset_26
+  - first:
+      213: 8750270956658097064
+    second: atticTileset_27
+  - first:
+      213: -6535967739700606057
+    second: atticTileset_28
+  - first:
+      213: -200030702342030983
+    second: atticTileset_29
+  - first:
+      213: 8319114645046941224
+    second: atticTileset_30
+  - first:
+      213: 7737114645410433823
+    second: atticTileset_31
+  - first:
+      213: 2318428641498193711
+    second: atticTileset_32
+  - first:
+      213: 6499204473881907710
+    second: atticTileset_33
+  - first:
+      213: 1799927346765955206
+    second: atticTileset_34
+  - first:
+      213: -7026780708592569816
+    second: atticTileset_35
+  - first:
+      213: -722531530205021119
+    second: atticTileset_36
+  - first:
+      213: 1293591200057200791
+    second: atticTileset_37
+  - first:
+      213: 1846888079837668427
+    second: atticTileset_38
+  - first:
+      213: 6070032721075804809
+    second: atticTileset_39
+  - first:
+      213: 8596092561202652586
+    second: atticTileset_40
+  - first:
+      213: 28723626936033649
+    second: atticTileset_41
+  - first:
+      213: -4696847532983394141
+    second: atticTileset_42
+  - first:
+      213: -6885035305393059971
+    second: atticTileset_43
+  - first:
+      213: -8633662622765959201
+    second: atticTileset_44
+  - first:
+      213: 4612619247732533868
+    second: atticTileset_45
+  - first:
+      213: 6122886774834901069
+    second: atticTileset_46
+  - first:
+      213: -8647356558865807727
+    second: atticTileset_47
+  - first:
+      213: 5713378952746815832
+    second: atticTileset_48
+  - first:
+      213: 771838369293839128
+    second: atticTileset_49
+  - first:
+      213: 1042612880066616884
+    second: atticTileset_50
+  - first:
+      213: 3331287707297275436
+    second: atticTileset_51
+  - first:
+      213: 5723256171350895701
+    second: atticTileset_52
+  - first:
+      213: 4016420765959642574
+    second: atticTileset_53
+  - first:
+      213: -5287132763478343135
+    second: atticTileset_54
+  - first:
+      213: 1879409328250950706
+    second: atticTileset_55
+  - first:
+      213: -1941584295043109668
+    second: atticTileset_56
+  - first:
+      213: 5330143836863762726
+    second: atticTileset_57
+  - first:
+      213: -7981677453383070078
+    second: atticTileset_58
+  - first:
+      213: -6870535017234577123
+    second: atticTileset_59
+  - first:
+      213: 1504950220319709030
+    second: atticTileset_60
+  - first:
+      213: -4053531400765441003
+    second: atticTileset_61
+  - first:
+      213: -1196400161380465134
+    second: atticTileset_62
+  - first:
+      213: 8695271195606641257
+    second: atticTileset_63
+  - first:
+      213: -8927996853468979410
+    second: atticTileset_64
+  - first:
+      213: 3074596251016107455
+    second: atticTileset_65
+  - first:
+      213: 5819430958754211351
+    second: atticTileset_66
+  - first:
+      213: 2712844123914435268
+    second: atticTileset_67
+  - first:
+      213: -5510157819221009700
+    second: atticTileset_68
+  - first:
+      213: 7606797034375912066
+    second: atticTileset_69
+  - first:
+      213: -3655227452884708285
+    second: atticTileset_70
+  - first:
+      213: -4358859068213850741
+    second: atticTileset_71
+  - first:
+      213: 6245808985180667098
+    second: atticTileset_72
+  - first:
+      213: -8258886027336507416
+    second: atticTileset_73
+  - first:
+      213: 1242717440101875407
+    second: atticTileset_74
+  - first:
+      213: 427199623314667373
+    second: atticTileset_75
+  - first:
+      213: -1328201381897469685
+    second: atticTileset_0
+  - first:
+      213: -7226667671864917080
+    second: atticTileset_1
+  - first:
+      213: 1293981078266623879
+    second: atticTileset_2
+  - first:
+      213: 6482591342611707538
+    second: atticTileset_3
+  - first:
+      213: 4784726415395089922
+    second: atticTileset_4
+  - first:
+      213: -3129429952976635084
+    second: atticTileset_5
+  - first:
+      213: -7575935302286779915
+    second: atticTileset_6
+  - first:
+      213: 6443283178840342648
+    second: atticTileset_7
+  - first:
+      213: -1232324970396540803
+    second: atticTileset_8
+  - first:
+      213: 3804751178996039246
+    second: atticTileset_9
+  - first:
+      213: -3986912038285505616
+    second: atticTileset_10
+  - first:
+      213: -6233185169490360625
+    second: atticTileset_11
+  - first:
+      213: 2678154750330280103
+    second: atticTileset_12
+  - first:
+      213: 5884994756502679992
+    second: atticTileset_13
+  - first:
+      213: -4828257082229155846
+    second: atticTileset_14
+  - first:
+      213: -8065844687795853436
+    second: atticTileset_15
+  - first:
+      213: -1836768658563175387
+    second: atticTileset_16
+  - first:
+      213: 6340512696494121412
+    second: atticTileset_17
+  - first:
+      213: -6841360499598319239
+    second: atticTileset_18
+  - first:
+      213: -6514100930213992197
+    second: atticTileset_19
+  - first:
+      213: -580433638165638710
+    second: atticTileset_20
+  - first:
+      213: 2476058220770127412
+    second: atticTileset_21
+  - first:
+      213: -5155208078675327566
+    second: atticTileset_22
+  - first:
+      213: 4267668628088521384
+    second: atticTileset_23
+  - first:
+      213: 1740842537066702329
+    second: atticTileset_24
+  - first:
+      213: 7964814358013608825
+    second: atticTileset_25
+  - first:
+      213: 694872841756720776
+    second: atticTileset_26
+  - first:
+      213: -5996696770515633479
+    second: atticTileset_27
+  - first:
+      213: 338854393015662546
+    second: atticTileset_28
+  - first:
+      213: -3922704996506875224
+    second: atticTileset_29
+  - first:
+      213: -6445347352834010641
+    second: atticTileset_30
+  - first:
+      213: -8148662554278436948
+    second: atticTileset_31
+  - first:
+      213: -9083575969117037285
+    second: atticTileset_32
+  - first:
+      213: -8747922065659546690
+    second: atticTileset_33
+  - first:
+      213: -4046838110250637364
+    second: atticTileset_34
+  - first:
+      213: 5424030265425082243
+    second: atticTileset_35
+  - first:
+      213: 1335637516593860589
+    second: atticTileset_36
+  - first:
+      213: 2039495618571285752
+    second: atticTileset_37
+  - first:
+      213: -2297042594310637922
+    second: atticTileset_38
+  - first:
+      213: -1797014393112421011
+    second: atticTileset_39
+  - first:
+      213: 6570262147412268502
+    second: atticTileset_40
+  - first:
+      213: 2766531075161704640
+    second: atticTileset_41
+  - first:
+      213: 2096032046600856231
+    second: atticTileset_42
+  - first:
+      213: -5707706570060466387
+    second: atticTileset_43
+  - first:
+      213: -8746020769363037585
+    second: atticTileset_44
+  - first:
+      213: 6665477894390332155
+    second: atticTileset_45
+  - first:
+      213: 3382065136396668013
+    second: atticTileset_46
+  - first:
+      213: 6771121360362671500
+    second: atticTileset_47
+  - first:
+      213: 7996018730312244400
+    second: atticTileset_48
+  - first:
+      213: 7695578972414852251
+    second: atticTileset_49
+  - first:
+      213: -4241959199759431213
+    second: atticTileset_50
+  - first:
+      213: -8672678119495093537
+    second: atticTileset_51
+  - first:
+      213: -2103687614201384045
+    second: atticTileset_52
+  - first:
+      213: 3822046650277727248
+    second: atticTileset_53
+  - first:
+      213: -2128655272274541612
+    second: atticTileset_54
+  - first:
+      213: -7806597030419140177
+    second: atticTileset_55
+  - first:
+      213: 2783404954936256060
+    second: atticTileset_56
+  - first:
+      213: 4039313963804814641
+    second: atticTileset_57
+  - first:
+      213: 4125829828218660602
+    second: atticTileset_58
+  - first:
+      213: -165908160291249047
+    second: atticTileset_59
+  - first:
+      213: -10676475695033826
+    second: atticTileset_60
+  - first:
+      213: -5031780579135768693
+    second: atticTileset_61
+  - first:
+      213: 8822125630565724728
+    second: atticTileset_62
+  - first:
+      213: -2928010460383526405
+    second: atticTileset_63
+  - first:
+      213: -5608469877798923759
+    second: atticTileset_64
+  - first:
+      213: 3449174260219383547
+    second: atticTileset_65
+  - first:
+      213: -3054538577729080587
+    second: atticTileset_66
+  - first:
+      213: 1858872408572148440
+    second: atticTileset_67
+  - first:
+      213: -572342344378710038
+    second: atticTileset_68
+  - first:
+      213: 5424901344281130779
+    second: atticTileset_69
+  - first:
+      213: 5183973238801770746
+    second: atticTileset_70
+  - first:
+      213: -9164322773640186116
+    second: atticTileset_71
+  - first:
+      213: 461742995273290307
+    second: atticTileset_72
+  - first:
+      213: -5717079189076721352
+    second: atticTileset_73
+  - first:
+      213: -5268169747440155856
+    second: atticTileset_74
+  - first:
+      213: -1722710291397529993
+    second: atticTileset_75
+  - first:
+      213: -5552145909307381943
+    second: atticTileset_76
+  - first:
+      213: -6520860497653767109
+    second: atticTileset_77
+  - first:
+      213: -1803401317258206798
+    second: atticTileset_76
+  - first:
+      213: -2211794919553416472
+    second: atticTileset_77
+  - first:
+      213: -1963256767837752333
+    second: atticTileset_78
+  - first:
+      213: 3987515000439670557
+    second: atticTileset_79
+  - first:
+      213: 7670277338779223596
+    second: atticTileset_80
+  - first:
+      213: 113815344369898236
+    second: atticTileset_81
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: atticTileset_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0181d951e7419de0800000000000000
+      internalID: -1328201381897469685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a341bc7a08b5bb90800000000000000
+      internalID: -7226667671864917080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787b8245fe425f110800000000000000
+      internalID: 1293981078266623879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296b468da7ac6f950800000000000000
+      internalID: 6482591342611707538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e6d010353c66240800000000000000
+      internalID: 4784726415395089922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_5
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b3c57c9080294d0800000000000000
+      internalID: -3129429952976635084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_6
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9dad94bfedcd690800000000000000
+      internalID: -7575935302286779915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8704706c9e32b6950800000000000000
+      internalID: 6443283178840342648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_8
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70aba3f7f6e5eee0800000000000000
+      internalID: -1232324970396540803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_9
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ebec2f9013dc430800000000000000
+      internalID: 3804751178996039246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb834fef94aba8c0800000000000000
+      internalID: -3986912038285505616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_11
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc64b49fc174f79a0800000000000000
+      internalID: -6233185169490360625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_12
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a816f25e87ba2520800000000000000
+      internalID: 2678154750330280103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_13
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1f06e0d83bba150800000000000000
+      internalID: 5884994756502679992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af79771d3c59efcb0800000000000000
+      internalID: -4828257082229155846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_15
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487e47abdfc501090800000000000000
+      internalID: -8065844687795853436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_16
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c65cbf2ac7286e0800000000000000
+      internalID: -1836768658563175387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_17
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1e26834b60ef750800000000000000
+      internalID: 6340512696494121412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971ad096fda9e01a0800000000000000
+      internalID: -6841360499598319239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_19
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 464
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8ad8797b34995a0800000000000000
+      internalID: -6514100930213992197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1137d6ea2e1f7f0800000000000000
+      internalID: -580433638165638710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_21
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e603445d9bc5220800000000000000
+      internalID: 2476058220770127412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5455fd0950578b0800000000000000
+      internalID: -5155208078675327566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_23
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a28b44910ec93b30800000000000000
+      internalID: 4267668628088521384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_24
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f520c76017b82810800000000000000
+      internalID: 1740842537066702329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973055f8574b88e60800000000000000
+      internalID: 7964814358013608825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88eb9f00b2fa4a900800000000000000
+      internalID: 694872841756720776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bafeaf1f0477cca0800000000000000
+      internalID: -5996696770515633479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d7774e664ad3b400800000000000000
+      internalID: 338854393015662546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_29
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aace8cc690cf89c0800000000000000
+      internalID: -3922704996506875224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_30
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe113544bb68d86a0800000000000000
+      internalID: -6445347352834010641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_31
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafd4b194922aee80800000000000000
+      internalID: -8148662554278436948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_32
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d118e68c7a0f180800000000000000
+      internalID: -9083575969117037285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_33
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3bf81da33299680800000000000000
+      internalID: -8747922065659546690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_34
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc76ff60e2eb6d7c0800000000000000
+      internalID: -4046838110250637364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_35
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38731a5e9c6064b40800000000000000
+      internalID: 5424030265425082243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def034dae33298210800000000000000
+      internalID: 1335637516593860589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_37
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f438e9957ebd4c10800000000000000
+      internalID: 2039495618571285752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_38
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e963c244ee34f10e0800000000000000
+      internalID: -2297042594310637922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_39
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d15423ee8bf07e0800000000000000
+      internalID: -1797014393112421011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_40
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d514b1cc924e2b50800000000000000
+      internalID: 6570262147412268502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_41
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8c71bea51b46620800000000000000
+      internalID: 2766531075161704640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_42
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2aa778a0a961d10800000000000000
+      internalID: 2096032046600856231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_43
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d27f1618d172ac0b0800000000000000
+      internalID: -5707706570060466387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_44
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f627debd274ef9680800000000000000
+      internalID: -8746020769363037585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_45
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 448
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfaba5964d8808c50800000000000000
+      internalID: 6665477894390332155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c082692528fee20800000000000000
+      internalID: 3382065136396668013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_47
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d0a77900bd7fd50800000000000000
+      internalID: 6771121360362671500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_48
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc91a5aba097fe60800000000000000
+      internalID: 7996018730312244400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_49
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9cb0cf6d403cca60800000000000000
+      internalID: 7695578972414852251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d983aa25988125c0800000000000000
+      internalID: -4241959199759431213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_51
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2313c333574a780800000000000000
+      internalID: -8672678119495093537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_52
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393332db2433ec2e0800000000000000
+      internalID: -2103687614201384045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_53
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c86c8ad23aa0530800000000000000
+      internalID: 3822046650277727248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_54
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d340d6de4f7572e0800000000000000
+      internalID: -2128655272274541612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_55
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa17f39ac5569a390800000000000000
+      internalID: -7806597030419140177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_56
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36a9053f04a0a620800000000000000
+      internalID: 2783404954936256060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_57
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d6cdc16a68e0830800000000000000
+      internalID: 4039313963804814641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_58
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af62fa28e54e14930800000000000000
+      internalID: 4125829828218660602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_59
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9646080486392bdf0800000000000000
+      internalID: -165908160291249047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_60
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e129eba4dc11adff0800000000000000
+      internalID: -10676475695033826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_61
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8737e809368b2ab0800000000000000
+      internalID: -5031780579135768693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_62
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8323db5f48c7e6a70800000000000000
+      internalID: 8822125630565724728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_63
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf14632effd9d57d0800000000000000
+      internalID: -2928010460383526405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_64
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 432
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11211507c56ba22b0800000000000000
+      internalID: -5608469877798923759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe0cc417bdeddf20800000000000000
+      internalID: 3449174260219383547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_66
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f23bb1e8591c95d0800000000000000
+      internalID: -3054538577729080587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_67
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dab7bb5b9a0cc910800000000000000
+      internalID: 1858872408572148440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_68
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae784619ba1ae08f0800000000000000
+      internalID: -572342344378710038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_69
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b177a6fb70f194b40800000000000000
+      internalID: 5424901344281130779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_70
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af829efd13c21f740800000000000000
+      internalID: 5183973238801770746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_71
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf67726fdf8c1d080800000000000000
+      internalID: -9164322773640186116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_72
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3421acacec0786600800000000000000
+      internalID: 461742995273290307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_73
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831cd4694cad8a0b0800000000000000
+      internalID: -5717079189076721352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_74
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033ce53d683b3e6b0800000000000000
+      internalID: -5268169747440155856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_75
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e27560e14b718e0800000000000000
+      internalID: -1722710291397529993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_76
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b16a598e0809f6e0800000000000000
+      internalID: -1803401317258206798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_77
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e241004d302e41e0800000000000000
+      internalID: -2211794919553416472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_78
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 416
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f336261f5c11c4e0800000000000000
+      internalID: -1963256767837752333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_79
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d178fb124cf765730800000000000000
+      internalID: 3987515000439670557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_80
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c260aaac99c427a60800000000000000
+      internalID: 7670277338779223596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atticTileset_81
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf21823e37a549100800000000000000
+      internalID: 113815344369898236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
