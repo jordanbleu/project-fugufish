@@ -87,6 +87,18 @@ namespace Assets.Source.Components.Actor
         }
 
         /// <summary>
+        /// Increases the actors health without going over max
+        /// </summary>
+        /// <param name="amount"></param>
+        public void IncreaseHealth(int amount) {
+            Health += amount;
+
+            if (Health > MaxHealth) {
+                Health = MaxHealth;
+            }
+        }
+
+        /// <summary>
         /// Takes the passed in amount and returns true if there's enough stamina to cover the requested amount.  Returns 
         /// false if not, and does nothing. 
         /// </summary>
