@@ -76,6 +76,9 @@ namespace Assets.Source.Components.Actor
                     {
                         Health -= amount;
                     }
+                    else {
+                        Health = 0;
+                    }
 
                     if (Health <= 0)
                     {

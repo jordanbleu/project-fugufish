@@ -48,5 +48,29 @@ namespace Assets.Source.Components.Interaction
             }            
         }
 
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            if (isContinuous || !wasTriggered)
+            {
+                if (colliderLayers.IncludesLayer(collision.gameObject.layer))
+                {
+                    onEnter.Invoke();
+                    wasTriggered = true;
+                }
+            }
+            
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (colliderLayers.IncludesLayer(collision.gameObject.layer))
+            {
+                onExit.Invoke();
+                wasTriggered = false;
+            }
+            
+        }
+
+
     }
 }
