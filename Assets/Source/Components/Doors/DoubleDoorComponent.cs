@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Source.Components.Objects
 {
+    [Obsolete("Don't use this, it is dumb code")]
     public class DoubleDoorComponent : ComponentBase
     {
 

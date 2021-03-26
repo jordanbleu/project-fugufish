@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Source.Components.Switches.Base;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Source.Components.Objects.Switches
+namespace Assets.Source.Components.Switches
 {
     /// <summary>
     /// This is a basic switch that will display one sprite when open, one sprite when closed
     /// </summary>
-    public class SimpleTwoSpriteSwitch : ComponentBase
+    public class SimpleTwoSpriteSwitch : SwitchComponentBase
     {
-
-        [SerializeField]
-        private bool isOn;
 
         [SerializeField]
         private SpriteRenderer onSprite;
