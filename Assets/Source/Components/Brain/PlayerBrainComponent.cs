@@ -106,7 +106,7 @@ namespace Assets.Source.Components.Brain
                         }
                     }
 
-                    if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD))
+                    if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD) && actor.TryDepleteStamina(dodgeStaminaRequired/2))
                     {
                         // Shake the camera
                         cameraEffector.SwingRight();

@@ -28,7 +28,7 @@ namespace Assets.Source.Components.UI
         public override void ComponentAwake()
         {
             if (!UnityUtils.Exists(infoMessageComponent)) {
-                throw new UnityException("You went and forgot to drag the reference to the info message thing");
+                throw new UnityException($"You went and forgot to drag the reference to the info message thing for this object '{gameObject.name}'");
             }
 
             // Sadly, there is a noticable hitch in gameplay when this is called. 

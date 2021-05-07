@@ -8,6 +8,7 @@ namespace Assets.Source.Components.Projectile
     /// All this does is move the projectile in a direction
     /// not sure we need this.
     /// </summary>
+    [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyBulletComponent : ComponentBase
     {
 
@@ -32,9 +33,7 @@ namespace Assets.Source.Components.Projectile
                     attackable.Attack(gameObject);             
                 }
                 Destroy(gameObject);
-            }
-
-            
+            }            
         }
 
     }

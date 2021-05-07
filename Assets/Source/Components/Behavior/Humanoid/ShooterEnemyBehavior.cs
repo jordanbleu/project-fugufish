@@ -75,6 +75,11 @@ namespace Assets.Source.Components.Behavior.Humanoid
             }
 
             var brain = GetRequiredComponent<HumanoidNPCBrainComponent>();
+
+            if (!UnityUtils.Exists(brain)) {
+                throw new UnityException($"Unable to find a HumanoidNPCBrain on {gameObject.name}");
+            }
+
             brain.attackByPlayer.AddListener(OnAttackedByPlayer);
             brain.attackBegin.AddListener(OnAttackBegin);
             brain.attackEnd.AddListener(OnAttackEnd);
@@ -95,6 +100,11 @@ namespace Assets.Source.Components.Behavior.Humanoid
             brainTimer.OnIntervalReached.AddListener(BrainUpdate);
 
             shooterAnimator = GetRequiredComponent<ShooterSkeletonAnimatorComponent>();
+
+            if (!UnityUtils.Exists(shooterAnimator))
+            {
+                throw new UnityException($" {gameObject.name} requires a shooter skeleton animator and you don't have that.");
+            }
 
             Destroy(brainTimerPrefabTemp);
 
