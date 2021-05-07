@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Source.Components.Hazards
@@ -7,16 +8,14 @@ namespace Assets.Source.Components.Hazards
     /// Any object with a Hazard Component will damage the player on collision.
     /// Works with either collision triggers or solid colliders
     /// </summary>
+    [Obsolete("I'm not sure if this should be used anymore")]
     [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class HazardComponent : ComponentBase
     {
 
-        [SerializeField]
-        private int damageAmount;
-        public int DamageAmount => damageAmount;
 
         [SerializeField]
-        private UnityEvent onDamagePlayer;
+        private UnityEvent onCollideWithPlayer;
 
         [SerializeField]
         [Tooltip("if true, force will be applied in the direction that the object is moving")]
@@ -48,7 +47,7 @@ namespace Assets.Source.Components.Hazards
 
         public void OnPlayerHit() {
 
-            onDamagePlayer?.Invoke();
+            onCollideWithPlayer?.Invoke();
         }
 
         public void KillSelf() {

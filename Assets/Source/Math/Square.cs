@@ -14,8 +14,8 @@ namespace Assets.Source.Math
         public float Height;
         public float Left { get => Center.x - (Width / 2); }
         public float Right { get => Center.x + (Width / 2); }
-        public float Top { get => Center.y + (Width / 2); }
-        public float Bottom { get => Center.y - (Width / 2); }
+        public float Top { get => Center.y + (Height / 2); }
+        public float Bottom { get => Center.y - (Height / 2); }
 
 
         public Vector2 BoundsY { get => new Vector2(Center.y - (Height / 2), Center.y + (Height / 2)); }

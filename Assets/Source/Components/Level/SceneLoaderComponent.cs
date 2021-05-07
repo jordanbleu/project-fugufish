@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Source.Components.Brain;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,11 @@ namespace Assets.Source.Components.Level
         private Animator animator;
         private string sceneToLoad;
 
+
+        [SerializeField]
+        [Tooltip("Optional - drag player here to disable them when the loading begins.")]
+        private PlayerBrainComponent player;
+
         public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
@@ -22,6 +28,11 @@ namespace Assets.Source.Components.Level
         /// Begins the loading screen
         /// </summary>
         public void LoadScene(string name) {
+
+            if (UnityUtils.Exists(player)) {
+                player.gameObject.SetActive(false);
+            }
+
             animator.SetTrigger("show_loading_screen");
             sceneToLoad = name;
         }
@@ -29,7 +40,7 @@ namespace Assets.Source.Components.Level
         /// <summary>
         /// Call back from the animation timeline when the loading screen is ready for us
         /// </summary>
-        public void OnLoadingScreenReady() { 
+        public void OnLoadingScreenReady() {
             StartCoroutine(BeginLoadingScene(sceneToLoad));
         }
 

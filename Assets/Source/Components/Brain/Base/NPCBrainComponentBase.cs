@@ -42,7 +42,12 @@ namespace Assets.Source.Components.AI.Base
             collider2d = GetRequiredComponent<Collider2D>();
             rigidBody = GetRequiredComponent<Rigidbody2D>();
 
+            if (!UnityUtils.Exists(player)) {
+                throw new UnityException($"{gameObject.name} needs a player object dragged onto its NPCBrain");
+            }
+
             playerActor = GetRequiredComponent<ActorComponent>(player);
+
 
             if (!UnityUtils.Exists(onIdleStateBehavior)) {
                 throw new UnityException("Idle State Behavior is null.  Please drag one onto the inspector.");
@@ -79,6 +84,7 @@ namespace Assets.Source.Components.AI.Base
         {
             if (playerActor.IsAlive())
             {
+                var fuckAss = movementBounds.SurroundsPoint(player.transform.position);
                 if (!useMovementBoundaries || movementBounds.SurroundsPoint(player.transform.position))
                 {
                     DoActiveBehavior();

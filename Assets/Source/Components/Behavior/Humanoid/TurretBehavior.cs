@@ -47,6 +47,12 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
         public override void ComponentAwake()
         {
+            if (!UnityUtils.Exists(player))
+            {
+                Debug.LogError($"Object '{gameObject.name}' needs a reference to the player object on component 'DoNothingHumanoidBehavior'");
+                throw new UnityException($"Object '{gameObject.name}' needs a reference to the player object on component 'DoNothingHumanoidBehavior'");
+            }
+
             base.ComponentAwake();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();

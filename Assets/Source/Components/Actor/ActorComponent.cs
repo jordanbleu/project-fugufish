@@ -70,19 +70,34 @@ namespace Assets.Source.Components.Actor
             {
                 if (Health > 0)
                 {
-
                     onHealthDamage?.Invoke();
 
                     if (Health >= amount)
                     {
                         Health -= amount;
                     }
-                    else
+                    else {
+                        Health = 0;
+                    }
+
+                    if (Health <= 0)
                     {
                         onHealthEmpty?.Invoke();
                         Health = 0;
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Increases the actors health without going over max
+        /// </summary>
+        /// <param name="amount"></param>
+        public void IncreaseHealth(int amount) {
+            Health += amount;
+
+            if (Health > MaxHealth) {
+                Health = MaxHealth;
             }
         }
 
@@ -144,5 +159,14 @@ namespace Assets.Source.Components.Actor
         /// Invoke this to make the actor instantly take full damage 
         /// </summary>
         public void DieInstantly() => DepleteHealth(MaxHealth);
+
+        /// <summary>
+        /// Call this from one of the unity events to spawn a prefab at the current position of the actor
+        /// </summary>
+        /// <param name="prefab"></param>
+        public void SpawnItemAtMyPosition(GameObject prefab) {
+            var inst = Instantiate(prefab, transform.parent);
+            inst.transform.position = transform.position;
+        }
     }
 }

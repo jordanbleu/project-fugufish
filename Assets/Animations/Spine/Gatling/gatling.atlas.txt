@@ -1,0 +1,90 @@
+
+gatling.png
+size: 512,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+head
+  rotate: true
+  xy: 2, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+left_arm_gatling
+  rotate: true
+  xy: 36, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+left_arm_lower
+  rotate: true
+  xy: 70, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+left_arm_upper
+  rotate: true
+  xy: 104, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+left_leg_lower
+  rotate: true
+  xy: 138, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+left_leg_upper
+  rotate: true
+  xy: 172, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+right_arm_gatling
+  rotate: true
+  xy: 206, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+right_arm_lower
+  rotate: true
+  xy: 240, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+right_arm_upper
+  rotate: true
+  xy: 274, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+right_leg_lower
+  rotate: true
+  xy: 308, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+right_leg_upper
+  rotate: true
+  xy: 342, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
+torso
+  rotate: true
+  xy: 376, 2
+  size: 48, 32
+  orig: 48, 32
+  offset: 0, 0
+  index: -1
