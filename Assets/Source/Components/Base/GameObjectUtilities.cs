@@ -27,5 +27,10 @@ namespace Assets.Source.Components.Base
             Destroy(gameObject);
         }
 
+        public void InstantiateAtMe(GameObject gameObj) {
+            var inst = Instantiate(gameObj, transform.parent);
+            inst.transform.position = transform.position;
+        }
+
     }
 }

@@ -14,14 +14,8 @@ using static Assets.Source.Components.Animation.ShooterSkeletonAnimatorComponent
 
 namespace Assets.Source.Components.Behavior.Humanoid
 {
-    /// <summary>
-    /// Shooter Enemy works in 2 parts:
-    /// <para> - He will seek out a given position out of a list of possible positions </para>
-    /// <para> - Once he is at the position, he will fire at the player. </para>
-    /// </summary>
-    public class ShooterEnemyBehavior : HumanoidBehaviorBase
+    public class DroneShooterEnemyBehavior : HumanoidBehaviorBase
     {
-
         [Header("Shooter Behavior Properties")]
         [SerializeField]
         [Tooltip("Possible positions to move the shooter to.  When the player gets too close, the shooter will move over to the next closest position.")]
@@ -71,13 +65,15 @@ namespace Assets.Source.Components.Behavior.Humanoid
                 Debug.LogWarning($"No bullet prefab specified for {gameObject.name}!");
             }
 
-            if (!Positions.Any()) {
+            if (!Positions.Any())
+            {
                 Debug.LogError($"Enemy shooter named '{gameObject.name}' doesn't have any predefined positions and his behavior will not work right.");
             }
 
             var brain = GetRequiredComponent<HumanoidNPCBrainComponent>();
 
-            if (!UnityUtils.Exists(brain)) {
+            if (!UnityUtils.Exists(brain))
+            {
                 throw new UnityException($"Unable to find a HumanoidNPCBrain on {gameObject.name}");
             }
 
@@ -114,7 +110,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
             base.ComponentStart();
         }
 
-        private ShooterPosition FindNearestShooterPosition() => 
+        private ShooterPosition FindNearestShooterPosition() =>
             Positions.OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x)).First();
 
 
@@ -122,10 +118,11 @@ namespace Assets.Source.Components.Behavior.Humanoid
         // This is not great logic
         private ShooterPosition FindSecondNearestShooterPositionAwayFromPosition(float playerX)
         {
-            if (Positions.Count() == 1) {
+            if (Positions.Count() == 1)
+            {
                 return FindNearestShooterPosition();
             }
-            
+
             // if the player is to our left, pick the next position to our left
             if (playerX < transform.position.x)
             {
@@ -134,7 +131,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
                 {
                     return positionsToTheRight.First();
                 }
-            } else {
+            }
+            else
+            {
                 var positionsToTheLeft = Positions.Where(pos => pos.Position.x < playerX && pos.Position != currentSeekedPosition.Position).OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x));
                 if (positionsToTheLeft.Any())
                 {
@@ -172,20 +171,23 @@ namespace Assets.Source.Components.Behavior.Humanoid
             animator.DamageFront();
         }
 
-        public override void ComponentFixedUpdate() 
+        public override void ComponentFixedUpdate()
         {
             // If we are not at our position, move towards the position
             if (!IsNearEnoughToPosition())
             {
-
-                FootVelocity = MoveIntelligentlyTowards(currentSeekedPosition.Position, 0.5f);
-
+                // Figure out what direction we're facing based on our animator
+                var direction = (transform.position.x > currentSeekedPosition.Position.x) ? -1 : 1;
+                
+                // Tell the animator to face towards the position
+                animator.FaceTowardsPosition(currentSeekedPosition.Position);
+                
+                // Move towards the destination
+                FootVelocity = new Vector2(Mathf.Sign(direction) * moveSpeed, 0);
             }
-            else {
-                // else, simply face the player
-                animator.FaceTowardsPosition(player.transform.position);
-
-                FootVelocity = new Vector2(0, CurrentVelocity.y);
+            else
+            {
+                FootVelocity = Vector2.zero;
             }
 
             base.ComponentFixedUpdate();
@@ -197,20 +199,22 @@ namespace Assets.Source.Components.Behavior.Humanoid
             if (isActiveAndEnabled)
             {
                 // if we're at our position, fire a bullet towards the player
-                if (IsNearEnoughToPosition()) { 
+                if (IsNearEnoughToPosition())
+                {
                     Attack();
                 }
 
                 // Additionally, if the player is in our area, pick a new position
-                if (player.transform.position.x.IsWithin(currentSeekedPosition.Range, currentSeekedPosition.Position.x)) {
-                    currentSeekedPosition = FindSecondNearestShooterPositionAwayFromPosition(player.transform.position.x);                         
-                }               
-                
+                if (player.transform.position.x.IsWithin(currentSeekedPosition.Range, currentSeekedPosition.Position.x))
+                {
+                    currentSeekedPosition = FindSecondNearestShooterPositionAwayFromPosition(player.transform.position.x);
+                }
+
                 brainTimer.SetInterval((int)UnityEngine.Random.Range(thinkTimeMin, thinkTimeMax));
             }
         }
 
-        private bool IsNearEnoughToPosition() => transform.position.x.IsWithin(currentSeekedPosition.Range/2, currentSeekedPosition.Position.x);
+        private bool IsNearEnoughToPosition() => transform.position.x.IsWithin(currentSeekedPosition.Range / 2, currentSeekedPosition.Position.x);
 
         private void Attack()
         {
@@ -259,7 +263,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
             // Add force to the actor 
             if (animator.SkeletonIsFlipped)
             {
-                AddImpact(-dodgeSpeed, 0); 
+                AddImpact(-dodgeSpeed, 0);
             }
             else
             {
@@ -276,7 +280,8 @@ namespace Assets.Source.Components.Behavior.Humanoid
         #endregion
 
         [Serializable]
-        public struct ShooterPosition {
+        public struct ShooterPosition
+        {
 
             [Tooltip("The position to move to")]
             public Vector2 Position;
@@ -290,11 +295,13 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
         public override void DrawAdditionalGizmosSelected()
         {
-            if (Positions.Any()) { 
-                foreach (var position in Positions) {
+            if (Positions.Any())
+            {
+                foreach (var position in Positions)
+                {
                     Gizmos.color = position.GizmoColor;
-                    Gizmos.DrawWireCube(position.Position, new Vector2(position.Range,3));                
-                }            
+                    Gizmos.DrawWireCube(position.Position, new Vector2(position.Range, 3));
+                }
             }
 
             // red lines show the aiming heights
@@ -306,6 +313,5 @@ namespace Assets.Source.Components.Behavior.Humanoid
         }
 
     }
-
 
 }
