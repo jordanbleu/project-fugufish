@@ -1,0 +1,1 @@
+{ "skeleton": { "images": "images/" },  "bones": [ { "name": "root" }	], "slots": [ { "name": "panel", "bone": "root", "attachment": "panel" } , { "name": "lever", "bone": "root", "attachment": "lever" } ],"skins": {"default": { "panel": { "panel": { "x": 0, "y": 0, "width": 1, "height": 1 } } , "lever": { "lever": { "x": 0, "y": 0, "width": 1, "height": 1 } } }}}
