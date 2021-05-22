@@ -12,6 +12,8 @@ namespace Assets.Source.Components.Base
     /// </summary>
     public class GameObjectUtilities : ComponentBase
     {
+
+
         /// <summary>
         /// Outputs text into the console
         /// </summary>
