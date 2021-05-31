@@ -61,8 +61,15 @@ namespace Assets.Source.Components.Timer
 
         public override void ComponentAwake()
         {
+            currentTime = 0f;
             maxInterval = interval;
             base.ComponentAwake();
+        }
+
+        public override void ComponentOnEnable()
+        {
+            Reset();
+            base.ComponentOnEnable();
         }
 
         public override void ComponentStart()
