@@ -65,23 +65,46 @@ namespace Assets.Source.Components.Platforming
 
         private void GetNextInstruction()
         {
-            if (MovementBehavior == MoveMode.Random)
+            if (MovementBehavior != MoveMode.Manual)
             {
-                index = UnityEngine.Random.Range(0, (instructions.Count()));
-            }
-            index += indexDirection;
+                if (MovementBehavior == MoveMode.Random)
+                {
+                    index = UnityEngine.Random.Range(0, (instructions.Count()));
+                }
+                index += indexDirection;
 
-            if (index > (instructions.Count() - 1) || index < 0)
+                if (index > (instructions.Count() - 1) || index < 0)
+                {
+                    if (MovementBehavior == MoveMode.Cycle)
+                    {
+                        index = 0;
+                    }
+                    else
+                    {
+                        indexDirection = -indexDirection;
+                        index += indexDirection;
+                    }
+                }
+            }
+        }
+
+        public void CycleNext() {
+            
+            index += 1;
+
+            if (index > (instructions.Count() - 1))
             {
-                if (MovementBehavior == MoveMode.Cycle)
-                {
-                    index = 0;
-                }
-                else
-                {
-                    indexDirection = -indexDirection;
-                    index += indexDirection;
-                }
+                index = 0;
+            }
+
+        }
+
+        public void CyclePrev() {
+            index += 1;
+
+            if (index < 0)
+            {
+                index = instructions.Count() - 1;
             }
         }
 
@@ -157,7 +180,9 @@ namespace Assets.Source.Components.Platforming
             [Tooltip("Platform moves forward through all positions in order.  Once it reaches the last position, it cycles backwards back through the positions")]
             Alternate,
             [Tooltip("Platform chooses a position randomly each time")]
-            Random
+            Random,
+            [Tooltip("Platform will only move when the 'CycleNext' method is called externally.")]
+            Manual
         }
 
         private void OnDrawGizmosSelected()

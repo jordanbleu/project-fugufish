@@ -15,6 +15,10 @@ namespace Assets.Source.Components.Behavior
             }
 
             base.ComponentAwake();
+
+            if (!UnityUtils.Exists(animator)) {
+                throw new UnityException($"Can't find a humanoid skeleton animator on object {gameObject.name}");
+            }
         }
 
         public override void ComponentUpdate()

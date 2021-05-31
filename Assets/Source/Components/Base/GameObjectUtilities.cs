@@ -12,6 +12,8 @@ namespace Assets.Source.Components.Base
     /// </summary>
     public class GameObjectUtilities : ComponentBase
     {
+
+
         /// <summary>
         /// Outputs text into the console
         /// </summary>
@@ -25,6 +27,11 @@ namespace Assets.Source.Components.Base
         /// </summary>
         public void KillSelf() {
             Destroy(gameObject);
+        }
+
+        public void InstantiateAtMe(GameObject gameObj) {
+            var inst = Instantiate(gameObj, transform.parent);
+            inst.transform.position = transform.position;
         }
 
     }

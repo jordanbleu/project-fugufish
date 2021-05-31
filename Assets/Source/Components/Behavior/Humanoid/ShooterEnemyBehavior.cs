@@ -47,6 +47,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         [Tooltip("Object to spawn as the bullet")]
         private GameObject bulletPrefab;
 
+
         private PlayerBrainComponent playerBrain;
         private IntervalTimerComponent brainTimer;
         private MeleeComponent meleeCollider;
@@ -176,18 +177,19 @@ namespace Assets.Source.Components.Behavior.Humanoid
             // If we are not at our position, move towards the position
             if (!IsNearEnoughToPosition())
             {
+
                 FootVelocity = MoveIntelligentlyTowards(currentSeekedPosition.Position, 0.5f);
+
             }
             else {
                 // else, simply face the player
                 animator.FaceTowardsPosition(player.transform.position);
+
                 FootVelocity = new Vector2(0, CurrentVelocity.y);
             }
 
             base.ComponentFixedUpdate();
         }
-
-
 
         // Called from the interval timer
         private void BrainUpdate()
