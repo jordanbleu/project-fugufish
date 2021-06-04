@@ -10,7 +10,6 @@ namespace Assets.Source.Components.Platforming
     /// <summary>
     /// Moving Platforms simply loop among multiple platforming instructions
     /// </summary>
-    [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class MovingPlatformComponent : ComponentBase
     {
         [SerializeField]

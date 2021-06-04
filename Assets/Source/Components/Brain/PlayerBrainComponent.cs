@@ -19,6 +19,10 @@ namespace Assets.Source.Components.Brain
         private bool isTiedUp = false;
 
         [SerializeField]
+        [Tooltip("If true, the player will be unable to move, and will continue to be idle")]
+        private bool isMovementLocked = false;
+
+        [SerializeField]
         [Tooltip("If true the player will be restricted to walking")]
         private bool forceWalk = false;
 
@@ -86,7 +90,7 @@ namespace Assets.Source.Components.Brain
 
         public override void ComponentUpdate()
         {
-            if (actor.IsAlive() && !isTiedUp)
+            if (actor.IsAlive() && !isTiedUp && !isMovementLocked)
             {
                 // If we are currently touching any ladder components, we are climbing.
                 isClimbing = CollidingTriggers.Any(tr => UnityUtils.Exists(tr) && tr.GetComponent<LadderComponent>() != null);
@@ -218,6 +222,8 @@ namespace Assets.Source.Components.Brain
             }
 
         }
+        public void SetMovementLock(bool isLocked) => isMovementLocked = isLocked;
+
 
         // Called from unity event
         public void OnLandOnGround()

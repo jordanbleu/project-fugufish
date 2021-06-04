@@ -9,6 +9,7 @@ namespace Assets.Source.Components.Timer
     /// The interval timer component invokes the attached method delegate repeatedly on an interval.
     /// This interval is independent of the framerate of your game.
     /// </summary>
+    [Obsolete("This has become awful.  Use GameTimerComponent now.")]
     public class IntervalTimerComponent : ComponentBase
     {
 
@@ -57,6 +58,11 @@ namespace Assets.Source.Components.Timer
         private float currentTime = 0.0f;
         public float CurrentTime { get => currentTime; private set => currentTime = value; }
 
+
+        [SerializeField]
+        [Tooltip("If true, the timer will begin once awake")]
+        private bool startOnAwake = true;
+
         private float maxInterval;
 
         public override void ComponentAwake()
@@ -68,7 +74,14 @@ namespace Assets.Source.Components.Timer
 
         public override void ComponentOnEnable()
         {
-            Reset();
+            if (startOnAwake)
+            {
+                Reset();
+                IsActive = true;
+            }
+            else {
+                IsActive = false;
+            }
             base.ComponentOnEnable();
         }
 
