@@ -48,6 +48,8 @@ namespace Assets.Source.Components.Objects
 
         }
 
+        public void OnDoorClose() { }
+
 
     }
 }

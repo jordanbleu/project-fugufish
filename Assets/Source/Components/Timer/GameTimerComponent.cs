@@ -50,7 +50,7 @@ namespace Assets.Source.Components.Timer
                 
                 time -= (Time.deltaTime * 1000);
 
-                if (time < 0) {
+                if (time <= 0) {
                     onTimerReachZero?.Invoke();
                     isActive = false;
                 }
