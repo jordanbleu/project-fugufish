@@ -5198,6 +5198,7 @@ MonoBehaviour:
   precision: 0.25
   thinkTimeMin: 700
   thinkTimeMax: 1200
+  staggerChance: 20
 --- !u!114 &6368582233946579654
 MonoBehaviour:
   m_ObjectHideFlags: 0

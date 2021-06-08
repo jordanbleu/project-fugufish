@@ -31,6 +31,11 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private float thinkTimeMax;
 
 
+        [SerializeField]
+        [Range(0,100)]
+        [Tooltip("How likely the enemy is to do the stagger animation on attack, with 100 being every time, 0 being never.")]
+        private int staggerChance = 100;
+
         private PlayerBrainComponent playerBrain;
         private IntervalTimerComponent brainTimer;
         private MeleeComponent meleeCollider;
@@ -106,8 +111,13 @@ namespace Assets.Source.Components.Behavior.Humanoid
             }
 
             // todo: add ladder climbing someday
-            animator.DamageFront();
 
+            // Decide if the enemy should stagger 
+            var staggerRoll = UnityEngine.Random.Range(0, 100);
+
+            if (staggerRoll <= staggerChance) { 
+                animator.DamageFront();
+            }
         }
 
         public override void ComponentFixedUpdate()
