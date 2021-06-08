@@ -31,6 +31,7 @@ namespace Assets.Source.Components.Objects
         public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
+            animator.SetBool("is_open", IsOpen);
             base.ComponentAwake();
         }
 
