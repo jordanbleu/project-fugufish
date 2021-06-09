@@ -1,4 +1,5 @@
 ﻿using Assets.Editor.Attributes;
+using Assets.Source.Components.Actor;
 using Assets.Source.Components.Platforming;
 using System.Collections.Generic;
 using UnityEngine;
@@ -75,6 +76,7 @@ namespace Assets.Source.Components.Brain.Base
         // Components
         protected Rigidbody2D rigidBody2d;
         protected Collider2D collider2d;
+        private ActorComponent actor;
 
         private bool wasGrounded = true;
 
@@ -101,6 +103,7 @@ namespace Assets.Source.Components.Brain.Base
             slippyMaterial = new PhysicsMaterial2D("SlippyMaterial") { friction = 0f };
             rigidBody2d = GetRequiredComponent<Rigidbody2D>();
             collider2d = GetRequiredComponent<Collider2D>();
+            actor = GetComponent<ActorComponent>(); // Actor Component is optional.
             base.ComponentAwake();
         }
 
@@ -199,15 +202,22 @@ namespace Assets.Source.Components.Brain.Base
 
         private void ApplyFrictionHack()
         {
-            var combinedXVelocity = FootVelocity.x + EnvironmentalVelocity.x + ImpactVelocity.x;
+            if (!(UnityUtils.Exists(actor)) || actor.IsAlive())
+            {
+                var combinedXVelocity = FootVelocity.x + EnvironmentalVelocity.x + ImpactVelocity.x;
 
-            if (combinedXVelocity == 0f)
-            {
-                collider2d.sharedMaterial = grippyMaterial;
+                if (combinedXVelocity == 0f)
+                {
+                    collider2d.sharedMaterial = grippyMaterial;
+                }
+                else
+                {
+                    collider2d.sharedMaterial = slippyMaterial;
+                }
             }
-            else
-            {
-                collider2d.sharedMaterial = slippyMaterial;
+            else {
+                // The actor is dead, force grippy material so they don't slide hilariously
+                collider2d.sharedMaterial = grippyMaterial;
             }
         }
 
