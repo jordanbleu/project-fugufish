@@ -167,12 +167,15 @@ namespace Assets.Source.Components.Brain
                         isDeadAndHitGround = true;
                     }
                 }
-                else { 
+                else {
                     // Player is dead, and fell to the ground.
                     // Disable all the physics stuff, so the dead body just stays where it was on screen.
-                    //collider2d.enabled = false;
+                    if (collider2d is CapsuleCollider2D capsuleCollider)
+                    {
+                        capsuleCollider.size = new Vector2(0.01f, 0.01f);
+                        capsuleCollider.offset = new Vector2(0f, -1f);
+                    }
                     FootVelocity = Vector2.zero;
-                    IsGravityEnabled = false;
                 }
             }
 

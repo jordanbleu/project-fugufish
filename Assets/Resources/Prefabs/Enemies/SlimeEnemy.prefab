@@ -5308,6 +5308,7 @@ MonoBehaviour:
     Width: 40
     Height: 7.2
   player: {fileID: 0}
+  relativeNpcHeightInUnits: 1
 --- !u!114 &6992499773416358503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5394,6 +5395,7 @@ MonoBehaviour:
   precision: 0.25
   thinkTimeMin: 500
   thinkTimeMax: 1000
+  staggerChance: 100
 --- !u!114 &6992499773416358501
 MonoBehaviour:
   m_ObjectHideFlags: 0
