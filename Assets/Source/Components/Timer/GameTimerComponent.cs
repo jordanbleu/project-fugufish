@@ -33,6 +33,8 @@ namespace Assets.Source.Components.Timer
         [Tooltip("If true, the timer will begin counting down automatically when the object is awakened.  Otherwise, the StartTimer() method must be called.")]
         private bool startOnAwake = true;
 
+        [SerializeField]
+        [ReadOnly]
         private bool isActive = false;
 
         public override void ComponentAwake()
@@ -51,8 +53,8 @@ namespace Assets.Source.Components.Timer
                 time -= (Time.deltaTime * 1000);
 
                 if (time <= 0) {
-                    onTimerReachZero?.Invoke();
                     isActive = false;
+                    onTimerReachZero?.Invoke();
                 }
 
 

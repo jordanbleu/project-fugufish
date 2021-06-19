@@ -155,7 +155,7 @@ namespace Assets.Source.Components.Brain
                 // Translate user controls into the player's movements
                 UpdateFootVelocity();
             }
-            else {
+            else if (!actor.IsAlive()){
 
                 if (!isDeadAndHitGround)
                 {
@@ -225,7 +225,11 @@ namespace Assets.Source.Components.Brain
             }
 
         }
-        public void SetMovementLock(bool isLocked) => isMovementLocked = isLocked;
+        public void SetMovementLock(bool isLocked)
+        {
+            FootVelocity = Vector2.zero;
+            isMovementLocked = isLocked;
+        }
 
 
         // Called from unity event
