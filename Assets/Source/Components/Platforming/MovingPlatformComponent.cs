@@ -107,6 +107,14 @@ namespace Assets.Source.Components.Platforming
             }
         }
 
+        public void CycleFirst() {
+            index = 0;
+        }
+
+        public void CycleLast() {
+            index = instructions.Count() - 1;
+        }
+
         private bool IsNearDestination(PlatformInstruction currentInstruction) =>        
             (transform.position.x.IsWithin(positionTolerance, currentInstruction.Position.x)) &&
             (transform.position.y.IsWithin(positionTolerance, currentInstruction.Position.y));

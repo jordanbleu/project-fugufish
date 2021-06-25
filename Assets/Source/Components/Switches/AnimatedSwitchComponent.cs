@@ -45,7 +45,7 @@ namespace Assets.Source.Components.Switches
         /// Display the animation for flipping the switch on / off (like a slot machine kinda).
         /// In the attackable component you should also trigger the action you want the switch to do.
         /// </summary>
-        public void ShowTriggerOnOffAnimation() {
+        public void ShowSwitchAnimation() {
             if (!isToggle)
             {
                 animator.SetTrigger("toggle_on_off");
@@ -65,9 +65,9 @@ namespace Assets.Source.Components.Switches
 
                 // Animate
                 animator.SetBool("is_on", isOn);
-
             }
         }
+
 
 
 

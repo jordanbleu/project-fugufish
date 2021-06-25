@@ -27,23 +27,31 @@ namespace Assets.Source.Components.Interaction
             var upCast = Physics2D.RaycastAll(transform.position, Vector2.up, verticalSize, layersThatDoTheCrush);
             var downCast = Physics2D.RaycastAll(transform.position, Vector2.down, verticalSize, layersThatDoTheCrush);
 
+            var upSolid = FirstSolid(upCast);
+            var downSolid = FirstSolid(downCast);
+
             // We're being crushed 
-            if (AnySolids(upCast) && AnySolids(downCast))
+            if (UnityUtils.Exists(upSolid) && UnityUtils.Exists(downSolid))
             {
+                Debug.Log($"Player was Squished vertically between {upSolid.name} and {downSolid.name} :(");
                 onCrush?.Invoke();
             }
             else { 
                 var leftCast = Physics2D.RaycastAll(transform.position, Vector2.left, horizontalSize, layersThatDoTheCrush);
                 var rightCast = Physics2D.RaycastAll(transform.position, Vector2.right, horizontalSize, layersThatDoTheCrush);
 
-                if (AnySolids(leftCast) && AnySolids(rightCast)) {
+                var leftSolid = FirstSolid(leftCast);
+                var rightSolid = FirstSolid(rightCast);
+
+                if (UnityUtils.Exists(leftSolid) && UnityUtils.Exists(rightSolid)) {
+                    Debug.Log($"Player was Squished horiztonally between {leftSolid.name} and {rightSolid.name} :(");
                     onCrush?.Invoke();                
                 }
             }
             base.ComponentFixedUpdate();
         }
 
-        private bool AnySolids(RaycastHit2D[] raycasts) {
+        private GameObject FirstSolid(RaycastHit2D[] raycasts) {
             // return true if any raycast is colliding with an object that is:
             // * has a collider
             // * collider is not a trigger
@@ -54,10 +62,10 @@ namespace Assets.Source.Components.Interaction
                     !collider.isTrigger &&
                     hit.transform.gameObject != gameObject) 
                 {
-                    return true;                                    
+                    return hit.transform.gameObject;                                    
                 }
             }
-            return false;
+            return null;
         }
 
         private void OnDrawGizmosSelected()
