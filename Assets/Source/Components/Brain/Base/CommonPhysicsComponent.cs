@@ -218,6 +218,8 @@ namespace Assets.Source.Components.Brain.Base
             else {
                 // The actor is dead, force grippy material so they don't slide hilariously
                 collider2d.sharedMaterial = grippyMaterial;
+                EnvironmentalVelocity = Vector2.zero;
+                ImpactVelocity = Vector2.zero;
             }
         }
 

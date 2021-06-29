@@ -231,6 +231,10 @@ namespace Assets.Source.Components.Brain
             isMovementLocked = isLocked;
         }
 
+        public void SetForceWalk(bool isForced) {
+            forceWalk = isForced;
+        }
+
 
         // Called from unity event
         public void OnLandOnGround()

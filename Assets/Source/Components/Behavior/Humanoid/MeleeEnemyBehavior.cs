@@ -153,6 +153,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
                 // else, simply face the player
                 animator.FaceTowardsPosition(player.transform.position);
                 FootVelocity = new Vector2(0, CurrentVelocity.y);
+
             }
 
         }

@@ -44,7 +44,7 @@ namespace Assets.Source.Components.Platforming
         public override void ComponentUpdate()
         {
             // Make sure index isn't out of bounds (can happen if manipulating values in inspector)
-            index = Mathf.Min(index, instructions.Count());
+            index = Mathf.Min(index, instructions.Count()-1);
 
             var currentInstruction = instructions[index];
 
@@ -99,7 +99,7 @@ namespace Assets.Source.Components.Platforming
         }
 
         public void CyclePrev() {
-            index += 1;
+            index -= 1;
 
             if (index < 0)
             {

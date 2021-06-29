@@ -23,6 +23,7 @@ namespace Assets.Source.Components.Behavior
 
         public override void ComponentUpdate()
         {
+            FootVelocity = new Vector2(0, CurrentVelocity.y);
             animator.IsGrounded = IsGrounded;
             animator.HorizontalMoveSpeed = 0f;
             animator.VerticalMoveSpeed = 0f;

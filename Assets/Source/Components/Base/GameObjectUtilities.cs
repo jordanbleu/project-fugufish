@@ -29,9 +29,21 @@ namespace Assets.Source.Components.Base
             Destroy(gameObject);
         }
 
+        /// <summary>
+        /// Instantiates a game object at this object's position
+        /// </summary>
+        /// <param name="gameObj"></param>
         public void InstantiateAtMe(GameObject gameObj) {
             var inst = Instantiate(gameObj, transform.parent);
             inst.transform.position = transform.position;
+        }
+
+        /// <summary>
+        /// Instantiates the object but leaves its position at the default prefab location
+        /// </summary>
+        /// <param name="gameObj"></param>
+        public void InstantiateAtDefault(GameObject gameObj) {
+            Instantiate(gameObj);
         }
 
     }
