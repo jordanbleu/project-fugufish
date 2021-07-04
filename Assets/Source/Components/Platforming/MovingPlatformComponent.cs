@@ -10,7 +10,6 @@ namespace Assets.Source.Components.Platforming
     /// <summary>
     /// Moving Platforms simply loop among multiple platforming instructions
     /// </summary>
-    [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
     public class MovingPlatformComponent : ComponentBase
     {
         [SerializeField]
@@ -45,7 +44,7 @@ namespace Assets.Source.Components.Platforming
         public override void ComponentUpdate()
         {
             // Make sure index isn't out of bounds (can happen if manipulating values in inspector)
-            index = Mathf.Min(index, instructions.Count());
+            index = Mathf.Min(index, instructions.Count()-1);
 
             var currentInstruction = instructions[index];
 
@@ -100,12 +99,20 @@ namespace Assets.Source.Components.Platforming
         }
 
         public void CyclePrev() {
-            index += 1;
+            index -= 1;
 
             if (index < 0)
             {
                 index = instructions.Count() - 1;
             }
+        }
+
+        public void CycleFirst() {
+            index = 0;
+        }
+
+        public void CycleLast() {
+            index = instructions.Count() - 1;
         }
 
         private bool IsNearDestination(PlatformInstruction currentInstruction) =>        

@@ -145,7 +145,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1453623151
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
 --- !u!114 &2702637901274389331
 MonoBehaviour:
@@ -299,6 +299,7 @@ MonoBehaviour:
     Width: 35
     Height: 7
   player: {fileID: 0}
+  relativeNpcHeightInUnits: 2
 --- !u!114 &2702637901274389332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,9 +325,16 @@ MonoBehaviour:
   footVelocity: {x: 0, y: 0}
   environmentalVelocity: {x: 0, y: 0}
   impactVelocity: {x: 0, y: 0}
-  lookaheadDistanceNear: 0.25
-  lookaheadDistanceFar: 3
-  lookBelowDistance: 0.5
+  groundCheckAngle: {x: 3, y: -1.75}
+  groundCheckDistance: 0.5
+  jumpAcrossAngle: {x: 0.1, y: -0.05}
+  jumpAcrossDistance: 0.2
+  forwardCheckAngle: {x: 0.1, y: -0.05}
+  forwardCheckDistance: 3
+  jumpUpAngle: {x: 0.1, y: 0.1}
+  jumpUpDistance: 3
+  jumpDownAngle: {x: 0.1, y: -0.2}
+  jumpDownDistance: 3
   moveSpeed: 6
   jumpHeight: 16
   upperCutHeight: 8
@@ -353,7 +361,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2702637901274389322}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4f83a0a7f68fc5498cba0f7fe06d031, type: 3}
   m_Name: 
@@ -371,9 +379,16 @@ MonoBehaviour:
   footVelocity: {x: 0, y: 0}
   environmentalVelocity: {x: 0, y: 0}
   impactVelocity: {x: 0, y: 0}
-  lookaheadDistanceNear: 0.25
-  lookaheadDistanceFar: 3
-  lookBelowDistance: 0.5
+  groundCheckAngle: {x: 3, y: -1.75}
+  groundCheckDistance: 0.5
+  jumpAcrossAngle: {x: 0.5, y: -0.05}
+  jumpAcrossDistance: 1.74
+  forwardCheckAngle: {x: 0.5, y: -0.05}
+  forwardCheckDistance: 3
+  jumpUpAngle: {x: 0.1, y: 0.1}
+  jumpUpDistance: 3
+  jumpDownAngle: {x: 0.1, y: -0.2}
+  jumpDownDistance: 3
   moveSpeed: 6
   jumpHeight: 16
   upperCutHeight: 8
@@ -381,10 +396,25 @@ MonoBehaviour:
   climbSpeed: 3
   player: {fileID: 0}
   Positions:
-  - Position: {x: 0, y: 0}
-    GizmoColor: {r: 0, g: 0, b: 0, a: 0}
-  thinkTimeMin: 0
-  thinkTimeMax: 0
+  - Position: {x: 314.3, y: -28}
+    GizmoColor: {r: 1, g: 0.5906299, b: 0, a: 1}
+    Range: 14.3
+  - Position: {x: 329.4, y: -28}
+    GizmoColor: {r: 0.22508526, g: 1, b: 0, a: 1}
+    Range: 15.1
+  - Position: {x: 348.9, y: -28}
+    GizmoColor: {r: 1, g: 0, b: 0.62366056, a: 1}
+    Range: 22.8
+  thinkTimeMin: 1500
+  thinkTimeMax: 1800
+  aimHeight: 0.75
+  bulletSpeed: 5
+  bulletPrefab: {fileID: 3091224807782073574, guid: 973c76c0958a65b4191e9af87f8936e4,
+    type: 3}
+  currentSeekedPosition:
+    Position: {x: 314.3, y: -28}
+    GizmoColor: {r: 1, g: 0.5906299, b: 0, a: 1}
+    Range: 14.3
 --- !u!1 &4467512044975253287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,7 +5202,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1453623151
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

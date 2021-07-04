@@ -46,44 +46,37 @@ left_leg_upper
   orig: 48, 32
   offset: 0, 0
   index: -1
-right_arm_gatling
+right_arm_lower
   rotate: true
   xy: 206, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
-right_arm_lower
+right_arm_upper
   rotate: true
   xy: 240, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
-right_arm_upper
+right_leg_lower
   rotate: true
   xy: 274, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
-right_leg_lower
+right_leg_upper
   rotate: true
   xy: 308, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0
   index: -1
-right_leg_upper
-  rotate: true
-  xy: 342, 2
-  size: 48, 32
-  orig: 48, 32
-  offset: 0, 0
-  index: -1
 torso
   rotate: true
-  xy: 376, 2
+  xy: 342, 2
   size: 48, 32
   orig: 48, 32
   offset: 0, 0

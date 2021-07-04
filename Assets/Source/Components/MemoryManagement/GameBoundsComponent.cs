@@ -26,7 +26,7 @@ namespace Assets.Source.Components.MemoryManagement
         private float setRangeHeightMax = 0f;
         private Vector2 setPosition = Vector2.zero;
 
-        public override void ComponentAwake()
+        public override void ComponentStart()
         {
             setPosition = transform.position;
             setRangeWidthMin = transform.position.x - (RangeWidth / 2);

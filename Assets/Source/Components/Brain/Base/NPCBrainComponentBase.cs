@@ -1,6 +1,7 @@
 ﻿using Assets.Source.Components.Actor;
 using Assets.Source.Components.MemoryManagement;
 using Assets.Source.Math;
+using Spine.Unity;
 using UnityEngine;
 
 namespace Assets.Source.Components.AI.Base
@@ -30,17 +31,26 @@ namespace Assets.Source.Components.AI.Base
         [Tooltip("Drag the player object here.")]
         protected GameObject player;
 
+
+        [SerializeField]
+        [Tooltip("Used for a stupid hack I had to do.  Set this to the relative height of the sprite / skeleton in unity units (pixels / 16)")]
+        private float relativeNpcHeightInUnits = 2f;
+
         private ActorComponent playerActor;
         protected ActorComponent actor;
         private DespawnComponent despawner;
         private Collider2D collider2d;
         private Rigidbody2D rigidBody;
+
+        private float startingColliderSizeY = 0f;
+
         public override void ComponentAwake()
         {
             actor = GetRequiredComponent<ActorComponent>();
             despawner = GetRequiredComponent<DespawnComponent>();
             collider2d = GetRequiredComponent<Collider2D>();
             rigidBody = GetRequiredComponent<Rigidbody2D>();
+
 
             if (!UnityUtils.Exists(player)) {
                 throw new UnityException($"{gameObject.name} needs a player object dragged onto its NPCBrain");
@@ -69,16 +79,28 @@ namespace Assets.Source.Components.AI.Base
                 UpdateState();
             }
             else {
-                // Disable the collider
-                collider2d.enabled = false;
-                rigidBody.bodyType = RigidbodyType2D.Static;
-
+                // Hack to disable collider without disabling gravity 
+                if (collider2d is BoxCollider2D boxCollider)
+                {
+                    boxCollider.size = new Vector2(0.01f, 0.01f);
+                    boxCollider.offset = new Vector2(0, -(relativeNpcHeightInUnits / 4));
+                }
+                else if (collider2d is PolygonCollider2D polygonCollider)
+                {
+                    polygonCollider.points = new Vector2[] { Vector2.zero };
+                }
+                else if (collider2d is CapsuleCollider2D capsuleCollider) {
+                    capsuleCollider.size = new Vector2(0.01f,0.01f);
+                    capsuleCollider.offset = new Vector2(0f, -(relativeNpcHeightInUnits/4));
+                }
+                                
                 despawner.BeginDespawn();
                 onActiveStateBehavior.enabled = false;
                 onIdleStateBehavior.enabled = false;
             }
             base.ComponentUpdate();
         }
+
 
         private void UpdateState()
         {

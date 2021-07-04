@@ -250,9 +250,16 @@ MonoBehaviour:
   footVelocity: {x: 0, y: 0}
   environmentalVelocity: {x: 0, y: 0}
   impactVelocity: {x: 0, y: 0}
-  lookaheadDistanceNear: 0
-  lookaheadDistanceFar: 0
-  lookBelowDistance: 0
+  groundCheckAngle: {x: 3, y: -1.75}
+  groundCheckDistance: 0.5
+  jumpAcrossAngle: {x: 0.1, y: -0.05}
+  jumpAcrossDistance: 0.2
+  forwardCheckAngle: {x: 0.1, y: -0.05}
+  forwardCheckDistance: 3
+  jumpUpAngle: {x: 0.1, y: 0.1}
+  jumpUpDistance: 3
+  jumpDownAngle: {x: 0.1, y: -0.2}
+  jumpDownDistance: 3
   moveSpeed: 0
   jumpHeight: 0
   upperCutHeight: 0
@@ -350,6 +357,7 @@ MonoBehaviour:
     Width: 14.57
     Height: 8.72
   player: {fileID: 0}
+  relativeNpcHeightInUnits: 1
 --- !u!114 &6204169938054810384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,9 +383,16 @@ MonoBehaviour:
   footVelocity: {x: 0, y: 0}
   environmentalVelocity: {x: 0, y: 0}
   impactVelocity: {x: 0, y: 0}
-  lookaheadDistanceNear: 0
-  lookaheadDistanceFar: 0
-  lookBelowDistance: 0
+  groundCheckAngle: {x: 3, y: -1.75}
+  groundCheckDistance: 0.5
+  jumpAcrossAngle: {x: 0.1, y: -0.05}
+  jumpAcrossDistance: 0.2
+  forwardCheckAngle: {x: 0.1, y: -0.05}
+  forwardCheckDistance: 3
+  jumpUpAngle: {x: 0.1, y: 0.1}
+  jumpUpDistance: 3
+  jumpDownAngle: {x: 0.1, y: -0.2}
+  jumpDownDistance: 3
   moveSpeed: 0
   jumpHeight: 0
   upperCutHeight: 0
