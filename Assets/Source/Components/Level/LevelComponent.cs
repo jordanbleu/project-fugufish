@@ -1,5 +1,6 @@
 ﻿using Assets.Editor.Attributes;
 using Assets.Source.Components.Frame;
+using Assets.Source.Scene;
 using System;
 using UnityEngine;
 
@@ -18,31 +19,44 @@ namespace Assets.Source.Components.Level
 
         public override void ComponentAwake()
         {
-            SetActiveFrame();
+            
+            if (UnityUtils.Exists(GameDataTracker.FrameToLoadOnSceneLoad))
+            {
+                SetActiveFrame(GameDataTracker.FrameToLoadOnSceneLoad);
+            }
+            else { 
+                SetActiveFrame(startingFrame);
+            }
+
             base.ComponentAwake();
         }
 
-        private void SetActiveFrame()
+        private void SetActiveFrame(GameObject frameToSet)
         {
-            if (startingFrame == null) {
+            if (frameToSet == null)
+            {
                 throw new InvalidOperationException("Please set an active frame on the LevelComponent");
             }
 
-            _currentlyActiveFrame = startingFrame;
-     
+            _currentlyActiveFrame = frameToSet;
+
             var allFrames = GetComponentsInChildren<FrameComponent>();
 
-            foreach (var frame in allFrames) {
-                if (frame.gameObject != startingFrame)
+            // Deactivates all non active frames (just in case I accidentally leave one active in the editor)
+            foreach (var frame in allFrames)
+            {
+                if (frame.gameObject != frameToSet)
                 {
                     frame.gameObject.SetActive(false);
                 }
-                else {
+                else
+                {
                     frame.gameObject.SetActive(true);
                 }
-            }    
+            }
+            
+            
         }
-
         
     }
 }

@@ -3,6 +3,8 @@ using Assets.Source.Components.Animation;
 using Assets.Source.Components.Brain.Base;
 using Assets.Source.Components.Camera;
 using Assets.Source.Components.Platforming;
+using Assets.Source.Components.Sound;
+using Assets.Source.Components.UI;
 using Assets.Source.Enums;
 using Assets.Source.Input.Constants;
 using Spine.Unity;
@@ -55,13 +57,17 @@ namespace Assets.Source.Components.Brain
         [Header("Stamina Requirements")]
         private int dodgeStaminaRequired = 30;
 
+        [SerializeField]
+        private DeathScreenComponent deathScreen;
+
 
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
         private MeleeComponent meleeCollider;
         private ActorComponent actor;
-
+        private FootstepAudioComponent footsteps;
+ 
         // true if the player is climbing
         private bool isClimbing = false;
         
@@ -80,7 +86,8 @@ namespace Assets.Source.Components.Brain
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
             cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
-
+            footsteps = GetRequiredComponent<FootstepAudioComponent>();
+            
             if (isTiedUp) {
                 animator.Tied();
             }
@@ -155,7 +162,11 @@ namespace Assets.Source.Components.Brain
                 // Translate user controls into the player's movements
                 UpdateFootVelocity();
             }
-            else if (!actor.IsAlive()){
+            else if (!actor.IsAlive()) {
+
+                if (!deathScreen.gameObject.activeSelf) {
+                    deathScreen.gameObject.SetActive(true);
+                }
 
                 if (!isDeadAndHitGround)
                 {
@@ -306,6 +317,10 @@ namespace Assets.Source.Components.Brain
         public void OnEscapeFromBeingTied() 
         {
             isTiedUp = false;
+        }
+
+        public void OnFootstep() {
+            footsteps.DoTippyTap();
         }
 
         #endregion
