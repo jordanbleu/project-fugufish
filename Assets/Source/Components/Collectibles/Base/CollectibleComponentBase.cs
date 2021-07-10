@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Source.Components.Collectibles.Base
 {
-    [RequireComponent(typeof(Collider2D), typeof(Animator))]
+    [RequireComponent(typeof(Collider2D), typeof(Animator), typeof(AudioSource))]
     public abstract class CollectibleComponentBase : ComponentBase
     {
         private const float MAGNET_SPEED = 0.05f;
@@ -13,10 +13,15 @@ namespace Assets.Source.Components.Collectibles.Base
         private Animator animator;
         private bool wasCollected = false;
         private bool isReady = false;
-        
+
+        private AudioSource audioSource;
+
+        [SerializeField]
+        private AudioClip pickupSound;
 
         public override void ComponentAwake()
         {
+            audioSource = GetRequiredComponent<AudioSource>();
             playerObject = GetRequiredObject("Player");
             animator = GetRequiredComponent<Animator>();
             base.ComponentAwake();
@@ -28,6 +33,7 @@ namespace Assets.Source.Components.Collectibles.Base
         {
             if (isReady && collision.gameObject.Equals(playerObject))
             {
+                audioSource.PlayOneShot(pickupSound);
                 wasCollected = true;
                 animator.SetTrigger("collected");
             }
@@ -55,7 +61,7 @@ namespace Assets.Source.Components.Collectibles.Base
             base.ComponentUpdate();
         }
 
-        // Triggered from 
+        // Triggered from animator
         public void OnCollectAnimationCompleted() {
             ItemCollected();
             Destroy(gameObject);

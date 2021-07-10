@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 2104115658165177845}
   - component: {fileID: 6507928195197166085}
   - component: {fileID: 2196488774742844360}
+  - component: {fileID: 5559087547028069128}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -286,6 +287,7 @@ MonoBehaviour:
   climbSpeed: 3
   attackVelocity: 3
   dodgeStaminaRequired: 30
+  deathScreen: {fileID: 0}
 --- !u!114 &6401049630020257325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,14 +355,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -438,6 +440,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5559087547028069128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211081951321728954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f31d89c16866fc49a2f7a3dbaf2e906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordSwing0: {fileID: 8300000, guid: 137f102adfc426e4081d782eb80c4b9f, type: 3}
+  swordSwing1: {fileID: 8300000, guid: 11de1909c28353c4c9cbfde611c2b0c9, type: 3}
+  swordSwing2: {fileID: 8300000, guid: 217171900947a1942bbc73a7e89f720b, type: 3}
+  ladderClink1: {fileID: 8300000, guid: 4223fcadbc733cc4b85767a9d03ec9ba, type: 3}
+  ladderClink2: {fileID: 8300000, guid: 47f27a11729658f49a0bb2b73d74bdf1, type: 3}
 --- !u!1 &3211081952889808033
 GameObject:
   m_ObjectHideFlags: 0

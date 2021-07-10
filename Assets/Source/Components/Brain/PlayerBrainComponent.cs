@@ -67,7 +67,8 @@ namespace Assets.Source.Components.Brain
         private MeleeComponent meleeCollider;
         private ActorComponent actor;
         private FootstepAudioComponent footsteps;
- 
+        private PlayerSoundEffects sound;
+
         // true if the player is climbing
         private bool isClimbing = false;
         
@@ -87,7 +88,9 @@ namespace Assets.Source.Components.Brain
             cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
             footsteps = GetRequiredComponent<FootstepAudioComponent>();
-            
+            sound = GetRequiredComponent<PlayerSoundEffects>();
+
+
             if (isTiedUp) {
                 animator.Tied();
             }
@@ -119,18 +122,18 @@ namespace Assets.Source.Components.Brain
 
                     if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD) && actor.TryDepleteStamina(dodgeStaminaRequired/2))
                     {
-                        // Shake the camera
-                        cameraEffector.SwingRight();
 
                         // If we are in the air and the player is holding "up", do a GRAND SLAM
                         if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
                         {
+                            sound.Swing2();
                             animator.GroundPound();
                         }
                         // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
                         else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsAttacking && !usedUppercut)
                         {
                             AddRigidBodyForce(0, upperCutHeight);
+                            sound.Swing1();
                             animator.Uppercut();
                             // Signals that we've already used the uppercut during this jump. 
                             // This will be reset to false upon landing.
@@ -322,6 +325,16 @@ namespace Assets.Source.Components.Brain
         public void OnFootstep() {
             footsteps.DoTippyTap();
         }
+
+        public void OnBeginSwing0() => sound.Swing0();
+
+        public void OnBeginSwing1() => sound.Swing1();
+
+        public void OnBeginSwing2() => sound.Swing2();
+
+        public void OnLadderClink1() => sound.LadderClink1();
+
+        public void OnLadderClink2() => sound.LadderClink2();
 
         #endregion
 

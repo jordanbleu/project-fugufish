@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Source.Components.Platforming
 {
@@ -22,6 +23,7 @@ namespace Assets.Source.Components.Platforming
         
         private int index;
         private int indexDirection = 1;
+        private bool wasAtDestination = false;
 
         private Rigidbody2D rigidBody;
         private IntervalTimerComponent timer;
@@ -52,9 +54,18 @@ namespace Assets.Source.Components.Platforming
             {
                 if (IsNearDestination(currentInstruction))
                 {
+                    if (!wasAtDestination)
+                    {
+                        currentInstruction.onArrive?.Invoke();
+                    }
+                    wasAtDestination = true;
                     timer.SetInterval(currentInstruction.WaitTime);
-                    timer.IsActive = true;   
+                    timer.IsActive = true;
                 }
+                else {
+                    wasAtDestination = false;
+                }
+                 
             }
 
             UpdateVelocity(currentInstruction);
@@ -178,6 +189,9 @@ namespace Assets.Source.Components.Platforming
 
             [Tooltip("The color to show for the gizmo.  Used for debugging / visualizing paths.")]
             public Color GizmoColor;
+
+            [Tooltip("Event thrown when the platform arrives at this location")]
+            public UnityEvent onArrive;
 
         }
         public enum MoveMode
