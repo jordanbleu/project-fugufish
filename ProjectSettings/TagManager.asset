@@ -74,3 +74,6 @@ TagManager:
   - name: ScreenEffects
     uniqueID: 3856551773
     locked: 0
+  - name: DisableLighting
+    uniqueID: 1856841447
+    locked: 0

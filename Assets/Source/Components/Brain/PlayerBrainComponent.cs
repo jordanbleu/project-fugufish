@@ -2,11 +2,13 @@
 using Assets.Source.Components.Animation;
 using Assets.Source.Components.Brain.Base;
 using Assets.Source.Components.Camera;
+using Assets.Source.Components.Level;
 using Assets.Source.Components.Platforming;
 using Assets.Source.Components.Sound;
 using Assets.Source.Components.UI;
 using Assets.Source.Enums;
 using Assets.Source.Input.Constants;
+using Assets.Source.Scene;
 using Spine.Unity;
 using System.Linq;
 using UnityEngine;
@@ -68,6 +70,7 @@ namespace Assets.Source.Components.Brain
         private ActorComponent actor;
         private FootstepAudioComponent footsteps;
         private PlayerSoundEffects sound;
+        private LevelComponent levelComponent;
 
         // true if the player is climbing
         private bool isClimbing = false;
@@ -83,12 +86,14 @@ namespace Assets.Source.Components.Brain
 
         public override void ComponentAwake()
         {
+            var levelObj = GetRequiredObject("Level");
             actor = GetRequiredComponent<ActorComponent>();
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
-            cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
+            cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(levelObj);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
             footsteps = GetRequiredComponent<FootstepAudioComponent>();
             sound = GetRequiredComponent<PlayerSoundEffects>();
+            levelComponent = GetRequiredComponent<LevelComponent>(levelObj);
 
 
             if (isTiedUp) {
@@ -100,6 +105,12 @@ namespace Assets.Source.Components.Brain
 
         public override void ComponentUpdate()
         {
+
+            // Constantly update the game data tracker with our last ground position
+            if (IsGrounded) {
+                GameDataTracker.LastGroundedPosition = transform.position;
+            }
+
             if (actor.IsAlive() && !isTiedUp && !isMovementLocked)
             {
                 // If we are currently touching any ladder components, we are climbing.
@@ -168,6 +179,7 @@ namespace Assets.Source.Components.Brain
             else if (!actor.IsAlive()) {
 
                 if (!deathScreen.gameObject.activeSelf) {
+                    UpdateDeathData();
                     deathScreen.gameObject.SetActive(true);
                 }
 
@@ -199,6 +211,15 @@ namespace Assets.Source.Components.Brain
             meleeCollider.IsFlipped = animator.SkeletonIsFlipped;
 
             base.ComponentUpdate();
+        }
+
+        /// <summary>
+        /// Updates the GameDataTracker with the last death location and whatnot
+        /// </summary>
+        private void UpdateDeathData()
+        {
+            GameDataTracker.LastGroundedDeathPosition = GameDataTracker.LastGroundedPosition;
+            GameDataTracker.LastDeathFrameName = levelComponent.CurrentlyActiveFrame.name;
         }
 
         private void UpdateAnimator()

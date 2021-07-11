@@ -17,6 +17,12 @@ namespace Assets.Source.Components.Level
         private GameObject _currentlyActiveFrame;
         public GameObject CurrentlyActiveFrame { get => _currentlyActiveFrame; set => _currentlyActiveFrame = value; }
 
+
+        [SerializeField]
+        private GameObject deathMarkerPrefab;
+
+        private GameObject deathMarker;
+
         public override void ComponentAwake()
         {
             
@@ -54,8 +60,26 @@ namespace Assets.Source.Components.Level
                     frame.gameObject.SetActive(true);
                 }
             }
-            
-            
+
+            RefreshDeathMarker();
+        }
+
+        public void RefreshDeathMarker() { 
+        
+            if (CurrentlyActiveFrame.name == GameDataTracker.LastDeathFrameName)
+            {
+                // Create the death marker if we're on that frame
+                if (!UnityUtils.Exists(deathMarker))
+                {
+                    deathMarker = Instantiate(deathMarkerPrefab);
+                }
+            }
+            else {
+                // Destroy it if we're not on that frame
+                if (UnityUtils.Exists(deathMarker)) {
+                    Destroy(deathMarker);
+                }
+            }
         }
         
     }

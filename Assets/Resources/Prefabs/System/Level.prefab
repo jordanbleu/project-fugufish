@@ -57,7 +57,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945834b370463144e988fb4db44a7041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeStartingFrame: {fileID: 0}
+  startingFrame: {fileID: 0}
+  _currentlyActiveFrame: {fileID: 0}
+  deathMarkerPrefab: {fileID: 3991394538414264378, guid: 15b901dddeb43c24f8e9ab4faeb5ec00,
+    type: 3}
 --- !u!114 &6040185587216649654
 MonoBehaviour:
   m_ObjectHideFlags: 0

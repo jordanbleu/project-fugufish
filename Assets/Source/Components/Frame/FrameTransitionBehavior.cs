@@ -77,6 +77,9 @@ namespace Assets.Source.Components.Frame
 
             // Tell the level component what frame we're now on
             levelComponent.CurrentlyActiveFrame = DestinationFrame;
+
+            // Refresh the death marker
+            levelComponent.RefreshDeathMarker();
         }
 
         /// <summary>
