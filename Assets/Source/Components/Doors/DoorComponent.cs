@@ -41,10 +41,10 @@ namespace Assets.Source.Components.Objects
 
             if (isOpen)
             {
-                onDoorClosing?.Invoke();
+                onDoorOpening?.Invoke();
             }
             else {
-                onDoorOpening?.Invoke();
+                onDoorClosing?.Invoke();
             }
 
         }

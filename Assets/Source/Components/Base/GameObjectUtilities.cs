@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Source.Components.Sound;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,21 @@ namespace Assets.Source.Components.Base
         /// <param name="gameObj"></param>
         public void InstantiateAtDefault(GameObject gameObj) {
             Instantiate(gameObj);
+        }
+
+        /// <summary>
+        /// Plays audio on an external object.  Used to play audio after an object was destroyed. 
+        /// </summary>
+        /// <param name="clip"></param>
+        public void PlayExternalAudio(AudioClip clip) {
+            var oneTimeAudioPrefab = GetRequiredResource<GameObject>("Prefabs/System/OneTimeAudio");
+            var inst = Instantiate(oneTimeAudioPrefab);
+            inst.transform.position = transform.position;
+
+            inst.name = $"AUDIO_CLIP: {clip.name}"; 
+
+            var comp = GetRequiredComponent<OneTimeSoundSourceComponent>(inst);
+            comp.PlaySound(clip);
         }
 
     }

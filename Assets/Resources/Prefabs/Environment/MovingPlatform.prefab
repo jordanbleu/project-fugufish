@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1213293669188918950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9, y: -1.74, z: 0}
-  m_LocalScale: {x: 2.871831, y: 1.042694, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -149,11 +149,20 @@ MonoBehaviour:
     WaitTime: 1000
     MovementSpeed: 2
     GizmoColor: {r: 0.7830189, g: 0.23268957, b: 0.6505322, a: 1}
+    onArrive:
+      m_PersistentCalls:
+        m_Calls: []
   - Position: {x: 25.5, y: -45.85}
     WaitTime: 2000
     MovementSpeed: 5
     GizmoColor: {r: 0.5494838, g: 0.5748739, b: 0.7924528, a: 1}
+    onArrive:
+      m_PersistentCalls:
+        m_Calls: []
   - Position: {x: 21.5, y: -39.84}
     WaitTime: 0
     MovementSpeed: 2
     GizmoColor: {r: 0.754717, g: 0.3859681, b: 0.21003917, a: 1}
+    onArrive:
+      m_PersistentCalls:
+        m_Calls: []

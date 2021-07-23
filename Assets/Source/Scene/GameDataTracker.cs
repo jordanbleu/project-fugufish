@@ -17,7 +17,7 @@ namespace Assets.Source.Scene
         /// Tracks the last frame that the player was on.  Tells the scene loader to 
         /// set an active frame based on this information.
         /// </summary>
-        public static GameObject FrameToLoadOnSceneLoad { get; set; }
+        public static string FrameToLoadOnSceneLoad { get; set; } = null;
 
         /// <summary>
         /// Tracks how many lives / retries the player currently has.

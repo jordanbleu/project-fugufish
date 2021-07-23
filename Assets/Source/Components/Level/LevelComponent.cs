@@ -21,14 +21,19 @@ namespace Assets.Source.Components.Level
         [SerializeField]
         private GameObject deathMarkerPrefab;
 
+
+        [SerializeField]
+        private GameObject player;
+
         private GameObject deathMarker;
 
         public override void ComponentAwake()
         {
+            player.transform.position = GetRequiredComponent<FrameComponent>(startingFrame).StartPosition;
             
-            if (UnityUtils.Exists(GameDataTracker.FrameToLoadOnSceneLoad))
+            if (!string.IsNullOrEmpty(GameDataTracker.FrameToLoadOnSceneLoad))
             {
-                SetActiveFrame(GameDataTracker.FrameToLoadOnSceneLoad);
+                SetActiveFrame(GetRequiredChild(GameDataTracker.FrameToLoadOnSceneLoad));
             }
             else { 
                 SetActiveFrame(startingFrame);
@@ -46,7 +51,7 @@ namespace Assets.Source.Components.Level
 
             _currentlyActiveFrame = frameToSet;
 
-            var allFrames = GetComponentsInChildren<FrameComponent>();
+            var allFrames = GetComponentsInChildren<FrameComponent>(true);
 
             // Deactivates all non active frames (just in case I accidentally leave one active in the editor)
             foreach (var frame in allFrames)
@@ -58,6 +63,7 @@ namespace Assets.Source.Components.Level
                 else
                 {
                     frame.gameObject.SetActive(true);
+                    
                 }
             }
 

@@ -5277,7 +5277,7 @@ MonoBehaviour:
       m_Calls: []
   groundLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4919
   impactVelocityLimit: 12
   footVelocity: {x: 0, y: 0}
   environmentalVelocity: {x: 0, y: 0}

@@ -53,7 +53,7 @@ namespace Assets.Source.Components.UI
 
             var levelComponent = GetRequiredComponent<LevelComponent>(GetRequiredObject("Level"));
 
-            GameDataTracker.FrameToLoadOnSceneLoad = levelComponent.CurrentlyActiveFrame;
+            GameDataTracker.FrameToLoadOnSceneLoad = levelComponent.CurrentlyActiveFrame.name;
             sceneLoader.RestartScene();
         }
 
