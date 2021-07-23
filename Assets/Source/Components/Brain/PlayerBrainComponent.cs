@@ -62,7 +62,6 @@ namespace Assets.Source.Components.Brain
         [SerializeField]
         private DeathScreenComponent deathScreen;
 
-
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
@@ -164,12 +163,15 @@ namespace Assets.Source.Components.Brain
 
                 if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
                 {
-
+                    animator.FaceTowardsPosition(new Vector2(transform.position.x-2, 0));
+                    animator.Dodge();
                     AddImpact(-dodgeSpeed, 0);
                 }
 
                 if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired))
                 {
+                    animator.FaceTowardsPosition(new Vector2(transform.position.x + 2, 0));
+                    animator.Dodge();
                     AddImpact(dodgeSpeed, 0);
                 }
 

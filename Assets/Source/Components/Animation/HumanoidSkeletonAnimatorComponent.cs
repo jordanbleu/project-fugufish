@@ -19,6 +19,7 @@ namespace Assets.Source.Components.Animation
         public float HorizontalMoveSpeed { get; set; }
         public float VerticalMoveSpeed { get; set; } 
 
+
         /// <summary>
         /// If true the skeleton has been flipped and is facing to the left
         /// </summary>
@@ -71,6 +72,8 @@ namespace Assets.Source.Components.Animation
         public void Attack() => animator.SetTrigger("attack");
 
         public void Tied() => animator.SetTrigger("tied");
+
+        public void Dodge() => animator.SetTrigger("dodge");
 
         /// <summary>
         /// Face either left or right, towards the position
