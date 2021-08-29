@@ -37,6 +37,10 @@ namespace Assets.Source.Components.Level
             sceneToLoad = name;
         }
 
+        public void RestartScene() {
+            LoadScene(SceneManager.GetActiveScene().name);        
+        }
+
         /// <summary>
         /// Call back from the animation timeline when the loading screen is ready for us
         /// </summary>
@@ -51,7 +55,7 @@ namespace Assets.Source.Components.Level
             // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
             // a sceneBuildIndex of 1 as shown in Build Settings.
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(name);
-
+            
             // Wait until the asynchronous scene fully loads
             while (!asyncLoad.isDone)
             {

@@ -4,6 +4,7 @@ using Assets.Source.Components.Brain.Base;
 using Assets.Source.Util;
 using Spine.Unity;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Source.Components.Behavior.Base
 {
@@ -81,6 +82,9 @@ namespace Assets.Source.Components.Behavior.Base
         [SerializeField]
         [Tooltip("Drag player object here")]
         protected GameObject player;
+
+        [SerializeField]
+        private UnityEvent onJump;
 
         // Components
         protected HumanoidSkeletonAnimatorComponent animator;
@@ -161,6 +165,7 @@ namespace Assets.Source.Components.Behavior.Base
                 else if (jumpUpHit.transform == null && CurrentVelocity.y.IsWithin(0.1f, 0))
                 {
                     // Jump straight up in the air (next frame will carry our velocity towards our destination)
+                    onJump?.Invoke();
                     animator.Jump();
                     AddRigidBodyForce(0, jumpHeight);
                     return new Vector2(0, CurrentVelocity.y);
@@ -173,6 +178,7 @@ namespace Assets.Source.Components.Behavior.Base
                 if (jumpAcrossHit.transform != null && CurrentVelocity.y.IsWithin(0.1f, 0))
                 {
                     // Jump straight up in the air (next frame will carry our velocity towards our destination)
+                    onJump?.Invoke();
                     animator.Jump();
                     AddRigidBodyForce(0, jumpHeight);
                     return new Vector2(0, CurrentVelocity.y);

@@ -38,11 +38,7 @@ namespace Assets.Source.Components.Camera
 
             var activeCameraAnimator = activeCamera.GetComponent<Animator>();
 
-            if (!UnityUtils.Exists(activeCameraAnimator))
-            {
-                Debug.LogWarning($"Found the camera on frame '{obj.name}' but it doesn't have an Animator Controller on it.");
-            }
-
+            // may or may not exist!
             return activeCameraAnimator;
         }
 

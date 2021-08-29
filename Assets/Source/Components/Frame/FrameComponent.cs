@@ -1,4 +1,6 @@
-﻿namespace Assets.Source.Components.Frame
+﻿using UnityEngine;
+
+namespace Assets.Source.Components.Frame
 {
     /// <summary>
     /// Frames are small loaded chunks of the level.  This prevents overuse of system resources by updating entire massive levels, 
@@ -6,6 +8,10 @@
     /// </summary>
     public class FrameComponent : ComponentBase
     {
-        // Currently Does nothing
+
+        [SerializeField]
+        [Tooltip("The starting position for the frame")]
+        private Vector2 startPosition;
+        public Vector2 StartPosition { get => startPosition; }
     }
 }

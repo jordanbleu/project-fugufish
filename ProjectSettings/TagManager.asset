@@ -18,8 +18,8 @@ TagManager:
   - NPC
   - NPC2
   - NeverCollide
-  - 
-  - 
+  - NPC_TRIGGER
+  - Floor
   - 
   - 
   - 
@@ -73,4 +73,7 @@ TagManager:
     locked: 0
   - name: ScreenEffects
     uniqueID: 3856551773
+    locked: 0
+  - name: DisableLighting
+    uniqueID: 1856841447
     locked: 0

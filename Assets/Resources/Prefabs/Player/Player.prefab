@@ -20,6 +20,9 @@ GameObject:
   - component: {fileID: 3211081951321728951}
   - component: {fileID: 6401049630020257325}
   - component: {fileID: 2104115658165177845}
+  - component: {fileID: 6507928195197166085}
+  - component: {fileID: 2196488774742844360}
+  - component: {fileID: 5559087547028069128}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -145,7 +148,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1453623151
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
 --- !u!114 &3211081951321728953
 MonoBehaviour:
@@ -282,8 +285,9 @@ MonoBehaviour:
   upperCutHeight: 8
   dodgeSpeed: 16
   climbSpeed: 3
-  attackVelocity: 3
+  attackVelocity: 1.5
   dodgeStaminaRequired: 30
+  deathScreen: {fileID: 0}
 --- !u!114 &6401049630020257325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +330,133 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8bb554b8fae7a04fb85ebcee4d6bb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6507928195197166085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211081951321728954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9c603d710bfde4d8b2637d630fbd07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftFootstep: {fileID: 8300000, guid: 83ef1ba0cdf933a47bdb465aaa2196c7, type: 3}
+  rightFootstep: {fileID: 8300000, guid: cc436f84968020a41b3c855a1fc2a11d, type: 3}
+--- !u!82 &2196488774742844360
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211081951321728954}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5559087547028069128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211081951321728954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f31d89c16866fc49a2f7a3dbaf2e906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordSwing0: {fileID: 8300000, guid: 137f102adfc426e4081d782eb80c4b9f, type: 3}
+  swordSwing1: {fileID: 8300000, guid: 11de1909c28353c4c9cbfde611c2b0c9, type: 3}
+  swordSwing2: {fileID: 8300000, guid: 217171900947a1942bbc73a7e89f720b, type: 3}
+  ladderClink1: {fileID: 8300000, guid: 4223fcadbc733cc4b85767a9d03ec9ba, type: 3}
+  ladderClink2: {fileID: 8300000, guid: 47f27a11729658f49a0bb2b73d74bdf1, type: 3}
 --- !u!1 &3211081952889808033
 GameObject:
   m_ObjectHideFlags: 0
@@ -5215,7 +5346,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1453623151
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

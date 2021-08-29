@@ -13,6 +13,10 @@ namespace Assets.Source.Components.Timer
         [SerializeField]
         [Tooltip("Friendly name for debugging only, no real functionality.")]
         private string label = "{New Game Timer}";
+        /// <summary>
+        /// Friendly name for debugging only, no real functionality.
+        /// </summary>
+        public string Label { get => label; set => label = value; }
 
         [SerializeField]
         [Tooltip("The starting time on the timer.")]
@@ -76,6 +80,8 @@ namespace Assets.Source.Components.Timer
         public void StartTimer() {
             isActive = true;
         }
+
+        
 
         
     }

@@ -1,0 +1,76 @@
+
+antagStage0.png
+size: 32,32
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Head
+  rotate: true
+  xy: 2, 2
+  size: 10, 11
+  orig: 10, 11
+  offset: 0, 0
+  index: -1
+LeftArm
+  rotate: false
+  xy: 26, 21
+  size: 4, 2
+  orig: 4, 2
+  offset: 0, 0
+  index: -1
+LeftArmUpper
+  rotate: false
+  xy: 26, 17
+  size: 4, 2
+  orig: 4, 2
+  offset: 0, 0
+  index: -1
+LeftLegLower
+  rotate: true
+  xy: 25, 25
+  size: 1, 5
+  orig: 1, 5
+  offset: 0, 0
+  index: -1
+LeftLegUpper
+  rotate: false
+  xy: 17, 14
+  size: 1, 6
+  orig: 1, 6
+  offset: 0, 0
+  index: -1
+RightArm
+  rotate: false
+  xy: 25, 28
+  size: 5, 2
+  orig: 5, 2
+  offset: 0, 0
+  index: -1
+RightArmUpper
+  rotate: false
+  xy: 20, 16
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1
+RightLegLower
+  rotate: false
+  xy: 15, 2
+  size: 4, 10
+  orig: 4, 10
+  offset: 0, 0
+  index: -1
+RightLegUpper
+  rotate: false
+  xy: 17, 22
+  size: 6, 8
+  orig: 6, 8
+  offset: 0, 0
+  index: -1
+Torso
+  rotate: false
+  xy: 2, 14
+  size: 13, 16
+  orig: 13, 16
+  offset: 0, 0
+  index: -1

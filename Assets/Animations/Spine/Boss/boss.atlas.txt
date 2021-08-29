@@ -1,0 +1,90 @@
+
+boss.png
+size: 64,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+head
+  rotate: false
+  xy: 33, 45
+  size: 15, 17
+  orig: 15, 17
+  offset: 0, 0
+  index: -1
+left_arm_lower
+  rotate: true
+  xy: 24, 9
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
+left_arm_sword
+  rotate: false
+  xy: 17, 7
+  size: 5, 24
+  orig: 5, 24
+  offset: 0, 0
+  index: -1
+left_arm_upper
+  rotate: false
+  xy: 32, 12
+  size: 8, 7
+  orig: 8, 7
+  offset: 0, 0
+  index: -1
+left_leg_lower
+  rotate: true
+  xy: 50, 57
+  size: 5, 12
+  orig: 5, 12
+  offset: 0, 0
+  index: -1
+left_leg_upper
+  rotate: false
+  xy: 33, 33
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+right_arm_gun
+  rotate: true
+  xy: 2, 2
+  size: 29, 13
+  orig: 29, 13
+  offset: 0, 0
+  index: -1
+right_arm_lower
+  rotate: true
+  xy: 34, 21
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
+right_arm_upper
+  rotate: true
+  xy: 32, 2
+  size: 8, 7
+  orig: 8, 7
+  offset: 0, 0
+  index: -1
+right_leg_lower
+  rotate: true
+  xy: 50, 50
+  size: 5, 12
+  orig: 5, 12
+  offset: 0, 0
+  index: -1
+right_leg_upper
+  rotate: false
+  xy: 24, 21
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+torso
+  rotate: false
+  xy: 2, 33
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1

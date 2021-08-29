@@ -51,6 +51,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private PlayerBrainComponent playerBrain;
         private IntervalTimerComponent brainTimer;
         private MeleeComponent meleeCollider;
+        private ShooterSoundEffects sound;
 
         private bool shouldDodge = false;
         private bool isAttacking = false;
@@ -151,6 +152,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
             base.ComponentAwake();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
+            sound = GetRequiredComponent<ShooterSoundEffects>();
         }
 
         private void OnAttackedByPlayer()
@@ -239,6 +241,8 @@ namespace Assets.Source.Components.Behavior.Humanoid
         #region Event Handlers
         private void OnAttackBegin()
         {
+            sound.Shot1();
+
             var bulletInst = Instantiate(bulletPrefab, transform.parent);
             bulletInst.transform.position = transform.position;
 

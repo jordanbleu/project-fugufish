@@ -1,4 +1,5 @@
 ﻿using Assets.Editor.Attributes;
+using Assets.Source.Components.Camera;
 using Assets.Source.Components.Interaction;
 using UnityEngine;
 
@@ -24,10 +25,18 @@ namespace Assets.Source.Components.Actor
             "contain a component that inherits from CommonPhysicsComponent (not required though).")]
         private GameObject attacker;
 
+        private LevelCameraEffectorComponent cameraEffector;
+
         /// <summary>
         /// If true, actor is facing left.  Must be set manually by the actor.
         /// </summary>
         public bool IsFlipped { get; set; } = false;
+
+        public override void ComponentAwake()
+        {
+            cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
+            base.ComponentAwake();
+        }
 
         public override void ComponentUpdate()
         {
@@ -52,7 +61,9 @@ namespace Assets.Source.Components.Actor
             if (IsDamageEnabled) {
                 if (attackableLayers.IncludesLayer(collision.gameObject.layer) && 
                     collision.gameObject.TryGetComponent<AttackableComponent>(out var attackable)) {
-                    
+
+                    cameraEffector.Impact();
+
                     attackable.Attack(attacker);
 
                     if (attackable.EndsAttackAnimation) {

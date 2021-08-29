@@ -130,7 +130,6 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private void UpdateMeleeCollider()
         {
             meleeCollider.IsFlipped = animator.SkeletonIsFlipped;
-
         }
 
         private void MoveTowardsPlayer()

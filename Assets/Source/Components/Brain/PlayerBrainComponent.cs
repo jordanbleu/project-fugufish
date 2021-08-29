@@ -2,9 +2,13 @@
 using Assets.Source.Components.Animation;
 using Assets.Source.Components.Brain.Base;
 using Assets.Source.Components.Camera;
+using Assets.Source.Components.Level;
 using Assets.Source.Components.Platforming;
+using Assets.Source.Components.Sound;
+using Assets.Source.Components.UI;
 using Assets.Source.Enums;
 using Assets.Source.Input.Constants;
+using Assets.Source.Scene;
 using Spine.Unity;
 using System.Linq;
 using UnityEngine;
@@ -55,12 +59,17 @@ namespace Assets.Source.Components.Brain
         [Header("Stamina Requirements")]
         private int dodgeStaminaRequired = 30;
 
+        [SerializeField]
+        private DeathScreenComponent deathScreen;
 
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
         private MeleeComponent meleeCollider;
         private ActorComponent actor;
+        private FootstepAudioComponent footsteps;
+        private PlayerSoundEffects sound;
+        private LevelComponent levelComponent;
 
         // true if the player is climbing
         private bool isClimbing = false;
@@ -74,12 +83,19 @@ namespace Assets.Source.Components.Brain
         // Yes it is a very specific boolean okay i get it.
         private bool isDeadAndHitGround = false;
 
+        private bool isDeathScreenEnabled = true;
+
         public override void ComponentAwake()
         {
+            var levelObj = GetRequiredObject("Level");
             actor = GetRequiredComponent<ActorComponent>();
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
-            cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
+            cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(levelObj);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
+            footsteps = GetRequiredComponent<FootstepAudioComponent>();
+            sound = GetRequiredComponent<PlayerSoundEffects>();
+            levelComponent = GetRequiredComponent<LevelComponent>(levelObj);
+
 
             if (isTiedUp) {
                 animator.Tied();
@@ -90,6 +106,12 @@ namespace Assets.Source.Components.Brain
 
         public override void ComponentUpdate()
         {
+
+            // Constantly update the game data tracker with our last ground position
+            if (IsGrounded) {
+                GameDataTracker.LastGroundedPosition = transform.position;
+            }
+
             if (actor.IsAlive() && !isTiedUp && !isMovementLocked)
             {
                 // If we are currently touching any ladder components, we are climbing.
@@ -112,18 +134,18 @@ namespace Assets.Source.Components.Brain
 
                     if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD) && actor.TryDepleteStamina(dodgeStaminaRequired/2))
                     {
-                        // Shake the camera
-                        cameraEffector.SwingRight();
 
                         // If we are in the air and the player is holding "up", do a GRAND SLAM
                         if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
                         {
+                            sound.Swing2();
                             animator.GroundPound();
                         }
                         // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
                         else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsAttacking && !usedUppercut)
                         {
                             AddRigidBodyForce(0, upperCutHeight);
+                            sound.Swing1();
                             animator.Uppercut();
                             // Signals that we've already used the uppercut during this jump. 
                             // This will be reset to false upon landing.
@@ -143,19 +165,27 @@ namespace Assets.Source.Components.Brain
 
                 if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
                 {
-
+                    animator.FaceTowardsPosition(new Vector2(transform.position.x-2, 0));
+                    animator.Dodge();
                     AddImpact(-dodgeSpeed, 0);
                 }
 
                 if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired))
                 {
+                    animator.FaceTowardsPosition(new Vector2(transform.position.x + 2, 0));
+                    animator.Dodge();
                     AddImpact(dodgeSpeed, 0);
                 }
 
                 // Translate user controls into the player's movements
                 UpdateFootVelocity();
             }
-            else if (!actor.IsAlive()){
+            else if (!actor.IsAlive()) {
+
+                if (isDeathScreenEnabled && !deathScreen.gameObject.activeSelf) {
+                    UpdateDeathData();
+                    deathScreen.gameObject.SetActive(true);
+                }
 
                 if (!isDeadAndHitGround)
                 {
@@ -185,6 +215,15 @@ namespace Assets.Source.Components.Brain
             meleeCollider.IsFlipped = animator.SkeletonIsFlipped;
 
             base.ComponentUpdate();
+        }
+
+        /// <summary>
+        /// Updates the GameDataTracker with the last death location and whatnot
+        /// </summary>
+        private void UpdateDeathData()
+        {
+            GameDataTracker.LastGroundedDeathPosition = GameDataTracker.LastGroundedPosition;
+            GameDataTracker.LastDeathFrameName = levelComponent.CurrentlyActiveFrame.name;
         }
 
         private void UpdateAnimator()
@@ -249,6 +288,8 @@ namespace Assets.Source.Components.Brain
             }
         }
 
+        public void DisableDeathScreen() => isDeathScreenEnabled = false;
+
         #region Animation Events - Triggered via Spine Animation
         // ****************************************************
         // ** These must be wired up via Unity's timeline ******
@@ -307,6 +348,20 @@ namespace Assets.Source.Components.Brain
         {
             isTiedUp = false;
         }
+
+        public void OnFootstep() {
+            footsteps.DoTippyTap();
+        }
+
+        public void OnBeginSwing0() => sound.Swing0();
+
+        public void OnBeginSwing1() => sound.Swing1();
+
+        public void OnBeginSwing2() => sound.Swing2();
+
+        public void OnLadderClink1() => sound.LadderClink1();
+
+        public void OnLadderClink2() => sound.LadderClink2();
 
         #endregion
 
