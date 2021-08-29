@@ -83,6 +83,8 @@ namespace Assets.Source.Components.Brain
         // Yes it is a very specific boolean okay i get it.
         private bool isDeadAndHitGround = false;
 
+        private bool isDeathScreenEnabled = true;
+
         public override void ComponentAwake()
         {
             var levelObj = GetRequiredObject("Level");
@@ -180,7 +182,7 @@ namespace Assets.Source.Components.Brain
             }
             else if (!actor.IsAlive()) {
 
-                if (!deathScreen.gameObject.activeSelf) {
+                if (isDeathScreenEnabled && !deathScreen.gameObject.activeSelf) {
                     UpdateDeathData();
                     deathScreen.gameObject.SetActive(true);
                 }
@@ -285,6 +287,8 @@ namespace Assets.Source.Components.Brain
                 animator.DamageFront();
             }
         }
+
+        public void DisableDeathScreen() => isDeathScreenEnabled = false;
 
         #region Animation Events - Triggered via Spine Animation
         // ****************************************************

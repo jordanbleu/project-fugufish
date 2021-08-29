@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/03_Attic.unity
     guid: 55aa215f2a11bc44595b41e82921d453
   - enabled: 1
+    path: Assets/Scenes/04_EndingScene.unity
+    guid: 81e63895037b7054ba14186afb88e07d
+  - enabled: 1
     path: Assets/Scenes/Basic.unity
     guid: 2e8f91860e07b6b41a8e5592ac2a7b9c
   m_configObjects: {}

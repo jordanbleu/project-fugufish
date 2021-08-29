@@ -33,7 +33,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private const float MOVE_SPEED = 1.5f;
         private const float THRUST_SPEED = 16f; 
         private bool isDamageEnabled = false;
-        private bool isBrainEnabled = true; // todo:  This will be initially false in the real game
+        private bool isBrainEnabled = false; 
 
         // Required components
         private PlayerBrainComponent playerBrain;
@@ -42,6 +42,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private FinalBossAnimatorComponent animator;
         private ActorComponent actor;
         private ActorComponent playerActor;
+        private BossSoundEffects sound;
 
         // Prefabs
 
@@ -57,7 +58,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
             actor = GetRequiredComponent<ActorComponent>();
             playerActor = GetRequiredComponent<ActorComponent>(player);
-
+            sound = GetRequiredComponent<BossSoundEffects>();
         }
 
         public override void ComponentStart()
@@ -69,8 +70,11 @@ namespace Assets.Source.Components.Behavior.Humanoid
         public override void ComponentUpdate()
         {
             UpdateAnimator();
-            MoveTowardsPlayer();
-            UpdateMeleeCollider();
+            if (isBrainEnabled && actor.IsAlive())
+            {
+                MoveTowardsPlayer();
+                UpdateMeleeCollider();
+            }
             base.ComponentUpdate();
         }
 
@@ -98,6 +102,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         {
             animator.IsStunned = isStunned;
             animator.HorizontalMoveSpeed = FootVelocity.x;
+            animator.IsDead = !actor.IsAlive();
         }
 
         // Moves the actor within range of the player
@@ -177,7 +182,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         // This is the method called when the brain timer reaches zero
         private void BrainUpdate()
         {
-            if (playerActor.Health > 0 && isBrainEnabled && !isAttacking && !isStunned && PlayerIsInRange()) {
+            if (actor.IsAlive() && playerActor.IsAlive() && isBrainEnabled && !isAttacking && !isStunned && PlayerIsInRange()) {
                 MeleeAttack();   
             }
 
@@ -233,7 +238,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         public void OnStandUp()
         {
             // todo: uncomment for final build
-            //cutscene.IncrementStage();
+            cutscene.IncrementStage();
         }
 
         public void OnAttackBegin()
@@ -275,6 +280,15 @@ namespace Assets.Source.Components.Behavior.Humanoid
         public void OnStunEnd() {
             isStunned = false;
         }
+
+        // Sound effect callbacks
+        public void OnFootstepSound1() => sound.PlayFootstep1();
+        public void OnFootstepSound2() => sound.PlayFootstep2();
+        public void OnGroundSmashSound() => sound.PlayGroundSmash();
+        public void OnStunHitSound() => sound.PlayStunHit();
+
+        public void OnSwordSwingSound() => sound.PlaySwordSwing();
+
 
         #endregion
 

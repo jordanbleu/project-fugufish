@@ -1,4 +1,5 @@
 ﻿using Assets.Editor.Attributes;
+using Assets.Source.Components.Behavior.Humanoid;
 using Assets.Source.Components.Brain;
 using Assets.Source.Components.TextWriter;
 using Assets.Source.Components.Timer;
@@ -38,6 +39,15 @@ namespace Assets.Source.Components.Cutscenes.Transformation
 
 
         [SerializeField]
+        private GameObject bossBattlePhaseDetector;
+
+        [SerializeField]
+        private GameObject bossHealthBar;
+
+        [SerializeField]
+        private GameObject killBossDetector;
+
+        [SerializeField]
         private GameObject cam;
 
         [SerializeField]
@@ -57,7 +67,6 @@ namespace Assets.Source.Components.Cutscenes.Transformation
         [SerializeField]
         [ReadOnly]
         private int stage;
-
 
         public override void ComponentAwake()
         {
@@ -205,9 +214,13 @@ namespace Assets.Source.Components.Cutscenes.Transformation
                     player.SetForceWalk(false);
                     player.SetMovementLock(false);
 
-                    var bossBrain = GetRequiredComponent<FinalBossBrainOldComponent>(boss);
-                    bossBrain.EnableBrain();
+                    var bossBrain = GetRequiredComponent<BossEnemyBehavior>(boss);
+                    bossBrain.SetEnabled(true);
                     Destroy(gameObject);
+
+                    bossBattlePhaseDetector.SetActive(true);
+                    bossHealthBar.SetActive(true);
+                    killBossDetector.SetActive(true);
                     break;
             }
             base.ComponentUpdate();
