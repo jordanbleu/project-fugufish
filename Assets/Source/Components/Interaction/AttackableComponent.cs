@@ -27,12 +27,16 @@ namespace Assets.Source.Components.Interaction
         /// </summary>
         public void Attack(GameObject attacker) {
 
-            if (attacker.TryGetComponent<PlayerBrainComponent>(out var player))
+            if (UnityUtils.Exists(gameObject) && UnityUtils.Exists(this) && gameObject.activeInHierarchy)
             {
-                onPlayerAttack?.Invoke();
-            }
-            else {
-                onNpcAttack?.Invoke();
+                if (attacker.TryGetComponent<PlayerBrainComponent>(out var player))
+                {
+                    onPlayerAttack?.Invoke();
+                }
+                else
+                {
+                    onNpcAttack?.Invoke();
+                }
             }
         }
 

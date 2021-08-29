@@ -1,18 +1,14 @@
 ﻿using Assets.Editor.Attributes;
-using Assets.Source.Strings;
-using Assets.Source.Components.TextWriter;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Assets.Source.Components.Timer;
-using Spine.Unity;
-using TMPro;
-using Assets.Source.Components.UI;
-using UnityEngine.Events;
-using Assets.Source.Scene;
-using UnityEngine.SceneManagement;
-using System.Collections;
 using Assets.Source.Components.Level;
+using Assets.Source.Components.TextWriter;
+using Assets.Source.Components.Timer;
+using Assets.Source.Components.UI;
+using Assets.Source.Scene;
+using Assets.Source.Strings;
+using Spine.Unity;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Source.Components.Cutscenes.Intro
 {

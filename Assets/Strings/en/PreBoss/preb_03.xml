@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<strings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <string name="0">Was it worth it?  Your revenge?</string>
+  <string name="1">You spent your last bleeding breath ending countless lives...</string>
+  <string name="2">All to avenge the death of one person.</string>
+  <string name="3">...</string>
+  <string name="4">You could have saved her, you know.</string>
+  <string name="5">But you let your anger consume you.</string>
+</strings>

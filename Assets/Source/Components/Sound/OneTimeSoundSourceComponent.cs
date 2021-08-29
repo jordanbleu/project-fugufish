@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace Assets.Source.Components.Sound
 {
+    /// <summary>
+    /// TODO: a better way might be https://answers.unity.com/questions/17856/sound-stops-when-object-is-destroyed.html
+    /// </summary>
     [RequireComponent(typeof(AudioSource))]
     public class OneTimeSoundSourceComponent : ComponentBase
     {
