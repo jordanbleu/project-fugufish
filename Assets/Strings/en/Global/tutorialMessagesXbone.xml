@@ -4,4 +4,5 @@
   <string name="jump">Press [SPACE] to jump</string>
   <string name="attack">Click left mouse button to attack</string>
   <string name="switches">Attack switches to interact with them</string>
+  <string name="health_pickups">Pick up adrenaline shots to heal</string>
 </strings>

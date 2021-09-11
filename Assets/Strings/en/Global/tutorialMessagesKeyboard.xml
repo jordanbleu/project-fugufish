@@ -6,4 +6,6 @@
   <string name="uppercut">Hold [S] while attacking to swing upwards</string>
   <string name="dodge">Use [Q] and [E] keys to dodge</string>
   <string name="does_not_open_from_side">Door does not open from this side</string>
+  <string name="health_pickups">Pick up adrenaline shots to heal</string>
 </strings>
+

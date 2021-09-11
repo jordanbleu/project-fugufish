@@ -14,12 +14,22 @@ namespace Assets.Source.Components.Sound
         private Animator animator;
         private AudioSource audioSource;
 
+
+        [SerializeField]
+        private bool fadeInOnAwake = false;
+
         public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
             audioSource = GetRequiredComponent<AudioSource>();
+
+            if (fadeInOnAwake) {
+                FadeInAndPlay();
+            }
+
             base.ComponentAwake();
         }
+
 
         public void FadeInAndPlay() {
             animator.SetTrigger("fade_in");
@@ -48,6 +58,9 @@ namespace Assets.Source.Components.Sound
             audioSource.Stop();
         }
 
+        public void SetAudio(AudioClip clip) {
+            this.audioSource.clip = clip;
+        }
 
 
 

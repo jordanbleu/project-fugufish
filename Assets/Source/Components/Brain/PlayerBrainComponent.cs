@@ -363,6 +363,8 @@ namespace Assets.Source.Components.Brain
 
         public void OnLadderClink2() => sound.LadderClink2();
 
+        
+
         #endregion
 
     }

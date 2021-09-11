@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Source.Components.Frame
 {
@@ -8,10 +9,20 @@ namespace Assets.Source.Components.Frame
     /// </summary>
     public class FrameComponent : ComponentBase
     {
+        [SerializeField]
+        private UnityEvent onEnterFrame = new UnityEvent();
+
+        [SerializeField]
+        private UnityEvent onExitFrame = new UnityEvent();
 
         [SerializeField]
         [Tooltip("The starting position for the frame")]
         private Vector2 startPosition;
         public Vector2 StartPosition { get => startPosition; }
+
+        public void TriggerExitEvent() => onExitFrame?.Invoke();
+
+        public void TriggerEnterEvent() => onEnterFrame?.Invoke();
+
     }
 }

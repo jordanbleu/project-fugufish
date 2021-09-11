@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/02_Rooftop.unity
     guid: c75a2764fb69ffc4ba4941721a3c829e
   - enabled: 1
-    path: Assets/Scenes/03_Attic.unity
-    guid: 55aa215f2a11bc44595b41e82921d453
+    path: Assets/Scenes/03_Area1.unity
+    guid: b510f95d961190d4d9515a830bb80042
   - enabled: 1
     path: Assets/Scenes/04_EndingScene.unity
     guid: 81e63895037b7054ba14186afb88e07d

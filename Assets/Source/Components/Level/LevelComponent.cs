@@ -42,6 +42,13 @@ namespace Assets.Source.Components.Level
             base.ComponentAwake();
         }
 
+        public override void ComponentStart()
+        {
+            // Trigger the enter event on game / scene load
+            GetRequiredComponent<FrameComponent>(_currentlyActiveFrame).TriggerEnterEvent();
+            base.ComponentStart();
+        }
+
         private void SetActiveFrame(GameObject frameToSet)
         {
             if (frameToSet == null)

@@ -37,6 +37,7 @@ namespace Assets.Source.Components.Switches
         public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
+            animator.SetBool("is_on", isOn);
             base.ComponentAwake();
         }
 
@@ -62,13 +63,16 @@ namespace Assets.Source.Components.Switches
                 else {
                     onSwitchTurnOff?.Invoke();
                 }
-
-                // Animate
-                animator.SetBool("is_on", isOn);
+                UpdateSwitchAnimation();
             }
         }
 
+        public void UpdateSwitchAnimation() { 
+            // Animate
+            animator.SetBool("is_on", isOn);
+        }
 
+        public void SetIsOn(bool isOn) => this.isOn = isOn;
 
 
 
