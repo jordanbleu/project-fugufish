@@ -17,12 +17,8 @@ namespace Assets.Source.Components.UI
         [SerializeField]
         private SceneLoaderComponent sceneLoader;
 
-        public override void ComponentStart()
-        {
-            // For now just go to next scene
+        public void LoadNextScene() { 
             sceneLoader.LoadScene("Scenes/01_Introduction");
-            base.ComponentStart();
         }
-
     }
 }

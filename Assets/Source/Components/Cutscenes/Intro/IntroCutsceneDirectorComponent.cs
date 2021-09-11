@@ -1,5 +1,7 @@
 ﻿using Assets.Editor.Attributes;
+using Assets.Source.Components.Base;
 using Assets.Source.Components.Level;
+using Assets.Source.Components.Sound;
 using Assets.Source.Components.TextWriter;
 using Assets.Source.Components.Timer;
 using Assets.Source.Components.UI;
@@ -57,11 +59,27 @@ namespace Assets.Source.Components.Cutscenes.Intro
 
         [SerializeField]
         private SceneLoaderComponent sceneLoader;
-        
+
+        [SerializeField]
+        private MusicBoxComponent music;
+
+        [SerializeField]
+        private MusicBoxComponent ambience;
+
+        [SerializeField]
+        private AudioClip thunderSound;
+
+        [SerializeField]
+        private AudioClip gunShotSound;
+
+        [SerializeField]
+        private AudioClip squishSound;
+
         private IntervalTimerComponent timer;
         private Animator fadeAnimator;
         private StringsLoader stringLoader = new StringsLoader();
         private DynamicMenuComponent dynamicMenuComponent;
+        private GameObjectUtilities utilities;
 
 
         private Animator antagonistAnimator;
@@ -69,6 +87,7 @@ namespace Assets.Source.Components.Cutscenes.Intro
         private Animator femaleAnimator;
         private ParticleSystem femaleBrainParticleSystem;
         private ParticleSystem protagBrainParticleSystem;
+        private AudioSource audioSource;
 
         private SkeletonMecanim antagSkeleton;
         private Rigidbody2D antagRigidBody;
@@ -87,6 +106,9 @@ namespace Assets.Source.Components.Cutscenes.Intro
 
             antagSkeleton = GetRequiredComponent<SkeletonMecanim>(antagonistActor);
             antagRigidBody = GetRequiredComponent<Rigidbody2D>(antagonistActor);
+
+            audioSource = GetRequiredComponent<AudioSource>();
+            utilities = GetRequiredComponent<GameObjectUtilities>();
 
             // Localize and prepare the dynamic menu
             // Load the dialog menu strings
@@ -137,59 +159,69 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     // Load the cold open strings
                     stringLoader.Load("Intro/intro_01_coldOpen.xml");
                     AddTextQueue(stringLoader.Value.Values);
-                    stage++;
+                    IncrementStage();
                     break;
                 case 1:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance)) {
-                        stage++;                    
+                        IncrementStage();                    
                     }
                     break;
                 case 2:
                     // Trigger the fade in
                     fadeAnimator.SetTrigger("fade_in");
-                    stage++;
+                    music.Play();
+                    ambience.Play();
+                    audioSource.PlayOneShot(thunderSound);
+                    IncrementStage();
                     break;
                 case 3:
                     // Do nothing.  We're waiting for the animation event to increment the stage 
                     break;
                 case 4:
-                    // Load strings
-                    stringLoader.Load("Intro/intro_02.xml");
-                    AddTextQueue(stringLoader.Value.Values);
-                    stage++;
-                    break;
-                case 5:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
+                case 5:
+                    // Load strings
+                    stringLoader.Load("Intro/intro_02.xml");
+                    AddTextQueue(stringLoader.Value.Values);
+                    IncrementStage();
+                    break;
                 case 6:
+                    // Wait for the player to finish the dialogue thing
+                    if (!UnityUtils.Exists(textWriterQueueInstance))
+                    {
+                        IncrementStage();
+                    }
+                    break;
+                case 7:
                     // Use cinemachine to asyncronously pan to other camera
                     centerCam.SetActive(true);
                     // Set a timer for 3 seconds 
                     SetTimer(3000);
-                    stage++;
-                    break;
-                case 7:
-                    // Do nothing, we're waiting for the timer to finish
+                    IncrementStage();
                     break;
                 case 8:
+                    // Do nothing, we're waiting for the timer to finish
+                    break;
+                case 9:
                     // Load strings
                     stringLoader.Load("Intro/intro_03.xml");
                     AddTextQueue(stringLoader.Value.Values);
-                    stage++;
+                    IncrementStage();
                     break;
-                case 9:
+                case 10:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 10:
+                case 11:
                     // Antag walks over to the girl
                     antagonistAnimator.SetBool("is_walking", true);
                     
@@ -203,34 +235,34 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     if (antagonistActor.transform.position.x.IsWithin(0.5f, -7f)) {
                         antagonistAnimator.SetBool("is_walking", false);
                         antagRigidBody.velocity = Vector2.zero;
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 11:
+                case 12:
                     // Load strings
                     stringLoader.Load("Intro/intro_04.xml");
                     AddTextQueue(stringLoader.Value.Values);
-                    stage++;
+                    IncrementStage();
                     break;
-                case 12:
+                case 13:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 13:
+                case 14:
                     // Show the dialog window
                     dynamicMenuObject.SetActive(true);
 
                     // Next Stage
-                    stage++;
+                    IncrementStage();
 
                     break;
-                case 14:
+                case 15:
                     // Do nothing and wait for the menu's callback to increment the stage lol
                     break;
-                case 15:
+                case 16:
                     
                     // Now decide which dialog to display based on what they picked
                     // inner switch statement, good lord jesus forgive me
@@ -253,47 +285,50 @@ namespace Assets.Source.Components.Cutscenes.Intro
 
                     AddTextQueue(stringLoader.Value.Values);
 
-                    stage++;
+                    IncrementStage();
                     break;
-                case 16:
+                case 17:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 17:
+                case 18:
                     // Shoot the female
+                    utilities.PlayExternalAudio(gunShotSound);
+                    utilities.PlayExternalAudio(squishSound);
+
                     femaleBrainParticleSystem.Play();
                     antagonistAnimator.SetTrigger("shoot_weapon");
                     femaleAnimator.SetTrigger("get_shot");
-                    stage++;
+                    IncrementStage();
                     break;
-                case 18:
+                case 19:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 19:
+                case 20:
                     // "her blood is on your hands...and so is yours"
                     stringLoader.Load("Intro/intro_07.xml");
                     AddTextQueue(stringLoader.Value.Values);
                     antagonistAnimator.SetTrigger("lower_weapon");
-                    stage++;
-                    break;
-                case 20:
-                    // wait for lower weapon to finish
+                    IncrementStage();
                     break;
                 case 21:
+                    // wait for lower weapon to finish
+                    break;
+                case 22:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 22:
+                case 23:
                     // face right 
                     antagSkeleton.Skeleton.ScaleX = Mathf.Abs(antagSkeleton.Skeleton.ScaleX);
                     antagonistAnimator.SetBool("is_walking", true);
@@ -306,60 +341,63 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     {
                         antagonistAnimator.SetBool("is_walking", false);
                         antagRigidBody.velocity = Vector2.zero;
-                        stage++;
-                    }
-                    break;
-                case 23:
-                    // Wait for the player to finish the dialogue thing
-                    if (!UnityUtils.Exists(textWriterQueueInstance))
-                    {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
                 case 24:
+                    // Wait for the player to finish the dialogue thing
+                    if (!UnityUtils.Exists(textWriterQueueInstance))
+                    {
+                        IncrementStage();
+                    }
+                    break;
+                case 25:
                     antagonistAnimator.SetTrigger("aim_weapon");
                     // "and thus thus cycle of violence continues"
                     stringLoader.Load("Intro/intro_08.xml");
                     AddTextQueue(stringLoader.Value.Values);
-                    stage++;
+                    IncrementStage();
                     break;
-                case 25:
+                case 26:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 26:
-                    // Shoot
+                case 27:
+                    // Shoot the player
+                    utilities.PlayExternalAudio(gunShotSound);
+                    utilities.PlayExternalAudio(squishSound);
+
                     protagBrainParticleSystem.Play();
                     antagonistAnimator.SetTrigger("shoot_weapon");
                     protagonistAnimator.SetTrigger("get_shot");
-                    stage++;
-                    break;
-                case 27:
-                    antagonistAnimator.SetTrigger("lower_weapon");
-                    stage++;
+                    IncrementStage();
                     break;
                 case 28:
-                    // waiting for lower weapon to complete
+                    antagonistAnimator.SetTrigger("lower_weapon");
+                    IncrementStage();
                     break;
                 case 29:
+                    // waiting for lower weapon to complete
+                    break;
+                case 30:
                     // switch to cam revealing the two schnozz enemies
                     rightCam.SetActive(true);
                     // "dont let this happen again"
                     stringLoader.Load("Intro/intro_09.xml");
                     AddTextQueue(stringLoader.Value.Values);
-                    stage++;
+                    IncrementStage();
                     break;
-                case 30:
+                case 31:
                     // Wait for the player to finish the dialogue thing
                     if (!UnityUtils.Exists(textWriterQueueInstance))
                     {
-                        stage++;
+                        IncrementStage();
                     }
                     break;
-                case 31:
+                case 32:
                     // face right and walk
                     antagSkeleton.Skeleton.ScaleX = Mathf.Abs(antagSkeleton.Skeleton.ScaleX);
                     antagonistAnimator.SetBool("is_walking", true);
@@ -380,26 +418,26 @@ namespace Assets.Source.Components.Cutscenes.Intro
 
                     if (antagonistActor.transform.position.x.IsWithin(0.25f, 3f))
                     {
-                        stage++;
+                        IncrementStage();
                     }
 
                     break;
-                case 32:
+                case 33:
                     // Swap back to center cam
                     rightCam.SetActive(false);
                     centerCam.SetActive(true);
 
                     // spawn the title screen.  
                     titleScreen = Instantiate(titleScreenPrefab, uiCanvasObject.transform);
-                    stage++;
-                    break;
-                case 33:
-                    // wait for titleScreen to not exist
-                    if (!UnityUtils.Exists(titleScreen)) {
-                        stage++;
-                    }
+                    IncrementStage();
                     break;
                 case 34:
+                    // wait for titleScreen to not exist
+                    if (!UnityUtils.Exists(titleScreen)) {
+                        IncrementStage();
+                    }
+                    break;
+                case 35:
                     sceneLoader.LoadScene(Scenes.ROOFTOP);
                     break;
             }

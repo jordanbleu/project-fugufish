@@ -20,10 +20,17 @@ namespace Assets.Source.Components.TextWriter
         [SerializeField]
         private string fullString = string.Empty;
 
+        [SerializeField]
+        private AudioClip beepNoise;
+
+        private AudioSource audioSource;
+
         private StringBuilder displayString;
 
         public override void ComponentAwake()
         {
+            audioSource = GetRequiredComponent<AudioSource>();
+
             if (!UnityUtils.Exists(textMesh)) {
                 throw new UnityException("You didn't drag the text mesh pro object");
             }
@@ -65,6 +72,7 @@ namespace Assets.Source.Components.TextWriter
                 }
             }
             // beep
+            audioSource.PlayOneShot(beepNoise);
         }
 
         public void SetText(string newText)
