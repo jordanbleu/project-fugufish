@@ -165,6 +165,7 @@ namespace Assets.Source.Components.Brain
 
                 if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
                 {
+                    sound.Roll();
                     animator.FaceTowardsPosition(new Vector2(transform.position.x-2, 0));
                     animator.Dodge();
                     AddImpact(-dodgeSpeed, 0);
@@ -172,6 +173,7 @@ namespace Assets.Source.Components.Brain
 
                 if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired))
                 {
+                    sound.Roll();
                     animator.FaceTowardsPosition(new Vector2(transform.position.x + 2, 0));
                     animator.Dodge();
                     AddImpact(dodgeSpeed, 0);

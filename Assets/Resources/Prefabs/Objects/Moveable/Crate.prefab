@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8825687897115405854}
   - component: {fileID: 3240677339095389028}
   - component: {fileID: 125673107628490067}
+  - component: {fileID: 3961154975622960483}
   m_Layer: 10
   m_Name: Crate
   m_TagString: Untagged
@@ -222,11 +223,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 125673107628490067}
-        m_MethodName: PlayOneShot
+      - m_Target: {fileID: 1861018970}
+        m_MethodName: PlayExternalAudio
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 811566689c2fe4347abf6b067af850d4,
+          m_ObjectArgument: {fileID: 8300000, guid: 3715b6d030fae8f419e77d774e77085d,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -463,6 +464,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3961154975622960483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906622210163796248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9469088b7a62b5a49ba8da6e3a617b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3092419507424987360
 GameObject:
   m_ObjectHideFlags: 0
