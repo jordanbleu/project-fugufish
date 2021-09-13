@@ -83,6 +83,8 @@ namespace Assets.Source.Components.Behavior.Base
         [Tooltip("Drag player object here")]
         protected GameObject player;
 
+        protected bool isStuck = false;
+
         [SerializeField]
         private UnityEvent onJump;
 
@@ -117,6 +119,7 @@ namespace Assets.Source.Components.Behavior.Base
 
         protected Vector2 MoveIntelligentlyTowards(Vector2 position, float precision)
         {
+            isStuck = false; 
 
             // Figure out what direction we're facing based on our animator
             var direction = (transform.position.x > position.x) ? -1 : 1;
@@ -192,6 +195,7 @@ namespace Assets.Source.Components.Behavior.Base
             }
 
             // If we get here, the AI has no idea what to do so just wait
+            isStuck = true;
             return new Vector2(0, CurrentVelocity.y);
 
 

@@ -15,6 +15,9 @@ namespace Assets.Source.Components.Projectile
         [SerializeField]
         private LayerMask attackableLayers;
 
+        [SerializeField]
+        private UnityEvent onHitSomething = new UnityEvent();
+
         public override void ComponentStart()
         {
             if (attackableLayers.IsEverything() || attackableLayers.IsNothing())
@@ -29,7 +32,8 @@ namespace Assets.Source.Components.Projectile
         {
             if (collision.gameObject != gameObject && attackableLayers.IncludesLayer(collision.gameObject.layer))
             {
-                if (collision.gameObject.TryGetComponent<AttackableComponent>(out var attackable)) { 
+                if (collision.gameObject.TryGetComponent<AttackableComponent>(out var attackable)) {
+                    onHitSomething?.Invoke();
                     attackable.Attack(gameObject);             
                 }
                 Destroy(gameObject);

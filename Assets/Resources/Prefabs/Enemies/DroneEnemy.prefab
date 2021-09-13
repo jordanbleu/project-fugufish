@@ -217,6 +217,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 684781083005102027}
+        m_MethodName: PlayExternalAudio
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: edf6fd9cd859f154395f6b7bb54eb460,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   stamina: 0
   maxStamina: 0
   refillStamina: 1
@@ -276,6 +288,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 684781083005102027}
+        m_MethodName: PlayExternalAudio
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 8404f6e861e4426449c500c5e227530f,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onNpcAttack:
     m_PersistentCalls:
       m_Calls: []
@@ -321,6 +345,9 @@ MonoBehaviour:
   dodgeSpeed: 24
   climbSpeed: 3
   player: {fileID: 0}
+  onJump:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &684781083005102026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +435,9 @@ MonoBehaviour:
   dodgeSpeed: 24
   climbSpeed: 3
   player: {fileID: 0}
+  onJump:
+    m_PersistentCalls:
+      m_Calls: []
   Positions:
   - Position: {x: 114, y: -79.25}
     GizmoColor: {r: 0, g: 0, b: 1, a: 1}
