@@ -24,7 +24,6 @@ namespace Assets.Source.Components.Timer
 
         [SerializeField]
         [Tooltip("The current time")]
-        [ReadOnly]
         private float time;
 
         public float StartTime { get => startTime; set => startTime = value; }
@@ -43,7 +42,6 @@ namespace Assets.Source.Components.Timer
 
         public override void ComponentAwake()
         {
-            ResetTimer();
             if (startOnAwake) {
                 StartTimer();    
             }
@@ -79,6 +77,13 @@ namespace Assets.Source.Components.Timer
         /// </summary>
         public void StartTimer() {
             isActive = true;
+        }
+
+        /// <summary>
+        /// Randomizes the current time to between zero and the start time
+        /// </summary>
+        public void RandomizeCurrentTime() {
+            time = UnityEngine.Random.Range(0, startTime);
         }
 
         
