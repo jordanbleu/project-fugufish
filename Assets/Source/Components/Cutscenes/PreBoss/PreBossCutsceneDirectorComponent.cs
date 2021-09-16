@@ -1,4 +1,5 @@
-﻿using Assets.Source.Components.Brain;
+﻿using Assets.Source.Components.Base;
+using Assets.Source.Components.Brain;
 using Assets.Source.Components.Objects;
 using Assets.Source.Components.TextWriter;
 using Assets.Source.Strings;
@@ -41,11 +42,16 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
         [SerializeField]
         private int stage = 0;
 
+        [SerializeField]
+        private AudioClip music;
+
         private SkeletonMecanim antagSkeleton;
+        private GameObjectUtilities gameObjectUtilities;
 
         public override void ComponentAwake()
         {
             antagSkeleton = GetRequiredComponent<SkeletonMecanim>(antag);
+            gameObjectUtilities = GetRequiredComponent<GameObjectUtilities>();
             base.ComponentAwake();
         }
 
@@ -85,7 +91,11 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
                     }
                     break;
                 case 4:
-                    // Load the strings.  "not a fan of chairs, i see..."
+                    // Load the strings.  "theres a few things you should know"
+                    
+                    // Play the music once
+                    gameObjectUtilities.PlayExternalAudio(music);
+                    
                     stringLoader.Load("PreBoss/preb_02.xml");
                     AddTextQueue(stringLoader.Value.Values);
                     stage++;
