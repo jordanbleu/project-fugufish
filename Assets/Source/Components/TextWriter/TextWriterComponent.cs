@@ -68,11 +68,11 @@ namespace Assets.Source.Components.TextWriter
             {
                 if (displayString.Length < fullString.Length)
                 {
+                    // beep
+                    audioSource.PlayOneShot(beepNoise);
                     displayString.Append(fullString[displayString.Length]);
                 }
             }
-            // beep
-            audioSource.PlayOneShot(beepNoise);
         }
 
         public void SetText(string newText)

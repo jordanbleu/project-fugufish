@@ -121,6 +121,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &150534581
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2332807456758430379, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: fadeInOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430388, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e36a464e2be0ece4c9656a2728df057f, type: 3}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.872734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -46.116
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430389, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332807456758430391, guid: ab8654cc437d1584687e3768b605a1ff,
+        type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab8654cc437d1584687e3768b605a1ff, type: 3}
 --- !u!1001 &251592448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2379,6 +2458,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb413ef2a60f53e41823332ac61e8daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnterFrame:
+    m_PersistentCalls:
+      m_Calls: []
+  onExitFrame:
+    m_PersistentCalls:
+      m_Calls: []
   startPosition: {x: 0, y: 0}
 --- !u!1 &1103046646
 GameObject:
@@ -2633,23 +2718,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The End.
-
-
-    All Programming, art, and music created by Jordan Bleu
-
-
-    Sound
-    effects obtained from https://www.zapsplat.com
-
-
-    Thank you so much for playing
-    this horrible game
-
-
-
-
-'
+  m_text: "The End.\n\nAll Programming, art, and music created by Jordan Bleu\n\nSound
+    effects obtained from https://www.zapsplat.com\n\nThank you so much for playing
+    this dumb game.\n\nI feel like credits should be longer than this but that's
+    literally it.  It was just me.  \n\nMe and ZapSplat.  The perfect team.\n\nI
+    hope you guys are having an awesome day today.\n\nGoodbye, I love you.\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc3ebbf207f39f94f8263be2e760a677, type: 2}
   m_sharedMaterial: {fileID: 8707551599738862473, guid: fc3ebbf207f39f94f8263be2e760a677,
@@ -2719,12 +2792,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1446908334}
-    characterCount: 172
+    characterCount: 371
     spriteCount: 0
-    spaceCount: 31
-    wordCount: 28
+    spaceCount: 77
+    wordCount: 65
     linkCount: 0
-    lineCount: 13
+    lineCount: 25
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -3239,6 +3312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb413ef2a60f53e41823332ac61e8daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnterFrame:
+    m_PersistentCalls:
+      m_Calls: []
+  onExitFrame:
+    m_PersistentCalls:
+      m_Calls: []
   startPosition: {x: 0, y: 0}
 --- !u!4 &1552846727 stripped
 Transform:

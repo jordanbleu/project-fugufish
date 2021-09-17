@@ -1,6 +1,7 @@
 ﻿using Assets.Editor.Attributes;
 using Assets.Source.Components.Behavior.Humanoid;
 using Assets.Source.Components.Brain;
+using Assets.Source.Components.Sound;
 using Assets.Source.Components.TextWriter;
 using Assets.Source.Components.Timer;
 using Assets.Source.Components.UI;
@@ -37,7 +38,6 @@ namespace Assets.Source.Components.Cutscenes.Transformation
         [SerializeField]
         private GameObject boss;
 
-
         [SerializeField]
         private GameObject bossBattlePhaseDetector;
 
@@ -58,6 +58,16 @@ namespace Assets.Source.Components.Cutscenes.Transformation
 
         [SerializeField]
         private GameObject gutsParticleSystem;
+
+
+        [SerializeField]
+        private GameObject finalBossMusic;
+
+        [SerializeField]
+        private GameObject goreSound;
+
+        [SerializeField]
+        private MusicBoxComponent music;
 
         [SerializeField]
         private LightningMachineComponent lightning;
@@ -93,6 +103,9 @@ namespace Assets.Source.Components.Cutscenes.Transformation
                     break;
 
                 case 2:
+                    // Play music and gore sounds
+                    goreSound.SetActive(true);
+                    music.FadeInAndPlay();
                     gutsParticleSystem.SetActive(true);
                     var anim = GetRequiredComponent<Animator>(antag);
                     anim.SetBool("is_transform", true);
@@ -181,6 +194,9 @@ namespace Assets.Source.Components.Cutscenes.Transformation
                     break;
 
                 case 14:
+                    // Boss finsihed transformation no more gore sound needed
+                    goreSound.SetActive(false);
+
                     // flash
                     lightning.Flash();
                     cam2.SetActive(false);
@@ -221,6 +237,11 @@ namespace Assets.Source.Components.Cutscenes.Transformation
                     bossBattlePhaseDetector.SetActive(true);
                     bossHealthBar.SetActive(true);
                     killBossDetector.SetActive(true);
+
+                    music.FadeOutAndStop();
+                    finalBossMusic.SetActive(true);
+                    goreSound.SetActive(false);
+
                     break;
             }
             base.ComponentUpdate();

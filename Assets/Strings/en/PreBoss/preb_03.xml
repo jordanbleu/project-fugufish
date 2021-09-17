@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <strings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <string name="0">Was it worth it?  Your revenge?</string>
-  <string name="1">You spent your last bleeding breath ending countless lives...</string>
-  <string name="2">All to avenge the death of one person.</string>
-  <string name="3">...</string>
-  <string name="4">You could have saved her, you know.</string>
-  <string name="5">But you let your anger consume you.</string>
+  <string name="0">The ones who sent you do not believe in me</string>
+  <string name="1">They are the real enemy.  The enemy of progress.</string>
+  <string name="2">...but you don't care about any of that, don't you?</string>
+  <string name="3">Heh.</string>
+  <string name="4">How much did they pay you, anyway?</string>
+  <string name="5">Was it worth the cost of your one true love?</string>
+  <string name="6">She trusted you, and you let her die.</string>
+  <string name="8">You know...</string>
+  <string name="9">You could kill every last living thing in this lab...</string>
+  <string name="10">...and you still could never be forgiven for that</string>
+  <string name="11">You'll be cursed until you draw your last bleeding breath.</string>
 </strings>
