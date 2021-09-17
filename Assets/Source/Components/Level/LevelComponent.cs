@@ -1,4 +1,5 @@
 ﻿using Assets.Editor.Attributes;
+using Assets.Source.Components.Collectibles;
 using Assets.Source.Components.Frame;
 using Assets.Source.Scene;
 using System;
@@ -29,6 +30,8 @@ namespace Assets.Source.Components.Level
 
         public override void ComponentAwake()
         {
+            GameDataTracker.TotalBloodSamples = UnityEngine.Resources.FindObjectsOfTypeAll<BloodSampleCollectibleComponent>().Length;
+
             player.transform.position = GetRequiredComponent<FrameComponent>(startingFrame).StartPosition;
             
             if (!string.IsNullOrEmpty(GameDataTracker.FrameToLoadOnSceneLoad))

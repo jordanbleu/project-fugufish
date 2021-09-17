@@ -40,7 +40,26 @@ namespace Assets.Source.Scene
         /// </summary>
         public static Vector2? LastGroundedDeathPosition { get; set; } = null;
 
+        public static bool GotAllBloodSamples { get; private set; } = false;
 
+
+        /// <summary>
+        /// The total # of blood samples.  Must be set per level.
+        /// </summary>
+        public static int TotalBloodSamples { get; set; }
+
+        /// <summary>
+        /// How many blood samples the player has
+        /// </summary>
+        public static int CurrentBloodSamples { get; private set; }
+
+        public static void CollectBloodSample() {
+            CurrentBloodSamples++;
+
+            if (CurrentBloodSamples == TotalBloodSamples) {
+                GotAllBloodSamples = true;
+            }
+        } 
 
         internal static void ResetToDefault()
         {

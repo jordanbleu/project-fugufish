@@ -457,6 +457,7 @@ MonoBehaviour:
   swordSwing2: {fileID: 8300000, guid: 217171900947a1942bbc73a7e89f720b, type: 3}
   ladderClink1: {fileID: 8300000, guid: 4223fcadbc733cc4b85767a9d03ec9ba, type: 3}
   ladderClink2: {fileID: 8300000, guid: 47f27a11729658f49a0bb2b73d74bdf1, type: 3}
+  roll: {fileID: 0}
 --- !u!1 &3211081952889808033
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,8 +518,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.8338525, y: 1.0126839}
       - {x: 0, y: 1}
-      - {x: 0.1222167, y: -0.7132089}
-      - {x: 1.0253783, y: -0.7144253}
+      - {x: 0.011816502, y: -0.9156685}
+      - {x: 1.0805779, y: -0.91688156}
       - {x: 1.2404734, y: 0.482409}
 --- !u!114 &2973945148652611441
 MonoBehaviour:
