@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <strings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <string name="antag01">I would expect a proffesional killer to know</string>
-  <string name="antag02">that the biggest mistake a killer can make...</string>
+  <string name="antag01">To think, you came so close to killing me. </string>
+  <string name="antag02">yet you've made the biggest mistake a killer can make...</string>
 </strings>

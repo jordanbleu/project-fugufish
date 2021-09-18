@@ -126,7 +126,7 @@ namespace Assets.Source.Components.Brain
                 // If we are currently touching any ladder components, we are climbing.
                 isClimbing = CollidingTriggers.Any(tr => UnityUtils.Exists(tr) && tr.GetComponent<LadderComponent>() != null);
 
-                if (!isClimbing)
+                if (!isClimbing && !forceWalk)
                 {
 
                     IsGravityEnabled = true;
@@ -175,20 +175,23 @@ namespace Assets.Source.Components.Brain
                     IsGravityEnabled = false;
                 }
 
-                if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
+                if (!forceWalk)
                 {
-                    sound.Roll();
-                    animator.FaceTowardsPosition(new Vector2(transform.position.x-2, 0));
-                    animator.Dodge();
-                    AddImpact(-dodgeSpeed, 0);
-                }
+                    if (Input.IsKeyPressed(InputConstants.K_DODGE_LEFT) && actor.TryDepleteStamina(dodgeStaminaRequired))
+                    {
+                        sound.Roll();
+                        animator.FaceTowardsPosition(new Vector2(transform.position.x - 2, 0));
+                        animator.Dodge();
+                        AddImpact(-dodgeSpeed, 0);
+                    }
 
-                if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired))
-                {
-                    sound.Roll();
-                    animator.FaceTowardsPosition(new Vector2(transform.position.x + 2, 0));
-                    animator.Dodge();
-                    AddImpact(dodgeSpeed, 0);
+                    if (Input.IsKeyPressed(InputConstants.K_DODGE_RIGHT) && actor.TryDepleteStamina(dodgeStaminaRequired))
+                    {
+                        sound.Roll();
+                        animator.FaceTowardsPosition(new Vector2(transform.position.x + 2, 0));
+                        animator.Dodge();
+                        AddImpact(dodgeSpeed, 0);
+                    }
                 }
 
                 // Translate user controls into the player's movements

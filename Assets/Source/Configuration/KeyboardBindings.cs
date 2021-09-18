@@ -30,6 +30,7 @@ namespace Assets.Source.Configuration
             { InputConstants.K_MENU_UP,        new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.UpArrow))  } },
             { InputConstants.K_MENU_DOWN,      new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.DownArrow))  } },
             { InputConstants.K_MENU_ENTER,     new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.Return))  } },
+            { InputConstants.K_INTERACT,     new List<KeyCodeValue>() { new KeyCodeValue(Stringify(KeyCode.F))  } },
         };
 
         private static string Stringify(KeyCode key)

@@ -1,6 +1,7 @@
 ﻿using Assets.Editor.Attributes;
 using Assets.Source.Components;
 using Assets.Source.Components.Timer;
+using Assets.Source.Input;
 using Assets.Source.Input.Constants;
 using System.Text;
 using TMPro;
@@ -23,6 +24,13 @@ namespace Assets.Source.Components.TextWriter
         [SerializeField]
         private AudioClip beepNoise;
 
+
+        [SerializeField]
+        private GameObject pcKey;
+
+        [SerializeField]
+        private GameObject gpKey;
+
         private AudioSource audioSource;
 
         private StringBuilder displayString;
@@ -44,6 +52,17 @@ namespace Assets.Source.Components.TextWriter
 
         public override void ComponentUpdate()
         {
+
+            if (Input.GetActiveListener().GetType() == typeof(KeyboardInputListener))
+            {
+                pcKey.SetActive(true);
+                gpKey.SetActive(false);
+            }
+            else {
+                pcKey.SetActive(false);
+                gpKey.SetActive(true);
+            }
+
             if (displayString != null) {
                 textMesh.SetText(displayString.ToString());
             }

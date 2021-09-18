@@ -41,15 +41,21 @@ namespace Assets.Source.Components.UI
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (IsReloadRequired()) {
-                ReloadStrings();
-            }            
+            if (collision.gameObject.name == "Player")
+            {
+                if (IsReloadRequired())
+                {
+                    ReloadStrings();
+                }
 
-            if (stringsLoader.Value.TryGetValue(tutorialMessageCode, out var msg)) {
-                infoMessageComponent.ShowMessage(msg);
-            }
-            else {
-                throw new UnityException($"Unable to find required string resource with key '{tutorialMessageCode}'.  Please double check the strings xml files.");
+                if (stringsLoader.Value.TryGetValue(tutorialMessageCode, out var msg))
+                {
+                    infoMessageComponent.ShowMessage(msg);
+                }
+                else
+                {
+                    throw new UnityException($"Unable to find required string resource with key '{tutorialMessageCode}'.  Please double check the strings xml files.");
+                }
             }
         }
 

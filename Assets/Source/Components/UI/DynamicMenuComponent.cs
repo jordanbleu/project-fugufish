@@ -54,16 +54,25 @@ namespace Assets.Source.Components.UI
             base.ComponentAwake();
         }
 
+
+        // More awful hacks 
+        private bool upWasPressed = false;
+        private bool downWasPressed = false;
+
         public override void ComponentUpdate()
         {
-            if (Input.IsKeyPressed(InputConstants.K_MENU_UP)) {
+
+            if (Input.IsKeyPressed(InputConstants.K_MENU_UP) || (!upWasPressed && Input.GetAxisValue(InputConstants.K_MENU_UP) > 0.25)) {
                 itemComponents[highlightedIndex].IsHighlighted = false;
                 highlightedIndex--;
             }
-            else if (Input.IsKeyPressed(InputConstants.K_MENU_DOWN)) {
+            else if (Input.IsKeyPressed(InputConstants.K_MENU_DOWN) || (!downWasPressed && Input.GetAxisValue(InputConstants.K_MENU_DOWN) > 0.25)) {
                 itemComponents[highlightedIndex].IsHighlighted = false;
                 highlightedIndex++;
             }
+
+            upWasPressed = Input.GetAxisValue(InputConstants.K_MENU_UP) > 0.25;
+            downWasPressed = Input.GetAxisValue(InputConstants.K_MENU_DOWN) > 0.25;
 
             // Keep selected index in bounds
             if (highlightedIndex < 0)

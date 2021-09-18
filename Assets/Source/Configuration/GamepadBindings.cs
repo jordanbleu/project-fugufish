@@ -29,6 +29,7 @@ namespace Assets.Source.Configuration
             { InputConstants.K_MENU_UP,         new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_DPAD_V, KeyCodeValue.AxisDirections.Positive) } },
             { InputConstants.K_MENU_DOWN,       new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_DPAD_V, KeyCodeValue.AxisDirections.Negative) } },
             { InputConstants.K_MENU_ENTER,      new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_ABUTTON) } },
+            { InputConstants.K_INTERACT,      new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_BBUTTON) } },
 
         };
     }
