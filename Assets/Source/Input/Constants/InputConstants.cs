@@ -15,6 +15,7 @@
         public const string K_INTERACT = nameof(K_INTERACT);
         public const string K_SPRINT = nameof(K_SPRINT);
         public const string K_JUMP = nameof(K_JUMP);
+        public const string K_SHOWHUD = nameof(K_SHOWHUD);
 
         public const string K_MENU_UP = nameof(K_MENU_UP);
         public const string K_MENU_DOWN = nameof(K_MENU_DOWN);

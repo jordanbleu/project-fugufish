@@ -7,6 +7,7 @@ using Assets.Source.Components.Platforming;
 using Assets.Source.Components.Sound;
 using Assets.Source.Components.UI;
 using Assets.Source.Enums;
+using Assets.Source.Input;
 using Assets.Source.Input.Constants;
 using Assets.Source.Scene;
 using Spine.Unity;
@@ -62,6 +63,10 @@ namespace Assets.Source.Components.Brain
         [SerializeField]
         private DeathScreenComponent deathScreen;
 
+
+        [SerializeField]
+        private BloodSampleHudDisplayComponent bloodSampleDisplay;
+
         // Components
         private HumanoidSkeletonAnimatorComponent animator;
         private LevelCameraEffectorComponent cameraEffector;
@@ -107,6 +112,10 @@ namespace Assets.Source.Components.Brain
         public override void ComponentUpdate()
         {
 
+            if (UnityUtils.Exists(bloodSampleDisplay) && Input.IsKeyPressed(InputConstants.K_SHOWHUD)) {
+                bloodSampleDisplay.ShowHud();
+            }
+
             // Constantly update the game data tracker with our last ground position
             if (IsGrounded) {
                 GameDataTracker.LastGroundedPosition = transform.position;
@@ -135,14 +144,17 @@ namespace Assets.Source.Components.Brain
                     if (Input.IsKeyPressed(InputConstants.K_SWING_SWORD) && actor.TryDepleteStamina(dodgeStaminaRequired/2))
                     {
 
+                        var stupid = Input.GetAxisValue(InputConstants.K_MOVE_UP);
+                        var dumb = Input.GetAxisValue(InputConstants.K_MOVE_DOWN);
+
                         // If we are in the air and the player is holding "up", do a GRAND SLAM
-                        if (Input.IsKeyHeld(InputConstants.K_MOVE_UP) && !IsGrounded && !IsAttacking)
+                        if (IsInputMoveUp() && !IsGrounded && !IsAttacking)
                         {
                             sound.Swing2();
                             animator.GroundPound();
                         }
                         // if we are in the air and player holds "down", do an uppercut, but only once before the player lands
-                        else if (Input.IsKeyHeld(InputConstants.K_MOVE_DOWN) && !IsAttacking && !usedUppercut)
+                        else if (IsInputMoveDown() && !IsAttacking && !usedUppercut)
                         {
                             AddRigidBodyForce(0, upperCutHeight);
                             sound.Swing1();
@@ -291,6 +303,29 @@ namespace Assets.Source.Components.Brain
         }
 
         public void DisableDeathScreen() => isDeathScreenEnabled = false;
+
+        // These are disgusting hacks.  I just want to finish this damn thing.
+        public bool IsInputMoveUp() {
+            if (Input.GetActiveListener().GetType() == typeof(GamepadInputListener))
+            {
+                return Input.GetAxisValue(InputConstants.K_MOVE_UP) > 0.2f;
+            }
+            else {
+                return Input.IsKeyHeld(InputConstants.K_MOVE_UP);
+            }
+        }
+
+        public bool IsInputMoveDown()
+        {
+            if (Input.GetActiveListener().GetType() == typeof(GamepadInputListener))
+            {
+                return Input.GetAxisValue(InputConstants.K_MOVE_DOWN) > 0.2f;
+            }
+            else
+            {
+                return Input.IsKeyHeld(InputConstants.K_MOVE_DOWN);
+            }
+        }
 
         #region Animation Events - Triggered via Spine Animation
         // ****************************************************

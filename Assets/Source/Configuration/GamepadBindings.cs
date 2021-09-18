@@ -20,12 +20,16 @@ namespace Assets.Source.Configuration
             
             { InputConstants.K_PAUSE,           new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_START_BUTTON) } },
             
-            { InputConstants.K_DODGE_LEFT,      new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_LEFTTRIGGER, KeyCodeValue.AxisDirections.Positive, true) } },
-            { InputConstants.K_DODGE_RIGHT,     new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_RIGHTTRIGGER, KeyCodeValue.AxisDirections.Positive, true) } },
+            { InputConstants.K_DODGE_LEFT,      new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_LEFTBUMPER) } },
+            { InputConstants.K_DODGE_RIGHT,     new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_RIGHTBUMPER) } },
             { InputConstants.K_SWING_SWORD,     new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_XBUTTON) } },
-
             { InputConstants.K_JUMP,            new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_ABUTTON) } },
-            { InputConstants.K_SPRINT,          new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_LEFTBUMPER) } },
+            { InputConstants.K_SHOWHUD,         new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_YBUTTON) } },
+
+            { InputConstants.K_MENU_UP,         new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_DPAD_V, KeyCodeValue.AxisDirections.Positive) } },
+            { InputConstants.K_MENU_DOWN,       new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_DPAD_V, KeyCodeValue.AxisDirections.Negative) } },
+            { InputConstants.K_MENU_ENTER,      new List<KeyCodeValue>() { new KeyCodeValue(GamepadConstants.GP_ABUTTON) } },
+
         };
     }
 }

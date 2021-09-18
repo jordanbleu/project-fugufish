@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <strings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <string name="move">Use W, A, S, and D keys to move</string>
-  <string name="jump">Press [SPACE] to jump</string>
-  <string name="attack">Click left mouse button to attack</string>
-  <string name="switches">Attack switches to interact with them</string>
+  <string name="attack">Press (X) Button to attack</string>
+  <string name="jump">Press (A) to jump</string>
+  <string name="ladder">Walk up to ladders to climb them</string>
+  <string name="uppercut">Move left stick up while attacking to swing upwards</string>
+  <string name="dodge">Use left and right bumpers to dodge</string>
+  <string name="does_not_open_from_side">Door does not open from this side</string>
   <string name="health_pickups">Pick up adrenaline shots to heal</string>
+  <string name="bloodsamples">Press (Y) to show collected blood samples on your HUD</string>
 </strings>
