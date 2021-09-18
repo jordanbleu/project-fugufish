@@ -13,6 +13,8 @@ namespace Assets.Source.Scene
     public static class GameDataTracker
     {
 
+        public static HashSet<string> CollectedBloodSamples { get; } = new HashSet<string>();
+
         /// <summary>
         /// Tracks the last frame that the player was on.  Tells the scene loader to 
         /// set an active frame based on this information.

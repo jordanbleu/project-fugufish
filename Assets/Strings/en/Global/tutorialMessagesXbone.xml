@@ -4,7 +4,7 @@
   <string name="jump">Press (A) to jump</string>
   <string name="ladder">Walk up to ladders to climb them</string>
   <string name="uppercut">Move left stick up while attacking to swing upwards</string>
-  <string name="dodge">Use left and right bumpers to dodge</string>
+  <string name="dodge">Use [LB] / [RB] to dodge</string>
   <string name="does_not_open_from_side">Door does not open from this side</string>
   <string name="health_pickups">Pick up adrenaline shots to heal</string>
   <string name="bloodsamples">Press (Y) to show collected blood samples on your HUD</string>
