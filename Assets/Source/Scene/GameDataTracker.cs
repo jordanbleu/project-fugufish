@@ -63,6 +63,8 @@ namespace Assets.Source.Scene
 
         internal static void ResetToDefault()
         {
+            CurrentBloodSamples = 0;
+            GotAllBloodSamples = false;
             Lives = 3;
             FrameToLoadOnSceneLoad = null;
             LastDeathFrameName = null;
