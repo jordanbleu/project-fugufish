@@ -13,6 +13,11 @@ namespace Assets.Source.Scene
     public static class GameDataTracker
     {
 
+        /// <summary>
+        /// Tracks whether the user was previously using a controller vs a kb/m
+        /// </summary>
+        public static bool IsUsingController { get; set; }=  false;
+
         public static HashSet<string> CollectedBloodSamples { get; } = new HashSet<string>();
 
         /// <summary>
@@ -65,6 +70,7 @@ namespace Assets.Source.Scene
 
         internal static void ResetToDefault()
         {
+            CollectedBloodSamples.Clear();
             CurrentBloodSamples = 0;
             GotAllBloodSamples = false;
             Lives = 3;

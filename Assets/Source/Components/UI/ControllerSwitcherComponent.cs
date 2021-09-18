@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Input;
+using Assets.Source.Scene;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,14 @@ namespace Assets.Source.Components.UI
             {
                 if (UnityEngine.Input.GetKey(KeyCode.Space))
                 {
+                    GameDataTracker.IsUsingController = false;
                     Input.SwapInputModes(new KeyboardInputListener());
                     Debug.Log("Swapped to keyboard input");
                 }
             }
             else {
                 if (UnityEngine.Input.GetButton("A_Button")) {
+                    GameDataTracker.IsUsingController = true;
                     Input.SwapInputModes(new GamepadInputListener());
                     Debug.Log("Swapped to gamepad input");
                 }

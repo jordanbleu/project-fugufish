@@ -9,8 +9,8 @@ namespace Assets.Source.Components.Collectibles
 {
     public class BloodSampleCollectibleComponent : CollectibleComponentBase
     {
+        [Tooltip("This needs to be unique per instance because of hacks")]
         [SerializeField]
-        [ReadOnly]
         private string identifier = Guid.NewGuid().ToString();
 
         public override void ComponentAwake()

@@ -441,9 +441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ihjkhkjhjkh
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: caf5c7c2e4e253047b63838fcfe027e2, type: 2}
   m_sharedMaterial: {fileID: 5931735690964746052, guid: caf5c7c2e4e253047b63838fcfe027e2,
@@ -513,13 +511,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0.2926336, z: 0, w: 0.14746296}
   m_textInfo:
     textComponent: {fileID: 4400549015377348420}
-    characterCount: 12
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

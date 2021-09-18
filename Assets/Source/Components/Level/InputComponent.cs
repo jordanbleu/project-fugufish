@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Input;
+using Assets.Source.Scene;
 
 namespace Assets.Source.Components.Level
 {
@@ -11,7 +12,13 @@ namespace Assets.Source.Components.Level
             {
                 if (_inputManager == null)
                 {
-                    _inputManager = new InputManager(new KeyboardInputListener());
+                    if (GameDataTracker.IsUsingController)
+                    {
+                        _inputManager = new InputManager(new GamepadInputListener());
+                    }
+                    else { 
+                        _inputManager = new InputManager(new KeyboardInputListener());
+                    }
                 }
                 return _inputManager;
             }
