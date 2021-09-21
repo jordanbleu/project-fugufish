@@ -67,16 +67,7 @@ namespace Assets.Source.Components.Actor
                     attackable.Attack(attacker);
 
                     if (attackable.EndsAttackAnimation) {
-                        // if the attackable item is an actor and he is dead, don't end the attack animation
-                        if (attackable.TryGetComponent<ActorComponent>(out var actor))
-                        {
-                            if (actor.IsAlive()) {
-                                IsDamageEnabled = false;
-                            }
-                        }
-                        else { 
-                            IsDamageEnabled = false;
-                        }
+                        IsDamageEnabled = false;
                     }   
                 }                
             }            

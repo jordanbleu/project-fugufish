@@ -11,7 +11,7 @@ namespace Assets.Source.Components
     public class ComponentBase : MonoBehaviour
     {
         // all components maintain a cache of objects that they care about.
-        private Dictionary<string, GameObject> objectCache;
+        private Dictionary<string, GameObject> objectCache = new Dictionary<string, GameObject>();
         private GameObject levelObject;
         private GameObject canvasObject; 
 
