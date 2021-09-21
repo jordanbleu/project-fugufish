@@ -1,12 +1,17 @@
 ﻿using Assets.Source.Components.Level;
 using Assets.Source.Input;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Source.Components
 {
     public class ComponentBase : MonoBehaviour
     {
+        // all components maintain a cache of objects that they care about.
+        private Dictionary<string, GameObject> objectCache;
         private GameObject levelObject;
         private GameObject canvasObject; 
 
@@ -172,18 +177,40 @@ namespace Assets.Source.Components
             return resource;
         }
 
+        public List<GameObject> GetAllObjectsOnlyInScene()
+        {
+            // https://docs.unity3d.com/ScriptReference/Resources.FindObjectsOfTypeAll.html
+            List<GameObject> objectsInScene = new List<GameObject>();
+
+            foreach (GameObject obj in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[])
+            {
+                if (!EditorUtility.IsPersistent(obj.transform.root.gameObject) && !(obj.hideFlags == HideFlags.NotEditable || obj.hideFlags == HideFlags.HideAndDontSave))
+                    objectsInScene.Add(obj);
+            }
+
+            return objectsInScene;
+        }
+
+
         /// <summary>
         /// Finds an object located on the base of the hierarchy, or throws an exception if not found
         /// </summary>
         /// <param name="name">Name of the object to find</param>
-        public static GameObject GetRequiredObject(string name)
+        public GameObject GetRequiredObject(string name)
         {
-            GameObject obj = GameObject.Find(name);
+            if (objectCache.ContainsKey(name)) {
+                return objectCache[name];
+            }
+
+            // this method will grab all objects in the scene and return the one with your specified name
+            // why can't we use GameObject.find() you ask?  Because of course it doesn't return inactive objects which causes many issues.  Which is stupid.
+            var obj = GetAllObjectsOnlyInScene().FirstOrDefault(ob => ob.name.Equals(name));
 
             if (!UnityUtils.Exists(obj)) { 
-                throw new MissingRequiredObjectException(name);            
-            }           
-            
+                throw new MissingRequiredObjectException(gameObject.name, name);            
+            }
+
+            objectCache.Add(name, obj);
             return obj;
         }
 

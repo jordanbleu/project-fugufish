@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Assets.Source.Components.Interaction
@@ -23,26 +24,42 @@ namespace Assets.Source.Components.Interaction
         [SerializeField]
         private LayerMask colliderLayers;
 
+
+        [SerializeField]
+        private bool logCollisions = false;
+        
         // Track whether trigger was triggered last frame
         private bool wasTriggered = false;
                
 
         private void OnTriggerStay2D(Collider2D collision)
         {
+
             if (isContinuous || !wasTriggered)
             {
                 if (colliderLayers.IncludesLayer(collision.gameObject.layer))
                 {
+                    if (logCollisions)
+                    {
+                        Debug.Log($"CollisionDetector -> OnTriggerStay2D -> {collision.gameObject.name} collided with {gameObject.name}");
+                    }
                     onEnter.Invoke();
                     wasTriggered = true;
                 }
             }
         }
 
+        
+
         private void OnTriggerExit2D(Collider2D collision)
         {
+
             if (colliderLayers.IncludesLayer(collision.gameObject.layer))
             {
+                if (logCollisions)
+                {
+                    Debug.Log($"CollisionDetector -> OnTriggerExit2D -> {collision.gameObject.name} exited collision with {gameObject.name}");
+                }
                 onExit.Invoke();
                 wasTriggered = false;
             }            
@@ -50,10 +67,15 @@ namespace Assets.Source.Components.Interaction
 
         private void OnCollisionStay2D(Collision2D collision)
         {
+
             if (isContinuous || !wasTriggered)
             {
                 if (colliderLayers.IncludesLayer(collision.gameObject.layer))
                 {
+                    if (logCollisions)
+                    {
+                        Debug.Log($"CollisionDetector -> OnCollisionStay2D -> {collision.gameObject.name} collided with {gameObject.name}");
+                    }
                     onEnter.Invoke();
                     wasTriggered = true;
                 }
@@ -65,6 +87,10 @@ namespace Assets.Source.Components.Interaction
         {
             if (colliderLayers.IncludesLayer(collision.gameObject.layer))
             {
+                if (logCollisions)
+                {
+                    Debug.Log($"CollisionDetector -> OnCollisionExit2D -> {collision.gameObject.name} exited collision with {gameObject.name}");
+                }
                 onExit.Invoke();
                 wasTriggered = false;
             }

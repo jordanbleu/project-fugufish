@@ -15,18 +15,11 @@ namespace Assets.Source.Components.Sound
         private AudioSource audioSource;
 
 
-        [SerializeField]
-        private bool fadeInOnAwake = false;
 
         public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
             audioSource = GetRequiredComponent<AudioSource>();
-
-            if (fadeInOnAwake) {
-                FadeInAndPlay();
-            }
-
             base.ComponentAwake();
         }
 

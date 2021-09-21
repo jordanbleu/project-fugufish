@@ -28,7 +28,7 @@ namespace Assets.Source.Components.Collectibles
             GameDataTracker.CollectBloodSample();
 
             // find the hud and flash the collected totala
-            var uiObject = GetRequiredChild("BloodSampleDisplay", FindOrCreateCanvas());
+            var uiObject = GetRequiredChild("AutoHideHud", FindOrCreateCanvas());
             GetRequiredComponent<BloodSampleHudDisplayComponent>(uiObject).ShowHud();            
 
         }
