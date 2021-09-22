@@ -63,7 +63,7 @@ namespace Assets.Source.Scene
         public static void CollectBloodSample() {
             CurrentBloodSamples++;
 
-            if (CurrentBloodSamples == TotalBloodSamples) {
+            if (CurrentBloodSamples >= TotalBloodSamples) {
                 GotAllBloodSamples = true;
             }
         } 
