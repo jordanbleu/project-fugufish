@@ -14,7 +14,7 @@ namespace Assets.Source.Components.Parallax
         private float xOffset;
         private float yOffset;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
 
             if (!UnityUtils.Exists(followCamera)) {
@@ -22,7 +22,7 @@ namespace Assets.Source.Components.Parallax
             }
             xOffset = transform.position.x - followCamera.transform.position.x;
             yOffset = transform.position.y - followCamera.transform.position.y;
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

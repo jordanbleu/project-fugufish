@@ -23,10 +23,10 @@ namespace Assets.Source.Components.UI
 
         public int SelectedValue { get; set; } = -1;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<Animator>();            
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void OnMenuOpen() 

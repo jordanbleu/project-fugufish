@@ -10,12 +10,12 @@ namespace Assets.Source.Components.UI
         private GameObject healthBar;
         private Image healthBarImage;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             playerActor = GetRequiredComponent<ActorComponent>(GetRequiredObject("Player"));
             healthBarImage = GetRequiredComponent<Image>(GetRequiredChild("Health"));
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

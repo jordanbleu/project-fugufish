@@ -12,10 +12,10 @@ namespace Assets.Source.Components.UI
         [SerializeField]
         private AudioClip thunder;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             audioSource = GetRequiredComponent<AudioSource>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void Flash() 

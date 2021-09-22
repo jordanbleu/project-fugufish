@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28149f93db72d18439ab4c16a6e86616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2332807456758430378}
+  audioSource: {fileID: 2332807456758430388}
 --- !u!95 &2332807456758430378
 Animator:
   serializedVersion: 3

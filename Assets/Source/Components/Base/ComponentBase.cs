@@ -24,9 +24,11 @@ namespace Assets.Source.Components
 
         private void Start() { 
             levelObject = GetRequiredObject("Level");
-            ComponentAwake();
+            
+            ComponentPreStart();
+
             ComponentStart();
-            //ComponentStart();
+            
         }
 
         private void Update() { ComponentUpdate(); }
@@ -40,7 +42,7 @@ namespace Assets.Source.Components
         /// Override this method to add functionality to the monobehavior's Awake Method. 
         /// <para>This should be used for things such as setting references to components, etc</para>
         /// </summary>
-        public virtual void ComponentAwake() { }
+        public virtual void ComponentPreStart() { }
 
         /// <summary>
         /// Override this method to add functionality to the monobehavior's Start method

@@ -21,12 +21,12 @@ namespace Assets.Source.Components.Interaction
         private Queue<TriggerInstruction> instructionQueue;
         private TriggerInstruction? currentInstruction;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             // create an ordered queue so we don't have to loop through all instructions each time
             // This is ordered by boss health going highest > lowest 
             instructionQueue = new Queue<TriggerInstruction>(instructions.OrderByDescending(i => i.BossHealth));
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

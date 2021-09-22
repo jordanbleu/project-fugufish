@@ -10,18 +10,11 @@ namespace Assets.Source.Components.Sound
     [RequireComponent(typeof(Animator))]
     public class MusicBoxComponent : ComponentBase
     {
-
+        [SerializeField]
         private Animator animator;
+        
+        [SerializeField]
         private AudioSource audioSource;
-
-
-
-        public override void ComponentAwake()
-        {
-            animator = GetRequiredComponent<Animator>();
-            audioSource = GetRequiredComponent<AudioSource>();
-            base.ComponentAwake();
-        }
 
 
         public void FadeInAndPlay() {
@@ -52,7 +45,7 @@ namespace Assets.Source.Components.Sound
         }
 
         public void SetAudio(AudioClip clip) {
-            this.audioSource.clip = clip;
+            audioSource.clip = clip;
         }
 
 

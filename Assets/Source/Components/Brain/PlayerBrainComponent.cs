@@ -90,7 +90,7 @@ namespace Assets.Source.Components.Brain
 
         private bool isDeathScreenEnabled = true;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             var levelObj = GetRequiredObject("Level");
             actor = GetRequiredComponent<ActorComponent>();
@@ -106,7 +106,7 @@ namespace Assets.Source.Components.Brain
                 animator.Tied();
             }
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

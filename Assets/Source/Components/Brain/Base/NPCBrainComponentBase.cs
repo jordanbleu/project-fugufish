@@ -44,7 +44,7 @@ namespace Assets.Source.Components.AI.Base
 
         private float startingColliderSizeY = 0f;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             actor = GetRequiredComponent<ActorComponent>();
             despawner = GetRequiredComponent<DespawnComponent>();
@@ -69,7 +69,7 @@ namespace Assets.Source.Components.AI.Base
             }
 
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

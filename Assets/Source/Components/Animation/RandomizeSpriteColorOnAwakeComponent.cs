@@ -12,11 +12,11 @@ namespace Assets.Source.Components.Animation
         private SpriteRenderer sprite;
         private Animator animator;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             sprite = GetRequiredComponent<SpriteRenderer>();
             animator = GetRequiredComponent<Animator>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentStart()

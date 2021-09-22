@@ -30,7 +30,7 @@ namespace Assets.Source.Components.Gadgets
         private Dictionary<string, EmissionLimit> limits;
         private Dictionary<string, List<GameObject>> instances;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             // Check for duplicate names
             if (emissionLimits.Any(el=>emissionLimits.Count(otherEl => otherEl.GameObjectName.Equals(el.GameObjectName)) > 1)) {
@@ -41,7 +41,7 @@ namespace Assets.Source.Components.Gadgets
             // Convert to a dictionary to faster lookups, thank you to unity for not supporting this >:(
             limits = emissionLimits.ToDictionary(l => l.GameObjectName, l => l);
             instances = emissionLimits.ToDictionary(l => l.GameObjectName, l => new List<GameObject>());
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

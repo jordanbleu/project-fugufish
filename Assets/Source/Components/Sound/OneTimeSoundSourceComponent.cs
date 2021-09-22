@@ -16,10 +16,10 @@ namespace Assets.Source.Components.Sound
         private AudioSource audioSource;
         private bool isActivated = false;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             audioSource = GetRequiredComponent<AudioSource>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

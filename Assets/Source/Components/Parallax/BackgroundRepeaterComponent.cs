@@ -20,7 +20,7 @@ namespace Assets.Source.Components.Parallax
         private SpriteRenderer spriteRenderer;
 
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             spriteRenderer = GetRequiredComponent<SpriteRenderer>();
 
@@ -64,7 +64,7 @@ namespace Assets.Source.Components.Parallax
 
             Destroy(template);
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
 

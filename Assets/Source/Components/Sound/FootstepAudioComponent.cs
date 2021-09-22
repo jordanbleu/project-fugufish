@@ -11,11 +11,11 @@ namespace Assets.Source.Components.Sound
     {        
         private AudioSource audioSource;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             audioSource = GetRequiredComponent<AudioSource>();
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         [SerializeField]

@@ -16,10 +16,10 @@ namespace Assets.Source.Components.UI
         [SerializeField]
         private TextMeshProUGUI textMesh;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<Animator>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
 

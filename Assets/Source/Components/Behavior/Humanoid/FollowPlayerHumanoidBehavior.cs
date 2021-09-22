@@ -27,9 +27,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
             base.ComponentStart();
         }
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
-            base.ComponentAwake();
+            base.ComponentPreStart();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
         }
 

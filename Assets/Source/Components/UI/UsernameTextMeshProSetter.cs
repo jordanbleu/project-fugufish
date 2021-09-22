@@ -13,11 +13,11 @@ namespace Assets.Source.Components.UI
     public class UsernameTextMeshProSetter : ComponentBase
     {
         
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             var textMesh = GetRequiredComponent<TextMeshProUGUI>();
             textMesh.SetText(Environment.UserName);
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
     }

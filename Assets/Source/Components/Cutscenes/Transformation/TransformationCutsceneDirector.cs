@@ -78,10 +78,10 @@ namespace Assets.Source.Components.Cutscenes.Transformation
         [ReadOnly]
         private int stage;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             timer = GetRequiredComponent<GameTimerComponent>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()
