@@ -39,9 +39,12 @@ namespace Assets.Source.Components.UI
         }
 
         public void OnKeyPressed() {
-            audioSource.PlayOneShot(enterSound);
-            music.FadeOutAndStop();
-            ambience.FadeOutAndStop();
+            if (audioSource.gameObject.activeSelf)
+            {
+                audioSource.PlayOneShot(enterSound);
+                music.FadeOutAndStop();
+                ambience.FadeOutAndStop();
+            }
         }
 
 

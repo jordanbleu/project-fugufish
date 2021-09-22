@@ -195,7 +195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 480, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &5457533159609642168
@@ -266,3 +266,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshObject: {fileID: 5457533158606376373}
+  textMesh: {fileID: 5457533158606376371}
+  animator: {fileID: 5457533159609642170}

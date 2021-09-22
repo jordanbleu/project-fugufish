@@ -45,8 +45,6 @@ namespace Assets.Source.Components.TextWriter
 
             timer = GetRequiredComponent<IntervalTimerComponent>();
             timer.IsActive = true;
-
-            SetText("hey paulie spaghetti tony burroni");
             base.ComponentAwake();
         }
 

@@ -18,10 +18,17 @@ namespace Assets.Source.Components
         #region overrides
         private void Awake()
         {
-            levelObject = GetRequiredObject("Level"); 
-            ComponentAwake();
+            //levelObject = GetRequiredObject("Level"); 
+            //ComponentAwake();
         }
-        private void Start() { ComponentStart(); }
+
+        private void Start() { 
+            levelObject = GetRequiredObject("Level");
+            ComponentAwake();
+            ComponentStart();
+            //ComponentStart();
+        }
+
         private void Update() { ComponentUpdate(); }
         private void OnDestroy() { ComponentOnDestroy(); }
         private void OnEnable() { ComponentOnEnable(); }

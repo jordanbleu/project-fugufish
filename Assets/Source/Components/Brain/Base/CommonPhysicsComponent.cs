@@ -76,7 +76,7 @@ namespace Assets.Source.Components.Brain.Base
         // Components
         protected Rigidbody2D rigidBody2d;
         protected Collider2D collider2d;
-        private ActorComponent actor;
+        private ActorComponent actorComponent;
 
         private bool wasGrounded = true;
 
@@ -103,7 +103,7 @@ namespace Assets.Source.Components.Brain.Base
             slippyMaterial = new PhysicsMaterial2D("SlippyMaterial") { friction = 0f };
             rigidBody2d = GetRequiredComponent<Rigidbody2D>();
             collider2d = GetRequiredComponent<Collider2D>();
-            actor = GetComponent<ActorComponent>(); // Actor Component is optional.
+            actorComponent = GetComponent<ActorComponent>(); // Actor Component is optional.
             base.ComponentAwake();
         }
 
@@ -202,7 +202,7 @@ namespace Assets.Source.Components.Brain.Base
 
         private void ApplyFrictionHack()
         {
-            if (!(UnityUtils.Exists(actor)) || actor.IsAlive())
+            if (!(UnityUtils.Exists(actorComponent)) || actorComponent.IsAlive())
             {
                 var combinedXVelocity = FootVelocity.x + EnvironmentalVelocity.x + ImpactVelocity.x;
 
