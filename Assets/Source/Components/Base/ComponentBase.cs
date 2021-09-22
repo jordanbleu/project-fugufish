@@ -177,19 +177,7 @@ namespace Assets.Source.Components
             return resource;
         }
 
-        public List<GameObject> GetAllObjectsOnlyInScene()
-        {
-            // https://docs.unity3d.com/ScriptReference/Resources.FindObjectsOfTypeAll.html
-            List<GameObject> objectsInScene = new List<GameObject>();
-
-            foreach (GameObject obj in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[])
-            {
-                if (!EditorUtility.IsPersistent(obj.transform.root.gameObject) && !(obj.hideFlags == HideFlags.NotEditable || obj.hideFlags == HideFlags.HideAndDontSave))
-                    objectsInScene.Add(obj);
-            }
-
-            return objectsInScene;
-        }
+        
 
 
         /// <summary>
@@ -198,20 +186,21 @@ namespace Assets.Source.Components
         /// <param name="name">Name of the object to find</param>
         public GameObject GetRequiredObject(string name)
         {
-            if (objectCache.ContainsKey(name)) {
-                return objectCache[name];
+            var objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+            
+            for (int i = 0; i < objs.Length; i++)
+            {
+                if (objs[i].hideFlags == HideFlags.None)
+                {
+                    if (objs[i].name == name)
+                    {
+                        return objs[i].gameObject;
+                    }
+                }
             }
-
-            // this method will grab all objects in the scene and return the one with your specified name
-            // why can't we use GameObject.find() you ask?  Because of course it doesn't return inactive objects which causes many issues.  Which is stupid.
-            var obj = GetAllObjectsOnlyInScene().FirstOrDefault(ob => ob.name.Equals(name));
-
-            if (!UnityUtils.Exists(obj)) { 
-                throw new MissingRequiredObjectException(gameObject.name, name);            
-            }
-
-            objectCache.Add(name, obj);
-            return obj;
+            
+            throw new MissingRequiredObjectException(gameObject.name, name);            
+            
         }
 
         /// <summary>
