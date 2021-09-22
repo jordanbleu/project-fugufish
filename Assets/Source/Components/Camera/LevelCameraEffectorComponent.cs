@@ -12,10 +12,10 @@ namespace Assets.Source.Components.Camera
     {
         private LevelComponent levelComponent;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             levelComponent = GetRequiredComponent<LevelComponent>(GetRequiredObject("Level"));            
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
 

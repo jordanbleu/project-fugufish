@@ -1,22 +1,36 @@
 ﻿using Assets.Source.Components.Level;
 using Assets.Source.Input;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Source.Components
 {
     public class ComponentBase : MonoBehaviour
     {
+        // all components maintain a cache of objects that they care about.
+        private Dictionary<string, GameObject> objectCache = new Dictionary<string, GameObject>();
         private GameObject levelObject;
         private GameObject canvasObject; 
 
         #region overrides
         private void Awake()
         {
-            levelObject = GetRequiredObject("Level"); 
-            ComponentAwake();
+            //levelObject = GetRequiredObject("Level"); 
+            //ComponentAwake();
         }
-        private void Start() { ComponentStart(); }
+
+        private void Start() { 
+            levelObject = GetRequiredObject("Level");
+            
+            ComponentPreStart();
+
+            ComponentStart();
+            
+        }
+
         private void Update() { ComponentUpdate(); }
         private void OnDestroy() { ComponentOnDestroy(); }
         private void OnEnable() { ComponentOnEnable(); }
@@ -28,7 +42,7 @@ namespace Assets.Source.Components
         /// Override this method to add functionality to the monobehavior's Awake Method. 
         /// <para>This should be used for things such as setting references to components, etc</para>
         /// </summary>
-        public virtual void ComponentAwake() { }
+        public virtual void ComponentPreStart() { }
 
         /// <summary>
         /// Override this method to add functionality to the monobehavior's Start method
@@ -172,19 +186,30 @@ namespace Assets.Source.Components
             return resource;
         }
 
+        
+
+
         /// <summary>
         /// Finds an object located on the base of the hierarchy, or throws an exception if not found
         /// </summary>
         /// <param name="name">Name of the object to find</param>
-        public static GameObject GetRequiredObject(string name)
+        public GameObject GetRequiredObject(string name)
         {
-            GameObject obj = GameObject.Find(name);
-
-            if (!UnityUtils.Exists(obj)) { 
-                throw new MissingRequiredObjectException(name);            
-            }           
+            var objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
             
-            return obj;
+            for (int i = 0; i < objs.Length; i++)
+            {
+                if (objs[i].hideFlags == HideFlags.None)
+                {
+                    if (objs[i].name == name)
+                    {
+                        return objs[i].gameObject;
+                    }
+                }
+            }
+            
+            throw new MissingRequiredObjectException(gameObject.name, name);            
+            
         }
 
         /// <summary>

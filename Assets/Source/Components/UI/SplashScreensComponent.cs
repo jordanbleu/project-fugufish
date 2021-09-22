@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Components.Level;
+using Assets.Source.Scene;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,8 @@ namespace Assets.Source.Components.UI
         [SerializeField]
         private SceneLoaderComponent sceneLoader;
 
-        public override void ComponentStart()
-        {
-            // For now just go to next scene
+        public void LoadNextScene() { 
             sceneLoader.LoadScene("Scenes/01_Introduction");
-            base.ComponentStart();
         }
-
     }
 }

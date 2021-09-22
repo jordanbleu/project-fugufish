@@ -2,11 +2,11 @@
 {
     public class MissingRequiredObjectException : System.Exception
     {
-        public MissingRequiredObjectException(string name) : base(GenerateMessage(name)) { }
+        public MissingRequiredObjectException(string gameObjectName, string name) : base(GenerateMessage(gameObjectName, name)) { }
 
-        private static string GenerateMessage(string name)
+        private static string GenerateMessage(string gameObjectName, string name)
         {
-            return $"Unable to find expected object '{name}' in the hierarchy";
+            return $"Game Object '{gameObjectName}' was unable to find expected object '{name}' in the hierarchy";
         }
 
         public MissingRequiredObjectException()

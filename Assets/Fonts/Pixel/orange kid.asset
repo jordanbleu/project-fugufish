@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: orange kid
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1507502890
   material: {fileID: 8707551599738862473}
-  materialHashCode: 0
+  materialHashCode: 447171485
   m_Version: 1.1.0
   m_SourceFontFileGUID: aa4aeed700f4de748b9135c945f90b7e
   m_SourceFontFile_EditorRef: {fileID: 0}

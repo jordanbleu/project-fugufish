@@ -1,5 +1,6 @@
 ﻿using Assets.Source.Configuration;
 using Assets.Source.Strings.Base;
+using UnityEngine;
 
 namespace Assets.Source.Strings
 {
@@ -10,7 +11,8 @@ namespace Assets.Source.Strings
     {
         protected override string GetStringsDir()
         {
-            return ResourcePaths.StringsDirectory;
+            return $"{Application.streamingAssetsPath}/Strings/";
+            //return ResourcePaths.StringsDirectory;
         }
 
         protected override string GetLanguageCode()

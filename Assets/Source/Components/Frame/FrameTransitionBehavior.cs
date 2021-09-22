@@ -30,14 +30,15 @@ namespace Assets.Source.Components.Frame
         // used to track the virtual cameras follow object
         private GameObject followObject;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             levelComponent = GetRequiredComponent<LevelComponent>(GetRequiredObject("Level"));
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentStart()
         {
+
             if (!UnityUtils.Exists(SourceFrame) || !UnityUtils.Exists(DestinationFrame)) {
                 throw new InvalidOperationException("SourceFrame and DestinationFrame must not be null");
             }
@@ -63,6 +64,9 @@ namespace Assets.Source.Components.Frame
         /// </summary>
         public void OnFadeOutAnimationCompleted()
         {
+            // Run the source Frames exit event
+            GetRequiredComponent<FrameComponent>(SourceFrame).TriggerExitEvent();
+
             // Disable the frame we are coming from, freeing up CPU / GPU resources 
             SourceFrame.SetActive(false);
 
@@ -77,6 +81,9 @@ namespace Assets.Source.Components.Frame
 
             // Tell the level component what frame we're now on
             levelComponent.CurrentlyActiveFrame = DestinationFrame;
+
+            // Run the new frames enter event
+            GetRequiredComponent<FrameComponent>(DestinationFrame).TriggerEnterEvent();
 
             // Refresh the death marker
             levelComponent.RefreshDeathMarker();

@@ -34,10 +34,11 @@ namespace Assets.Source.Components.Switches
 
         private Animator animator;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<Animator>();
-            base.ComponentAwake();
+            animator.SetBool("is_on", isOn);
+            base.ComponentPreStart();
         }
 
 
@@ -62,13 +63,16 @@ namespace Assets.Source.Components.Switches
                 else {
                     onSwitchTurnOff?.Invoke();
                 }
-
-                // Animate
-                animator.SetBool("is_on", isOn);
+                UpdateSwitchAnimation();
             }
         }
 
+        public void UpdateSwitchAnimation() { 
+            // Animate
+            animator.SetBool("is_on", isOn);
+        }
 
+        public void SetIsOn(bool isOn) => this.isOn = isOn;
 
 
 

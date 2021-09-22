@@ -25,11 +25,11 @@ namespace Assets.Source.Components.Animation
         /// </summary>
         public bool SkeletonIsFlipped { get => (skeletonMecanim.Skeleton.ScaleX < 0); }
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             skeletonMecanim = GetRequiredComponent<SkeletonMecanim>();
             animator = GetRequiredComponent<Animator>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

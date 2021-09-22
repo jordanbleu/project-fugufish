@@ -19,12 +19,12 @@ namespace Assets.Source.Components.Collectibles.Base
         [SerializeField]
         private AudioClip pickupSound;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             audioSource = GetRequiredComponent<AudioSource>();
             playerObject = GetRequiredObject("Player");
             animator = GetRequiredComponent<Animator>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void CooldownEnded() => isReady = true;

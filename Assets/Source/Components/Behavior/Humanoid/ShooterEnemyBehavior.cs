@@ -147,9 +147,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
             return Positions.OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x)).First(pos => pos.Position != currentSeekedPosition.Position);
         }
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
-            base.ComponentAwake();
+            base.ComponentPreStart();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
             sound = GetRequiredComponent<ShooterSoundEffects>();
@@ -176,17 +176,15 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
         public override void ComponentFixedUpdate() 
         {
+            animator.FaceTowardsPosition(player.transform.position);
             // If we are not at our position, move towards the position
-            if (!IsNearEnoughToPosition())
+            if (!IsNearEnoughToPosition() && !isAttacking)
             {
-
                 FootVelocity = MoveIntelligentlyTowards(currentSeekedPosition.Position, 0.5f);
 
             }
             else {
-                // else, simply face the player
-                animator.FaceTowardsPosition(player.transform.position);
-
+                // else, simply face the player and don't move          
                 FootVelocity = new Vector2(0, CurrentVelocity.y);
             }
 
@@ -198,8 +196,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
         {
             if (isActiveAndEnabled)
             {
-                // if we're at our position, fire a bullet towards the player
-                if (IsNearEnoughToPosition()) { 
+                // if we're at our position or we are stuck, fire a bullet towards the player
+                if (IsNearEnoughToPosition() || isStuck) { 
+                    
                     Attack();
                 }
 

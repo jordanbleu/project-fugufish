@@ -28,7 +28,7 @@ namespace Assets.Source.Components.UI
 
         private Animator animator;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<Animator>();
 
@@ -41,7 +41,7 @@ namespace Assets.Source.Components.UI
                 lives.SetText(GameDataTracker.Lives.ToString());
             }
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void DecrementLives() {

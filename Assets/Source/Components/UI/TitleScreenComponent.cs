@@ -1,21 +1,29 @@
-﻿using Assets.Source.Scene;
-using System;
-using System.Collections;
+﻿using Assets.Source.Components.Sound;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.Source.Components.UI
 {
     public class TitleScreenComponent : ComponentBase
     {
 
-        private Animator animator;
+        [SerializeField]
+        private AudioClip enterSound;
 
-        public override void ComponentAwake()
+        private MusicBoxComponent music;
+        private MusicBoxComponent ambience;
+
+        private Animator animator;
+        private AudioSource audioSource;
+
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<Animator>();
+            audioSource = GetRequiredComponent<AudioSource>();
 
-            base.ComponentAwake();
+            music = GetRequiredComponent<MusicBoxComponent>(GetRequiredObject("Music"));
+            ambience = GetRequiredComponent<MusicBoxComponent>(GetRequiredObject("RainAmbience"));
+
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()
@@ -28,6 +36,15 @@ namespace Assets.Source.Components.UI
 
         public void OnTitleScreenFadeOut() {
             Destroy(gameObject);
+        }
+
+        public void OnKeyPressed() {
+            if (audioSource.gameObject.activeSelf)
+            {
+                audioSource.PlayOneShot(enterSound);
+                music.FadeOutAndStop();
+                ambience.FadeOutAndStop();
+            }
         }
 
 

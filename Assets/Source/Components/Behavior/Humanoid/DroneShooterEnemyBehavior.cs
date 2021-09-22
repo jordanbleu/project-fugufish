@@ -42,6 +42,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private GameObject bulletPrefab;
 
 
+        private ShooterSoundEffects sound;
         private PlayerBrainComponent playerBrain;
         private IntervalTimerComponent brainTimer;
         private MeleeComponent meleeCollider;
@@ -145,9 +146,10 @@ namespace Assets.Source.Components.Behavior.Humanoid
             return Positions.OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x)).First(pos => pos.Position != currentSeekedPosition.Position);
         }
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
-            base.ComponentAwake();
+            base.ComponentPreStart();
+            sound = GetRequiredComponent<ShooterSoundEffects>();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
         }
@@ -243,6 +245,8 @@ namespace Assets.Source.Components.Behavior.Humanoid
         #region Event Handlers
         private void OnAttackBegin()
         {
+            sound.Shot1();
+
             var bulletInst = Instantiate(bulletPrefab, transform.parent);
             bulletInst.transform.position = transform.position;
 

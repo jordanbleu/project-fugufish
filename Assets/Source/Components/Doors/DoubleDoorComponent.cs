@@ -15,9 +15,9 @@ namespace Assets.Source.Components.Objects
         private Animator animator;
         private bool wasTriggered = false;
 
-        public override void ComponentAwake() {
+        public override void ComponentPreStart() {
             animator = GetRequiredComponent<Animator>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void Open() => animator.SetBool("is_open", true);

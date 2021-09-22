@@ -25,7 +25,7 @@ namespace Assets.Source.Components.Parallax
         private Vector2 originalPosition;
 
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             spriteRenderer = GetRequiredComponent<SpriteRenderer>();
             originalPosition = transform.position;

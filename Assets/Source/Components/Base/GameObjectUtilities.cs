@@ -30,6 +30,10 @@ namespace Assets.Source.Components.Base
             Destroy(gameObject);
         }
 
+        public void DeactivateSelf() {
+            gameObject.SetActive(false);
+        }
+
         /// <summary>
         /// Instantiates a game object at this object's position
         /// </summary>

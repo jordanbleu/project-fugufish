@@ -45,15 +45,18 @@ namespace Assets.Source.Components.Behavior.Humanoid
         // but in reality this should probably be a type parameter for the animator
         private ShooterSkeletonAnimatorComponent shooterAnimator;
 
-        public override void ComponentAwake()
+        private ShooterSoundEffects sound;
+
+        public override void ComponentPreStart()
         {
+            sound = GetRequiredComponent<ShooterSoundEffects>();
             if (!UnityUtils.Exists(player))
             {
                 Debug.LogError($"Object '{gameObject.name}' needs a reference to the player object on component 'DoNothingHumanoidBehavior'");
                 throw new UnityException($"Object '{gameObject.name}' needs a reference to the player object on component 'DoNothingHumanoidBehavior'");
             }
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
         }
@@ -135,6 +138,8 @@ namespace Assets.Source.Components.Behavior.Humanoid
         #region Event Handlers
         private void OnAttackBegin()
         {
+            sound.Shot1();
+
             var bulletInst = Instantiate(bulletPrefab, transform.parent);
             bulletInst.transform.position = transform.position;
 

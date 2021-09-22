@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Components.Level;
+using Assets.Source.Scene;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,21 @@ namespace Assets.Source.Components.Cutscenes
         [SerializeField]
         private SceneLoaderComponent sceneLoader;
 
+        [SerializeField]
+        private GameObject certificate;
+
         public void Done() {
-            sceneLoader.LoadScene("Scenes/00_SplashIntros");
+
+            // if they collected every single blood vial give a special treat :)
+            if (GameDataTracker.GotAllBloodSamples)
+            {
+                certificate.SetActive(true);
+            }
+            else {
+                // Restarts the whole game
+                GameDataTracker.ResetToDefault();
+                sceneLoader.LoadScene("Scenes/00_SplashIntros");
+            }
         }
     }
 }

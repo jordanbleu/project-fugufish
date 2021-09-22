@@ -10,11 +10,11 @@ namespace Assets.Source.Components.UI
         private GameObject stamBar;
         private Image stamBarImage;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             playerActor = GetRequiredComponent<ActorComponent>(GetRequiredObject("Player"));
             stamBarImage = GetRequiredComponent<Image>(GetRequiredChild("Stamina"));
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

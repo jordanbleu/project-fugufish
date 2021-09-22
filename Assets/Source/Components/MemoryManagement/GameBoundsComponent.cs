@@ -34,7 +34,7 @@ namespace Assets.Source.Components.MemoryManagement
             setRangeHeightMin = transform.position.y - (RangeHeight / 2);
             setRangeHeightMax = transform.position.y + (RangeHeight / 2);
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

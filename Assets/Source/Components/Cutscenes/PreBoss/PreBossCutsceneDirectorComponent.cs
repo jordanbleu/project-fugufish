@@ -1,5 +1,7 @@
-﻿using Assets.Source.Components.Brain;
+﻿using Assets.Source.Components.Base;
+using Assets.Source.Components.Brain;
 using Assets.Source.Components.Objects;
+using Assets.Source.Components.Sound;
 using Assets.Source.Components.TextWriter;
 using Assets.Source.Strings;
 using Spine.Unity;
@@ -41,18 +43,25 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
         [SerializeField]
         private int stage = 0;
 
-        private SkeletonMecanim antagSkeleton;
+        [SerializeField]
+        private MusicBoxComponent musicBox;
 
-        public override void ComponentAwake()
+        private SkeletonMecanim antagSkeleton;
+        private GameObjectUtilities gameObjectUtilities;
+
+        public override void ComponentPreStart()
         {
             antagSkeleton = GetRequiredComponent<SkeletonMecanim>(antag);
-            base.ComponentAwake();
+            gameObjectUtilities = GetRequiredComponent<GameObjectUtilities>();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()
         {
             switch (stage) {
                 case 0:
+                    musicBox.Play();
+
                     // Load the strings
                     stringLoader.Load("PreBoss/preb_00.xml");
                     AddTextQueue(stringLoader.Value.Values);
@@ -85,7 +94,7 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
                     }
                     break;
                 case 4:
-                    // Load the strings.  "not a fan of chairs, i see..."
+                    // Load the strings.  "theres a few things you should know"
                     stringLoader.Load("PreBoss/preb_02.xml");
                     AddTextQueue(stringLoader.Value.Values);
                     stage++;
@@ -113,6 +122,11 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
                     }
                     break;
                 case 8:
+
+                    // enable the antag cam
+                    antagCam.SetActive(false);
+                    playerCam.SetActive(false);
+
                     // Load the strings.  "you dont have much time left"
                     stringLoader.Load("PreBoss/preb_04.xml");
                     AddTextQueue(stringLoader.Value.Values);
@@ -135,9 +149,6 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
                     // open the door
                     doorComponent.Toggle();
 
-                    // enable the antag cam
-                    antagCam.SetActive(true);
-
                     // set velocity
                     var antagRigidBody = GetRequiredComponent<Rigidbody2D>(antag);
                     antagRigidBody.velocity = new Vector2(2, 0);
@@ -153,12 +164,18 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
                         playerBrain.SetMovementLock(false);
                         playerBrain.SetForceWalk(false);
                         bothCam.SetActive(false);
+                        playerCam.SetActive(true);  
                         stage++;
                     }
                     break;
                 case 12:
                     if (antag.transform.position.x > 32) {
-                        Destroy(antag);
+                        // set velocity
+                        // this code is so bad but im tired so ill just leave it lmao
+                        // I just wanna get this damn game done
+                        antag.transform.position = new Vector3(-1000, 1000); // <-- lol I hate myself
+                        var antagRigidBody1 = GetRequiredComponent<Rigidbody2D>(antag);
+                        antagRigidBody1.velocity = Vector2.zero;
                         stage++;
                     }
                     break;

@@ -1,4 +1,5 @@
-﻿using Assets.Source.Components.Timer;
+﻿using Assets.Editor.Attributes;
+using Assets.Source.Components.Timer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,10 @@ namespace Assets.Source.Components.Platforming
         [SerializeField]
         private List<PlatformInstruction> instructions;
 
+        [SerializeField]
+        [ReadOnly]
+        private PlatformInstruction current;
+
         private float positionTolerance = 0.1f;
         
         private int index;
@@ -27,8 +32,10 @@ namespace Assets.Source.Components.Platforming
 
         private Rigidbody2D rigidBody;
         private IntervalTimerComponent timer;
+
+
         
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             rigidBody = GetRequiredComponent<Rigidbody2D>();
             
@@ -40,7 +47,7 @@ namespace Assets.Source.Components.Platforming
             timer.AutoReset = false;
 
             index = 0;
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()
@@ -49,6 +56,7 @@ namespace Assets.Source.Components.Platforming
             index = Mathf.Min(index, instructions.Count()-1);
 
             var currentInstruction = instructions[index];
+            current = currentInstruction; // for the unity inspector
 
             if (!timer.IsActive)
             {

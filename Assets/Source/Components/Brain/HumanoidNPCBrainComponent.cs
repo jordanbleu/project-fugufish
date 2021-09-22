@@ -32,9 +32,9 @@ namespace Assets.Source.Components.Brain
         private PlayerBrainComponent playerBrain;
         private HumanoidSkeletonAnimatorComponent animator;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
-            base.ComponentAwake();
+            base.ComponentPreStart();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
         }

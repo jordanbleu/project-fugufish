@@ -13,11 +13,11 @@ namespace Assets.Source.Components.Animation
         public bool IsDead = false;
         public bool IsStunned = false;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<Animator>();
             skeletonMecanim = GetRequiredComponent<SkeletonMecanim>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()

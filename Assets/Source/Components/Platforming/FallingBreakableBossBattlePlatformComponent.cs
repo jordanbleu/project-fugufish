@@ -26,10 +26,10 @@ namespace Assets.Source.Components.Platforming
         [SerializeField]
         private LayerMask explodeOnLayer = new LayerMask();
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             rigidBody = GetRequiredComponent<Rigidbody2D>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         /// <summary>

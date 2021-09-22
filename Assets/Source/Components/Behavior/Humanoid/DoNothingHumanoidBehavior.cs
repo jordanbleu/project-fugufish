@@ -7,14 +7,14 @@ namespace Assets.Source.Components.Behavior
 {
     public class DoNothingHumanoidBehavior : HumanoidBehaviorBase
     {
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             if (!UnityUtils.Exists(player)) {
                 Debug.LogError($"Object '{gameObject.name}' needs a reference to the player object on component 'DoNothingHumanoidBehavior'");
                 throw new UnityException($"Object '{gameObject.name}' needs a reference to the player object on component 'DoNothingHumanoidBehavior'");
             }
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
 
             if (!UnityUtils.Exists(animator)) {
                 throw new UnityException($"Can't find a humanoid skeleton animator on object {gameObject.name}");

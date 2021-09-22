@@ -7,21 +7,13 @@ namespace Assets.Source.Components.UI
     [RequireComponent(typeof(Animator))]
     public class DynamicMenuItemComponent : ComponentBase
     {
-
         [SerializeField]
-        private GameObject textMeshObject;
-
         private TextMeshProUGUI textMesh;
+        
+        [SerializeField]
         private Animator animator;
 
         public bool IsHighlighted { get; set; } = false;
-
-        public override void ComponentAwake()
-        {
-            textMesh = GetRequiredComponent<TextMeshProUGUI>(textMeshObject);
-            animator = GetRequiredComponent<Animator>();
-            base.ComponentAwake();
-        }
 
         public override void ComponentUpdate()
         {

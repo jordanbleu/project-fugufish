@@ -15,11 +15,11 @@ namespace Assets.Source.Components.UI
         private TextMeshProUGUI textMesh;
         private string messageToSet = string.Empty;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<Animator>();
             textMesh = GetRequiredComponent<TextMeshProUGUI>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void ShowMessage(string message) {

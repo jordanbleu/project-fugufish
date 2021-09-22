@@ -14,6 +14,13 @@ namespace Assets.Source.Scene
     {
 
         /// <summary>
+        /// Tracks whether the user was previously using a controller vs a kb/m
+        /// </summary>
+        public static bool IsUsingController { get; set; }=  false;
+
+        public static HashSet<string> CollectedBloodSamples { get; } = new HashSet<string>();
+
+        /// <summary>
         /// Tracks the last frame that the player was on.  Tells the scene loader to 
         /// set an active frame based on this information.
         /// </summary>
@@ -40,10 +47,32 @@ namespace Assets.Source.Scene
         /// </summary>
         public static Vector2? LastGroundedDeathPosition { get; set; } = null;
 
+        public static bool GotAllBloodSamples { get; private set; } = false;
 
+
+        /// <summary>
+        /// The total # of blood samples.  Must be set per level.
+        /// </summary>
+        public static int TotalBloodSamples { get; set; }
+
+        /// <summary>
+        /// How many blood samples the player has
+        /// </summary>
+        public static int CurrentBloodSamples { get; private set; }
+
+        public static void CollectBloodSample() {
+            CurrentBloodSamples++;
+
+            if (CurrentBloodSamples >= TotalBloodSamples) {
+                GotAllBloodSamples = true;
+            }
+        } 
 
         internal static void ResetToDefault()
         {
+            CollectedBloodSamples.Clear();
+            CurrentBloodSamples = 0;
+            GotAllBloodSamples = false;
             Lives = 3;
             FrameToLoadOnSceneLoad = null;
             LastDeathFrameName = null;

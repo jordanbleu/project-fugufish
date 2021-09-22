@@ -11,10 +11,10 @@ namespace Assets.Source.Components.Brain
     {
         private AudioSource audioSource;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             audioSource = GetRequiredComponent<AudioSource>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         [SerializeField]
@@ -32,6 +32,9 @@ namespace Assets.Source.Components.Brain
         [SerializeField]
         private AudioClip ladderClink2;
 
+        [SerializeField]
+        private AudioClip roll;
+
         public void Swing0() => audioSource.PlayOneShot(swordSwing0);
         
         public void Swing1() => audioSource.PlayOneShot(swordSwing1);
@@ -41,6 +44,8 @@ namespace Assets.Source.Components.Brain
         public void LadderClink1() => audioSource.PlayOneShot(ladderClink1);
 
         public void LadderClink2() => audioSource.PlayOneShot(ladderClink2);
+
+        public void Roll() => audioSource.PlayOneShot(roll);
 
     }
 }

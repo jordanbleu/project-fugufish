@@ -14,7 +14,7 @@ namespace Assets.Source.Components.Camera
     {
         private LevelCameraEffectorComponent cameraEffector;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
 
@@ -22,7 +22,7 @@ namespace Assets.Source.Components.Camera
                 throw new UnityException($"Game Object '{gameObject.name}' can't find a Level object anywhere.");
             }
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void Impact() => cameraEffector.Impact();

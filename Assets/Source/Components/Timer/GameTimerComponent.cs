@@ -24,7 +24,6 @@ namespace Assets.Source.Components.Timer
 
         [SerializeField]
         [Tooltip("The current time")]
-        [ReadOnly]
         private float time;
 
         public float StartTime { get => startTime; set => startTime = value; }
@@ -41,13 +40,20 @@ namespace Assets.Source.Components.Timer
         [ReadOnly]
         private bool isActive = false;
 
-        public override void ComponentAwake()
+        [SerializeField]
+        [Tooltip("Set to true if you want to start the timer at the 'time' you specified.  Otherwise it will be set to max time on awake.")]
+        private bool useCustomStartTime = false;
+
+        public override void ComponentPreStart()
         {
-            ResetTimer();
+            if (!useCustomStartTime) {
+                time = startTime;
+            }
+
             if (startOnAwake) {
                 StartTimer();    
             }
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentUpdate()
@@ -79,6 +85,13 @@ namespace Assets.Source.Components.Timer
         /// </summary>
         public void StartTimer() {
             isActive = true;
+        }
+
+        /// <summary>
+        /// Randomizes the current time to between zero and the start time
+        /// </summary>
+        public void RandomizeCurrentTime() {
+            time = UnityEngine.Random.Range(0, startTime);
         }
 
         

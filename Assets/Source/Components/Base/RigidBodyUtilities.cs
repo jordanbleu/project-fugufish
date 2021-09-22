@@ -16,14 +16,14 @@ namespace Assets.Source.Components.Base
         private Rigidbody2D rigidBody;
         private GameObject player;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             rigidBody = GetRequiredComponent<Rigidbody2D>();
 
             // todo: might need to update this if we want this to work without a player existing.
             player = GetRequiredObject("Player");
 
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public void AddHorizontalImpact(float vel) => rigidBody.AddForce(new Vector2(vel, 0));

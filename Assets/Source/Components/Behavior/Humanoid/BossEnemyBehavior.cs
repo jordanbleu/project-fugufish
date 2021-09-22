@@ -1,12 +1,9 @@
 ﻿using Assets.Source.Components.Actor;
 using Assets.Source.Components.Animation;
-using Assets.Source.Components.Behavior.Base;
 using Assets.Source.Components.Brain;
 using Assets.Source.Components.Brain.Base;
 using Assets.Source.Components.Cutscenes.Transformation;
 using Assets.Source.Components.Timer;
-using Assets.Source.Enums;
-using System;
 using UnityEngine;
 
 namespace Assets.Source.Components.Behavior.Humanoid
@@ -50,9 +47,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private bool isAttacking = false;
         private bool isStunned = false;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
-            base.ComponentAwake();
+            base.ComponentPreStart();
             animator = GetRequiredComponent<FinalBossAnimatorComponent>();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();

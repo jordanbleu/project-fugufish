@@ -59,10 +59,10 @@ namespace Assets.Source.Components.Brain
 
         private FinalBossAnimatorComponent animator;
 
-        public override void ComponentAwake()
+        public override void ComponentPreStart()
         {
             animator = GetRequiredComponent<FinalBossAnimatorComponent>();
-            base.ComponentAwake();
+            base.ComponentPreStart();
         }
 
         public override void ComponentStart()
