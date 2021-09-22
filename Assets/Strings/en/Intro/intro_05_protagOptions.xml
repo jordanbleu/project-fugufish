@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<strings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <string name="protag_scared">Please don't hurt us!</string>
-  <string name="protag_smart">They re-wired my neural network.  I couldn't tell you if I wanted to.</string>
-  <string name="protag_brave">Screw you, asshole.</string>
-  <string name="protag_silent">(Say nothing)</string>
-</strings>
