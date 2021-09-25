@@ -26,7 +26,9 @@ namespace Assets.Source.Components.Animation
         [Tooltip("If true, maxIndex is treated like a range from 0 to maxIndex, and the animation is chosen at random.  If false, the maxIndex will be chosen.")]
         private bool isRandom = true;
 
-        public override void ComponentPreStart()
+        private Animator animator;
+
+        public override void ComponentAwake()
         {
             if (isRandom)
             {
@@ -36,9 +38,14 @@ namespace Assets.Source.Components.Animation
                 chosenIndex = maxIndex;
             }
             
-            var animator = GetRequiredComponent<Animator>();
+            animator = GetRequiredComponent<Animator>();
+            base.ComponentAwake();
+        }
+
+        public override void ComponentStart()
+        {
             animator.SetInteger("animation_index", chosenIndex);
-            base.ComponentPreStart();
+            base.ComponentStart();
         }
 
 

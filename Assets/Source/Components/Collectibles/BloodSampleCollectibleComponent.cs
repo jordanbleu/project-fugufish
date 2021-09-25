@@ -13,12 +13,12 @@ namespace Assets.Source.Components.Collectibles
         [SerializeField]
         private string identifier = Guid.NewGuid().ToString();
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             if (GameDataTracker.CollectedBloodSamples.Contains(identifier)) {
                 Destroy(gameObject);
             }
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ItemCollected()

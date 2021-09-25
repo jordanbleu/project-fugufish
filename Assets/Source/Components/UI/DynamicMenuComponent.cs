@@ -36,7 +36,7 @@ namespace Assets.Source.Components.UI
         int selectedIndex = -1;
 
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
             itemComponents = new DynamicMenuItemComponent[menuItems.Length];
@@ -51,7 +51,7 @@ namespace Assets.Source.Components.UI
                 itemComponents[i].gameObject.SetActive(false);
             }
 
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
 

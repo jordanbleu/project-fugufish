@@ -49,11 +49,11 @@ namespace Assets.Source.Components.Cutscenes.PreBoss
         private SkeletonMecanim antagSkeleton;
         private GameObjectUtilities gameObjectUtilities;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             antagSkeleton = GetRequiredComponent<SkeletonMecanim>(antag);
             gameObjectUtilities = GetRequiredComponent<GameObjectUtilities>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

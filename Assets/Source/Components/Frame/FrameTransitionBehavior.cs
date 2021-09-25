@@ -30,10 +30,10 @@ namespace Assets.Source.Components.Frame
         // used to track the virtual cameras follow object
         private GameObject followObject;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             levelComponent = GetRequiredComponent<LevelComponent>(GetRequiredObject("Level"));
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentStart()

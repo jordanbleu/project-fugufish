@@ -44,7 +44,7 @@ namespace Assets.Source.Components.Timer
         [Tooltip("Set to true if you want to start the timer at the 'time' you specified.  Otherwise it will be set to max time on awake.")]
         private bool useCustomStartTime = false;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             if (!useCustomStartTime) {
                 time = startTime;
@@ -53,7 +53,7 @@ namespace Assets.Source.Components.Timer
             if (startOnAwake) {
                 StartTimer();    
             }
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

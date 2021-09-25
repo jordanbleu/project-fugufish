@@ -19,18 +19,19 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private float precision = 0.25f;
 
         private PlayerBrainComponent playerBrain;
+        private HumanoidNPCBrainComponent brain;
+
+        public override void ComponentAwake()
+        {
+            base.ComponentAwake();
+            brain = GetRequiredComponent<HumanoidNPCBrainComponent>();
+            playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
+        }
 
         public override void ComponentStart()
         {
-            var brain = GetRequiredComponent<HumanoidNPCBrainComponent>();
             brain.attackByPlayer.AddListener(OnAttackedByPlayer);
             base.ComponentStart();
-        }
-
-        public override void ComponentPreStart()
-        {
-            base.ComponentPreStart();
-            playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
         }
 
         private void OnAttackedByPlayer()

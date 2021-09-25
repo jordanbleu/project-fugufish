@@ -35,7 +35,7 @@ namespace Assets.Source.Components.Parallax
         private float width;
         private float height;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             spriteRenderer = GetRequiredComponent<SpriteRenderer>();
 

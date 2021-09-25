@@ -28,11 +28,11 @@ namespace Assets.Source.Components.Objects
 
         private Animator animator;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
             animator.SetBool("is_open", IsOpen);
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public void Toggle() {

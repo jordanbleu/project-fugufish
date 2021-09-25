@@ -25,7 +25,7 @@ namespace Assets.Source.Components.UI
         // Store the type so we only reload strings if the type changes
         private Type activeInputListenerType;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             if (!UnityUtils.Exists(infoMessageComponent)) {
                 throw new UnityException($"You went and forgot to drag the reference to the info message thing for this object '{gameObject.name}'");
@@ -36,7 +36,7 @@ namespace Assets.Source.Components.UI
             // todo: I think we should add event handling to the input manager and use that to invoke this method, since there's a bit of a hitch there anyway
             ReloadStrings();
 
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

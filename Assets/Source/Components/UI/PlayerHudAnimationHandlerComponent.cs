@@ -25,11 +25,11 @@ namespace Assets.Source.Components.UI
         [Range(0,1)]
         private float lowHealthThreshold = 0.25f;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
             playerActor = GetRequiredComponent<ActorComponent>(GetRequiredObject("Player"));
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

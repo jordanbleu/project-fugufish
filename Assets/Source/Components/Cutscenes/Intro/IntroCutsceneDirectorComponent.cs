@@ -94,7 +94,7 @@ namespace Assets.Source.Components.Cutscenes.Intro
 
         private int dialogueOption = -1;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             timer = GetRequiredComponent<IntervalTimerComponent>();
             timer.IsActive = false;
@@ -135,7 +135,7 @@ namespace Assets.Source.Components.Cutscenes.Intro
             protagBrainParticleSystem = GetRequiredComponent<ParticleSystem>(GetRequiredChild("BrainChunkEmitter", protagonistActor));
 
 
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentStart()

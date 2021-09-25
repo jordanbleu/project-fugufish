@@ -18,10 +18,10 @@ namespace Assets.Source.Components.Level
         [Tooltip("Optional - drag player here to disable them when the loading begins.")]
         private PlayerBrainComponent player;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         /// <summary>

@@ -12,10 +12,10 @@ namespace Assets.Source.Components.UI
     {
         private TextMeshProUGUI textMesh;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             textMesh = GetRequiredComponent<TextMeshProUGUI>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

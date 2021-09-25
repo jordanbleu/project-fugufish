@@ -119,7 +119,7 @@ namespace Assets.Source.Components.Actor
             return false;
         }
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             Health = MaxHealth;
             stamina = MaxStamina;
@@ -144,7 +144,7 @@ namespace Assets.Source.Components.Actor
 
                 Destroy(staminaTimerPrefabTemp);
             }
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         private void RefillStaminaIntervalReached()

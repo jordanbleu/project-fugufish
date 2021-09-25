@@ -22,12 +22,12 @@ namespace Assets.Source.Components.MemoryManagement
         private Dictionary<string, LimitSettings> limits;
         private Dictionary<string, List<GameObject>> instances;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             // Convert to a dictionary to faster lookups, thank you to unity for not supporting this >:(
             limits = limitOptions.ToDictionary(l => l.Id, l => l);
             instances = limitOptions.ToDictionary(l => l.Id, l=>new List<GameObject>());
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         /// <summary>

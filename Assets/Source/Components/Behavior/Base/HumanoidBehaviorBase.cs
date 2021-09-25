@@ -98,10 +98,10 @@ namespace Assets.Source.Components.Behavior.Base
         private RaycastHit2D jumpUpHit;
         private RaycastHit2D jumpDownHit;
         
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<HumanoidSkeletonAnimatorComponent>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

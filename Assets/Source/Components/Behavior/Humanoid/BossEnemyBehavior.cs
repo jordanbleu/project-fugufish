@@ -47,9 +47,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
         private bool isAttacking = false;
         private bool isStunned = false;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
-            base.ComponentPreStart();
+            base.ComponentAwake();
             animator = GetRequiredComponent<FinalBossAnimatorComponent>();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();

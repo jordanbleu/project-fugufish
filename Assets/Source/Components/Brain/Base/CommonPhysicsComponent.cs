@@ -88,7 +88,7 @@ namespace Assets.Source.Components.Brain.Base
         /// </summary>
         public bool IsGravityEnabled { get; set; } = true;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             if (groundLayers.IsNothing()) {
                 Debug.LogWarning($"Object '{gameObject.name}' / Component '{GetType().Name}' has a groundLayers layermask of nothing.  That probably isn't right!");
@@ -104,7 +104,7 @@ namespace Assets.Source.Components.Brain.Base
             rigidBody2d = GetRequiredComponent<Rigidbody2D>();
             collider2d = GetRequiredComponent<Collider2D>();
             actorComponent = GetComponent<ActorComponent>(); // Actor Component is optional.
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentFixedUpdate()
