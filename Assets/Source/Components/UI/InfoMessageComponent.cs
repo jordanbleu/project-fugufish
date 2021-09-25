@@ -11,16 +11,11 @@ namespace Assets.Source.Components.UI
     [RequireComponent(typeof(Animator))]
     public class InfoMessageComponent : ComponentBase
     {
+        [SerializeField]
         private Animator animator;
+        [SerializeField]
         private TextMeshProUGUI textMesh;
         private string messageToSet = string.Empty;
-
-        public override void ComponentAwake()
-        {
-            animator = GetRequiredComponent<Animator>();
-            textMesh = GetRequiredComponent<TextMeshProUGUI>();
-            base.ComponentAwake();
-        }
 
         public void ShowMessage(string message) {
             messageToSet = message;
