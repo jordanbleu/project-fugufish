@@ -11,7 +11,7 @@ namespace Assets.Source.Strings
     {
         protected override string GetStringsDir()
         {
-            return $"{Application.streamingAssetsPath}/Strings/";
+            return $"{Application.streamingAssetsPath}/Strings";
             //return ResourcePaths.StringsDirectory;
         }
 
