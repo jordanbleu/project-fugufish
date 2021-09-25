@@ -141,7 +141,7 @@ namespace Assets.Source.Strings
             { "PreBoss/preb_03.xml", new Dictionary<string, string>() {
                 { "0", "The ones who sent you do not believe in me" },
                 { "1", "They are the real enemy.  The enemy of progress." },
-                { "2", "...but you don't care about any of that, don't you?" },
+                { "2", "...but you don't care about any of that, do you?" },
                 { "3", "Heh." },
                 { "4", "How much did they pay you, anyway?" },
                 { "5", "Was it worth the cost of your one true love?" },
