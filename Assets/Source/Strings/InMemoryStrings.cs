@@ -43,7 +43,7 @@ namespace Assets.Source.Strings
                 { "dodge", "Use [Q] and [E] keys to dodge" },
                 { "does_not_open_from_side", "Door does not open from this side" },
                 { "health_pickups", "Pick up adrenaline shots to heal" },
-                { "bloodsamples", "Press F to show collected blood samples on your HUD" },
+                { "bloodsamples", "Press [R] to show collected blood samples on your HUD" },
             } },
 
             { "Global/tutorialMessagesXbone.xml", new Dictionary<string, string>() {
