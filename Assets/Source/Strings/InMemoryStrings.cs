@@ -44,6 +44,7 @@ namespace Assets.Source.Strings
                 { "does_not_open_from_side", "Door does not open from this side" },
                 { "health_pickups", "Pick up adrenaline shots to heal" },
                 { "bloodsamples", "Press [R] to show collected blood samples on your HUD" },
+                { "double_dodge", "Press [Q] / [E] again while dodging to go farther" },
             } },
 
             { "Global/tutorialMessagesXbone.xml", new Dictionary<string, string>() {
@@ -55,6 +56,7 @@ namespace Assets.Source.Strings
                 { "does_not_open_from_side", "Door does not open from this side" },
                 { "health_pickups", "Pick up adrenaline shots to heal" },
                 { "bloodsamples", "Press (Y) to show collected blood samples on your HUD" },
+                { "double_dodge", "Press [LB] / [RB] again while dodging to go farther" },
             } },
 
             // The intro
