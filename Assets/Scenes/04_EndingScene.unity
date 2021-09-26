@@ -3111,7 +3111,6 @@ GameObject:
   - component: {fileID: 1436429657}
   - component: {fileID: 1436429659}
   - component: {fileID: 1436429658}
-  - component: {fileID: 1436429660}
   m_Layer: 5
   m_Name: Username
   m_TagString: Untagged
@@ -3135,7 +3134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 138.2, y: 3.3}
+  m_AnchoredPosition: {x: 144.86, y: 3.3}
   m_SizeDelta: {x: 466.4, y: 81.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436429658
@@ -3156,7 +3155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jordanasdf
+  m_text: (insert name here)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc3ebbf207f39f94f8263be2e760a677, type: 2}
   m_sharedMaterial: {fileID: 8707551599738862473, guid: fc3ebbf207f39f94f8263be2e760a677,
@@ -3226,10 +3225,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 21.773775, z: 379.11206, w: 0}
   m_textInfo:
     textComponent: {fileID: 1436429658}
-    characterCount: 10
+    characterCount: 18
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -3257,18 +3256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436429656}
   m_CullTransparentMesh: 0
---- !u!114 &1436429660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1436429656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fedd162b51fa6574c88ee35e5a8dc28f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1444635127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,7 +3273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1444635128
 RectTransform:
   m_ObjectHideFlags: 0
