@@ -24,6 +24,7 @@ namespace Assets.Source.Components.Cutscenes
             if (GameDataTracker.GotAllBloodSamples)
             {
                 certificate.SetActive(true);
+                gameObject.SetActive(false);
             }
             else {
                 // Restarts the whole game
