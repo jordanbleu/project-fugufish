@@ -9,7 +9,7 @@ namespace Assets.Source.Components.Frame
     public class FrameTransitionColliderComponent : FramePortalComponentBase
     {
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             if (Debug.isDebugBuild)
             {
@@ -22,7 +22,7 @@ namespace Assets.Source.Components.Frame
                         $"there's an attached box collider 2d, which is good, but you need to check the 'IsTrigger' box");
                 }
             }
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         // Occurs when the player enters the collider area

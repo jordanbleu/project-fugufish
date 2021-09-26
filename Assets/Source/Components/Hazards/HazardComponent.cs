@@ -39,10 +39,10 @@ namespace Assets.Source.Components.Hazards
 
         private Rigidbody2D rigidBody;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             rigidBody = GetRequiredComponent<Rigidbody2D>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public void OnPlayerHit() {

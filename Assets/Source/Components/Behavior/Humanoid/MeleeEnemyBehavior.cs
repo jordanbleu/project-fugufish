@@ -88,9 +88,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
 
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
-            base.ComponentPreStart();
+            base.ComponentAwake();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
         }

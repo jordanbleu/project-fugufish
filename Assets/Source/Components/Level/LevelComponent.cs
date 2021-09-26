@@ -28,7 +28,7 @@ namespace Assets.Source.Components.Level
 
         private GameObject deathMarker;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             GameDataTracker.TotalBloodSamples = UnityEngine.Resources.FindObjectsOfTypeAll<BloodSampleCollectibleComponent>().Length;
 
@@ -42,7 +42,7 @@ namespace Assets.Source.Components.Level
                 SetActiveFrame(startingFrame);
             }
 
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentStart()

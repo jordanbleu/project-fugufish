@@ -18,17 +18,12 @@ namespace Assets.Source.Components
         #region overrides
         private void Awake()
         {
-            //levelObject = GetRequiredObject("Level"); 
-            //ComponentAwake();
+            levelObject = GetRequiredObject("Level"); 
+            ComponentAwake();
         }
 
         private void Start() { 
-            levelObject = GetRequiredObject("Level");
-            
-            ComponentPreStart();
-
             ComponentStart();
-            
         }
 
         private void Update() { ComponentUpdate(); }
@@ -42,7 +37,7 @@ namespace Assets.Source.Components
         /// Override this method to add functionality to the monobehavior's Awake Method. 
         /// <para>This should be used for things such as setting references to components, etc</para>
         /// </summary>
-        public virtual void ComponentPreStart() { }
+        public virtual void ComponentAwake() { }
 
         /// <summary>
         /// Override this method to add functionality to the monobehavior's Start method
@@ -140,7 +135,7 @@ namespace Assets.Source.Components
             }
             catch (MissingComponentException)
             {
-                throw new MissingRequiredComponentException(otherObject, typeof(T));
+                return null;
             }
             return component;
         }
@@ -170,7 +165,7 @@ namespace Assets.Source.Components
             }
             catch (MissingComponentException)
             {
-                throw new MissingRequiredComponentException(otherObject, typeof(T));
+                return null;
             }
             return component;
         }
@@ -248,8 +243,12 @@ namespace Assets.Source.Components
         /// <returns>The component</returns>
         public static T GetRequiredComponentInParent<T>(GameObject otherObject) where T : MonoBehaviour
         {
-            return otherObject.GetComponentInParent<T>()
-                ?? throw new MissingRequiredComponentException(otherObject, typeof(T));
+            try
+            {
+                return otherObject.GetComponentInParent<T>();
+            } catch (MissingComponentException) {
+                return null;
+            }
         }
 
         /// <summary>

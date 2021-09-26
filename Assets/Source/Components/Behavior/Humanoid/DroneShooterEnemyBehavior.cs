@@ -58,6 +58,13 @@ namespace Assets.Source.Components.Behavior.Humanoid
         [ReadOnly]
         private ShooterPosition currentSeekedPosition;
 
+        public override void ComponentAwake()
+        {
+            base.ComponentAwake();
+            sound = GetRequiredComponent<ShooterSoundEffects>();
+            playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
+            meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
+        }
 
         public override void ComponentStart()
         {
@@ -144,14 +151,6 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
             // if we're at either end of the positions, return whatever is closest (and not us)
             return Positions.OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x)).First(pos => pos.Position != currentSeekedPosition.Position);
-        }
-
-        public override void ComponentPreStart()
-        {
-            base.ComponentPreStart();
-            sound = GetRequiredComponent<ShooterSoundEffects>();
-            playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
-            meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
         }
 
         private void OnAttackedByPlayer()

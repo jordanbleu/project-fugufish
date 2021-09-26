@@ -35,7 +35,7 @@ namespace Assets.Source.Components.TextWriter
 
         private StringBuilder displayString;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             audioSource = GetRequiredComponent<AudioSource>();
 
@@ -45,7 +45,7 @@ namespace Assets.Source.Components.TextWriter
 
             timer = GetRequiredComponent<IntervalTimerComponent>();
             timer.IsActive = true;
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

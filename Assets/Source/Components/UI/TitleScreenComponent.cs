@@ -15,7 +15,7 @@ namespace Assets.Source.Components.UI
         private Animator animator;
         private AudioSource audioSource;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
             audioSource = GetRequiredComponent<AudioSource>();
@@ -23,7 +23,7 @@ namespace Assets.Source.Components.UI
             music = GetRequiredComponent<MusicBoxComponent>(GetRequiredObject("Music"));
             ambience = GetRequiredComponent<MusicBoxComponent>(GetRequiredObject("RainAmbience"));
 
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

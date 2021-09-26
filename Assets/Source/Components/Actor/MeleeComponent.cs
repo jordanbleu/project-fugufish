@@ -32,10 +32,10 @@ namespace Assets.Source.Components.Actor
         /// </summary>
         public bool IsFlipped { get; set; } = false;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             cameraEffector = GetRequiredComponent<LevelCameraEffectorComponent>(GetRequiredObject("Level"));
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

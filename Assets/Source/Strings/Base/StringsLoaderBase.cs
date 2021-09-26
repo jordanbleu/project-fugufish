@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
+using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Assets.Source.Strings.Base
 {
@@ -44,6 +46,13 @@ namespace Assets.Source.Strings.Base
 
         // Deserializes the XML file into a list of strings
         private StringResourceList DeserializeStrings(string path)
+        {
+            // For standalone platforms, this will be a file path
+            return DeserializeFromFilesystem(path);
+        }
+
+
+        private StringResourceList DeserializeFromFilesystem(string path)
         {
             StringResourceList strings;
 

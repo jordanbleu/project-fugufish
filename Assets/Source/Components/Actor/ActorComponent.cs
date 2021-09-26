@@ -13,7 +13,7 @@ namespace Assets.Source.Components.Actor
         [SerializeField]
         [ReadOnly]
         private int health;
-        public int Health { get => health; private set => health = value; }
+        public int Health { get => health;  set => health = value; }
 
         [SerializeField]
         private int maxHealth;
@@ -31,7 +31,7 @@ namespace Assets.Source.Components.Actor
         [SerializeField]
         [ReadOnly]
         private int stamina;
-        public int Stamina { get => stamina; }
+        public int Stamina { get => stamina; set => stamina = value; }
 
         [SerializeField]
         private int maxStamina;
@@ -119,7 +119,7 @@ namespace Assets.Source.Components.Actor
             return false;
         }
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             Health = MaxHealth;
             stamina = MaxStamina;
@@ -144,7 +144,7 @@ namespace Assets.Source.Components.Actor
 
                 Destroy(staminaTimerPrefabTemp);
             }
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         private void RefillStaminaIntervalReached()

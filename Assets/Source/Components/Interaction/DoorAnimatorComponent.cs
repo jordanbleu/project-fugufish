@@ -9,10 +9,10 @@ namespace Assets.Source.Components.Interaction
         // Animator should handle pretty much all of the logic
         private Animator animator;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
 

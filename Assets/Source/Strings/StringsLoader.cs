@@ -1,23 +1,26 @@
-﻿using Assets.Source.Configuration;
-using Assets.Source.Strings.Base;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Assets.Source.Strings
 {
-    /// <summary>
-    /// Used to load a full set of strings from an xml resource.  Keeps strings cached.
-    /// </summary>
-    public class StringsLoader : StringsLoaderBase
+    public class StringsLoader
     {
-        protected override string GetStringsDir()
-        {
-            return $"{Application.streamingAssetsPath}/Strings/";
-            //return ResourcePaths.StringsDirectory;
-        }
+        private Dictionary<string, string> value;
+        public Dictionary<string, string> Value { get => value; }
 
-        protected override string GetLanguageCode()
-        {
-            return ConfigurationRepository.SystemConfiguration.Language;
+        public void Load(string key) {
+            if (InMemoryStrings.Strings.TryGetValue(key, out var strs))
+            {
+                value = strs;
+            }
+            else {
+                throw new ArgumentException($"Cannot load strings with key of '{key}'");
+            }
         }
+             
+
     }
 }

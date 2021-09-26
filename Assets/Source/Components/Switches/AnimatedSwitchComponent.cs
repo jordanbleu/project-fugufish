@@ -34,11 +34,11 @@ namespace Assets.Source.Components.Switches
 
         private Animator animator;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             animator = GetRequiredComponent<Animator>();
             animator.SetBool("is_on", isOn);
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
 

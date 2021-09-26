@@ -16,10 +16,10 @@ namespace Assets.Source.Components.Brain
 
         private AudioSource audioSource;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             audioSource = GetRequiredComponent<AudioSource>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
 

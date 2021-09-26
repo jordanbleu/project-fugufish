@@ -3401,7 +3401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28149f93db72d18439ab4c16a6e86616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInOnAwake: 0
+  animator: {fileID: 337351466}
+  audioSource: {fileID: 337351463}
 --- !u!95 &337351466
 Animator:
   serializedVersion: 3

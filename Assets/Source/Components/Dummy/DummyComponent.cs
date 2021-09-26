@@ -14,7 +14,12 @@ namespace Assets.Source.Components.Dummy
         }
 
         public void Say(string message) {
-            Debug.Log(message);
+            // only say stuff in editor
+            if (Application.isEditor)
+            {
+                Debug.Log(message);
+            }
+
         }
 
         public void KillMySelf(string message) {

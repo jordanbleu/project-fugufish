@@ -47,7 +47,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
 
         private ShooterSoundEffects sound;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             sound = GetRequiredComponent<ShooterSoundEffects>();
             if (!UnityUtils.Exists(player))
@@ -56,7 +56,7 @@ namespace Assets.Source.Components.Behavior.Humanoid
                 throw new UnityException($"Object '{gameObject.name}' needs a reference to the player object on component 'DoNothingHumanoidBehavior'");
             }
 
-            base.ComponentPreStart();
+            base.ComponentAwake();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
         }

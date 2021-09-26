@@ -13,14 +13,9 @@ namespace Assets.Source.Components.Sound
     [RequireComponent(typeof(AudioSource))]
     public class OneTimeSoundSourceComponent : ComponentBase
     {
+        [SerializeField]
         private AudioSource audioSource;
         private bool isActivated = false;
-
-        public override void ComponentPreStart()
-        {
-            audioSource = GetRequiredComponent<AudioSource>();
-            base.ComponentPreStart();
-        }
 
         public override void ComponentUpdate()
         {

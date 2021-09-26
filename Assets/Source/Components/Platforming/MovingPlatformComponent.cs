@@ -35,7 +35,7 @@ namespace Assets.Source.Components.Platforming
 
 
         
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             rigidBody = GetRequiredComponent<Rigidbody2D>();
             
@@ -47,7 +47,7 @@ namespace Assets.Source.Components.Platforming
             timer.AutoReset = false;
 
             index = 0;
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

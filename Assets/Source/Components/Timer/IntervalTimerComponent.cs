@@ -65,11 +65,11 @@ namespace Assets.Source.Components.Timer
 
         private float maxInterval;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             currentTime = 0f;
             maxInterval = interval;
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentOnEnable()

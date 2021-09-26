@@ -18,12 +18,12 @@ namespace Assets.Source.Components.TextWriter
         private bool isActivated = false;
         private GameObject textWriterInstance;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             if (!UnityUtils.Exists(textWriterPrefab)) {
                 throw new UnityException("Please drag the text writer prefab onto the text writer queue prefab");
             }
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         public override void ComponentUpdate()

@@ -16,10 +16,10 @@ namespace Assets.Source.Components.Interaction
         [Tooltip("if true, will end a player's attack on contact")]
         private bool stopsAttack = true;
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
             actor = GetRequiredComponent<ActorComponent>();
-            base.ComponentPreStart();
+            base.ComponentAwake();
         }
 
         //todo: uh why is this commented lol

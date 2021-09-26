@@ -147,9 +147,9 @@ namespace Assets.Source.Components.Behavior.Humanoid
             return Positions.OrderBy(pos => Mathf.Abs(transform.position.x - pos.Position.x)).First(pos => pos.Position != currentSeekedPosition.Position);
         }
 
-        public override void ComponentPreStart()
+        public override void ComponentAwake()
         {
-            base.ComponentPreStart();
+            base.ComponentAwake();
             playerBrain = GetRequiredComponent<PlayerBrainComponent>(player);
             meleeCollider = GetRequiredComponentInChildren<MeleeComponent>();
             sound = GetRequiredComponent<ShooterSoundEffects>();
