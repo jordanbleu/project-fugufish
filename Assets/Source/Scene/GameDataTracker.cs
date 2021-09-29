@@ -53,7 +53,7 @@ namespace Assets.Source.Scene
         /// <summary>
         /// The total # of blood samples.  Must be set per level.
         /// </summary>
-        public static int TotalBloodSamples { get; set; }
+        public static int TotalBloodSamples { get; } = 48;
 
         /// <summary>
         /// How many blood samples the player has
