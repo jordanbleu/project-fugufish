@@ -30,8 +30,6 @@ namespace Assets.Source.Components.Level
 
         public override void ComponentAwake()
         {
-            GameDataTracker.TotalBloodSamples = UnityEngine.Resources.FindObjectsOfTypeAll<BloodSampleCollectibleComponent>().Length;
-
             player.transform.position = GetRequiredComponent<FrameComponent>(startingFrame).StartPosition;
             
             if (!string.IsNullOrEmpty(GameDataTracker.FrameToLoadOnSceneLoad))
