@@ -3076,7 +3076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (insert name here)
+  m_text: (insart playur name)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc3ebbf207f39f94f8263be2e760a677, type: 2}
   m_sharedMaterial: {fileID: 8707551599738862473, guid: fc3ebbf207f39f94f8263be2e760a677,
@@ -3146,7 +3146,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 21.773775, z: 379.11206, w: 0}
   m_textInfo:
     textComponent: {fileID: 1436429658}
-    characterCount: 18
+    characterCount: 20
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
