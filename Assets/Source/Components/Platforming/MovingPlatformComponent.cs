@@ -24,6 +24,11 @@ namespace Assets.Source.Components.Platforming
         [ReadOnly]
         private PlatformInstruction current;
 
+
+        [SerializeField]
+        [Tooltip("Event fired when a manual moving platform gets triggered from something")]
+        private UnityEvent onManualTrigger = new UnityEvent();
+
         private float positionTolerance = 0.1f;
         
         private int index;
@@ -107,7 +112,9 @@ namespace Assets.Source.Components.Platforming
         }
 
         public void CycleNext() {
-            
+
+            onManualTrigger?.Invoke();
+
             index += 1;
 
             if (index > (instructions.Count() - 1))
@@ -118,6 +125,9 @@ namespace Assets.Source.Components.Platforming
         }
 
         public void CyclePrev() {
+
+            onManualTrigger?.Invoke();
+
             index -= 1;
 
             if (index < 0)
@@ -127,10 +137,12 @@ namespace Assets.Source.Components.Platforming
         }
 
         public void CycleFirst() {
+            onManualTrigger?.Invoke();
             index = 0;
         }
 
         public void CycleLast() {
+            onManualTrigger?.Invoke();
             index = instructions.Count() - 1;
         }
 

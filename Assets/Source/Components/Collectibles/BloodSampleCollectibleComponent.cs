@@ -12,6 +12,7 @@ namespace Assets.Source.Components.Collectibles
         [Tooltip("This needs to be unique per instance because of hacks")]
         [SerializeField]
         private string identifier = Guid.NewGuid().ToString();
+        public string Identifier { get => identifier; }
 
         public override void ComponentAwake()
         {

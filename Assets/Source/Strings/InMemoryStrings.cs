@@ -45,6 +45,7 @@ namespace Assets.Source.Strings
                 { "health_pickups", "Pick up adrenaline shots to heal" },
                 { "bloodsamples", "Press [R] to show collected blood samples on your HUD" },
                 { "double_dodge", "Press [Q] / [E] again while dodging to go farther" },
+                { "bleeding", "You are fatally wounded and take damage over time.  Move quickly to stay alive." },
             } },
 
             { "Global/tutorialMessagesXbone.xml", new Dictionary<string, string>() {
@@ -57,6 +58,7 @@ namespace Assets.Source.Strings
                 { "health_pickups", "Pick up adrenaline shots to heal" },
                 { "bloodsamples", "Press (Y) to show collected blood samples on your HUD" },
                 { "double_dodge", "Press [LB] / [RB] again while dodging to go farther" },
+                { "bleeding", "You are fatally wounded and take damage over time.  Move quickly to stay alive." },
             } },
 
             // The intro
