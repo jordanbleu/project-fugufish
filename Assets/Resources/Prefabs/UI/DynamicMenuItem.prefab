@@ -94,8 +94,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -265,6 +265,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aabfc4caf59dac43812fa9f6df6179f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshObject: {fileID: 5457533158606376373}
   textMesh: {fileID: 5457533158606376371}
   animator: {fileID: 5457533159609642170}

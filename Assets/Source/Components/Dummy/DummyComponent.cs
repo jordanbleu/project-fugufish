@@ -19,7 +19,6 @@ namespace Assets.Source.Components.Dummy
             {
                 Debug.Log(message);
             }
-
         }
 
         public void KillMySelf(string message) {

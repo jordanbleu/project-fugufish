@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Source.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,10 +27,17 @@ namespace Assets.Source.Scene
         /// </summary>
         public static string FrameToLoadOnSceneLoad { get; set; } = null;
 
+        public static DifficultyMode Difficulty { get; set; } = DifficultyMode.Normal;
+
         /// <summary>
         /// Tracks how many lives / retries the player currently has.
         /// </summary>
         public static int Lives { get; set; } = 3;
+
+        /// <summary>
+        /// Total lives (based on difficulty)
+        /// </summary>
+        public static int MaxLives { get; set; } = 3;
 
         /// <summary>
         /// Which frame the player last died on.  Notice, because of this, frame names need to be unique.
@@ -59,6 +67,7 @@ namespace Assets.Source.Scene
         /// How many blood samples the player has
         /// </summary>
         public static int CurrentBloodSamples { get; private set; }
+        
 
         public static void CollectBloodSample() {
             CurrentBloodSamples++;
