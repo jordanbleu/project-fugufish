@@ -81,10 +81,10 @@ namespace Assets.Source.Strings
             } },
 
             { "Intro/intro_05_protagOptions.xml", new Dictionary<string, string>() {
-                { "protag_scared", "Please don't hurt us!" },
-                { "protag_smart", "They re-wired my neural network.  I couldn't tell you if I wanted to." },
-                { "protag_brave", "Screw you, asshole." },
-                { "protag_silent", "(Say nothing)" },
+                { "protag_scared","<#60e342>[Very Easy Diffficulty] <#FFFFFF>Please don't hurt us!" },
+                { "protag_smart", "<#d4bf3b>[Normal Difficulty] <#FFFFFF>They re-wired my neural network.  I couldn't tell you if I wanted to." },
+                { "protag_brave", "<#7a2117>[Hard Difficulty] <#FFFFFF>Screw you, asshole." },
+                { "protag_silent","<#911a2c>[Extreme Difficulty] <#FFFFFF>(Say nothing)" },
             } },
 
             { "Intro/intro_06_option1.xml", new Dictionary<string, string>() {

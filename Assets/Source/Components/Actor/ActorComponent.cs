@@ -17,7 +17,10 @@ namespace Assets.Source.Components.Actor
 
         [SerializeField]
         private int maxHealth;
-        public int MaxHealth { get => maxHealth; }
+        public int MaxHealth { 
+            get => maxHealth; 
+            set => maxHealth = value;
+        } 
 
         [Tooltip("This will be invoked each time the actor's health gets depleted by any amount")]
         public UnityEvent onHealthDamage = new UnityEvent();

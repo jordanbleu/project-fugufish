@@ -106,6 +106,24 @@ namespace Assets.Source.Components.Brain
 
         public override void ComponentStart()
         {
+            // set max health based on difficulty
+            switch (GameDataTracker.Difficulty) {
+                case DifficultyMode.Easy:  
+                    actor.MaxHealth = 150;
+                    break;
+                case DifficultyMode.Normal:
+                    actor.MaxHealth = 120;
+                    break;
+                case DifficultyMode.Hard:
+                    actor.MaxHealth = 100;
+                    break;
+                case DifficultyMode.Extreme:
+                    actor.MaxHealth = 90;
+                    break;
+            }
+
+            actor.Health = actor.MaxHealth;
+
             if (isTiedUp) {
                 animator.Tied();
             }

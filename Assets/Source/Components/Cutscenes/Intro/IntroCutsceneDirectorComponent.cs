@@ -268,18 +268,32 @@ namespace Assets.Source.Components.Cutscenes.Intro
                     // inner switch statement, good lord jesus forgive me
                     switch (dialogueOption) {
                         case 0:
+                            GameDataTracker.Difficulty = Enums.DifficultyMode.Easy;
+                            GameDataTracker.MaxLives = 7;
+
                             stringLoader.Load("Intro/intro_06_option1.xml");
                             break;
                         case 1:
+                            GameDataTracker.Difficulty = Enums.DifficultyMode.Normal;
+                            GameDataTracker.MaxLives = 5;
+
                             stringLoader.Load("Intro/intro_06_option2.xml");
                             break;
                         case 2:
+                            GameDataTracker.Difficulty = Enums.DifficultyMode.Hard;
+                            GameDataTracker.MaxLives = 3;
+
                             stringLoader.Load("Intro/intro_06_option3.xml");
                             break;
                         case 3:
+                            GameDataTracker.Difficulty = Enums.DifficultyMode.Extreme;
+                            GameDataTracker.MaxLives = 0;
+
                             stringLoader.Load("Intro/intro_06_option4.xml");
                             break;
                     }
+
+                    GameDataTracker.Lives = GameDataTracker.MaxLives;
 
                     antagonistAnimator.SetTrigger("aim_weapon");
 

@@ -1,4 +1,5 @@
-﻿using Assets.Source.Scene;
+﻿using Assets.Source.Enums;
+using Assets.Source.Scene;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Assets.Source.Components.UI
 
         public override void ComponentUpdate()
         {
-            textMesh.SetText($"{GameDataTracker.Lives} / 3");
+            textMesh.SetText($"{GameDataTracker.Lives} / {GameDataTracker.MaxLives}");
             base.ComponentUpdate();
         }
 
